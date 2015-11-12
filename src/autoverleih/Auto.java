@@ -1,5 +1,6 @@
 /*
 Bitte alle Variablen und Methoden mit geeigneten Namen versehen und in korrekter Rechtschreibung erstellen. #Raicandy
+Bitte alle Kommentare von euch mit euren Tag(Nickname) versehen und einem Hashtag davon. #Raicandy
  */
 package autoverleih;
 
@@ -38,8 +39,8 @@ public class Auto {
     boolean fahrbar;
     String Extras;
     
-    // list Werkstattfall; //WIrd erst später gebraucht, wurde der Vollständigkeit halber aber schon aufgelistet.
-    // list Schadensfall; //Dito.
+    // list Werkstattfall; //Wird erst später gebraucht, wurde der Vollständigkeit halber aber schon aufgelistet. #Raicandy
+    // list Schadensfall; //Dito. #Raicandy
  
     
 //###Getter Methoden erstellt von Daniel Meerwald###############################   

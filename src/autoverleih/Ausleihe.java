@@ -1,5 +1,6 @@
 /*
 Bitte alle Variablen und Methoden mit geeigneten Namen versehen und in korrekter Rechtschreibung erstellen. #Raicandy
+Bitte alle Kommentare von euch mit euren Tag(Nickname) versehen und einem Hashtag davon. #Raicandy
  */
 package autoverleih;
 
@@ -18,6 +19,10 @@ public class Ausleihe {
     Date Rueckgabedatum;
     boolean TUEV;
     
+    
+    public String toString(){ //Erstellt von Daniel Meerwald #Raicandy
+        return "Kunde "+Kunden_ID+" hat den Wagen "+Auto_ID+" von "+Ausleihdatum+" bis "+Rueckgabedatum+"ausgeliehen.";
+    }
 //###Getter Methoden erstellt von Daniel Meerwald###############################
     public int getAuto_ID() {
         return Auto_ID;

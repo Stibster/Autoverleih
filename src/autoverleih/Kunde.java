@@ -1,5 +1,6 @@
 /*
 Bitte alle Variablen und Methoden mit geeigneten Namen versehen und in korrekter Rechtschreibung erstellen. #Raicandy
+Bitte alle Kommentare von euch mit euren Tag(Nickname) versehen und einem Hashtag davon. #Raicandy
  */
 package autoverleih;
 
@@ -28,7 +29,7 @@ public class Kunde {
     File Fuehrerschein;
     Date Fuehrerscheindatum;
     String Fuehrerscheinklasse;
-    //Rechnung Rechnung; //Kommt später noch, wenn die Klasse Rechnung implementiert wird.
+    //Rechnung Rechnung; //Kommt später noch, wenn die Klasse Rechnung implementiert wird. #Raicandy
     
 //###Getter Methoden erstellt von Daniel Meerwald###############################
     public int getKunden_ID() {
