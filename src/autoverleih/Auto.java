@@ -21,6 +21,7 @@ public class Auto {
     String Kennzeichen;
     String Hersteller;
     String Modell;
+    String Bauart;
     boolean Anhaengerkupplung;
     int Sitzplaetze;
     String Farbe; 
