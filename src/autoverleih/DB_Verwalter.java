@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author Steve
+ * @author punker
  */
 public class DB_Verwalter {
 

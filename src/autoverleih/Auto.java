@@ -38,7 +38,7 @@ public class Auto {
     float Gebuehr_pro_Tag;
     boolean fahrbar;
     String Extras;
-    
+    boolean ist_da;
     // list Werkstattfall; //Wird erst später gebraucht, wurde der Vollständigkeit halber aber schon aufgelistet. #Raicandy
     // list Schadensfall; //Dito. #Raicandy
  
