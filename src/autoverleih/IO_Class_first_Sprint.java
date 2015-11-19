@@ -1,6 +1,11 @@
 package autoverleih;
 
 import java.io.*;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.text.DateFormatSymbols;
+import java.text.ParseException;
+import java.util.Locale;
 /**
  *
  * @author Raicandy(Punker)
@@ -53,6 +58,36 @@ public class IO_Class_first_Sprint
         String s = readString();
         double n = Double.valueOf(s).doubleValue();
         return n;
+    }
+    
+    public static Date readdate() throws ParseException
+    {
+        String s = readString();
+        SimpleDateFormat format = new SimpleDateFormat("dd MM yyyy", new DateFormatSymbols(Locale.GERMANY));
+        Date date = format.parse(s);
+        return date;
+        
+        /*
+        d = Day a Month 
+        D = Day a Year
+        w = week in Year
+        W = Week in month
+        y = Year
+        
+        dd -> 03
+        d -> 3
+        D -> 65
+        DDD -> 065 
+        w -> 23
+        W -> 3
+        yy -> 12
+        yyyy -> 2012
+        
+        Formatierungen fürs Datum, gibt noch mehr, 
+        sollten wir diskutieren welches Format!!!!
+        */
+                
+               
     }
     //**************************************************************************
     /*
