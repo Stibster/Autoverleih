@@ -48,7 +48,7 @@ public class IO_Class_first_Sprint
     public static float readfloat() throws NumberFormatException
     {
         String s = readString();
-        float n = Float.valueOf(s).floatValue();
+        float n = Float.parseFloat(s);
         return n;
     }
     
@@ -57,7 +57,7 @@ public class IO_Class_first_Sprint
     public static double readdouble()throws NumberFormatException
     {
         String s = readString();
-        double n = Double.valueOf(s).doubleValue();
+        double n = Double.parseDouble(s);
         return n;
     }
     
@@ -99,11 +99,11 @@ public class IO_Class_first_Sprint
          System.out.println("Was möchten sie tun?");
          System.out.println("(K)unden bearbeiten, (A)utos bearbeiten");
          //Bearbeitungsdialog für Kunden
-         if(readString() == "K" )
+         if("K".equals(readString()) )
          {
              System.out.println("-----Kunden-----");
              System.out.println("Kunde (E)rstellen --- Kunde (L)öschen");
-             if(readString() == "E")
+             if("E".equals(readString()))
              {
                  System.out.println("---Neuer Kunde---");// Daten des neuen Kunden eingeben
                  System.out.println("Kunden ID: ");
@@ -119,7 +119,7 @@ public class IO_Class_first_Sprint
              {
                  System.out.println("Bitte geben sie nur E oder L ein!");
              }
-             if(readString() == "L")// Kundendaten löschen
+             if("L".equals(readString()))// Kundendaten löschen
              {
                  System.out.println("---Kunde löschen ---");
                  kunde.setKunden_ID(0);          
@@ -137,11 +137,11 @@ public class IO_Class_first_Sprint
          }
          
          // Bearbeitungsdialog für Autos
-          if(readString() == "A" )
+          if("A".equals(readString()) )
          {
              System.out.println("-----Auto-----");
              System.out.println("Auto (E)rstellen --- Auto (L)öschen");
-             if(readString() == "E")
+             if("E".equals(readString()))
              {
                  System.out.println("---Neues Auto---");// Autodaten eingeben
                  System.out.println("Auto ID: ");
@@ -158,7 +158,7 @@ public class IO_Class_first_Sprint
                  System.out.println("Bitte geben sie nur E oder L ein!");
              }
              
-             if(readString() == "L")// Auto löschen
+             if("L".equals(readString()))// Auto löschen
              {
                  System.out.println("---Auto löschen ---");
                  auto.setAuto_ID(0);
