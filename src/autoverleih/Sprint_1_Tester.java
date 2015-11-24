@@ -45,6 +45,10 @@ public class Sprint_1_Tester
                  kunde.setGeburtstag(eingabe.readdate());
                  System.out.println("Führerscheindatum: ");
                  kunde.setFuehrerscheindatum(eingabe.readdate());
+        /*Hier muss jetzt die addKunde() Methode aufgerufen werden, die diesen 
+        Gerade angelegten Kudnen in die Datenbank hinzufügt. Danach könnte die 
+        Save() Methode aus dem DB_Verwalter mit einem Vom User Bestimmten Path 
+        aufgerufen werden. #Raicandy*/
                  // Noch keine File-Eingabe hier aber erstmal nebensächlich
              }
              else
