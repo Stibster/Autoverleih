@@ -1,8 +1,10 @@
 package autoverleih;
 
+import java.text.ParseException;
+
 public class Sprint_1_Tester 
 {
-       public static void main(String[] args)
+       public static void main(String[] args) throws ParseException
     {
         Input eingabe = new Input();
         Auto auto = new Auto();
@@ -11,33 +13,59 @@ public class Sprint_1_Tester
          System.out.println("Guten Tag");
          System.out.println("Was möchten sie tun?");
          System.out.println("(K)unden bearbeiten, (A)utos bearbeiten");
+         
          //Bearbeitungsdialog für Kunden
-         if("K".equals(eingabe.readString()) )
+         if("K".equals(eingabe.readString()))
          {
              System.out.println("-----Kunden-----");
              System.out.println("Kunde (E)rstellen --- Kunde (L)öschen");
              if("E".equals(eingabe.readString()))
              {
-                 System.out.println("---Neuer Kunde---");// Daten des neuen Kunden eingeben
+                 // Daten des neuen Kunden eingeben
+                 System.out.println("---Neuer Kunde---");
                  System.out.println("Kunden ID: ");
                  kunde.setKunden_ID(eingabe.readint());          
                  System.out.println("Nachname: ");
                  kunde.setNachname(eingabe.readString());
                  System.out.println("Vorname: ");
                  kunde.setVorname(eingabe.readString());
-                 //gibt noch mehr Kundendaten war zu faul die noch einzutragen :D
-                 //Für einige Dateneingaben müssen oben noch Methoden entwickelt werden
+                 System.out.println("Postleitzahl: ");
+                 kunde.setPostleitzahl(eingabe.readint());
+                 System.out.println("Wohnort: ");
+                 kunde.setWohnort(eingabe.readString());
+                 System.out.println("Straße: ");
+                 kunde.setStrasse(eingabe.readString());
+                 System.out.println("Hausnummer: ");
+                 kunde.setHausnummer(eingabe.readString());
+                 System.out.println("E-Mail: ");
+                 kunde.setE_Mail(eingabe.readString());
+                 System.out.println("Telefonnummer: ");
+                 kunde.setTelefonnummer(eingabe.readint());
+                 System.out.println("Geburtstag: ");
+                 kunde.setGeburtstag(eingabe.readdate());
+                 System.out.println("Führerscheindatum: ");
+                 kunde.setFuehrerscheindatum(eingabe.readdate());
+                 // Noch keine File-Eingabe hier aber erstmal nebensächlich
              }
              else
              {
                  System.out.println("Bitte geben sie nur E oder L ein!");
              }
-             if("L".equals(eingabe.readString()))// Kundendaten löschen
+             if("L".equals(eingabe.readString())) 
              {
+                 // Kundendaten löschen
                  System.out.println("---Kunde löschen ---");
                  kunde.setKunden_ID(0);          
                  kunde.setNachname(null);
                  kunde.setVorname(null);
+                 kunde.setPostleitzahl(0);
+                 kunde.setWohnort(null);
+                 kunde.setStrasse(null);
+                 kunde.setHausnummer(null);
+                 kunde.setE_Mail(null);
+                 kunde.setTelefonnummer(0);
+                 kunde.setGeburtstag(null);
+                 kunde.setFuehrerscheindatum(null);
              }
              else
              {
@@ -56,27 +84,80 @@ public class Sprint_1_Tester
              System.out.println("Auto (E)rstellen --- Auto (L)öschen");
              if("E".equals(eingabe.readString()))
              {
-                 System.out.println("---Neues Auto---");// Autodaten eingeben
+                 // Autodaten eingeben
+                 System.out.println("---Neues Auto---"); 
                  System.out.println("Auto ID: ");
                  auto.setAuto_ID(eingabe.readint());
+                 System.out.println("Kennzeichen: ");
+                 auto.setKennzeichen(eingabe.readString());
                  System.out.println("Hersteller: ");
                  auto.setHersteller(eingabe.readString());
+                 System.out.println("Modell: ");
+                 auto.setModell(eingabe.readString());
+                 System.out.println("Anhängerkupplung: ");
+                 if("J".equals(eingabe.readString()))
+                 {
+                     auto.setAnhaengerkupplung(true);
+                 }
+                 else if("N".equals(eingabe.readString()))
+                 {
+                     auto.setAnhaengerkupplung(false);
+                 }                 
+                 else
+                 {
+                     System.out.println("Bitte geben sie nur J oder N ein!");
+                 }
+                 System.out.println("Anzahl der Sitzpleatze: ");
+                 auto.setSitzplaetze(eingabe.readint());
+                 System.out.println("Farbe: ");
+                 auto.setFarbe(eingabe.readString());
+                 System.out.println("Leistung: ");
+                 auto.setLeistung(eingabe.readint());
+                 System.out.println("Kraftstoff: ");
+                 auto.setKraftstoff(eingabe.readString());
+                 System.out.println("Verbrauch: ");
+                 auto.setVerbrauch(eingabe.readString());
+                 System.out.println("Antrieb: ");
+                 auto.setAntrieb(eingabe.readString());
+                 System.out.println("Getriebe: ");
+                 auto.setGetriebe(eingabe.readString());
+                 System.out.println("Baujahr: ");
+                 auto.setBaujahr(eingabe.readint());
+                 System.out.println("Kilometerstand: ");
+                 auto.setKilometerstand(eingabe.readint());
+                 System.out.println("TUEV");
+                 auto.setTUEV(eingabe.readdate());
                  System.out.println("Kaution: ");
                  auto.setKaution(eingabe.readdouble());
-                 // gibt noch mehr Autodaten war zu faul alle hier hin zu schreiben :D
-                 // Für einige Daten müssen oben noch Methoden entwickelt werden
+                 System.out.println("Gebühr pro Tag: ");
+                 auto.setGebuehr_pro_Tag(eingabe.readfloat());
              }
              else
              {
                  System.out.println("Bitte geben sie nur E oder L ein!");
              }
-             
-             if("L".equals(eingabe.readString()))// Auto löschen
+             // Auto löschen
+             if("L".equals(eingabe.readString())) 
              {
                  System.out.println("---Auto löschen ---");
                  auto.setAuto_ID(0);
-                 auto.setHersteller(null);
+                 auto.setKennzeichen(null);
+                 auto.setHersteller(null);          
+                 auto.setModell(null);
+                 //auto.setAnhaengerkupplung(false);
+                 auto.setSitzplaetze(0);
+                 auto.setFarbe(null);
+                 auto.setLeistung(0);
+                 auto.setKraftstoff(null);
+                 auto.setVerbrauch(null);
+                 auto.setAntrieb(null);
+                 auto.setGetriebe(null);
+                 auto.setBaujahr(0);
+                 auto.setBaujahr(0);
+                 auto.setKilometerstand(0);
+                 auto.setTUEV(null);
                  auto.setKaution(0);
+                 auto.setGebuehr_pro_Tag(0);                                  
              }
          }
          else
