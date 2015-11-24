@@ -5,11 +5,14 @@ Bitte alle Kommentare von euch mit euren Tag(Nickname) versehen und einem Hashta
 package autoverleih;
 
 import java.util.Date;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Raicandy
  */
+@XmlRootElement(name = "Ausleihe")
 public class Ausleihe {
 
 //###Ausleihedaten erstellt von Daniel Meerwald#################################
@@ -24,22 +27,27 @@ public class Ausleihe {
         return "Kunde "+Kunden_ID+" hat den Wagen "+Auto_ID+" von "+Ausleihdatum+" bis "+Rueckgabedatum+"ausgeliehen.";
     }
 //###Getter Methoden erstellt von Daniel Meerwald###############################
+    @XmlElement(name = "Auto_ID")
     public int getAuto_ID() {
         return Auto_ID;
     }
 
+    @XmlElement(name = "Kunden_ID")
     public int getKunden_ID() {
         return Kunden_ID;
     }
 
+    @XmlElement(name = "Ausleihdatum")
     public Date getAusleihdatum() {
         return Ausleihdatum;
     }
 
+    @XmlElement(name = "Rueckgabedatum")
     public Date getRueckgabedatum() {
         return Rueckgabedatum;
     }
     
+    @XmlElement(name = "TUEV")
     public boolean isTUEV() {
     return TUEV;
     }

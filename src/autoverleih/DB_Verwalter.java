@@ -4,18 +4,34 @@ Bitte alle Kommentare von euch mit euren Tag(Nickname) versehen und einem Hashta
  */
 package autoverleih;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author punker
  */
+@XmlRootElement(name = "Autoverleih")
 public class DB_Verwalter {
 
 //###DB_Verwalterdaten erstellt von Daniel Meerwald#############################
+    @XmlElement(name = "Kundenliste")
+    @XmlElementWrapper(name = "wrapper")
     List<Kunde> Kunden = new ArrayList<>();
+    
+    @XmlElement(name = "Autoliste")
+    @XmlElementWrapper(name = "wrapper")
     List<Auto> Autos = new ArrayList<>();
+    
+    @XmlElement(name = "Ausleiheliste")
+    @XmlElementWrapper(name = "wrapper")
     List<Ausleihe> Ausleihen = new ArrayList<>();    
     //List<Warteliste> Warteliste = new ArrayList<>();
     //List<Rechnung> Rechnungen = new ArrayList<>();
@@ -42,6 +58,28 @@ public class DB_Verwalter {
     }
     public void setAusleihen(List<Ausleihe> Ausleihen) {
     this.Ausleihen = Ausleihen;
+    }
+
+//###Save Methode erstellt von Daniel Meerwald##################################
+    
+        public void save(String pfad) {
+     
+       
+        Listenhelper Listehelper = new Listenhelper(Kunden, Autos, Ausleihen);
+	  try { 
+
+		File file = new File(pfad);
+		JAXBContext jaxbContext = JAXBContext.newInstance(Listenhelper.class);
+		Marshaller jaxbMarshaller = jaxbContext.createMarshaller(); //Marshaller erstellen
+		
+		jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+		jaxbMarshaller.marshal(Listehelper, file); //XML im pfad speichern
+		jaxbMarshaller.marshal(Listehelper, System.out);
+
+	      } catch (JAXBException e) {
+		e.printStackTrace();
+	      }
     }
 //##############################################################################
 }

@@ -6,6 +6,8 @@ package autoverleih;
 
 import java.io.File;
 import java.util.Date;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 
@@ -14,6 +16,7 @@ import java.util.Date;
  *
  * @author Raicandy = Daniel Meerwald
  */
+@XmlRootElement(name = "Auto")
 public class Auto {
     
 //###Autodaten erstellt von Daniel Meerwald#####################################
@@ -43,79 +46,98 @@ public class Auto {
     // list Schadensfall; //Dito. #Raicandy
  
     
-//###Getter Methoden erstellt von Daniel Meerwald###############################   
+//###Getter Methoden erstellt von Daniel Meerwald###############################  
+    //@XmlElement(name = "Foto") //Typ file müssen wir glaube ich seperat speichern. #Raicandy
     public File getFoto() {
         return Foto;
     }
-
+    
+    @XmlElement(name = "Auto_ID")
     public int getAuto_ID() {
         return Auto_ID;
     }
 
+    @XmlElement(name = "Kennzeichen")
     public String getKennzeichen() {
         return Kennzeichen;
     }
 
+    @XmlElement(name = "Hersteller")
     public String getHersteller() {
         return Hersteller;
     }
 
+    @XmlElement(name = "Modell")
     public String getModell() {
         return Modell;
     }
 
+    @XmlElement(name = "Anhaengerkupplung")
     public boolean isAnhaengerkupplung() {
         return Anhaengerkupplung;
     }
 
+    @XmlElement(name = "Sitzplaetze")
     public int getSitzplaetze() {
         return Sitzplaetze;
     }
 
+    @XmlElement(name = "Farbe")
     public String getFarbe() {
         return Farbe;
     }
 
+    @XmlElement(name = "Leistung")
     public int getLeistung() {
         return Leistung;
     }
 
+    @XmlElement(name = "Kraftstoff")
     public String getKraftstoff() {
         return Kraftstoff;
     }
 
+    @XmlElement(name = "Verbrauch")
     public String getVerbrauch() {
         return Verbrauch;
     }
 
+    @XmlElement(name = "Antrieb")
     public String getAntrieb() {
         return Antrieb;
     }
 
+    @XmlElement(name = "Getriebe")
     public String getGetriebe() {
         return Getriebe;
     }
 
+    @XmlElement(name = "Baujahr")
     public int getBaujahr() {
         return Baujahr;
     }
 
+    @XmlElement(name = "Kilometerstand")
     public int getKilometerstand() {
         return Kilometerstand;
     }
 
+    @XmlElement(name = "TUEV")
     public Date getTUEV() {
         return TUEV;
     }
 
+    @XmlElement(name = "Kaution")
     public double getKaution() {
         return Kaution;
     }
 
+    @XmlElement(name = "Gebuehr_pro_Tag")
     public float getGebuehr_pro_Tag() {
         return Gebuehr_pro_Tag;
     }
 
+    @XmlElement(name = "Fahrbar")
     public boolean isFahrbar() {
         return fahrbar;
     }

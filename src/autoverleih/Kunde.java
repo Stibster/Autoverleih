@@ -6,11 +6,14 @@ package autoverleih;
 
 import java.io.File;
 import java.util.Date;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Raicandy
  */
+@XmlRootElement(name = "Kunde")
 public class Kunde {
     
     
@@ -32,50 +35,62 @@ public class Kunde {
     //Rechnung Rechnung; //Kommt später noch, wenn die Klasse Rechnung implementiert wird. #Raicandy
     
 //###Getter Methoden erstellt von Daniel Meerwald###############################
+    @XmlElement(name = "Kunden_ID")
     public int getKunden_ID() {
         return Kunden_ID;
     }
 
+    @XmlElement(name = "Vorname")
     public String getVorname() {
         return Vorname;
     }
-
+    
+    @XmlElement(name = "Nachname")
     public String getNachname() {
         return Nachname;
     }
 
+    @XmlElement(name = "Postleitzahl")
     public int getPostleitzahl() {
         return Postleitzahl;
     }
 
+    @XmlElement(name = "Wohnort")
     public String getWohnort() {
         return Wohnort;
     }
 
+    @XmlElement(name = "Strasse")
     public String getStrasse() {
         return Strasse;
     }
 
+    @XmlElement(name = "Hausnummer")
     public String getHausnummer() {
         return Hausnummer;
     }
 
+    @XmlElement(name = "E_Mail")
     public String getE_Mail() {
         return E_Mail;
     }
 
+    @XmlElement(name = "Telefonnummer")
     public int getTelefonnummer() {
         return Telefonnummer;
     }
 
+    @XmlElement(name = "Geburtstag")
     public Date getGeburtstag() {
         return Geburtstag;
     }
 
+    //@XmlElement(name = "Fuehrerschein") //File, vermutlich muss das seperat gespeichert werden. #Raicandy
     public File getFuehrerschein() {
         return Fuehrerschein;
     }
 
+    @XmlElement(name = "Fuehrerscheindatum")
     public Date getFuehrerscheindatum() {
         return Fuehrerscheindatum;
     }
