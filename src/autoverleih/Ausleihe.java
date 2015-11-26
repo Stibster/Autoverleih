@@ -26,6 +26,21 @@ public class Ausleihe {
     public String toString(){ //Erstellt von Daniel Meerwald #Raicandy
         return "Kunde "+Kunden_ID+" hat den Wagen "+Auto_ID+" von "+Ausleihdatum+" bis "+Rueckgabedatum+"ausgeliehen.";
     }
+    
+        
+     //###Konstruktoren erstellt von Danilo May############################### 
+     public Ausleihe (int AID, int KID, Date AD, Date RD, boolean TUE) {
+        Auto_ID = AID;
+        Kunden_ID =KID;
+        Ausleihdatum = AD;
+        Rueckgabedatum = RD;
+        TUEV = TUE;
+     }
+     
+     public Ausleihe() {
+         
+     }
+     
 //###Getter Methoden erstellt von Daniel Meerwald###############################
     @XmlElement(name = "Auto_ID")
     public int getAuto_ID() {
