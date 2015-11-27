@@ -34,6 +34,27 @@ public class Kunde {
     String Fuehrerscheinklasse;
     //Rechnung Rechnung; //Kommt später noch, wenn die Klasse Rechnung implementiert wird. #Raicandy
     
+    
+    //###Konstruktoren erstellt von Danilo May############################### 
+    public Kunde(int KID, String VN, String NN, int PLZ, String WO, String STR, String HN, String EM, int TN, Date GEB, File FS, Date FSD, String FSK) {
+        Kunden_ID = KID;
+        Vorname = VN;
+        Nachname = NN;
+        Postleitzahl = PLZ;
+        Wohnort = WO;
+        Strasse = STR;
+        Hausnummer = HN;
+        E_Mail = EM;
+        Telefonnummer = TN;
+        Geburtstag = GEB;
+        Fuehrerschein = FS;
+        Fuehrerscheindatum = FSD;
+        Fuehrerscheinklasse = FSK;
+    }
+    public Kunde() {
+        
+    }
+  
 //###Getter Methoden erstellt von Daniel Meerwald###############################
     @XmlElement(name = "Kunden_ID")
     public int getKunden_ID() {
