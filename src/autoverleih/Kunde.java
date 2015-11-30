@@ -173,4 +173,12 @@ public class Kunde {
         this.Fuehrerscheinklasse = Fuehrerscheinklasse;
     }
 //##############################################################################
+    
+
+//###addKunde erstellt von Steve Vogel @Stibster################################
+    public void addKunde(int KID, String VN, String NN, int PLZ, String WO, String STR, String HN, String EM, int TN, Date GEB, File FS, Date FSD, String FSK) {
+        
+        Kunde newKunde = new Kunde();
+    }
+//##############################################################################
 }

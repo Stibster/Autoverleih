@@ -258,5 +258,23 @@ public class Auto {
     }
 //##############################################################################
     
+//###addAuto, abholen, abgeben erstellt von Steve Vogel @Stibster###############
+    public void addAuto(File Path, int AID, String KZ, String HER,String MOD, String BA, boolean AK, int SP, String FAR, int LEI, String KS, String VER, String ANT, String GET, int BJ, int KIL, Date TUE, double KAU, float GPT, boolean FAH, String EXT, boolean ID) {
+        
+        Auto newAuto = new Auto(); //läuft nicht, da Methode Auto überladen
+    }
+    //eventuell POST-Methoden?
+    public boolean autoAbholen() {
+        
+        ist_da = false;
+        return ist_da;
+    }
     
+    public boolean autoAbgeben() {
+        
+        ist_da = true;
+        return ist_da;
+    }
+    //Muss Auto_ID mit übergeben werden?
+//##############################################################################    
 }
