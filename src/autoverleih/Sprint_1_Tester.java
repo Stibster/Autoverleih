@@ -2,6 +2,7 @@ package autoverleih;
 
 import java.text.ParseException;
 
+
 public class Sprint_1_Tester 
 {
        public static void main(String[] args) throws ParseException
@@ -9,6 +10,7 @@ public class Sprint_1_Tester
         Input eingabe = new Input();
         Auto auto = new Auto();
         Kunde kunde = new Kunde();
+	DB_Verwalter DBV = new DB_Verwalter();
         
          System.out.println("Guten Tag");
          System.out.println("Was möchten sie tun?");
@@ -45,6 +47,8 @@ public class Sprint_1_Tester
                  kunde.setGeburtstag(eingabe.readdate());
                  System.out.println("Führerscheindatum: ");
                  kunde.setFuehrerscheindatum(eingabe.readdate());
+		 DBV.addKunde(kunde);
+		 DBV.save("C:\\TestDatenbank.xml"); 
         /*Hier muss jetzt die addKunde() Methode aufgerufen werden, die diesen 
         Gerade angelegten Kudnen in die Datenbank hinzufügt. Danach könnte die 
         Save() Methode aus dem DB_Verwalter mit einem Vom User Bestimmten Path 

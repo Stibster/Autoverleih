@@ -44,37 +44,7 @@ public class Auto {
     boolean ist_da;
     // list Werkstattfall; //Wird erst später gebraucht, wurde der Vollständigkeit halber aber schon aufgelistet. #Raicandy
     // list Schadensfall; //Dito. #Raicandy
-    
-        //###Konstruktoren erstellt von Danilo May############################### 
-    public Auto(File Path, int AID, String KZ, String HER,String MOD, String BA, boolean AK, int SP, String FAR, int LEI, String KS, String VER, String ANT, String GET, int BJ, int KIL, Date TUE, double KAU, float GPT, boolean FAH, String EXT, boolean ID) {
-    Foto = Path;
-    Auto_ID = AID; 
-    Kennzeichen =KZ;
-    Hersteller= HER;
-    Modell = MOD;
-    Bauart = BA;
-    Anhaengerkupplung = AK;
-    Sitzplaetze = SP;
-    Farbe = FAR; 
-    Leistung= LEI;
-    Kraftstoff = KS;
-    Verbrauch = VER;
-    Antrieb = ANT;
-    Getriebe = GET;
-    Baujahr = BJ;
-    Kilometerstand = KIL;
-    TUEV = TUE; 
-    Kaution = KAU;
-    Gebuehr_pro_Tag = GPT;
-    fahrbar = FAH;
-    Extras = EXT;
-    ist_da = ID;   
-    }
-    public Auto(int AID, String KZ) {
-        Auto_ID = AID;
-        Kennzeichen = KZ;
-    }
- 
+     
          //###Konstruktoren erstellt von Danilo May############################### 
     public Auto(File Path, int AID, String KZ, String HER,String MOD, String BA, boolean AK, int SP, String FAR, int LEI, String KS, String VER, String ANT, String GET, int BJ, int KIL, Date TUE, double KAU, float GPT, boolean FAH, String EXT, boolean ID) {
         Foto = Path;
@@ -104,7 +74,11 @@ public class Auto {
         Auto_ID = AID;
         Kennzeichen = KZ;
     }
- 
+    //### Christopher Haack####
+    public Auto()
+    {
+    }
+    //############################
     
     
 //###Getter Methoden erstellt von Daniel Meerwald###############################  
@@ -202,6 +176,11 @@ public class Auto {
     public boolean isFahrbar() {
         return fahrbar;
     }
+    
+    @XmlElement(name = "ist_da")
+    public boolean getIst_Da() {
+        return ist_da;
+    }
 
 //###Setter Methoden erstellt von Daniel Meerwald###############################    
     public String getExtras() {
@@ -287,25 +266,9 @@ public class Auto {
     public void setExtras(String Extras) {
         this.Extras = Extras;
     }
-//##############################################################################
     
-//###addAuto, abholen, abgeben erstellt von Steve Vogel @Stibster###############
-    public void addAuto(File Path, int AID, String KZ, String HER,String MOD, String BA, boolean AK, int SP, String FAR, int LEI, String KS, String VER, String ANT, String GET, int BJ, int KIL, Date TUE, double KAU, float GPT, boolean FAH, String EXT, boolean ID) {
-        
-        Auto newAuto = new Auto(); //läuft nicht, da Methode Auto überladen
+    public void setIst_Da(boolean ist_da) {
+        this.ist_da = ist_da;
     }
-    //eventuell POST-Methoden?
-    public boolean autoAbholen() {
-        
-        ist_da = false;
-        return ist_da;
-    }
-    
-    public boolean autoAbgeben() {
-        
-        ist_da = true;
-        return ist_da;
-    }
-    //Muss Auto_ID mit übergeben werden?
-//##############################################################################    
+//##############################################################################   
 }

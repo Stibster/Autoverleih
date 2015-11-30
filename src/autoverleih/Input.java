@@ -62,7 +62,7 @@ public class Input
     public static Date readdate() throws ParseException
     {
         String s = readString();
-        SimpleDateFormat format = new SimpleDateFormat("dd MM yyyy", new DateFormatSymbols(Locale.GERMANY));
+        SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy", new DateFormatSymbols(Locale.GERMANY));
         Date date = format.parse(s);
         return date;
         

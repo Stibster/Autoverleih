@@ -27,12 +27,8 @@ public class Ausleihe {
         return "Kunde "+Kunden_ID+" hat den Wagen "+Auto_ID+" von "+Ausleihdatum+" bis "+Rueckgabedatum+"ausgeliehen.";
     }
     
-<<<<<<< HEAD
-        
+       
      //###Konstruktoren erstellt von Danilo May############################### 
-=======
-//###Konstruktoren erstellt von Danilo May############################### 
->>>>>>> fa1d40ccdee21de9e8d67fb96f67caa2c813fc79
      public Ausleihe (int AID, int KID, Date AD, Date RD, boolean TUE) {
         Auto_ID = AID;
         Kunden_ID =KID;

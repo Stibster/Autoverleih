@@ -6,6 +6,7 @@ package autoverleih;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -36,6 +37,12 @@ public class DB_Verwalter {
     //List<Warteliste> Warteliste = new ArrayList<>();
     //List<Rechnung> Rechnungen = new ArrayList<>();
     
+//###Konstruktor################################################################
+    
+    public DB_Verwalter(){
+	
+    }
+    
 //###Getter Methoden erstellt von Daniel Meerwald###############################
     public List<Kunde> getKunden() {
     return Kunden;
@@ -60,6 +67,34 @@ public class DB_Verwalter {
     this.Ausleihen = Ausleihen;
     }
 
+    //###addKunde erstellt von Steve Vogel @Stibster################################
+    public void addKunde(Kunde Kunde) {
+	
+	Kunden.add(Kunde);
+    }
+    
+    //###addAuto, abholen, abgeben erstellt von Steve Vogel @Stibster###############
+    public void addAuto(File Path, int AID, String KZ, String HER,String MOD, String BA, boolean AK, int SP, String FAR, int LEI, String KS, String VER, String ANT, String GET, int BJ, int KIL, Date TUE, double KAU, float GPT, boolean FAH, String EXT, boolean ID) {
+        
+        Auto newAuto = new Auto();
+	
+	Autos.add(newAuto);
+    }
+    /*
+    public boolean autoAbholen() {
+        
+        Auto.setIst_Da(false);
+        return Auto.ist_da;
+    }
+    
+    public boolean autoAbgeben() {
+        
+        Auto.setIst_Da(true);
+        return Auto.ist_da;
+    } */
+    //Muss Auto_ID mit übergeben werden?
+//##############################################################################
+ 
 //###Save Methode erstellt von Daniel Meerwald##################################
     
         public void save(String pfad) {
