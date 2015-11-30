@@ -23,6 +23,7 @@ public class Sprint_1_Tester
              System.out.println("Kunde (E)rstellen --- Kunde (L)öschen");
              if("E".equals(eingabe.readString()))
              {
+		 
                  // Daten des neuen Kunden eingeben
                  System.out.println("---Neuer Kunde---");
                  System.out.println("Kunden ID: ");
@@ -31,7 +32,7 @@ public class Sprint_1_Tester
                  kunde.setNachname(eingabe.readString());
                  System.out.println("Vorname: ");
                  kunde.setVorname(eingabe.readString());
-                 System.out.println("Postleitzahl: ");
+                 /*System.out.println("Postleitzahl: ");
                  kunde.setPostleitzahl(eingabe.readint());
                  System.out.println("Wohnort: ");
                  kunde.setWohnort(eingabe.readString());
@@ -46,7 +47,7 @@ public class Sprint_1_Tester
                  System.out.println("Geburtstag: ");
                  kunde.setGeburtstag(eingabe.readdate());
                  System.out.println("Führerscheindatum: ");
-                 kunde.setFuehrerscheindatum(eingabe.readdate());
+                 kunde.setFuehrerscheindatum(eingabe.readdate());*/
 		 DBV.addKunde(kunde);
 		 DBV.save("C:\\TestDatenbank.xml"); 
         /*Hier muss jetzt die addKunde() Methode aufgerufen werden, die diesen 

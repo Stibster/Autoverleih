@@ -80,7 +80,7 @@ public class DB_Verwalter {
 	
 	Autos.add(newAuto);
     }
-    /*
+    
     public boolean autoAbholen() {
         
         Auto.setIst_Da(false);
@@ -91,7 +91,7 @@ public class DB_Verwalter {
         
         Auto.setIst_Da(true);
         return Auto.ist_da;
-    } */
+    }
     //Muss Auto_ID mit übergeben werden?
 //##############################################################################
  
