@@ -53,8 +53,7 @@ public class Kunde {
     public Kunde() {
         
     }
-    
-    
+
 //###Getter Methoden erstellt von Daniel Meerwald###############################
     @XmlElement(name = "Kunden_ID")
     public int getKunden_ID() {
