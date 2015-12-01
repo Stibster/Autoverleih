@@ -37,6 +37,11 @@ public class DB_Verwalter {
     //List<Warteliste> Warteliste = new ArrayList<>();
     //List<Rechnung> Rechnungen = new ArrayList<>();
     
+//###feherl meldung von Bool anderungweg von Christopher Haack##################
+    Auto Auto = new Auto();
+    //versteh nur noicht wiso wir dann auch keine instance von Kunde benotigen?
+//##############################################################################
+    
 //###Konstruktor################################################################
     
     public DB_Verwalter(){
@@ -74,7 +79,7 @@ public class DB_Verwalter {
     }
     
     //###addAuto, abholen, abgeben erstellt von Steve Vogel @Stibster###############
-    public void addAuto(File Path, int AID, String KZ, String HER,String MOD, String BA, boolean AK, int SP, String FAR, int LEI, String KS, String VER, String ANT, String GET, int BJ, int KIL, Date TUE, double KAU, float GPT, boolean FAH, String EXT, boolean ID) {
+    public void addAuto(Auto Auto) {
         
         Auto newAuto = new Auto();
 	
@@ -83,7 +88,7 @@ public class DB_Verwalter {
     
     public boolean autoAbholen() {
         
-        Auto.setIst_Da(false);
+	Auto.setIst_Da(false);
         return Auto.ist_da;
     }
     
