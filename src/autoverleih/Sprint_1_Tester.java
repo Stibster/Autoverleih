@@ -57,7 +57,6 @@ public class Sprint_1_Tester
         System.out.println("A:    Autos bearbeiten");
         System.out.println("V:    Vermietung bearbeiten");
         System.out.println("********************************************************");
-        System.out.println("Back:     Das Menue verlassen und zum vorherigen Menue zurueckkehren");
         System.out.println("SaveExit: Die Listen speichern und das Programm verlassen");
         System.out.println("########################################################");
 
