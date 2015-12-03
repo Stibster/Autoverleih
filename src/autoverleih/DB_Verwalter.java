@@ -11,6 +11,7 @@ import java.util.List;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -100,14 +101,12 @@ public class DB_Verwalter {
         Auto.setIst_Da(true);
         return Auto.ist_da;
     }
-    //Muss Auto_ID mit übergeben werden?
-//##############################################################################
+   //Muss Auto_ID mit übergeben werden? //What? Wer fragt sowas? #Raicandy
  
 //###Save Methode erstellt von Daniel Meerwald##################################
     
         public void save(String pfad) {
      
-       
         Listenhelper Listehelper = new Listenhelper(Kunden, Autos, Ausleihen);
 	  try { 
 
@@ -123,6 +122,31 @@ public class DB_Verwalter {
 	      } catch (JAXBException e) {
 		e.printStackTrace();
 	      }
+    }
+//###Restore Methode erstellt von Daniel Meerwald###############################
+        public void restore(String pfad) { 
+            
+        Listenhelper Listehelper = new Listenhelper(Kunden, Autos, Ausleihen);
+    try {
+
+		File file = new File(pfad);
+		JAXBContext jaxbContext = JAXBContext.newInstance(Listenhelper.class);
+
+		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		Listehelper = (Listenhelper) jaxbUnmarshaller.unmarshal(file);
+
+	  } catch (JAXBException e) {
+		e.printStackTrace();
+	  }
+    
+          Kunden.clear();
+          Kunden = Listehelper.getKunden();
+    
+          Autos.clear();
+          Autos = Listehelper.getAutos();
+          
+          Ausleihen.clear();
+          Ausleihen = Listehelper.getAusleihen();
     }
 //##############################################################################
 }
