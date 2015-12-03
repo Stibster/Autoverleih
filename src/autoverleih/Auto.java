@@ -80,6 +80,16 @@ public class Auto {
     }
     //############################
     
+//###toString Methoden erstellt von Daniel Meerwald############################# 
+    public String toString(){
+        
+        return "Auto ID: " + Auto_ID + "\n" +
+                "Kennzeichen: " + Kennzeichen + "\n"+
+                "Hersteller: " + Hersteller + "\n" +
+                "Modell: " + Modell +  "\n" +
+                "Bauart: " + Bauart +  "\n" +
+                "Hier könnt ihr weiter machen... #Raicandy";
+    }
     
 //###Getter Methoden erstellt von Daniel Meerwald###############################  
     //@XmlElement(name = "Foto") //Typ file müssen wir glaube ich seperat speichern. #Raicandy

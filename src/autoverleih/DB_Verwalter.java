@@ -73,12 +73,54 @@ public class DB_Verwalter {
     this.Ausleihen = Ausleihen;
     }
 
-    //###addKunde erstellt von Steve Vogel @Stibster################################
+    //###addKunde erstellt von Steve Vogel @Stibster############################
     public void addKunde(Kunde Kunde) {
 	
 	Kunden.add(Kunde);
     }
-    
+    //####Remove Methoden, erstellt von Daniel Meerwald#Raicandy################
+    public void removeKunde(int K_ID){
+        int i = 0;
+        boolean indikator = false;
+
+        while (i < Kunden.size() && indikator == false) { //Suche bis zum Ende der Liste.
+
+            if (Kunden.get(i).getKunden_ID() == K_ID ) {
+                Kunden.remove(i);
+                indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+            } else {
+                i++; //Andernfalls wird das nächste Element vergleichen.
+            }
+        }
+    }
+    public void removeAuto(int A_ID){
+        int i = 0;
+        boolean indikator = false;
+
+        while (i < Autos.size() && indikator == false) { //Suche bis zum Ende der Liste.
+
+            if (Autos.get(i).getAuto_ID() == A_ID ) {
+                Autos.remove(i);
+                indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+            } else {
+                i++; //Andernfalls wird das nächste Element vergleichen.
+            }
+        }
+    }
+    public void removeAusleihe(int K_ID, int A_ID){
+        int i = 0;
+        boolean indikator = false;
+
+        while (i < Ausleihen.size() && indikator == false) { //Suche bis zum Ende der Liste.
+
+            if (Ausleihen.get(i).getKunden_ID() == K_ID &&Ausleihen.get(i).getAuto_ID() == A_ID) {
+                Ausleihen.remove(i);
+                indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+            } else {
+                i++; //Andernfalls wird das nächste Element vergleichen.
+            }
+        }
+    }
     //###addAuto, abholen, abgeben erstellt von Steve Vogel @Stibster###############
     public void addAuto(Auto auto) {
         

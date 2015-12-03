@@ -53,7 +53,16 @@ public class Kunde {
     public Kunde() {
         
     }
-
+//###toString Methoden erstellt von Daniel Meerwald############################# 
+    public String toString(){
+        
+        return "Kunden_ID: " + Kunden_ID + "\n" +
+                "Vorname: " + Vorname + "\n"+
+                "Nachname: " + Nachname + "\n" +
+                "Postleitzahl: " + Postleitzahl +  "\n" +
+                "Wohnort: " + Wohnort +  "\n" +
+                "Hier könnt ihr weiter machen... #Raicandy";
+    }
 //###Getter Methoden erstellt von Daniel Meerwald###############################
     @XmlElement(name = "Kunden_ID")
     public int getKunden_ID() {

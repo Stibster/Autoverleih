@@ -1,6 +1,7 @@
 package autoverleih;
 
 import java.text.ParseException;
+import java.util.Scanner;
 
 
 public class Sprint_1_Tester 
@@ -12,18 +13,86 @@ public class Sprint_1_Tester
         Kunde kunde = new Kunde();
 	Ausleihe ausleihe = new Ausleihe();
 	DB_Verwalter DBV = new DB_Verwalter();
-	while(true)
+        String pfad = "C:\\TestDatenbank.xml";
+        String eingegeben;
+        
+        try (Scanner in = new Scanner(System.in)) { //Scanner zum einlesen.
+        //Menü Tokens
+        boolean Token1 = false;
+        boolean Token2 = false;
+        boolean Token3 = false;
+        boolean Token4 = false;
+        boolean Token5 = false;
+        
+        System.out.println("**************************************************");
+        System.out.println("!!!!!!!Infolines!!!!!!!");
+        System.out.println("Anzeige Methoden sind noch nicht korrekt implementiert.");
+        System.out.println("Die toString() Methoden sind alle implementiert.");
+        System.out.println("Eine Einlesefunktion fehlt noch im Dialog.");
+        System.out.println("Das Programm liest einen bereits Existierenden Standardpfad ein.");
+        System.out.println("**************************************************");
+        
+            System.out.println("Verstanden? (Y/N)?");
+            while(Token5 != true){
+                
+                eingegeben = in.nextLine();
+                if("Y".equals(eingegeben)){
+                    Token5 = true;
+                }
+                if("N".equals(eingegeben)){
+                    System.out.println("Nein gibts nicht!");
+                }
+                
+            }
+            DBV.restore(pfad);
+        
+	while(Token1 != true) //Menü While Schleife #Raicandy
 	{
-         System.out.println("Guten Tag");
-         System.out.println("Was möchten sie tun?");
-         System.out.println("(K)unden bearbeiten, (A)utos bearbeiten");
+//######################################################Welcome Screen #Raicandy
+        System.out.println("########################################################");
+        System.out.println("Guten Tag.");
+        System.out.println("Was moechten Sie tun? Folgende Optionen stehen zur Wahl:");
+        System.out.println("********************************************************");
+        System.out.println("K:    Kunden bearbeiten.");
+        System.out.println("A:    Autos bearbeiten");
+        System.out.println("V:    Vermietung bearbeiten");
+        System.out.println("********************************************************");
+        System.out.println("Back:     Das Menue verlassen und zum vorherigen Menue zurueckkehren");
+        System.out.println("SaveExit: Die Listen speichern und das Programm verlassen");
+        System.out.println("########################################################");
+
+        eingegeben = in.nextLine();
+        
+//#########################################################Kundenmenue #Raicandy
          
-         //Bearbeitungsdialog für Kunden
-         if("K".equals(eingabe.readString()))
+            
+        
+         if("K".equals(eingegeben))
          {
-             System.out.println("-----Kunden-----");
-             System.out.println("Kunde (E)rstellen --- Kunde (L)öschen --- (V)ermeitung ");
-             if("E".equals(eingabe.readString()))
+        while(Token2 != true){
+        System.out.println("########################################################");
+        System.out.println("Kundenmeue");
+        System.out.println("Was moechten Sie tun? Folgende Optionen stehen zur Wahl:");
+        System.out.println("********************************************************");
+        System.out.println("A:    Alle Kunden Anzeigen");
+        System.out.println("E:    Einen Kunden erstellen.");
+        System.out.println("q:    Einen Kunden schnell erstellen.");
+        System.out.println("B:    Einen Kunden bearbeiten.");
+        System.out.println("L:    Einen Kunden löschen");
+        System.out.println("********************************************************");
+        System.out.println("Back:     Das Menue verlassen und zum vorherigen Menue zurueckkehren");
+        System.out.println("SaveExit: Die Listen speichern und das Programm verlassen");
+        System.out.println("########################################################");
+        
+        eingegeben = in.nextLine();
+        
+            if("A".equals(eingegeben))
+                 {
+                     DBV.getKunden();
+                 }
+        
+        
+             if("E".equals(eingegeben))
              {
 		 
                  // Daten des neuen Kunden eingeben
@@ -31,10 +100,10 @@ public class Sprint_1_Tester
                  System.out.println("Kunden ID: ");
                  kunde.setKunden_ID(eingabe.readint());          
                  System.out.println("Nachname: ");
-                 kunde.setNachname(eingabe.readString());
+                 kunde.setNachname(eingabe.readString()); 
                  System.out.println("Vorname: ");
                  kunde.setVorname(eingabe.readString());
-                 /*System.out.println("Postleitzahl: ");
+                 System.out.println("Postleitzahl: ");
                  kunde.setPostleitzahl(eingabe.readint());
                  System.out.println("Wohnort: ");
                  kunde.setWohnort(eingabe.readString());
@@ -49,53 +118,137 @@ public class Sprint_1_Tester
                  System.out.println("Geburtstag: ");
                  kunde.setGeburtstag(eingabe.readdate());
                  System.out.println("Führerscheindatum: ");
-                 kunde.setFuehrerscheindatum(eingabe.readdate());*/
+                 kunde.setFuehrerscheindatum(eingabe.readdate());
 		 DBV.addKunde(kunde);
-		 DBV.save("C:\\TestDatenbank.xml"); 
-        /*Hier muss jetzt die addKunde() Methode aufgerufen werden, die diesen 
-        Gerade angelegten Kudnen in die Datenbank hinzufügt. Danach könnte die 
-        Save() Methode aus dem DB_Verwalter mit einem Vom User Bestimmten Path 
-        aufgerufen werden. #Raicandy*/
-                 // Noch keine File-Eingabe hier aber erstmal nebensächlich
+		 DBV.save(pfad); 
+                 System.out.println(kunde);
+
              }
-             else
+             
+             
+             
+             if("q".equals(eingegeben))
              {
-                 System.out.println("Bitte geben sie nur E oder L ein!");
+                 System.out.println("---Neuer Kunde---");
+                 System.out.println("Kunden ID: ");
+                 kunde.setKunden_ID(eingabe.readint());          
+                 System.out.println("Nachname: ");
+                 kunde.setNachname(eingabe.readString());
+                 System.out.println("Vorname: ");
+                 kunde.setVorname(eingabe.readString());
+                 DBV.addKunde(kunde);
+                 DBV.save(pfad);
+                 System.out.println(kunde);
              }
-	     /*
-             if("L".equals(eingabe.readString())) 
+             
+             
+	     
+             if("B".equals(eingegeben))
              {
-                 // Kundendaten löschen
-                 System.out.println("---Kunde löschen ---");
-                 kunde.setKunden_ID(0);          
-                 kunde.setNachname(null);
-                 kunde.setVorname(null);
-                 kunde.setPostleitzahl(0);
-                 kunde.setWohnort(null);
-                 kunde.setStrasse(null);
-                 kunde.setHausnummer(null);
-                 kunde.setE_Mail(null);
-                 kunde.setTelefonnummer(0);
-                 kunde.setGeburtstag(null);
-                 kunde.setFuehrerscheindatum(null);
+                 int KID;
+                 System.out.println("Welchen Kunden wollen sie bearbeiten?");
+                 System.out.println("KundenID: ");
+                 
+                 KID = eingabe.readint();
+                 
+                 DBV.removeKunde(KID);
+                 
+                 System.out.println("---Neuer Kunde---");
+                 System.out.println("Kunden ID: ");
+                 kunde.setKunden_ID(eingabe.readint());          
+                 System.out.println("Nachname: ");
+                 kunde.setNachname(eingabe.readString());
+                 System.out.println("Vorname: ");
+                 kunde.setVorname(eingabe.readString());
+                 System.out.println("Postleitzahl: ");
+                 kunde.setPostleitzahl(eingabe.readint());
+                 System.out.println("Wohnort: ");
+                 kunde.setWohnort(eingabe.readString());
+                 System.out.println("Straße: ");
+                 kunde.setStrasse(eingabe.readString());
+                 System.out.println("Hausnummer: ");
+                 kunde.setHausnummer(eingabe.readString());
+                 System.out.println("E-Mail: ");
+                 kunde.setE_Mail(eingabe.readString());
+                 System.out.println("Telefonnummer: ");
+                 kunde.setTelefonnummer(eingabe.readint());
+                 System.out.println("Geburtstag: ");
+                 kunde.setGeburtstag(eingabe.readdate());
+                 System.out.println("Führerscheindatum: ");
+                 kunde.setFuehrerscheindatum(eingabe.readdate());
+		 DBV.addKunde(kunde);
+		 DBV.save(pfad); 
+                 System.out.println(kunde);
+                 
+                 
              }
-             else
+                          
+             
+             
+             if("L".equals(eingegeben)) 
              {
-                 System.out.println("Bitte geben sie nur E oder L ein!");
+                 int KID;
+                 System.out.println("Welchen Kunden wollen sie löschen?");
+                 System.out.println("KundenID: ");
+                 
+                 KID = eingabe.readint();
+                 
+                 DBV.removeKunde(KID);
+                 DBV.save(pfad);
              }
-	     */
+             
+             
+             
+	     if("Back".equals(eingegeben))
+             {
+                 Token2 = true;
+             }
+             
+             
+             
+             if("SaveExit".equals(eingegeben))
+             {
+                 DBV.save(pfad);
+                 Token2 = true;
+                 Token1 = true;
+             }
+
+             
+             
          }
-         else
-         {
-             System.out.println("Bitte geben sie nur K oder A ein!");
-         }
+}
+//####################################################Vermietungsmenue #Raicandy
+
          
-	 if("V".equals(eingabe.readString()))
+	 if("V".equals(eingegeben))
 	{
-	    System.out.println("-----Vermietung-----");
-             System.out.println("Vermietung (E)rstellen --- Auto (L)öschen");
-             if("E".equals(eingabe.readString()))
+        while(Token3 != true){
+        System.out.println("########################################################");
+        System.out.println("Vermietung");
+        System.out.println("Was moechten Sie tun? Folgende Optionen stehen zur Wahl:");
+        System.out.println("********************************************************");
+        System.out.println("A:    Alle Vermietungen anzeigen.");
+        System.out.println("E:    Eine Vermietung erstellen.");
+        System.out.println("q:    Eine Vermietung schnell erstellen.");
+        System.out.println("B:    Eine Vermietung bearbeiten.");
+        System.out.println("L:    Eine Vermietung löschen");
+        System.out.println("********************************************************");
+        System.out.println("Back:     Das Menue verlassen und zum vorherigen Menue zurueckkehren");
+        System.out.println("SaveExit: Die Listen speichern und das Programm verlassen");
+        System.out.println("########################################################");
+        
+        eingegeben = in.nextLine();
+        
+        if("A".equals(eingegeben))
+                 {
+                     DBV.getAusleihen();
+                 }
+        
+        
+        
+             if("E".equals(eingegeben))
 	     {
+                 System.out.println("---Neue Ausleihe---");
 		 System.out.println("Auto ID: ");
 		 ausleihe.setAuto_ID(eingabe.readint());
 		 System.out.println("Kunden ID: ");
@@ -106,25 +259,128 @@ public class Sprint_1_Tester
 		 ausleihe.setRueckgabedatum(eingabe.readdate());
 		 System.out.println("Ausleihe erstellt");
 		 DBV.addAusleihe(ausleihe);
-		 DBV.save("C:\\TestDatenbank_aus.xml"); 
+		 DBV.save(pfad); 
+                 System.out.println(ausleihe);
 	     }
+             
+             
+             
+             if("q".equals(eingegeben))
+             {
+                 System.out.println("---Neue Ausleihe---");
+		 System.out.println("Auto ID: ");
+		 ausleihe.setAuto_ID(eingabe.readint());
+		 System.out.println("Kunden ID: ");
+                 ausleihe.setKunden_ID(eingabe.readint());
+                 DBV.addAusleihe(ausleihe);
+                 DBV.save(pfad);
+                 System.out.println(ausleihe);
+             }
+             
+             
+	     
+             if("B".equals(eingegeben))
+             {
+                 int AID;
+                 int KID;
+                 System.out.println("Welches Ausleihe wollen sie bearbeiten?");
+                 
+                 System.out.println("AutoID: ");
+                 AID = eingabe.readint();
+                 
+                 System.out.println("KudnenID: ");
+                 KID = eingabe.readint();
+                 
+                 DBV.removeAusleihe(KID,AID);
+                 
+                 System.out.println("---Neue Ausleihe---");
+		 System.out.println("Auto ID: ");
+		 ausleihe.setAuto_ID(eingabe.readint());
+		 System.out.println("Kunden ID: ");
+		 ausleihe.setKunden_ID(eingabe.readint());
+		 System.out.println("Beginn der Ausleihe: ");
+		 ausleihe.setAusleihdatum(eingabe.readdate());
+		 System.out.println("Rückgabedatum: ");
+		 ausleihe.setRueckgabedatum(eingabe.readdate());
+		 System.out.println("Ausleihe erstellt");
+		 DBV.addAusleihe(ausleihe);
+		 DBV.save(pfad); 
+                 System.out.println(ausleihe);
+                 
+                 
+             }
+                          
+             
+             
+             if("L".equals(eingegeben)) 
+             {
+                 int AID;
+                 int KID;
+                 System.out.println("Welches Ausleihe wollen sie löschen?");
+                 
+                 System.out.println("AutoID: ");
+                 AID = eingabe.readint();
+                 
+                 System.out.println("KudnenID: ");
+                 KID = eingabe.readint();
+                 
+                 DBV.removeAusleihe(KID,AID);
+             }
+             
+             
+             
+             if("Back".equals(eingegeben))
+             {
+                 Token3 = true;
+             }
+             
+             
+             
+             if("SaveExit".equals(eingegeben))
+             {
+                 DBV.save(pfad);
+                 Token3 = true;
+                 Token1 = true;
+             }
+
 	    
 	}
-	 
-         // Bearbeitungsdialog für Autos
-          if("A".equals(eingabe.readString()) )
+}
+//###########################################################Automenue #Raicandy
+    
+          if("A".equals(eingegeben) )
          {
-             System.out.println("-----Auto-----");
-             System.out.println("Auto (E)rstellen --- Auto (L)öschen");
-             if("E".equals(eingabe.readString()))
+            while(Token4 != true){
+            System.out.println("########################################################");
+            System.out.println("Autos");
+            System.out.println("Was moechten Sie tun? Folgende Optionen stehen zur Wahl:");
+            System.out.println("********************************************************");
+            System.out.println("A:    Alle Autos anzeigen.");
+            System.out.println("E:    Ein Auto erstellen.");
+            System.out.println("q:    Ein Auto schnell erstellen.");
+            System.out.println("B:    Ein Auto bearbeiten.");
+            System.out.println("L:    Ein Auto löschen");
+            System.out.println("********************************************************");
+            System.out.println("Back:     Das Menue verlassen und zum vorherigen Menue zurueckkehren");
+            System.out.println("SaveExit: Die Listen speichern und das Programm verlassen");
+            System.out.println("########################################################");
+            
+            eingegeben = in.nextLine();
+          
+        if("A".equals(eingegeben))
+                 {
+                     DBV.getKunden();
+                 }
+        
+        
+             if("E".equals(eingegeben))
              {
-                 // Autodaten eingeben
+		 
                  System.out.println("---Neues Auto---"); 
                  System.out.println("Auto ID: ");
                  auto.setAuto_ID(eingabe.readint());
                  System.out.println("Kennzeichen: ");
                  auto.setKennzeichen(eingabe.readString());
-		 /*
 		 System.out.println("Hersteller: ");
                  auto.setHersteller(eingabe.readString());
                  System.out.println("Modell: ");
@@ -166,47 +422,136 @@ public class Sprint_1_Tester
                  auto.setKaution(eingabe.readdouble());
                  System.out.println("Gebühr pro Tag: ");
                  auto.setGebuehr_pro_Tag(eingabe.readfloat());
-		 */
-		 //######## metting 3.12.2015######################
 		 DBV.addAuto(auto);
-		 DBV.save("C:\\TestDatenbank_a.xml"); 
-		 //################################################
+		 DBV.save(pfad); 
+                 System.out.println(auto);
+
              }
-             else
+             
+             
+             
+             if("q".equals(eingegeben))
              {
-                 System.out.println("Bitte geben sie nur E oder L ein!");
+                 System.out.println("---Neues Auto---"); 
+                 System.out.println("Auto ID: ");
+                 auto.setAuto_ID(eingabe.readint());
+                 System.out.println("Kennzeichen: ");
+                 auto.setKennzeichen(eingabe.readString());
+		 System.out.println("Hersteller: ");
+                 auto.setHersteller(eingabe.readString());
+                 System.out.println("Modell: ");
+                 auto.setModell(eingabe.readString());
+                 DBV.addAuto(auto);
+                 DBV.save(pfad);
+                 System.out.println(auto);
              }
-             // Auto löschen
-             if("L".equals(eingabe.readString())) 
+             
+             
+	     
+             if("B".equals(eingegeben))
              {
-                 System.out.println("---Auto löschen ---");
-                 auto.setAuto_ID(0);
-                 auto.setKennzeichen(null);
-                 auto.setHersteller(null);          
-                 auto.setModell(null);
-                 //auto.setAnhaengerkupplung(false);
-                 auto.setSitzplaetze(0);
-                 auto.setFarbe(null);
-                 auto.setLeistung(0);
-                 auto.setKraftstoff(null);
-                 auto.setVerbrauch(null);
-                 auto.setAntrieb(null);
-                 auto.setGetriebe(null);
-                 auto.setBaujahr(0);
-                 auto.setBaujahr(0);
-                 auto.setKilometerstand(0);
-                 auto.setTUEV(null);
-                 auto.setKaution(0);
-                 auto.setGebuehr_pro_Tag(0);                                  
+                 int AID;
+                 System.out.println("Welches Auto wollen sie bearbeiten?");
+                 System.out.println("AutoID: ");
+                 
+                 AID = eingabe.readint();
+                 
+                 DBV.removeKunde(AID);
+                 
+                 System.out.println("Auto ID: ");
+                 auto.setAuto_ID(eingabe.readint());
+                 System.out.println("Kennzeichen: ");
+                 auto.setKennzeichen(eingabe.readString());
+		 System.out.println("Hersteller: ");
+                 auto.setHersteller(eingabe.readString());
+                 System.out.println("Modell: ");
+                 auto.setModell(eingabe.readString());
+                 System.out.println("Anhängerkupplung: ");
+                 if("J".equals(eingabe.readString()))
+                 {
+                     auto.setAnhaengerkupplung(true);
+                 }
+                 else if("N".equals(eingabe.readString()))
+                 {
+                     auto.setAnhaengerkupplung(false);
+                 }                 
+                 else
+                 {
+                     System.out.println("Bitte geben sie nur J oder N ein!");
+                 }
+                 System.out.println("Anzahl der Sitzpleatze: ");
+                 auto.setSitzplaetze(eingabe.readint());
+                 System.out.println("Farbe: ");
+                 auto.setFarbe(eingabe.readString());
+                 System.out.println("Leistung: ");
+                 auto.setLeistung(eingabe.readint());
+		 System.out.println("Kraftstoff: ");
+                 auto.setKraftstoff(eingabe.readString());
+                 System.out.println("Verbrauch: ");
+                 auto.setVerbrauch(eingabe.readString());
+                 System.out.println("Antrieb: ");
+                 auto.setAntrieb(eingabe.readString());
+                 System.out.println("Getriebe: ");
+                 auto.setGetriebe(eingabe.readString());
+                 System.out.println("Baujahr: ");
+                 auto.setBaujahr(eingabe.readint());
+                 System.out.println("Kilometerstand: ");
+                 auto.setKilometerstand(eingabe.readint());
+                 System.out.println("TUEV");
+                 auto.setTUEV(eingabe.readdate());
+                 System.out.println("Kaution: ");
+                 auto.setKaution(eingabe.readdouble());
+                 System.out.println("Gebühr pro Tag: ");
+                 auto.setGebuehr_pro_Tag(eingabe.readfloat());
+		 DBV.addAuto(auto);
+		 DBV.save(pfad); 
+                 System.out.println(auto);
+                 
+                 
              }
-         }
-         else
-         {
-             System.out.println("Bitte geben sie nur K oder A oder V ein!");
-         }
+                          
+             
+             
+             if("L".equals(eingegeben)) 
+             {
+                 int AID;
+                 System.out.println("Welches Auto wollen sie löschen?");
+                 System.out.println("AutoID: ");
+                 
+                 AID = eingabe.readint();
+                 
+                 DBV.removeKunde(AID);
+                 DBV.save(pfad);
+             }
+             
+             
+             
+	     if("Back".equals(eingegeben))
+             {
+                 Token4 = true;
+             }
+             
+             
+             
+             if("SaveExit".equals(eingegeben))
+             {
+                 DBV.save(pfad);
+                 Token4 = true;
+                 Token1 = true;
+             }
+             
+             
          
          System.out.println("");
 	}
     }
+        
+        
+        
+    }
+        System.exit(0);     //wenn das Token1 auf true steht wird das Programm beendet.
+  }
 } //***************************Ende Adrian Neubert #Fleescher*******************
+ //><><><><><><><><><><Komplett überarbeitet von Daniel Meerwald #Raicandy><><><
+}
 
