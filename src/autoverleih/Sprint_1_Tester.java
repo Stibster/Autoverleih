@@ -11,7 +11,6 @@ public class Sprint_1_Tester
         Auto auto = new Auto();
         Kunde kunde = new Kunde();
 	DB_Verwalter DBV = new DB_Verwalter();
-        
          System.out.println("Guten Tag");
          System.out.println("Was möchten sie tun?");
          System.out.println("(K)unden bearbeiten, (A)utos bearbeiten");
@@ -99,7 +98,8 @@ public class Sprint_1_Tester
                  auto.setAuto_ID(eingabe.readint());
                  System.out.println("Kennzeichen: ");
                  auto.setKennzeichen(eingabe.readString());
-                 System.out.println("Hersteller: ");
+		 /*
+		 System.out.println("Hersteller: ");
                  auto.setHersteller(eingabe.readString());
                  System.out.println("Modell: ");
                  auto.setModell(eingabe.readString());
@@ -122,7 +122,7 @@ public class Sprint_1_Tester
                  auto.setFarbe(eingabe.readString());
                  System.out.println("Leistung: ");
                  auto.setLeistung(eingabe.readint());
-                 System.out.println("Kraftstoff: ");
+		 System.out.println("Kraftstoff: ");
                  auto.setKraftstoff(eingabe.readString());
                  System.out.println("Verbrauch: ");
                  auto.setVerbrauch(eingabe.readString());
@@ -140,6 +140,11 @@ public class Sprint_1_Tester
                  auto.setKaution(eingabe.readdouble());
                  System.out.println("Gebühr pro Tag: ");
                  auto.setGebuehr_pro_Tag(eingabe.readfloat());
+		 */
+		 //######## meting 3.12.2015######################
+		 DBV.addAuto(auto);
+		 DBV.save("C:\\TestDatenbank_a.xml"); 
+		 //################################################
              }
              else
              {
