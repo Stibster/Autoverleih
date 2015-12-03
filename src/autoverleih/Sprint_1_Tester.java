@@ -10,7 +10,10 @@ public class Sprint_1_Tester
         Input eingabe = new Input();
         Auto auto = new Auto();
         Kunde kunde = new Kunde();
+	Ausleihe ausleihe = new Ausleihe();
 	DB_Verwalter DBV = new DB_Verwalter();
+	while(true)
+	{
          System.out.println("Guten Tag");
          System.out.println("Was möchten sie tun?");
          System.out.println("(K)unden bearbeiten, (A)utos bearbeiten");
@@ -19,7 +22,7 @@ public class Sprint_1_Tester
          if("K".equals(eingabe.readString()))
          {
              System.out.println("-----Kunden-----");
-             System.out.println("Kunde (E)rstellen --- Kunde (L)öschen");
+             System.out.println("Kunde (E)rstellen --- Kunde (L)öschen --- (V)ermeitung ");
              if("E".equals(eingabe.readString()))
              {
 		 
@@ -59,6 +62,7 @@ public class Sprint_1_Tester
              {
                  System.out.println("Bitte geben sie nur E oder L ein!");
              }
+	     /*
              if("L".equals(eingabe.readString())) 
              {
                  // Kundendaten löschen
@@ -79,12 +83,34 @@ public class Sprint_1_Tester
              {
                  System.out.println("Bitte geben sie nur E oder L ein!");
              }
+	     */
          }
          else
          {
              System.out.println("Bitte geben sie nur K oder A ein!");
          }
          
+	 if("V".equals(eingabe.readString()))
+	{
+	    System.out.println("-----Vermietung-----");
+             System.out.println("Vermietung (E)rstellen --- Auto (L)öschen");
+             if("E".equals(eingabe.readString()))
+	     {
+		 System.out.println("Auto ID: ");
+		 ausleihe.setAuto_ID(eingabe.readint());
+		 System.out.println("Kunden ID: ");
+		 ausleihe.setKunden_ID(eingabe.readint());
+		 System.out.println("Beginn der Ausleihe: ");
+		 ausleihe.setAusleihdatum(eingabe.readdate());
+		 System.out.println("Rückgabedatum: ");
+		 ausleihe.setRueckgabedatum(eingabe.readdate());
+		 System.out.println("Ausleihe erstellt");
+		 DBV.addAusleihe(ausleihe);
+		 DBV.save("C:\\TestDatenbank_aus.xml"); 
+	     }
+	    
+	}
+	 
          // Bearbeitungsdialog für Autos
           if("A".equals(eingabe.readString()) )
          {
@@ -141,7 +167,7 @@ public class Sprint_1_Tester
                  System.out.println("Gebühr pro Tag: ");
                  auto.setGebuehr_pro_Tag(eingabe.readfloat());
 		 */
-		 //######## meting 3.12.2015######################
+		 //######## metting 3.12.2015######################
 		 DBV.addAuto(auto);
 		 DBV.save("C:\\TestDatenbank_a.xml"); 
 		 //################################################
@@ -176,10 +202,11 @@ public class Sprint_1_Tester
          }
          else
          {
-             System.out.println("Bitte geben sie nur K oder A ein!");
+             System.out.println("Bitte geben sie nur K oder A oder V ein!");
          }
          
          System.out.println("");
+	}
     }
 } //***************************Ende Adrian Neubert #Fleescher*******************
 
