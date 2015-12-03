@@ -79,11 +79,14 @@ public class DB_Verwalter {
     }
     
     //###addAuto, abholen, abgeben erstellt von Steve Vogel @Stibster###############
-    public void addAuto(Auto Auto) {
+    public void addAuto(Auto auto) {
         
-        Auto newAuto = new Auto();
-	
-	Autos.add(newAuto);
+       	Autos.add(auto);
+    }
+    
+    public void addAusleihe(Ausleihe ausleihe)
+    {
+	Ausleihen.add(ausleihe);
     }
     
     public boolean autoAbholen() {
