@@ -8,6 +8,9 @@ public class Sprint_1_Tester
 {
        public static void main(String[] args) throws ParseException
     {
+        //Noch zu programmieren:    #Raicandy
+                //Überprüfen ob Datei  C:\\TestDatenbank.xml vorhanden ist, wenn nicht wird diese leer erstellt. #Raicandy
+            
         Input eingabe = new Input();
         Auto auto = new Auto();
         Kunde kunde = new Kunde();
@@ -44,7 +47,11 @@ public class Sprint_1_Tester
                 }
                 
             }
-            DBV.restore(pfad);
+            try {
+                DBV.restore(pfad);
+            } catch (Exception e) {              
+                throw e;
+            }
         
 	while(Token1 != true) //Menü While Schleife #Raicandy
 	{
@@ -68,6 +75,7 @@ public class Sprint_1_Tester
         
          if("K".equals(eingegeben))
          {
+             Token2 = true;
         while(Token2 != true){
         System.out.println("########################################################");
         System.out.println("Kundenmeue");
@@ -221,6 +229,7 @@ public class Sprint_1_Tester
          
 	 if("V".equals(eingegeben))
 	{
+            Token3 = true;
         while(Token3 != true){
         System.out.println("########################################################");
         System.out.println("Vermietung");
@@ -349,6 +358,7 @@ public class Sprint_1_Tester
     
           if("A".equals(eingegeben) )
          {
+             Token4 = true;
             while(Token4 != true){
             System.out.println("########################################################");
             System.out.println("Autos");

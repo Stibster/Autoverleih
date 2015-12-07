@@ -70,7 +70,7 @@ public class DB_Verwalter {
 
         while (i <= Kunden.size()-1) { 
             
-            System.out.println("KundenID: " + Kunden.get(i).getKunden_ID() + " Name: " + Kunden.get(i).getVorname() + Kunden.get(i).getNachname());
+            System.out.println("KundenID: " + Kunden.get(i).getKunden_ID() + " Name: " + Kunden.get(i).getVorname() + " " +  Kunden.get(i).getNachname());
             
                 
            i++;
