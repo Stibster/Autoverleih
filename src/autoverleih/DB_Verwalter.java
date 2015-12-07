@@ -146,11 +146,6 @@ public class DB_Verwalter {
     this.Ausleihen = Ausleihen;
     }
 
-    //###addKunde erstellt von Steve Vogel @Stibster############################
-    public void addKunde(Kunde Kunde) {
-	
-	Kunden.add(Kunde);
-    }
     //####Remove Methoden, erstellt von Daniel Meerwald#Raicandy################
     public void removeKunde(int K_ID){
         int i = 0;
@@ -194,7 +189,7 @@ public class DB_Verwalter {
             }
         }
     }
-    //###addAuto, abholen, abgeben erstellt von Steve Vogel @Stibster###############
+    //###add Methoden erstellt von Steve Vogel @Stibster########################
     public void addAuto(Auto auto) {
         
        	Autos.add(auto);
@@ -205,18 +200,10 @@ public class DB_Verwalter {
 	Ausleihen.add(ausleihe);
     }
     
-    public boolean autoAbholen() {
-        
-	Auto.setIst_Da(false);
-        return Auto.ist_da;
+    public void addKunde(Kunde Kunde) {
+	
+	Kunden.add(Kunde);
     }
-    
-    public boolean autoAbgeben() {
-        
-        Auto.setIst_Da(true);
-        return Auto.ist_da;
-    }
-   //Muss Auto_ID mit übergeben werden? //What? Wer fragt sowas? #Raicandy
  
 //###Save Methode erstellt von Daniel Meerwald##################################
     

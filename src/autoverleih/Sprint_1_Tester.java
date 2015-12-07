@@ -29,10 +29,7 @@ public class Sprint_1_Tester
         
         System.out.println("**************************************************");
         System.out.println("!!!!!!!Infolines!!!!!!!");
-        System.out.println("Anzeige Methoden sind noch nicht korrekt implementiert.");
-        System.out.println("Die toString() Methoden sind alle implementiert.");
-        System.out.println("Eine Einlesefunktion fehlt noch im Dialog.");
-        System.out.println("Das Programm liest einen bereits Existierenden Standardpfad ein.");
+        System.out.println("Programm fertig für 1. Sprint.");
         System.out.println("**************************************************");
         
             System.out.println("Verstanden? (Y/N)?");
@@ -47,11 +44,14 @@ public class Sprint_1_Tester
                 }
                 
             }
-            try {
-                DBV.restore(pfad);
-            } catch (Exception e) {              
-                throw e;
-            }
+            System.out.println("Ist eine Datenbank vorhanden? (Y/N)?");
+            eingegeben = in.nextLine();
+                if("Y".equals(eingegeben)){
+                    DBV.restore(pfad);
+                }
+                if("N".equals(eingegeben)){
+                    DBV.save(pfad);
+                }
         
 	while(Token1 != true) //Menü While Schleife #Raicandy
 	{
