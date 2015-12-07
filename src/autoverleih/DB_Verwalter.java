@@ -53,10 +53,10 @@ public class DB_Verwalter {
     public void Autos_anzeigen(){
         int i = 0;
 
-        while (i <= Autos.size()) { 
+        while (i <= Autos.size()-1) { 
 
-                System.out.println("ID: " + Autos.get(i).getAuto_ID() + "Hersteller: " + Autos.get(i).getHersteller() + 
-                     "Modell: " +  Autos.get(i).getModell() + "Kennzeichen: " + Autos.get(i).getKennzeichen()); 
+                System.out.println("ID: " + Autos.get(i).getAuto_ID() + " Hersteller: " + Autos.get(i).getHersteller() + 
+                     " Modell: " +  Autos.get(i).getModell() + " Kennzeichen: " + Autos.get(i).getKennzeichen()); 
                 
                 i++; 
             
@@ -68,9 +68,9 @@ public class DB_Verwalter {
     public void Kunden_anzeigen(){
         int i = 0;
 
-        while (i < Kunden.size()) { 
+        while (i <= Kunden.size()-1) { 
             
-            System.out.println("KundenID: " + Kunden.get(i).getKunden_ID() + "Name: " + Kunden.get(i).getVorname() + Kunden.get(i).getNachname());
+            System.out.println("KundenID: " + Kunden.get(i).getKunden_ID() + " Name: " + Kunden.get(i).getVorname() + Kunden.get(i).getNachname());
             
                 
            i++;
@@ -83,7 +83,7 @@ public class DB_Verwalter {
     public void Ausleihen_anzeigen(){
         int i = 0;
 
-        while (i <= Ausleihen.size()) {
+        while (i <= Ausleihen.size()-1) {
 
                 System.out.println("Kunden " + Ausleihen.get(i).getKunden_ID() + " hat das Auto " + Ausleihen.get(i).getKunden_ID() + " von " + Ausleihen.get(i).getAusleihdatum() + " bis " + Ausleihen.get(i).getRueckgabedatum() + " gemietet.");
                 

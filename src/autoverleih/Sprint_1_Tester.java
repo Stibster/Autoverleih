@@ -87,7 +87,7 @@ public class Sprint_1_Tester
         
             if("A".equals(eingegeben))
                  {
-                     DBV.Autos_anzeigen();
+                     DBV.Kunden_anzeigen();
                  }
         
         
@@ -240,7 +240,7 @@ public class Sprint_1_Tester
         
         if("A".equals(eingegeben))
                  {
-                     DBV.Kunden_anzeigen();
+                     DBV.Ausleihen_anzeigen();
                  }
         
         
@@ -370,7 +370,7 @@ public class Sprint_1_Tester
           
         if("A".equals(eingegeben))
                  {
-                     DBV.Ausleihen_anzeigen();
+                     DBV.Autos_anzeigen();
                  }
         
         
