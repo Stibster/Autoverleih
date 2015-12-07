@@ -88,7 +88,7 @@ public class Auto {
                 "Hersteller: " + Hersteller + "\n" +
                 "Modell: " + Modell +  "\n" +
                 "Bauart: " + Bauart +  "\n" +
-                //#######vervollständigt von Steve Vogel#####
+                //#######vervollständigt von Steve Vogel##### Top hier macht wenigstens einer mit! #Raicandy
                 "Anhaengerkupplung: " + Anhaengerkupplung +  "\n" +
                 "Sitzplaetze: " + Sitzplaetze +  "\n" +
                 "Farbe: " + Farbe +  "\n" +

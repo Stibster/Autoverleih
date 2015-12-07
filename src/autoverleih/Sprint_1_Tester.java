@@ -87,7 +87,7 @@ public class Sprint_1_Tester
         
             if("A".equals(eingegeben))
                  {
-                     DBV.getKunden();
+                     DBV.Autos_anzeigen();
                  }
         
         
@@ -240,7 +240,7 @@ public class Sprint_1_Tester
         
         if("A".equals(eingegeben))
                  {
-                     DBV.getAusleihen();
+                     DBV.Kunden_anzeigen();
                  }
         
         
@@ -359,6 +359,8 @@ public class Sprint_1_Tester
             System.out.println("q:    Ein Auto schnell erstellen.");
             System.out.println("B:    Ein Auto bearbeiten.");
             System.out.println("L:    Ein Auto löschen");
+            System.out.println("Ab:    Ein Auto abholen");
+            System.out.println("Z:    Ein Auto zurückbringen");
             System.out.println("********************************************************");
             System.out.println("Back:     Das Menue verlassen und zum vorherigen Menue zurueckkehren");
             System.out.println("SaveExit: Die Listen speichern und das Programm verlassen");
@@ -368,7 +370,7 @@ public class Sprint_1_Tester
           
         if("A".equals(eingegeben))
                  {
-                     DBV.getKunden();
+                     DBV.Ausleihen_anzeigen();
                  }
         
         
@@ -521,6 +523,35 @@ public class Sprint_1_Tester
                  
                  DBV.removeKunde(AID);
                  DBV.save(pfad);
+             }
+             
+             
+             
+             
+             if("Ab".equals(eingegeben)) 
+             {
+                int AID;
+                System.out.println("Welches moechte der Kunde abholen?");
+                System.out.println("AutoID: ");
+                 
+                AID = eingabe.readint();  
+                 
+                DBV.Auto_abholen(AID);
+                DBV.save(pfad);
+             }
+             
+             
+             
+             if("Z".equals(eingegeben)) 
+             {
+                int AID;
+                System.out.println("Welches Auto moechte der Kunde zurueckgeben?");
+                System.out.println("AutoID: ");
+                 
+                AID = eingabe.readint();  
+                 
+                DBV.Auto_zurueckbringen(AID);
+                DBV.save(pfad);
              }
              
              

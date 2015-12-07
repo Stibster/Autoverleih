@@ -49,6 +49,79 @@ public class DB_Verwalter {
 	
     }
     
+//###Listen.Anzeige-Methoden erstellt von Daniel Meerwald#######################
+    public void Autos_anzeigen(){
+        int i = 0;
+
+        while (i <= Autos.size()) { 
+
+                System.out.println("ID: " + Autos.get(i).getAuto_ID() + "Hersteller: " + Autos.get(i).getHersteller() + 
+                     "Modell: " +  Autos.get(i).getModell() + "Kennzeichen: " + Autos.get(i).getKennzeichen()); 
+                
+                i++; 
+            
+        }
+    }
+    
+    
+    
+    public void Kunden_anzeigen(){
+        int i = 0;
+
+        while (i < Kunden.size()) { 
+            
+            System.out.println("KundenID: " + Kunden.get(i).getKunden_ID() + "Name: " + Kunden.get(i).getVorname() + Kunden.get(i).getNachname());
+            
+                
+           i++;
+            
+        }
+    }
+    
+    
+    
+    public void Ausleihen_anzeigen(){
+        int i = 0;
+
+        while (i <= Ausleihen.size()) {
+
+                System.out.println("Kunden " + Ausleihen.get(i).getKunden_ID() + " hat das Auto " + Ausleihen.get(i).getKunden_ID() + " von " + Ausleihen.get(i).getAusleihdatum() + " bis " + Ausleihen.get(i).getRueckgabedatum() + " gemietet.");
+                
+                i++; 
+        }
+    }
+//###Ausleihen und zurueckgeben Methoden erstellt von Daniel Meerwald###########
+    
+    public void Auto_abholen(int A_ID){
+        int i = 0;
+        boolean indikator = false;
+
+        while (i < Autos.size() && indikator == false) { //Suche bis zum Ende der Liste.
+
+            if (Autos.get(i).getAuto_ID() == A_ID ) {
+                Autos.get(i).setIst_Da(false);
+                indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+            } else {
+                i++; //Andernfalls wird das nächste Element vergleichen.
+            }
+        }
+    }
+    
+    public void Auto_zurueckbringen(int A_ID){
+        int i = 0;
+        boolean indikator = false;
+
+        while (i < Autos.size() && indikator == false) { //Suche bis zum Ende der Liste.
+
+            if (Autos.get(i).getAuto_ID() == A_ID ) {
+                Autos.get(i).setIst_Da(true);
+                indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+            } else {
+                i++; //Andernfalls wird das nächste Element vergleichen.
+            }
+        }
+    }
+    
 //###Getter Methoden erstellt von Daniel Meerwald###############################
     public List<Kunde> getKunden() {
     return Kunden;
