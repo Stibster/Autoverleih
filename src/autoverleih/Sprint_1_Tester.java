@@ -369,7 +369,7 @@ public class Sprint_1_Tester
             System.out.println("q:    Ein Auto schnell erstellen.");
             System.out.println("B:    Ein Auto bearbeiten.");
             System.out.println("L:    Ein Auto löschen");
-            System.out.println("Ab:    Ein Auto abholen");
+            System.out.println("Ab:   Ein Auto abholen");
             System.out.println("Z:    Ein Auto zurückbringen");
             System.out.println("********************************************************");
             System.out.println("Back:     Das Menue verlassen und zum vorherigen Menue zurueckkehren");
