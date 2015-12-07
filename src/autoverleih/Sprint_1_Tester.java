@@ -585,6 +585,15 @@ public class Sprint_1_Tester
          System.out.println("");
 	}
     }
+          
+          
+          
+    if("SaveExit".equals(eingegeben))
+             {
+                 DBV.save(pfad);
+                 Token2 = true;
+                 Token1 = true;
+             }
         
         
         
