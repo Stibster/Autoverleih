@@ -61,7 +61,15 @@ public class Kunde {
                 "Nachname: " + Nachname + "\n" +
                 "Postleitzahl: " + Postleitzahl +  "\n" +
                 "Wohnort: " + Wohnort +  "\n" +
-                "Hier könnt ihr weiter machen... #Raicandy";
+                //#######vervollständigt von Steve Vogel#####
+                "Strasse: " + Strasse + "\n" +
+                "Hausnummer: " + Hausnummer + "\n" +
+                "E-Mail: " + E_Mail + "\n" +
+                "Telefonnummer: " + Telefonnummer + "\n" +
+                "Geburtstag: " + Geburtstag + "\n" +
+                "Fuehrerschein: " + Fuehrerschein + "\n" +
+                "Fuehrerscheindatum: " + Fuehrerscheindatum + "\n" +
+                "Fuehrerscheinklasse: " + Fuehrerscheinklasse + "\n" ;
     }
 //###Getter Methoden erstellt von Daniel Meerwald###############################
     @XmlElement(name = "Kunden_ID")

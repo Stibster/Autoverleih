@@ -88,7 +88,23 @@ public class Auto {
                 "Hersteller: " + Hersteller + "\n" +
                 "Modell: " + Modell +  "\n" +
                 "Bauart: " + Bauart +  "\n" +
-                "Hier könnt ihr weiter machen... #Raicandy";
+                //#######vervollständigt von Steve Vogel#####
+                "Anhaengerkupplung: " + Anhaengerkupplung +  "\n" +
+                "Sitzplaetze: " + Sitzplaetze +  "\n" +
+                "Farbe: " + Farbe +  "\n" +
+                "Leistung: " + Leistung +  "\n" +
+                "Kraftstoff: " + Kraftstoff +  "\n" +
+                "Verbrauch: " + Verbrauch +  "\n" +
+                "Antrieb: " + Antrieb +  "\n" +
+                "Getriebe: " + Getriebe +  "\n" +
+                "Baujahr: " + Baujahr +  "\n" +
+                "Kilometerstand: " + Kilometerstand +  "\n" +
+                "TÜV: " + TUEV +  "\n" +
+                "Kaution: " + Kaution +  "\n" +
+                "Gebuehr pro Tag: " + Gebuehr_pro_Tag +  "\n" +
+                "Fahrbar: " + fahrbar +  "\n" +
+                "Extras: " + Extras +  "\n" +
+                "Gerade verfuegbar: " + ist_da +  "\n" ;
     }
     
 //###Getter Methoden erstellt von Daniel Meerwald###############################  
