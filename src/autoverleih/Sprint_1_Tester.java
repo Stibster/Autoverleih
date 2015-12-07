@@ -75,7 +75,7 @@ public class Sprint_1_Tester
         
          if("K".equals(eingegeben))
          {
-             Token2 = true;
+             Token2 = false;
         while(Token2 != true){
         System.out.println("########################################################");
         System.out.println("Kundenmeue");
@@ -229,7 +229,7 @@ public class Sprint_1_Tester
          
 	 if("V".equals(eingegeben))
 	{
-            Token3 = true;
+            Token3 = false;
         while(Token3 != true){
         System.out.println("########################################################");
         System.out.println("Vermietung");
@@ -358,7 +358,7 @@ public class Sprint_1_Tester
     
           if("A".equals(eingegeben) )
          {
-             Token4 = true;
+             Token4 = false;
             while(Token4 != true){
             System.out.println("########################################################");
             System.out.println("Autos");
