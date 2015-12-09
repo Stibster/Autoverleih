@@ -12,9 +12,6 @@ public class Sprint_1_Tester
                 //Überprüfen ob Datei  C:\\TestDatenbank.xml vorhanden ist, wenn nicht wird diese leer erstellt. #Raicandy
             
         Input eingabe = new Input();
-        Auto auto = new Auto();
-        Kunde kunde = new Kunde();
-	Ausleihe ausleihe = new Ausleihe();
 	DB_Verwalter DBV = new DB_Verwalter();
         String pfad = "C:\\TestDatenbank.xml";
         String eingegeben;
@@ -103,6 +100,7 @@ public class Sprint_1_Tester
              {
 		 
                  // Daten des neuen Kunden eingeben
+                 Kunde kunde = new Kunde();
                  System.out.println("---Neuer Kunde---");
                  System.out.println("Kunden ID: ");
                  kunde.setKunden_ID(eingabe.readint());          
@@ -136,6 +134,7 @@ public class Sprint_1_Tester
              
              if("q".equals(eingegeben))
              {
+                 Kunde kunde = new Kunde();
                  System.out.println("---Neuer Kunde---");
                  System.out.println("Kunden ID: ");
                  kunde.setKunden_ID(eingabe.readint());          
@@ -160,6 +159,7 @@ public class Sprint_1_Tester
                  
                  DBV.removeKunde(KID);
                  
+                 Kunde kunde = new Kunde();
                  System.out.println("---Neuer Kunde---");
                  System.out.println("Kunden ID: ");
                  kunde.setKunden_ID(eingabe.readint());          
@@ -256,6 +256,7 @@ public class Sprint_1_Tester
         
              if("E".equals(eingegeben))
 	     {
+                 Ausleihe ausleihe = new Ausleihe();
                  System.out.println("---Neue Ausleihe---");
 		 System.out.println("Auto ID: ");
 		 ausleihe.setAuto_ID(eingabe.readint());
@@ -275,6 +276,7 @@ public class Sprint_1_Tester
              
              if("q".equals(eingegeben))
              {
+                 Ausleihe ausleihe = new Ausleihe();
                  System.out.println("---Neue Ausleihe---");
 		 System.out.println("Auto ID: ");
 		 ausleihe.setAuto_ID(eingabe.readint());
@@ -301,6 +303,7 @@ public class Sprint_1_Tester
                  
                  DBV.removeAusleihe(KID,AID);
                  
+                 Ausleihe ausleihe = new Ausleihe();
                  System.out.println("---Neue Ausleihe---");
 		 System.out.println("Auto ID: ");
 		 ausleihe.setAuto_ID(eingabe.readint());
@@ -387,6 +390,7 @@ public class Sprint_1_Tester
              if("E".equals(eingegeben))
              {
 		 
+                 Auto auto = new Auto();
                  System.out.println("---Neues Auto---"); 
                  System.out.println("Auto ID: ");
                  auto.setAuto_ID(eingabe.readint());
@@ -443,6 +447,7 @@ public class Sprint_1_Tester
              
              if("q".equals(eingegeben))
              {
+                 Auto auto = new Auto();
                  System.out.println("---Neues Auto---"); 
                  System.out.println("Auto ID: ");
                  auto.setAuto_ID(eingabe.readint());
@@ -469,6 +474,7 @@ public class Sprint_1_Tester
                  
                  DBV.removeKunde(AID);
                  
+                 Auto auto = new Auto();
                  System.out.println("Auto ID: ");
                  auto.setAuto_ID(eingabe.readint());
                  System.out.println("Kennzeichen: ");
