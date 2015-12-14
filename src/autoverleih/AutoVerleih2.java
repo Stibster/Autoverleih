@@ -13,6 +13,8 @@ import javafx.stage.Stage;
 public class AutoVerleih2 extends Application {
 
     public Stage stage;
+  
+   
     
     @Override
     public void start(Stage stage) throws Exception {
