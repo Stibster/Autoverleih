@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="autoverleih.MitarbeiterAnsichtController">
+    <stylesheets>
+        <URL value="@Stylesheet.css" />
+    </stylesheets>
+    <children>
+      <Button fx:id="saveBTN" layoutX="1044.0" layoutY="861.0" mnemonicParsing="false" onAction="#handleSaveExit" text="Speichern und Beenden" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+      <Separator layoutX="14.0" layoutY="71.0" prefHeight="0.0" prefWidth="1209.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="71.0" />
+      <Button fx:id="beispielBTN" layoutX="1078.0" layoutY="35.0" mnemonicParsing="false" onAction="#handleBeispiel" text="Zeige Beispiel" AnchorPane.rightAnchor="33.0" AnchorPane.topAnchor="35.0" />
+      <HBox alignment="CENTER" layoutY="102.0" spacing="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="102.0">
+         <children>
+            <TextField fx:id="customerSearchText" editable="false" layoutX="57.0" layoutY="87.0" pickOnBounds="false" prefHeight="25.0" prefWidth="480.0" promptText="Kundensuche" />
+            <Button fx:id="SearchWorkerBTN" layoutX="511.0" layoutY="87.0" mnemonicParsing="false" onAction="#handleSearch" prefHeight="25.0" prefWidth="115.0" text="Suche" />
+            <TextField fx:id="carSearchText" editable="false" layoutX="639.0" layoutY="87.0" pickOnBounds="false" prefHeight="25.0" prefWidth="480.0" promptText="Fahrzeugsuche" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="70.0" layoutY="140.0" spacing="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="140.0">
+         <children>
+            <TextArea layoutX="70.0" layoutY="140.0" prefHeight="525.0" prefWidth="480.0" />
+            <Button fx:id="showAllBTN" mnemonicParsing="false" onAction="#handleSearch" prefHeight="25.0" prefWidth="115.0" text="Alle Anzeigen">
+               <effect>
+                  <Blend />
+               </effect></Button>
+            <TextArea prefHeight="525.0" prefWidth="480.0" />
+         </children>
+      </HBox>
+      <TextArea layoutY="700.0" prefHeight="200.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0" />
+      <Label layoutX="41.0" layoutY="79.0" text="Kundensuche" />
+      <Label layoutX="696.0" layoutY="79.0" text="Fahrzeugsuche" />
+      <MenuBar layoutX="20.0" layoutY="20.0" prefHeight="0.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-0.0" AnchorPane.topAnchor="0.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="Werkzeuge">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Close" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Login">
+               <items>
+                  <MenuItem fx:id="loginAdmin" mnemonicParsing="false" onAction="#handleLoginAdmin" text="Als Admin" />
+                  <MenuItem fx:id="LoginWorker" disable="true" mnemonicParsing="false" text="Als Mitarbeiter" />
+                  <MenuItem fx:id="logOut" mnemonicParsing="false" onAction="#handleLogOut" text="Logout" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Hilfe">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>

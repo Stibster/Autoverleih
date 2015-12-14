@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="262.0" prefWidth="562.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="autoverleih.LoginPopUpController">
+    <stylesheets>
+        <URL value="@Stylesheet.css" />
+    </stylesheets>
+   <children>
+      <HBox alignment="CENTER_RIGHT" layoutY="45.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label layoutX="53.0" layoutY="117.0" text="Name:" />
+            <TextField fx:id="nameText" layoutX="142.0" layoutY="113.0" prefWidth="317.0" />
+         </children>
+         <padding>
+            <Insets right="120.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER_RIGHT" layoutY="107.0" prefHeight="25.0" prefWidth="600.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label layoutX="54.0" layoutY="179.0" text="Password:" />
+            <PasswordField fx:id="passText" prefWidth="317.0" />
+         </children>
+         <padding>
+            <Insets right="120.0" />
+         </padding>
+      </HBox>
+      <Label fx:id="label" alignment="CENTER" layoutY="190.0" text="Name oder Password ist falsch" textFill="RED" underline="true" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" layoutY="149.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="anmeldenBTN" layoutX="208.0" layoutY="198.0" mnemonicParsing="false" onAction="#handleAnmeldenBTN" text="Anmelden" />
+            <Button fx:id="verlassenBTN" layoutX="376.0" layoutY="198.0" mnemonicParsing="false" onAction="#handleVerlassenBTN" text="Verlassen" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

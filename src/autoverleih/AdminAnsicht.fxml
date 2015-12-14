@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="1200.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="autoverleih.AdminAnsichtController">
+    <stylesheets>
+        <URL value="@Stylesheet.css" />
+    </stylesheets>
+   <children>
+      <MenuBar layoutX="10.0" layoutY="10.0" prefHeight="0.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="Werkzeuge">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Close" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Login">
+               <items>
+                  <MenuItem fx:id="loginAdmin" disable="true" mnemonicParsing="false" text="Als Admin" />
+                  <MenuItem fx:id="LoginWorker" mnemonicParsing="false" onAction="#handleLoginWorker" text="Als Mitarbeiter" />
+                  <MenuItem fx:id="logOut" mnemonicParsing="false" onAction="#handleLogOut" text="Logout" />
+                  <MenuItem fx:id="loginBeispiel" mnemonicParsing="false" onAction="#handleLoginBeispiel" text="Login Beispiel" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Hilfe">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <Button fx:id="saveBTN" layoutX="1044.0" layoutY="861.0" mnemonicParsing="false" onAction="#handleSaveExit" text="Speichern und Beenden" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+   </children>
+</AnchorPane>
