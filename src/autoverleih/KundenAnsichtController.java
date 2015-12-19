@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -23,11 +24,11 @@ import javafx.stage.Stage;
  */
 public class KundenAnsichtController implements Initializable {
 
+    private boolean accessAdmin, accessWorker = false;
     @FXML    private Button saveBTN;
     @FXML    private Button beispielBTN;
     @FXML    private Button SearchBTN;
-    @FXML    private MenuItem loginAdmin;
-    @FXML    private MenuItem LoginWorker;
+    @FXML    private MenuItem logIn;
     @FXML    private TextField searchText;
     @FXML    private TextField markeText;
     @FXML    private TextField modellText;
@@ -35,7 +36,7 @@ public class KundenAnsichtController implements Initializable {
     @FXML    private TextField leistungText;
     @FXML    private TextField sitzeText;
     @FXML    private TextField kostenText;
-    @FXML    private MenuItem handleLoginWorker;
+    @FXML    private MenuItem logOut;
 
     /**
      * Initializes the controller class.
@@ -46,41 +47,24 @@ public class KundenAnsichtController implements Initializable {
     }
 
     @FXML
-    private void handleLoginAdmin() {
-        Stage stage = (Stage) saveBTN.getScene().getWindow();
+    private void handleLogin() {
+        Stage popUp = new Stage();
+        popUp.setTitle("Login");
         Parent Page;
         try {
-            Page = FXMLLoader.load(getClass().getResource("AdminAnsicht.fxml"));
-
-            Scene scene = new Scene(Page);
-
-            stage.setScene(scene);
-            stage.show();
+            Page = FXMLLoader.load(getClass().getResource("LoginPopUp.fxml"));
+            
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
         } catch (IOException ex) {
-            Logger.getLogger(MitarbeiterAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-//  Methode für das Login als Mittarbeiter im DropDownMenü 
-    @FXML
-    private void handleLoginWorker() {
-        Stage stage = (Stage) saveBTN.getScene().getWindow();
-        Parent Page;
-        try {
-            Page = FXMLLoader.load(getClass().getResource("MitarbeiterAnsicht.fxml"));
-
-            Scene scene = new Scene(Page);
-
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(MitarbeiterAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        //>X
-    }
+    
 //  Beistpeil für die anzeige eines Fahrzeugs
 //  Wird in nur zum testen Verwendet
-
     @FXML
     private void handleBeispiel(ActionEvent event) {
         markeText.setText("Nissan");
@@ -103,4 +87,5 @@ public class KundenAnsichtController implements Initializable {
     private void handleSaveExit(ActionEvent event) {
         System.exit(0);
     }
+    
 }

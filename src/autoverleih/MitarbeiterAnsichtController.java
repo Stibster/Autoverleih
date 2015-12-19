@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -25,8 +26,7 @@ public class MitarbeiterAnsichtController implements Initializable {
 
     @FXML    private Button saveBTN;
     @FXML    private Button beispielBTN;
-    @FXML    private MenuItem loginAdmin;
-    @FXML    private MenuItem LoginWorker;
+    @FXML    private MenuItem login;
     @FXML    private MenuItem logOut;
     @FXML    private TextField customerSearchText;
     @FXML    private Button SearchWorkerBTN;
@@ -51,21 +51,22 @@ public class MitarbeiterAnsichtController implements Initializable {
     }
 
     @FXML
-    private void handleLoginAdmin() {
-        Stage stage = (Stage) saveBTN.getScene().getWindow();
+    private void handleLogin() {
+        Stage popUp = new Stage();
+        popUp.setTitle("Login");
         Parent Page;
         try {
-            Page = FXMLLoader.load(getClass().getResource("AdminAnsicht.fxml"));
+            Page = FXMLLoader.load(getClass().getResource("LoginPopUp.fxml"));
 
-            Scene scene = new Scene(Page);
-
-            stage.setScene(scene);
-            stage.show();
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
         } catch (IOException ex) {
-            Logger.getLogger(MitarbeiterAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
     @FXML
     private void handleLogOut(ActionEvent event) {
         Stage stage = (Stage) saveBTN.getScene().getWindow();

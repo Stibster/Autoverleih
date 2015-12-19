@@ -72,8 +72,7 @@
             </Menu>
             <Menu mnemonicParsing="false" text="Login">
                <items>
-                  <MenuItem fx:id="loginAdmin" mnemonicParsing="false" onAction="#handleLoginAdmin" text="Als Admin" />
-                  <MenuItem fx:id="LoginWorker" mnemonicParsing="false" onAction="#handleLoginWorker" text="Als Mitarbeiter" />
+                  <MenuItem fx:id="logIn" mnemonicParsing="false" onAction="#handleLogin" text="Login" />
                   <MenuItem fx:id="logOut" disable="true" mnemonicParsing="false" text="Logout" />
                </items>
             </Menu>

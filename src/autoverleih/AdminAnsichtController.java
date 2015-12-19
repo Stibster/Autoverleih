@@ -17,6 +17,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -28,6 +31,19 @@ import javafx.stage.Stage;
 public class AdminAnsichtController implements Initializable {
 
     @FXML    private Button saveBTN;
+    @FXML    private MenuItem logIn;
+    @FXML    private MenuItem logOut;
+    @FXML    private ImageView fahrzeugFoto;
+    @FXML    private TextField markeText;
+    @FXML    private TextField modellText;
+    @FXML    private TextField FarbeText;
+    @FXML    private TextField leistungText;
+    @FXML    private TextField sitzeText;
+    @FXML    private TextField kostenText;
+    @FXML    private TextField kennzeichenText;
+    @FXML    private TextField idText;
+    @FXML    private Button newCar;
+    @FXML    private Button changeCar;
 
     /**
      * Initializes the controller class.
@@ -55,7 +71,9 @@ public class AdminAnsichtController implements Initializable {
     }
 
     @FXML
-    private void handleLoginWorker() {
+    private void handleSaveExit(ActionEvent event) {
+        System.exit(0);
+        
         Stage stage = (Stage) saveBTN.getScene().getWindow();
         Parent Page;
         try {
@@ -68,29 +86,6 @@ public class AdminAnsichtController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(MitarbeiterAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    @FXML
-    private void handleLoginBeispiel() {
-        Stage popUp = new Stage();
-        popUp.setTitle("Login");
-        Parent Page;
-        try {
-            Page = FXMLLoader.load(getClass().getResource("LoginPopUp.fxml"));
-            
-            popUp.setScene(new Scene(Page));
-            popUp.initModality(Modality.APPLICATION_MODAL);
-            popUp.initOwner(saveBTN.getScene().getWindow());
-            popUp.showAndWait();
-        } catch (IOException ex) {
-            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-
-    @FXML
-    private void handleSaveExit(ActionEvent event) {
-        System.exit(0);
     }
 
 }

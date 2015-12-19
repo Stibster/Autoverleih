@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
@@ -21,10 +23,8 @@
             </Menu>
             <Menu mnemonicParsing="false" text="Login">
                <items>
-                  <MenuItem fx:id="loginAdmin" disable="true" mnemonicParsing="false" text="Als Admin" />
-                  <MenuItem fx:id="LoginWorker" mnemonicParsing="false" onAction="#handleLoginWorker" text="Als Mitarbeiter" />
+                  <MenuItem fx:id="logIn" disable="true" mnemonicParsing="false" text="Login" />
                   <MenuItem fx:id="logOut" mnemonicParsing="false" onAction="#handleLogOut" text="Logout" />
-                  <MenuItem fx:id="loginBeispiel" mnemonicParsing="false" onAction="#handleLoginBeispiel" text="Login Beispiel" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Hilfe">
@@ -35,5 +35,55 @@
          </menus>
       </MenuBar>
       <Button fx:id="saveBTN" layoutX="1044.0" layoutY="861.0" mnemonicParsing="false" onAction="#handleSaveExit" text="Speichern und Beenden" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+      <VBox alignment="TOP_CENTER" layoutX="903.0" layoutY="41.0" prefHeight="680.0" prefWidth="271.0" spacing="25.0" AnchorPane.bottomAnchor="179.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="50.0">
+         <children>
+            <ImageView fx:id="fahrzeugFoto" fitHeight="270.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true" />
+            <TextField fx:id="markeText" layoutX="1031.0" layoutY="35.0" prefHeight="25.0" prefWidth="271.0" promptText="Marke">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextField>
+            <TextField fx:id="modellText" prefHeight="25.0" promptText="Modell">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="FarbeText" prefHeight="25.0" promptText="Farbe">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="leistungText" prefHeight="25.0" promptText="Leistung">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="sitzeText" prefHeight="25.0" promptText="Sitzplätze">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="kostenText" prefHeight="25.0" promptText="Kosten pro Tag">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="kennzeichenText" promptText="Kennzeichen" />
+            <TextField fx:id="idText" prefHeight="25.0" promptText="ID">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TextField>
+            <HBox alignment="CENTER" spacing="50.0">
+               <children>
+                  <Button fx:id="newCar" layoutX="177.0" layoutY="288.0" mnemonicParsing="false" text="Neu Anlegen" />
+                  <Button fx:id="changeCar" layoutX="236.0" layoutY="288.0" mnemonicParsing="false" text="Ändern" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
