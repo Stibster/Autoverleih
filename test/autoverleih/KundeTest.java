@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Tiago
+ * @author Danilo May
  */
 public class KundeTest {
     
