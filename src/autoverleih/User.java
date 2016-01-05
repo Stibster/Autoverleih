@@ -1,0 +1,58 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package autoverleih;
+
+/**
+ *
+ * @author Christopher
+ */
+class User 
+{
+    int User_ID;    //id des nutzers
+    String User_Name; //name des nutzers
+    String User_PW; //user password
+    
+    public User(int U_ID, String U_NAME, String U_PW)
+    {
+	User_ID = U_ID;
+	User_Name = U_NAME;
+	User_PW = U_PW;
+    }
+    public User()
+    {
+    }
+    
+    public int getUser_ID() 
+    {
+        return User_ID;
+    }
+    
+    public String getUser_NAME() 
+    {
+        return User_Name;
+    }
+    
+    public String getUser_PW() 
+    {
+        return User_PW;
+    }
+    
+    public void setU_ID(int U_ID) 
+    {
+        this.User_ID = U_ID;
+    }
+    
+    public void setU_Name(String U_NAME) 
+    {
+        this.User_Name = U_NAME;
+    }
+    
+    public void setU_pw(String U_PW) 
+    {
+        this.User_PW = U_PW;
+    }
+}
+
