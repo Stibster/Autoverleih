@@ -217,7 +217,7 @@ public class DB_Verwalter {
     
         public void save(String pfad) {
      
-        Listenhelper Listehelper = new Listenhelper(Kunden, Autos, Ausleihen);
+        Listenhelper Listehelper = new Listenhelper(Kunden, Autos, Ausleihen,Users);
 	  try { 
 
 		File file = new File(pfad);
@@ -283,7 +283,7 @@ public class DB_Verwalter {
 //###Restore Methode erstellt von Daniel Meerwald###############################
         public void restore(String pfad) { 
             
-        Listenhelper Listehelper = new Listenhelper(Kunden, Autos, Ausleihen);
+        Listenhelper Listehelper = new Listenhelper(Kunden, Autos, Ausleihen,Users);
     try {
 
 		File file = new File(pfad);
