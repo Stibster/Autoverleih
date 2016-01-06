@@ -29,17 +29,23 @@ public class Listenhelper {
         
     @XmlElement(name = "Ausleiheliste")
     private List<Ausleihe> Ausleihen = new ArrayList<Ausleihe>();
+    
+    //############### Christopher Haack
+    @XmlElement(name = "Userliste")
+    private List<User> Users = new ArrayList<User>();
+    //########################
      
     
     
     public Listenhelper() {}
   
     
-    
-    public Listenhelper(List<Kunde> Kunden, List<Auto> Autos, List<Ausleihe> Ausleihen) {
+    //Christopher Useres hinzugefuegt
+    public Listenhelper(List<Kunde> Kunden, List<Auto> Autos, List<Ausleihe> Ausleihen,List<User> Useres) {
         this.Kunden = Kunden;
         this.Autos = Autos;
         this.Ausleihen = Ausleihen;
+	this.Users = Useres;
     }
  
     
@@ -67,4 +73,14 @@ public class Listenhelper {
         this.Ausleihen = Ausleihen;
     }   
 //##############################################################################
+    //##############Christopher Haack
+    public List<User> getUsers() 
+    {
+        return Users;
+    }
+     public void setUsers(List<User> Users) 
+     {
+        this.Users = Users;
+    }
+    //########################################
 }

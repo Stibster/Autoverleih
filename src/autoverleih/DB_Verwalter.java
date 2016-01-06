@@ -43,6 +43,14 @@ public class DB_Verwalter {
     //versteh nur noicht wiso wir dann auch keine instance von Kunde benotigen?
 //##############################################################################
     
+//############################# User erstellung Christopher Haack###############
+ 
+    @XmlElement(name = "Userliste")
+    @XmlElementWrapper(name = "wrapper")
+    List<User> Users = new ArrayList<>();
+    
+//##############################################################################
+    
 //###Konstruktor################################################################
     
     public DB_Verwalter(){
@@ -225,6 +233,53 @@ public class DB_Verwalter {
 		e.printStackTrace();
 	      }
     }
+	
+//######################## Christopher Haack User add,set,remoove, anzeigen
+    public List<User> getUsers() {
+        return Users;
+    }
+    
+    public void setUser(List<User> Users) 
+    {
+        this.Users = Users;
+    }
+    
+    public void addUser(User user) 
+    {
+        
+       	Users.add(user);
+    }
+    
+    public void removeUser(int U_ID)
+    {
+        int i = 0;
+        boolean indikator = false;
+
+        while (i < Users.size() && indikator == false) { //Suche bis zum Ende der Liste.
+
+            if (Users.get(i).getUser_ID() == U_ID ) {
+                Users.remove(i);
+                indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+            } else {
+                i++; //Andernfalls wird das nächste Element vergleichen.
+            }
+        }
+    }
+    
+     public void User_anzeigen()
+    {
+        int i = 0;
+
+        while (i <= Users.size()-1) { 
+            
+            System.out.println("KundenID: " + Users.get(i).getUser_ID() + " Name: " + 
+		    Users.get(i).getUser_NAME() + " " +  Users.get(i).getUser_PW());           
+           i++;
+            
+        }
+    }
+//############################################################################## 
+ 
 //###Restore Methode erstellt von Daniel Meerwald###############################
         public void restore(String pfad) { 
             
@@ -249,6 +304,11 @@ public class DB_Verwalter {
           
           Ausleihen.clear();
           Ausleihen = Listehelper.getAusleihen();
+	  
+	  //###########Christopher Haack###########
+	  Users.clear();
+	  Users = Listehelper.getUsers();
+	  //#################
     }
 //##############################################################################
 }

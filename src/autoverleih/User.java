@@ -5,11 +5,15 @@
  */
 package autoverleih;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  *
  * @author Christopher
  */
-class User 
+@XmlRootElement(name = "User")
+public class User 
 {
     int User_ID;    //id des nutzers
     String User_Name; //name des nutzers
@@ -25,16 +29,19 @@ class User
     {
     }
     
+    @XmlElement(name = "User_ID")
     public int getUser_ID() 
     {
         return User_ID;
     }
     
+    @XmlElement(name = "Username")
     public String getUser_NAME() 
     {
         return User_Name;
     }
     
+    @XmlElement(name = "Userpasswort")
     public String getUser_PW() 
     {
         return User_PW;
