@@ -42,8 +42,8 @@ public class LoginPopUpController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+    //toDo  
+    }
 
     @FXML
     private void handleAnmeldenBTN(ActionEvent event) {

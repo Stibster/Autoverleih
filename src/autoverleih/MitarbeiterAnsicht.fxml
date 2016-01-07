@@ -24,7 +24,7 @@
             <TextField fx:id="carSearchText" editable="false" layoutX="639.0" layoutY="87.0" pickOnBounds="false" prefHeight="25.0" prefWidth="480.0" promptText="Fahrzeugsuche" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" layoutX="70.0" layoutY="140.0" spacing="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="140.0">
+      <HBox alignment="CENTER" layoutX="70.0" layoutY="140.0" prefHeight="445.0" prefWidth="1200.0" spacing="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="140.0">
          <children>
             <TextArea layoutX="70.0" layoutY="140.0" prefHeight="525.0" prefWidth="480.0" />
             <Button fx:id="showAllBTN" mnemonicParsing="false" onAction="#handleSearch" prefHeight="25.0" prefWidth="115.0" text="Alle Anzeigen">
@@ -34,13 +34,18 @@
             <TextArea prefHeight="525.0" prefWidth="480.0" />
          </children>
       </HBox>
-      <TextArea layoutY="700.0" prefHeight="200.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0" />
+      <TextArea fx:id="console" editable="false" layoutY="700.0" prefHeight="200.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0" />
       <Label layoutX="41.0" layoutY="79.0" text="Kundensuche" />
       <Label layoutX="696.0" layoutY="79.0" text="Fahrzeugsuche" />
       <MenuBar layoutX="20.0" layoutY="20.0" prefHeight="0.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-0.0" AnchorPane.topAnchor="0.0">
          <menus>
             <Menu mnemonicParsing="false" text="Werkzeuge">
                <items>
+                  <MenuItem fx:id="addUserMenue" mnemonicParsing="false" onAction="#handleAddUserMenue" text="Kunde Erstellen" />
+                  <MenuItem mnemonicParsing="false" text="Kunde Löschen" />
+                  <MenuItem mnemonicParsing="false" text="Vermietungsfall Erstellen" />
+                  <MenuItem mnemonicParsing="false" text="Fahrzeug Abholen" />
+                  <MenuItem mnemonicParsing="false" text="Fahrzeug Rückgabe" />
                   <MenuItem mnemonicParsing="false" text="Close" />
                </items>
             </Menu>
@@ -57,5 +62,6 @@
             </Menu>
          </menus>
       </MenuBar>
+      <TextField fx:id="consoleText" layoutY="675.0" prefHeight="25.0" prefWidth="826.0" />
    </children>
 </AnchorPane>

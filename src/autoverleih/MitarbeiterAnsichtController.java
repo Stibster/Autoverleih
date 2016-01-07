@@ -13,6 +13,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -24,6 +26,7 @@ import javafx.stage.Stage;
  */
 public class MitarbeiterAnsichtController implements Initializable {
 
+
     @FXML    private Button saveBTN;
     @FXML    private Button beispielBTN;
     @FXML    private MenuItem login;
@@ -32,6 +35,8 @@ public class MitarbeiterAnsichtController implements Initializable {
     @FXML    private Button SearchWorkerBTN;
     @FXML    private TextField carSearchText;
     @FXML    private Button SearchWorkerBTN1;
+    @FXML    private TextArea console;
+    @FXML    private TextField consoleText;
 
     /**
      * Initializes the controller class.
@@ -86,6 +91,24 @@ public class MitarbeiterAnsichtController implements Initializable {
 
     @FXML
     private void handleSearch(ActionEvent event) {
+    }
+    
+    @FXML 
+    private void handleAddUserMenue() throws InterruptedException{
+	Stage popUp = new Stage();
+	popUp.setTitle("Kunde Erstellen");
+	Parent Page;
+	try {
+	    Page = FXMLLoader.load(getClass().getResource("KErstellen.fxml"));
+
+	    popUp.setScene(new Scene(Page));
+	    popUp.initModality(Modality.APPLICATION_MODAL);
+	    popUp.initOwner(saveBTN.getScene().getWindow());
+	    popUp.showAndWait();
+	} catch (IOException ex) {
+	    Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+	}	
+	
     }
 
 }
