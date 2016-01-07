@@ -61,8 +61,8 @@ public class Vfall_popupController implements Initializable {
 		    eror_date.setVisible(false);
 		    A_id = Integer.parseInt(autoID.getText());
 		    K_id = Integer.parseInt(kundeID.getText());
-		    start = "20.01.12";
-		    end = "01.05.01";
+		    start = 20.01.12;
+		    end = 01.05.01;
 		    fehler = MC_Hammer.addAusleihe(A_id, K_id, start, back);
 		    break;
 		case -2:
@@ -72,8 +72,8 @@ public class Vfall_popupController implements Initializable {
 		    eror_date.setVisible(false);
 		    A_id = Integer.parseInt(autoID.getText());
 		    K_id = Integer.parseInt(kundeID.getText());
-		    start = "20.01.12";
-		    end = "01.05.01";
+		    start = 20.01.12;
+		    end = 01.05.01;
 		    fehler = MC_Hammer.addAusleihe(A_id, K_id, start, back);
 		    break;
 		case -3:
@@ -82,8 +82,8 @@ public class Vfall_popupController implements Initializable {
 		    eror_date.setVisible(true);
 		    A_id = Integer.parseInt(autoID.getText());
 		    K_id = Integer.parseInt(kundeID.getText());
-		    start = "20.01.12";
-		    end = "01.05.01";
+		    start = 20.01.12;
+		    end = 01.05.01;
 		    fehler = MC_Hammer.addAusleihe(A_id, K_id, start, back);
 		    break;
 		default:
@@ -93,8 +93,8 @@ public class Vfall_popupController implements Initializable {
 		    
 		    A_id = Integer.parseInt(autoID.getText());
 		    K_id = Integer.parseInt(kundeID.getText());
-		    start = "20.01.12";
-		    end = "01.05.01";
+		    start = 20.01.12;
+		    end = 01.05.01;
 		    fehler = MC_Hammer.addAusleihe(A_id, K_id, start, back);
 		    break;
 	    }
