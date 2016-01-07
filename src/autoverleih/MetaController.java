@@ -109,6 +109,7 @@ public class MetaController {
 	if(indikator >= 0)
 	{
 	    DBV.addAusleihe(ausleihe);
+	    DBV.save(pfad);
 	    return 0;
 	}
 	else 

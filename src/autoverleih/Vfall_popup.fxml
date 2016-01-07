@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="autoverleih.Vfall_popupController">
+    <stylesheets>
+	<URL value="@Stylesheet.css" />
+    </stylesheets>
+   <children>
+      <TextField fx:id="kundeID" layoutX="63.0" layoutY="57.0" promptText="Kunden ID" />
+      <TextField fx:id="autoID" layoutX="383.0" layoutY="57.0" promptText="Auto ID" />
+      <TextField fx:id="vonDate" layoutX="63.0" layoutY="245.0" promptText="Von Datum" />
+      <TextField fx:id="bisDate" layoutX="397.0" layoutY="245.0" promptText="bis Datum" />
+      <Label layoutX="272.0" layoutY="192.0" text="datum" />
+      <Button fx:id="vsave_button" layoutX="264.0" layoutY="333.0" mnemonicParsing="false" onAction="#handleVsave" text="Speichern" />
+   </children>
+</AnchorPane>
