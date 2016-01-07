@@ -6,17 +6,21 @@
 package autoverleih;
 
 import java.net.URL;
+import java.text.ParseException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import java.util.Date;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
- * @author hiki-tink
+ * @author Haack Christopher
  */
 public class Vfall_popupController implements Initializable {
 
@@ -25,7 +29,10 @@ public class Vfall_popupController implements Initializable {
     @FXML    private TextField vonDate;
     @FXML    private TextField bisDate;
     @FXML    private Button vsave_button;
-
+    @FXML    private Label eror_k_id;
+    @FXML    private Label eror_a_id;
+    @FXML    private Label eror_date;
+    
     MetaController MC_Hammer = new MetaController();
     /**
      * Initializes the controller class.
@@ -36,8 +43,65 @@ public class Vfall_popupController implements Initializable {
     }    
 
     @FXML
-    private void handleVsave(ActionEvent event) 
+    private void handleVsave(ActionEvent event) throws ParseException 
     {
+	int fehler = 0; //fuehr fehler fall
+	int A_id = -1;  //auto id
+	int K_id = -1;	//kunden id
+	Date start = null; //start datum 
+	Date back = null;   //ruegabe datum
+	while (fehler <= 0) 
+	{
+	    switch (fehler) 
+	    {
+		case -1:
+		    
+		    eror_a_id.setVisible(true);
+	            eror_k_id.setVisible(false);
+		    eror_date.setVisible(false);
+		    A_id = Integer.parseInt(autoID.getText());
+		    K_id = Integer.parseInt(kundeID.getText());
+		    start = "20.01.12";
+		    end = "01.05.01";
+		    fehler = MC_Hammer.addAusleihe(A_id, K_id, start, back);
+		    break;
+		case -2:
+	
+		    eror_a_id.setVisible(false);
+	            eror_k_id.setVisible(true);
+		    eror_date.setVisible(false);
+		    A_id = Integer.parseInt(autoID.getText());
+		    K_id = Integer.parseInt(kundeID.getText());
+		    start = "20.01.12";
+		    end = "01.05.01";
+		    fehler = MC_Hammer.addAusleihe(A_id, K_id, start, back);
+		    break;
+		case -3:
+		    eror_a_id.setVisible(false);
+	            eror_k_id.setVisible(false);
+		    eror_date.setVisible(true);
+		    A_id = Integer.parseInt(autoID.getText());
+		    K_id = Integer.parseInt(kundeID.getText());
+		    start = "20.01.12";
+		    end = "01.05.01";
+		    fehler = MC_Hammer.addAusleihe(A_id, K_id, start, back);
+		    break;
+		default:
+		    eror_a_id.setVisible(false);
+	            eror_k_id.setVisible(false);
+		    eror_date.setVisible(false);
+		    
+		    A_id = Integer.parseInt(autoID.getText());
+		    K_id = Integer.parseInt(kundeID.getText());
+		    start = "20.01.12";
+		    end = "01.05.01";
+		    fehler = MC_Hammer.addAusleihe(A_id, K_id, start, back);
+		    break;
+	    }
+	}
+	Stage popUp = (Stage) eror_k_id.getScene().getWindow();
+        popUp.close();
+
     }
     
 }

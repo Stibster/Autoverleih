@@ -17,6 +17,8 @@ public class MetaController {
     DB_Verwalter DBV = new DB_Verwalter();
     String pfad = "C:\\TestDatenbank.xml";
     
+    // 1 return alles erfolgreich gespeichert
+    // 0 normal fall keine daten, nichts wird angezeigt
     // -1 auto id
     // -2 kunde
     // -3 ausleihdatum
@@ -44,8 +46,8 @@ public class MetaController {
             }
             else{
 		indikator = -1;
-                System.out.println("Auto-ID nicht gefunden, bitte erneut eingeben.");
-                System.out.println("Auto-ID: ");
+                //System.out.println("Auto-ID nicht gefunden, bitte erneut eingeben.");
+                //System.out.println("Auto-ID: ");
                 Auto_ID = eingabe.readint();
             }
       }
@@ -110,7 +112,7 @@ public class MetaController {
 	{
 	    DBV.addAusleihe(ausleihe);
 	    DBV.save(pfad);
-	    return 0;
+	    return 1;
 	}
 	else 
 	{return indikator;}

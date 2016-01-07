@@ -29,12 +29,16 @@ import javafx.stage.Stage;
  */
 public class LoginPopUpController implements Initializable {
         
-    @FXML    private Label label;
-    @FXML    private Button anmeldenBTN;
-    @FXML    private Button verlassenBTN;
-    @FXML    private TextField passText;
-    @FXML    private TextField nameText;
-    
+    @FXML
+    private Label label;
+    @FXML
+    private Button anmeldenBTN;
+    @FXML
+    private Button verlassenBTN;
+    @FXML
+    private TextField passText;
+    @FXML
+    private TextField nameText;
 //    Stage popUp = (Stage) label.getScene().getWindow();
 
     /**
