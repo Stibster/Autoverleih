@@ -21,7 +21,7 @@ import static org.junit.Assert.*;
  */
 public class AutoTest {
     Date tuev = new Date(116, 10, 2);
-    File Foto1 = new File("C:\\Users\\Tiago\\Desktop\\212___2\\IMG_4285");
+    File Foto1 = new File("C:\\Autoverleih\\Test2");
     public AutoTest() {
     }
     
@@ -351,7 +351,7 @@ public class AutoTest {
     @Test
     public void testSetFoto() {
         System.out.println("setFoto");
-        File Foto2 = new File("C:\\Users\\Tiago\\Desktop\\212___2\\IMG_4283");
+        File Foto2 = new File("C:\\Autoverleih\\Test1");
         Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setFoto(Foto2);
         // TODO review the generated test code and remove the default call to fail.

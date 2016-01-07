@@ -20,8 +20,8 @@ import static org.junit.Assert.*;
  */
 public class KundeTest {
     
-    File FS = new File("C:\\Users\\Tiago\\Desktop\\212___2\\IMG_4285");
-    File FS2 = new File("C:\\Users\\Tiago\\Desktop\\212___2\\IMG_4283");
+    File FS = new File("C:\\Autoverleih\\Test2");
+    File FS2 = new File("C:\\Autoverleih\\Test1");
     Date Geb = new Date(70, 10, 13);
     Date FD = new Date(118, 10, 16);
     
@@ -51,7 +51,7 @@ public class KundeTest {
     public void testToString() {
         System.out.println("toString");
         Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
-        String expResult = "Kunden_ID: 2\n" + "Vorname: vn\n" + "Nachname:  nn\n" + "Postleitzahl: 9045\n" + "Wohnort: wo\n" + "Strasse:  str\n" + "Hausnummer: n3\n" + "E-Mail: em\n" + "Telefonnummer: 134\n" + "Geburtstag: Fri Nov 13 00:00:00 CET 1970\n" + "Fuehrerschein: C:\\Users\\Tiago\\Desktop\\212___2\\IMG_4285\n" + "Fuehrerscheindatum: Fri Nov 16 00:00:00 CET 2018\n" + "Fuehrerscheinklasse: ads\n";
+        String expResult = "Kunden_ID: 2\n" + "Vorname: vn\n" + "Nachname:  nn\n" + "Postleitzahl: 9045\n" + "Wohnort: wo\n" + "Strasse:  str\n" + "Hausnummer: n3\n" + "E-Mail: em\n" + "Telefonnummer: 134\n" + "Geburtstag: Fri Nov 13 00:00:00 CET 1970\n" + "Fuehrerschein: C:\\Autoverleih\\Test2\n" + "Fuehrerscheindatum: Fri Nov 16 00:00:00 CET 2018\n" + "Fuehrerscheinklasse: ads\n";
         String result = instance.toString();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
