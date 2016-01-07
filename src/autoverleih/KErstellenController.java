@@ -11,7 +11,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -27,6 +29,9 @@ public class KErstellenController implements Initializable {
     @FXML    private TextField name_text;
     @FXML    private TextField vorname_text;
     @FXML    private Button k_pop_save;
+    @FXML    private Label idLabel;
+    @FXML    private Label preLabel;
+    @FXML    private Label postLabel;
 
     /**
      * Initializes the controller class.
@@ -47,6 +52,19 @@ public class KErstellenController implements Initializable {
 	kunde.setVorname(vorname_text.getText());
 	DBV.addKunde(kunde);
 	DBV.save(pfad);
+	
+/*	if(mcmethode == 0){
+		DBV.addKunde(kunde);
+		DBV.save(pfad);	
+		Stage popUp = (Stage) id_text.getScene().getWindow();
+	        popUp.close();	
+	}if(returnwert == -1){
+	    idLabel soll rot werden.
+	}
+	
+*/	
+	Stage popUp = (Stage) id_text.getScene().getWindow();
+        popUp.close();
     }
     
 }

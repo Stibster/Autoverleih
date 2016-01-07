@@ -16,13 +16,17 @@ public class MetaController {
     Input eingabe = new Input();
     DB_Verwalter DBV = new DB_Verwalter();
     String pfad = "C:\\TestDatenbank.xml";
-        
-        
-    public void addAusleihe(int Auto_ID, int Kunden_ID, Date Ausleihdatum, Date Rueckgabedatum) throws ParseException{
+    
+    // -1 auto id
+    // -2 kunde
+    // -3 ausleihdatum
+    
+    public int addAusleihe(int Auto_ID, int Kunden_ID, Date Ausleihdatum, Date Rueckgabedatum) throws ParseException{
         
         Ausleihe ausleihe = new Ausleihe();       
         int i = 0;
         boolean Indikator = false;
+	int indikator = -1;
         
     //#####################Überprüfung für die Auto-ID.#########################
       while(Indikator != true){
@@ -39,6 +43,7 @@ public class MetaController {
                 ausleihe.setAuto_ID(Auto_ID);
             }
             else{
+		indikator = -1;
                 System.out.println("Auto-ID nicht gefunden, bitte erneut eingeben.");
                 System.out.println("Auto-ID: ");
                 Auto_ID = eingabe.readint();
@@ -65,7 +70,8 @@ public class MetaController {
                 System.out.println("Kunden-ID nicht gefunden, bitte erneut eingeben.");
                 System.out.println("Kunden-ID: ");
                 Auto_ID = eingabe.readint();
-            }
+		indikator = -2;
+	    }
       }
       
     //#####################Überprüfen für Ausleihe.#############################
@@ -91,6 +97,7 @@ public class MetaController {
                 Ausleihdatum = eingabe.readdate();
                 System.out.println("Rueckgabedatum: ");
                 Rueckgabedatum = eingabe.readdate();
+		indikator = -3;
             }
             else{
                 ausleihe.setAusleihdatum(Ausleihdatum);
@@ -99,7 +106,13 @@ public class MetaController {
       }
 	
         //Wenn alles korrekt ist wird die Ausleihe hinzugefügt.
-        DBV.addAusleihe(ausleihe);
+	if(indikator >= 0)
+	{
+	    DBV.addAusleihe(ausleihe);
+	    return 0;
+	}
+	else 
+	{return indikator;}
         }
         
     }
