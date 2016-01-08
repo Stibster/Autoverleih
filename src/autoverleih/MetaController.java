@@ -48,9 +48,6 @@ public class MetaController {
             }
             else{
 		indikator = -1;
-                //System.out.println("Auto-ID nicht gefunden, bitte erneut eingeben.");
-                //System.out.println("Auto-ID: ");
-                Auto_ID = eingabe.readint();
             }
       }
             
@@ -71,9 +68,6 @@ public class MetaController {
                 ausleihe.setKunden_ID(Kunden_ID);
             }
             else{
-                System.out.println("Kunden-ID nicht gefunden, bitte erneut eingeben.");
-                System.out.println("Kunden-ID: ");
-                Auto_ID = eingabe.readint();
 		indikator = -2;
 	    }
       }
@@ -95,12 +89,7 @@ public class MetaController {
             }
         }
             if (Indikator = true){
-                System.out.println("Kollision der Ausleihezeit. Bitte neuen Zeitraum festlegen");
-                //Kollision näher bestimmen.
-                System.out.println("Ausleihdatum: ");
-                Ausleihdatum = eingabe.readdate();
-                System.out.println("Rueckgabedatum: ");
-                Rueckgabedatum = eingabe.readdate();
+                
 		indikator = -3;
             }
             else{
@@ -171,7 +160,7 @@ public class MetaController {
             return 1;
         }
     }
-    
+//##############################################################################
 }
 /*    
     
