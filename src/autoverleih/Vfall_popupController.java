@@ -6,7 +6,9 @@
 package autoverleih;
 
 import java.net.URL;
+import java.text.DateFormatSymbols;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import java.util.Date;
+import java.util.Locale;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -50,6 +53,8 @@ public class Vfall_popupController implements Initializable {
 	int K_id = -1;	//kunden id
 	Date start = null; //start datum 
 	Date back = null;   //ruegabe datum
+        SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy", new DateFormatSymbols(Locale.GERMANY)); //#Raicandy
+        
 	while (fehler <= 0) 
 	{
 	    switch (fehler) 
@@ -61,8 +66,8 @@ public class Vfall_popupController implements Initializable {
 		    eror_date.setVisible(false);
 		    A_id = Integer.parseInt(autoID.getText());
 		    K_id = Integer.parseInt(kundeID.getText());
-		    start = 20.01.12;
-		    end = 01.05.01;
+		    start = format.parse("20.01.12");
+		    back = format.parse("01.05.01");
 		    fehler = MC_Hammer.addAusleihe(A_id, K_id, start, back);
 		    break;
 		case -2:
@@ -72,8 +77,8 @@ public class Vfall_popupController implements Initializable {
 		    eror_date.setVisible(false);
 		    A_id = Integer.parseInt(autoID.getText());
 		    K_id = Integer.parseInt(kundeID.getText());
-		    start = 20.01.12;
-		    end = 01.05.01;
+		    start = format.parse("20.01.12");
+		    back = format.parse("01.05.01");
 		    fehler = MC_Hammer.addAusleihe(A_id, K_id, start, back);
 		    break;
 		case -3:
@@ -82,8 +87,8 @@ public class Vfall_popupController implements Initializable {
 		    eror_date.setVisible(true);
 		    A_id = Integer.parseInt(autoID.getText());
 		    K_id = Integer.parseInt(kundeID.getText());
-		    start = 20.01.12;
-		    end = 01.05.01;
+		    start = format.parse("20.01.12");
+		    back = format.parse("01.05.01");
 		    fehler = MC_Hammer.addAusleihe(A_id, K_id, start, back);
 		    break;
 		default:
@@ -93,8 +98,8 @@ public class Vfall_popupController implements Initializable {
 		    
 		    A_id = Integer.parseInt(autoID.getText());
 		    K_id = Integer.parseInt(kundeID.getText());
-		    start = 20.01.12;
-		    end = 01.05.01;
+		    start = format.parse("20.01.12");
+		    back = format.parse("01.05.01");
 		    fehler = MC_Hammer.addAusleihe(A_id, K_id, start, back);
 		    break;
 	    }
