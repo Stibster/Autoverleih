@@ -159,6 +159,51 @@ public class DB_Verwalter {
     this.Ausleihen = Ausleihen;
     }
 
+//###MakeID Methoden erstellt von Daniel Meerwald###############################
+    
+    public int makeAutoID(){
+        int i = 0;
+        boolean indikator = false;
+        int A_ID = 1;
+        while (i < Autos.size() && indikator == false) { //Suche bis zum Ende der Liste.
+
+            if (Autos.get(i).getAuto_ID() == A_ID ) {
+                A_ID++;
+                indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+            } else {
+                i++; //Andernfalls wird das nächste Element vergleichen.
+            }
+        }
+        if(indikator == false){
+            return A_ID;
+        }
+        else{
+            return -1;
+        }
+    }
+    
+    public int makeKundenID(){
+        int i = 0;
+        boolean indikator = false;
+        int K_ID = 1;
+        while (i < Kunden.size() && indikator == false) { //Suche bis zum Ende der Liste.
+
+            if (Kunden.get(i).getKunden_ID() == K_ID ) {
+                K_ID++;
+                indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+            } else {
+                i++; //Andernfalls wird das nächste Element vergleichen.
+            }
+        }
+        if(indikator == false){
+            return K_ID;
+        }
+        else{
+            return -1;
+        }
+    }
+    
+    
     //####Remove Methoden, erstellt von Daniel Meerwald#Raicandy################
     public void removeKunde(int K_ID){
         int i = 0;
@@ -352,7 +397,7 @@ public class DB_Verwalter {
                 
                  Auto auto = new Auto();
                  
-                 auto.setAuto_ID(generateRandomInt(Numbers, random, 4));
+                 auto.setAuto_ID(makeAutoID());
                  auto.setKennzeichen(generateRandomString(Chars, random, 8));
                  auto.setHersteller(generateRandomString(Alphabet, random, 6));
                  auto.setModell(generateRandomString(Alphabet, random, 3));
@@ -386,7 +431,7 @@ public class DB_Verwalter {
                 
                  Kunde kunde = new Kunde();
                  
-                 kunde.setKunden_ID(generateRandomInt(Numbers, random, 4)); 
+                 kunde.setKunden_ID(makeKundenID()); 
                  kunde.setNachname(generateRandomString(Alphabet, random, 7)); 
                  kunde.setVorname(generateRandomString(Alphabet, random, 5));
                  kunde.setPostleitzahl(generateRandomInt(Numbers, random, 4));
