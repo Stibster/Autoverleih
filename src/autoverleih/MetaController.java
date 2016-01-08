@@ -1,5 +1,5 @@
 /*
-Komplette Klasse erstellt von Daniel Meerwald
+
  */
 package autoverleih;
 
@@ -23,8 +23,10 @@ public class MetaController {
     // -2 kunde
     // -3 ausleihdatum
     
+//#####################Erstellt von Daniel Meerwald#############################
     public int addAusleihe(int Auto_ID, int Kunden_ID, Date Ausleihdatum, Date Rueckgabedatum) throws ParseException{
         
+        DBV.restore(pfad);
         Ausleihe ausleihe = new Ausleihe();       
         int i = 0;
         boolean Indikator = false;
@@ -118,9 +120,61 @@ public class MetaController {
 	{return indikator;}
         }
         
-    }
+    
 
+//#####################Erstellt von Daniel Meerwald#############################
+    public int Auto_abholen(int A_ID){
+        
+        DBV.restore(pfad);
+        int i = 0;
+        boolean indikator = false;
+
+        while (i < DBV.Autos.size() && indikator == false) { //Suche bis zum Ende der Liste.
+
+            if (DBV.Autos.get(i).getAuto_ID() == A_ID ) {
+                DBV.Autos.get(i).setIst_Da(false);
+                indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+            } else {
+                i++; //Andernfalls wird das nächste Element vergleichen.
+            }
+            
+        }
+        if(indikator == false){
+                return -1;
+            }
+        else{
+            DBV.save(pfad);
+            return 1;
+        }
+    }
+//#####################Erstellt von Daniel Meerwald#############################    
+    public int Auto_zurueckbringen(int A_ID){
+        
+        DBV.restore(pfad);
+        int i = 0;
+        boolean indikator = false;
+
+        while (i < DBV.Autos.size() && indikator == false) { //Suche bis zum Ende der Liste.
+
+            if (DBV.Autos.get(i).getAuto_ID() == A_ID ) {
+                DBV.Autos.get(i).setIst_Da(true);
+                indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+            } else {
+                i++; //Andernfalls wird das nächste Element vergleichen.
+            }
+        }
+        if(indikator == false){
+                return -1;
+            }
+        else{
+            DBV.save(pfad);
+            return 1;
+        }
+    }
+    
+}
 /*    
+    
     public void Auto_abholen(int A_ID){
         
     }

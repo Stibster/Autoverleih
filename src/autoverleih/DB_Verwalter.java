@@ -5,9 +5,14 @@ Bitte alle Kommentare von euch mit euren Tag(Nickname) versehen und einem Hashta
 package autoverleih;
 
 import java.io.File;
+import java.text.DateFormatSymbols;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.Random;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -310,5 +315,91 @@ public class DB_Verwalter {
 	  Users = Listehelper.getUsers();
 	  //#################
     }
+        
+//###Random Methode erstellt von Daniel Meerwald################################
+        private static String generateRandomString(String allowedChars,
+            Random random, int L) {
+            int max = allowedChars.length();
+            StringBuffer buffer = new StringBuffer();
+            for (int i=0; i<L; i++) {
+            int value = random.nextInt(max);
+            buffer.append(allowedChars.charAt(value));
+            }
+            return buffer.toString();
+            }
+        
+        private static int generateRandomInt(String allowedChars,
+            Random random, int L) {
+            int max = allowedChars.length();
+            StringBuffer buffer = new StringBuffer();
+            for (int i=0; i<L; i++) {
+            int value = random.nextInt(max);
+            buffer.append(allowedChars.charAt(value));
+            }
+            return Integer.parseInt(buffer.toString());
+            }
+        
+//###Random Autos Methode erstellt von Daniel Meerwald##########################
+        public void randomAutos(int Anzahl) throws ParseException{
+            
+            String Chars ="0123456789abcdefghijklmnopqrstuvwxyz";
+            String Numbers ="0123456789";
+            String Alphabet ="abcdefghijklmnopqrstuvwxyz";
+            Random random = new Random();
+            SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy", new DateFormatSymbols(Locale.GERMANY));
+
+            for (int i=0; i<Anzahl; i++){
+                
+                 Auto auto = new Auto();
+                 
+                 auto.setAuto_ID(generateRandomInt(Numbers, random, 4));
+                 auto.setKennzeichen(generateRandomString(Chars, random, 8));
+                 auto.setHersteller(generateRandomString(Alphabet, random, 6));
+                 auto.setModell(generateRandomString(Alphabet, random, 3));
+                 auto.setAnhaengerkupplung(true);
+                 auto.setSitzplaetze(generateRandomInt(Numbers, random, 1));
+                 auto.setFarbe(generateRandomString(Alphabet, random, 4));
+                 auto.setLeistung(generateRandomInt(Numbers, random, 3));
+                 auto.setKraftstoff(generateRandomString(Alphabet, random, 5));
+                 auto.setVerbrauch(generateRandomString(Chars, random, 8));
+                 auto.setAntrieb(generateRandomString(Alphabet, random, 5));
+                 auto.setGetriebe(generateRandomString(Alphabet, random, 5));
+                 auto.setBaujahr(generateRandomInt(Numbers, random, 4));
+                 auto.setKilometerstand(generateRandomInt(Numbers, random, 6));
+                 auto.setTUEV(format.parse("01.01.2017"));
+                 auto.setKaution(generateRandomInt(Numbers, random, 3));
+                 auto.setGebuehr_pro_Tag(generateRandomInt(Numbers, random, 2));
+		 Autos.add(auto);
+            }
+        }
+        
+//###Random Kunden Methode erstellt von Daniel Meerwald#########################
+        public void randomKunden(int Anzahl) throws ParseException{
+            
+            String Chars ="0123456789abcdefghijklmnopqrstuvwxyz";
+            String Numbers ="0123456789";
+            String Alphabet ="abcdefghijklmnopqrstuvwxyz";
+            Random random = new Random();
+            SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy", new DateFormatSymbols(Locale.GERMANY));
+            
+             for (int i=0; i<Anzahl; i++){
+                
+                 Kunde kunde = new Kunde();
+                 
+                 kunde.setKunden_ID(generateRandomInt(Numbers, random, 4)); 
+                 kunde.setNachname(generateRandomString(Alphabet, random, 7)); 
+                 kunde.setVorname(generateRandomString(Alphabet, random, 5));
+                 kunde.setPostleitzahl(generateRandomInt(Numbers, random, 4));
+                 kunde.setWohnort(generateRandomString(Alphabet, random, 6));
+                 kunde.setStrasse(generateRandomString(Alphabet, random, 10));
+                 kunde.setHausnummer(generateRandomString(Chars, random, 4));
+                 kunde.setE_Mail(generateRandomString(Chars, random, 12));
+                 kunde.setTelefonnummer(generateRandomInt(Numbers, random, 9));
+                 kunde.setGeburtstag(format.parse("01.01.1990"));
+                 kunde.setFuehrerscheindatum(format.parse("01.01.2008"));
+		 Kunden.add(kunde);
+            }
+        }
+        
 //##############################################################################
 }
