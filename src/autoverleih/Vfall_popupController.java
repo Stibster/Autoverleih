@@ -57,6 +57,12 @@ public class Vfall_popupController implements Initializable {
         
 	while (fehler <= 0) 
 	{
+	    	    A_id = Integer.parseInt(autoID.getText());
+		    K_id = Integer.parseInt(kundeID.getText());
+		    start = format.parse("21.03.1991");
+		    back = format.parse("26.03.1991");
+		    fehler = MC_Hammer.addAusleihe(A_id, K_id, start, back);
+		    
 	    switch (fehler) 
 	    {
 		case -1:
@@ -64,43 +70,51 @@ public class Vfall_popupController implements Initializable {
 		    eror_a_id.setVisible(true);
 	            eror_k_id.setVisible(false);
 		    eror_date.setVisible(false);
+		    /*
 		    A_id = Integer.parseInt(autoID.getText());
 		    K_id = Integer.parseInt(kundeID.getText());
-		    start = format.parse("20.01.12");
-		    back = format.parse("01.05.01");
+		    start = format.parse(vonDate.getText());
+		    back = format.parse(bisDate.getText());
 		    fehler = MC_Hammer.addAusleihe(A_id, K_id, start, back);
+		    */
 		    break;
 		case -2:
 	
 		    eror_a_id.setVisible(false);
 	            eror_k_id.setVisible(true);
 		    eror_date.setVisible(false);
+		    /*
 		    A_id = Integer.parseInt(autoID.getText());
 		    K_id = Integer.parseInt(kundeID.getText());
-		    start = format.parse("20.01.12");
-		    back = format.parse("01.05.01");
+		    start = format.parse(vonDate.getText());
+		    back = format.parse(bisDate.getText());
 		    fehler = MC_Hammer.addAusleihe(A_id, K_id, start, back);
+		    */
 		    break;
 		case -3:
 		    eror_a_id.setVisible(false);
 	            eror_k_id.setVisible(false);
 		    eror_date.setVisible(true);
+		    /*
 		    A_id = Integer.parseInt(autoID.getText());
 		    K_id = Integer.parseInt(kundeID.getText());
-		    start = format.parse("20.01.12");
-		    back = format.parse("01.05.01");
+		    start = format.parse(vonDate.getText());
+		    back = format.parse(bisDate.getText());
 		    fehler = MC_Hammer.addAusleihe(A_id, K_id, start, back);
+		    */
 		    break;
 		default:
 		    eror_a_id.setVisible(false);
 	            eror_k_id.setVisible(false);
 		    eror_date.setVisible(false);
 		    
+		   /*
 		    A_id = Integer.parseInt(autoID.getText());
 		    K_id = Integer.parseInt(kundeID.getText());
-		    start = format.parse("20.01.12");
-		    back = format.parse("01.05.01");
+		    start = format.parse(vonDate.getText());
+		    back = format.parse(bisDate.getText());
 		    fehler = MC_Hammer.addAusleihe(A_id, K_id, start, back);
+		    */
 		    break;
 	    }
 	}
