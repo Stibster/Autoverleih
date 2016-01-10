@@ -5,6 +5,7 @@ package autoverleih;
 
 import java.text.ParseException;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  *  
@@ -22,6 +23,18 @@ public class MetaController {
     // -1 auto id
     // -2 kunde
     // -3 ausleihdatum
+    
+//#####################Erstellt von Steve Vogel#################################
+    
+    public static GregorianCalendar DateToCalendar(Date date) {
+        
+        GregorianCalendar cal = (GregorianCalendar)GregorianCalendar.getInstance();
+        cal.setTime(date);
+        return cal;
+    }
+    
+//#####################Ende Steve Vogel#############################    
+    
     
 //#####################Erstellt von Daniel Meerwald#############################
     public int addAusleihe(int Auto_ID, int Kunden_ID, Date Ausleihdatum, Date Rueckgabedatum) throws ParseException{
@@ -81,6 +94,34 @@ public class MetaController {
 
             if (DBV.Ausleihen.get(i).getAuto_ID() == Auto_ID ) {
                 //Test ob ausleihezeiträume kollidieren.
+                // Autor: Steve Vogel
+                GregorianCalendar cal_aus = DateToCalendar(Ausleihdatum); //Eingegebenes Ausleihdatum
+                GregorianCalendar cal_rue = DateToCalendar(Rueckgabedatum);
+                GregorianCalendar cal_Baus = DateToCalendar(ausleihe.Ausleihdatum); //Bestehendes Ausleihdatum
+                GregorianCalendar cal_Brue = DateToCalendar(ausleihe.Rueckgabedatum);
+                
+                long aus = cal_aus.getTimeInMillis();
+                long rue = cal_rue.getTimeInMillis();
+                long Baus = cal_Baus.getTimeInMillis();
+                long Brue = cal_Brue.getTimeInMillis();
+                
+                long zeitraum = (rue-aus) / 1000 / 60 / 60 / 24;
+                long Bzeitraum = (Brue-Baus) / 1000 / 60 / 60 / 24;
+                
+                for(long j=0; j<zeitraum; j++) {
+                    for(long k=0; k<Bzeitraum; k++) {
+                        if(cal_Baus.equals(cal_aus)) {
+                            indikator = -3;
+                        }
+                        else {
+                            cal_Baus.add(GregorianCalendar.DAY_OF_MONTH, 1);
+                        }
+                        k++;
+                    }
+                    cal_Baus.add(GregorianCalendar.DAY_OF_MONTH, 1);
+                    j++;
+                }
+                //Ende Steve Vogel
                 
                 i++;
             } 
@@ -97,7 +138,7 @@ public class MetaController {
                 ausleihe.setRueckgabedatum(Rueckgabedatum);
             }
       }
-	
+      
         //Wenn alles korrekt ist wird die Ausleihe hinzugefügt.
 	if(indikator >= 0)
 	{

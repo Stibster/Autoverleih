@@ -75,7 +75,7 @@ public class KundenAnsichtController implements Initializable {
         kostenText.setText("89€ pro Tag");
 
     }
-
+    
 //  Methode Für den Suchen Button
     @FXML
     private void handleSearch(ActionEvent event) {

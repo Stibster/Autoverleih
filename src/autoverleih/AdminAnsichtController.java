@@ -87,5 +87,5 @@ public class AdminAnsichtController implements Initializable {
             Logger.getLogger(MitarbeiterAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
 }
