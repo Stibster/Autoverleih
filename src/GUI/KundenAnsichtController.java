@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,10 +14,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.TilePane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -42,34 +37,13 @@ public class KundenAnsichtController implements Initializable {
     @FXML    private TextField sitzeText;
     @FXML    private TextField kostenText;
     @FXML    private MenuItem logOut;
-    @FXML    private TilePane tile;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
-        Image image = new Image("/Data/dummy1.jpg");
-        ImageView imageView = new ImageView();
-        imageView.setFitHeight(100);
-//        imageView.setFitWidth(80);
-        imageView.setPreserveRatio(true);
-        imageView.setImage(image);
-        imageView.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
-
-            @Override
-            public void handle(MouseEvent event) {
-                markeText.setText("Nissan");
-                modellText.setText("Skyline");
-                FarbeText.setText("Blau");
-                leistungText.setText("259PS");
-                sitzeText.setText("4 Türen");
-                kostenText.setText("89€ pro Tag");
-            }
-        });
-        tile.getChildren().add(imageView);
-
+        // TODO
     }
 
     @FXML
