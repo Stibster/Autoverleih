@@ -54,9 +54,9 @@ public class Vfall_popupController implements Initializable {
 	int fehler = 0; //fuehr fehler fall
 	int A_id = -1;  //auto id
 	int K_id = -1;	//kunden id
-	//Date start = null; //start datum 
-	//Date back = null;   //ruegabe datum
-        SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy", new DateFormatSymbols(Locale.GERMANY)); //#Raicandy
+	start = null; //start datum 
+	back = null;   //ruegabe datum
+        SimpleDateFormat format = new SimpleDateFormat("dd.mm.yyyy", new DateFormatSymbols(Locale.GERMANY)); //#Raicandy
         
 	//while (fehler <= 0) 
 	//{
