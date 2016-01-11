@@ -36,6 +36,9 @@ public class Vfall_popupController implements Initializable {
     @FXML    private Label eror_a_id;
     @FXML    private Label eror_date;
     
+    Date start;
+    Date back;
+    
     MetaController MC_Hammer = new MetaController();
     /**
      * Initializes the controller class.
@@ -51,9 +54,9 @@ public class Vfall_popupController implements Initializable {
 	int fehler = 0; //fuehr fehler fall
 	int A_id = -1;  //auto id
 	int K_id = -1;	//kunden id
-	Date start = null; //start datum 
-	Date back = null;   //ruegabe datum
-        SimpleDateFormat format = new SimpleDateFormat("dd.mm.yyyy", new DateFormatSymbols(Locale.GERMANY)); //#Raicandy
+	//Date start = null; //start datum 
+	//Date back = null;   //ruegabe datum
+        SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy", new DateFormatSymbols(Locale.GERMANY)); //#Raicandy
         
 	//while (fehler <= 0) 
 	//{

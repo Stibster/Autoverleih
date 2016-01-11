@@ -95,8 +95,11 @@ public class MetaController {
             if (DBV.Ausleihen.get(i).getAuto_ID() == Auto_ID ) {
                 //Test ob ausleihezeiträume kollidieren.
                 // Autor: Steve Vogel
-                GregorianCalendar cal_aus = DateToCalendar(Ausleihdatum); //Eingegebenes Ausleihdatum
-                GregorianCalendar cal_rue = DateToCalendar(Rueckgabedatum);
+                
+                Vfall_popupController Vfall = new Vfall_popupController();
+                
+                GregorianCalendar cal_aus = DateToCalendar(Vfall.start); //Eingegebenes Ausleihdatum
+                GregorianCalendar cal_rue = DateToCalendar(Vfall.back);
                 GregorianCalendar cal_Baus = DateToCalendar(ausleihe.Ausleihdatum); //Bestehendes Ausleihdatum
                 GregorianCalendar cal_Brue = DateToCalendar(ausleihe.Rueckgabedatum);
                 
