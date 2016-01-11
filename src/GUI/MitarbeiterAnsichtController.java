@@ -1,4 +1,4 @@
-package autoverleih;
+package GUI;
 
 import java.io.IOException;
 import java.net.URL;
@@ -113,10 +113,10 @@ public class MitarbeiterAnsichtController implements Initializable {
     @FXML
     private void handleDelUserMenue(){
         Stage popUp = new Stage();
-        popUp.setTitle("Vermietung Erstellen");
+        popUp.setTitle("Kunde Löschen");
         Parent Page;
         try {
-            Page = FXMLLoader.load(getClass().getResource("Vfall_popup.fxml"));
+            Page = FXMLLoader.load(getClass().getResource("KundeDel.fxml"));
 
             popUp.setScene(new Scene(Page));
             popUp.initModality(Modality.APPLICATION_MODAL);
@@ -144,5 +144,40 @@ public class MitarbeiterAnsichtController implements Initializable {
         }
     }
     
+    
+    @FXML
+     private void handleCarRausMenue(){
+        Stage popUp = new Stage();
+        popUp.setTitle("Auto verleihen");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("AutoAbgeben.fxml"));
+
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+    @FXML
+     private void handleCarReinMenue(){
+        Stage popUp = new Stage();
+        popUp.setTitle("Auto zurück");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("AutoRein.fxml"));
+
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 }

@@ -3,6 +3,7 @@
  */
 package autoverleih;
 
+import GUI.Vfall_popupController;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -11,6 +12,7 @@ import java.util.GregorianCalendar;
  *  
  * @author DMeer
  */
+
 public class MetaController {
     
     
@@ -89,6 +91,7 @@ public class MetaController {
       Indikator = false;
       i = 0;
       boolean Kollision = false;
+      /*
       while(Indikator != true){
         while (i < DBV.Ausleihen.size() && Indikator == false) { 
 
@@ -140,7 +143,7 @@ public class MetaController {
                 ausleihe.setAusleihdatum(Ausleihdatum);
                 ausleihe.setRueckgabedatum(Rueckgabedatum);
             }
-      }
+      }*/
       
         //Wenn alles korrekt ist wird die Ausleihe hinzugefügt.
 	if(indikator >= 0)

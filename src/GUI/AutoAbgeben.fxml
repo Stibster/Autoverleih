@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="GUI.AutoAbgebenController">
+    <stylesheets>
+	<URL value="@/GUI/Stylesheet.css" />
+    </stylesheets>
+   <children>
+      <HBox alignment="CENTER" layoutX="64.0" layoutY="99.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <TextField fx:id="ausleihID" layoutX="64.0" layoutY="99.0" promptText="Verleih ID" />
+            <Label layoutX="339.0" layoutY="103.0" text="Verleih ID" />
+         </children>
+      </HBox>
+      <Label fx:id="warningVer" layoutX="118.0" layoutY="151.0" text="Verleih ID nicht vorhanden" textFill="RED" />
+      <Button fx:id="giveCar" layoutX="455.0" layoutY="315.0" mnemonicParsing="false" onAction="#handeleGiveCar" text="Auto verleihen" />
+   </children>
+</AnchorPane>

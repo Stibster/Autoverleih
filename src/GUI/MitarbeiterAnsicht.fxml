@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="autoverleih.MitarbeiterAnsichtController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MitarbeiterAnsichtController">
     <stylesheets>
         <URL value="@Stylesheet.css" />
     </stylesheets>
@@ -44,8 +44,8 @@
                   <MenuItem fx:id="addUserMenue" mnemonicParsing="false" onAction="#handleAddUserMenue" text="Kunde Erstellen" />
                   <MenuItem fx:id="DelUser" mnemonicParsing="false" onAction="#handleDelUserMenue" text="Kunde Löschen" />
                   <MenuItem fx:id="Ausleihe" mnemonicParsing="false" onAction="#handleAusleiheMenue" text="Vermietungsfall Erstellen" />
-                  <MenuItem mnemonicParsing="false" text="Fahrzeug Abholen" />
-                  <MenuItem mnemonicParsing="false" text="Fahrzeug Rückgabe" />
+                  <MenuItem fx:id="carRaus" mnemonicParsing="false" onAction="#handleCarRausMenue" text="Fahrzeug Abholen" />
+                  <MenuItem fx:id="carRein" mnemonicParsing="false" onAction="#handleCarReinMenue" text="Fahrzeug Rückgabe" />
                   <MenuItem mnemonicParsing="false" text="Close" />
                </items>
             </Menu>

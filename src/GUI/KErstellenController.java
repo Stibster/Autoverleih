@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package autoverleih;
+package GUI;
 
+import autoverleih.DB_Verwalter;
+import autoverleih.Kunde;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;

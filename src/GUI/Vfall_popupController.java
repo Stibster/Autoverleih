@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package autoverleih;
+package GUI;
 
+import autoverleih.MetaController;
 import java.net.URL;
 import java.text.DateFormatSymbols;
 import java.text.ParseException;

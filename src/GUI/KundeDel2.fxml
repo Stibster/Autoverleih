@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="183.0" prefWidth="254.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="GUI.KundeDel2Controller">
+    <stylesheets>
+	<URL value="@/GUI/Stylesheet.css" />
+    </stylesheets>
+   <children>
+      <VBox alignment="CENTER" layoutX="128.0" layoutY="106.0" prefHeight="72.0" prefWidth="148.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="lable" layoutX="160.0" layoutY="149.0" text="Wollen sie den Kunden wirklich Löschen?" />
+            <HBox alignment="TOP_CENTER" layoutX="113.0" layoutY="303.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <Button fx:id="yes" layoutX="113.0" layoutY="303.0" mnemonicParsing="false" onAction="#hanedleYes" text="JA" />
+                  <Button fx:id="no" layoutX="370.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleNo" text="NEIN" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
