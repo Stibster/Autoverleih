@@ -11,3 +11,9 @@
 .button {
     -fx-background-color: #888888;
 }
+.scroll-pane > .viewport{
+    -fx-background-color: #ffffff;
+}
+#scroll-pane1 > .viewport{
+    -fx-background-color: #548625;
+}
