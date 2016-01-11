@@ -126,5 +126,23 @@ public class MitarbeiterAnsichtController implements Initializable {
             Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    @FXML
+    private void handleAusleiheMenue(){
+        Stage popUp = new Stage();
+        popUp.setTitle("Vermietung Erstellen");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("Vfall_popup.fxml"));
+
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 
 }

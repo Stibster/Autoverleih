@@ -53,14 +53,14 @@ public class Vfall_popupController implements Initializable {
 	int K_id = -1;	//kunden id
 	Date start = null; //start datum 
 	Date back = null;   //ruegabe datum
-        SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy", new DateFormatSymbols(Locale.GERMANY)); //#Raicandy
+        SimpleDateFormat format = new SimpleDateFormat("dd.mm.yyyy", new DateFormatSymbols(Locale.GERMANY)); //#Raicandy
         
 	//while (fehler <= 0) 
 	//{
 	    	    A_id = Integer.parseInt(autoID.getText());
 		    K_id = Integer.parseInt(kundeID.getText());
-		    start = format.parse("21.03.1991");
-		    back = format.parse("26.03.1991");
+		    start = format.parse(vonDate.getText());
+		    back = format.parse(bisDate.getText());
 		    fehler = MC_Hammer.addAusleihe(A_id, K_id, start, back);
 		    
 	    switch (fehler) 

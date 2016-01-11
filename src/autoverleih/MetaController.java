@@ -129,7 +129,7 @@ public class MetaController {
                 i++; 
             }
         }
-            if (Indikator = true){
+            if (Indikator == true){
                 
 		indikator = -3;
             }
@@ -203,12 +203,12 @@ public class MetaController {
     }
 //##############################################################################
 }
-/*    
+/*   
     
     public void Auto_abholen(int A_ID){
         
     }
-    
+    /*
     public void Auto_zurueckbringen(int A_ID){
        
     }

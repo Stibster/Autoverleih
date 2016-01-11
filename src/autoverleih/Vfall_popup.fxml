@@ -21,6 +21,6 @@
       <Button fx:id="vsave_button" layoutX="264.0" layoutY="333.0" mnemonicParsing="false" onAction="#handleVsave" text="Speichern" />
       <Label fx:id="eror_k_id" layoutX="110.0" layoutY="82.0" text="Falsche Kunden ID" textFill="RED" visible="false" />
       <Label fx:id="eror_a_id" layoutX="409.0" layoutY="82.0" text="Falsche Auto ID" textFill="RED" visible="false" />
-      <Label fx:id="eror_date" layoutX="232.0" layoutY="249.0" text="Ueberscheidung des Datums" textFill="RED" visible="false" />
+      <Label fx:id="eror_date" layoutX="232.0" layoutY="249.0" text="Ueberschneidung des Datums" textFill="RED" visible="false" />
    </children>
 </AnchorPane>
