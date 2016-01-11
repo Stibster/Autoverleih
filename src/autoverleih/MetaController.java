@@ -105,20 +105,20 @@ public class MetaController {
                 long Baus = cal_Baus.getTimeInMillis();
                 long Brue = cal_Brue.getTimeInMillis();
                 
-                long zeitraum = (rue-aus) / 1000 / 60 / 60 / 24;
-                long Bzeitraum = (Brue-Baus) / 1000 / 60 / 60 / 24;
+                long zeitraum = ((rue-aus) / 1000 / 60 / 60 / 24) + 1;
+                long Bzeitraum = ((Brue-Baus) / 1000 / 60 / 60 / 24) + 1;
                 
                 for(long j=0; j<zeitraum; j++) {
                     for(long k=0; k<Bzeitraum; k++) {
                         if(cal_Baus.equals(cal_aus)) {
-                            indikator = -3;
+                            Kollision = true;
                         }
                         else {
                             cal_Baus.add(GregorianCalendar.DAY_OF_MONTH, 1);
                         }
                         k++;
                     }
-                    cal_Baus.add(GregorianCalendar.DAY_OF_MONTH, 1);
+                    cal_aus.add(GregorianCalendar.DAY_OF_MONTH, 1);
                     j++;
                 }
                 //Ende Steve Vogel
