@@ -25,10 +25,10 @@ public class AutoAbgebenController implements Initializable {
 
     @FXML    private TextField ausleihID;
     @FXML    private Label warningVer;
-	    MetaController MC_Hammer = new MetaController();
-    @FXML
-    private Button giveCar;
+    @FXML    private Button giveCar;
 
+    MetaController MC_Hammer = new MetaController();
+    
     /**
      * Initializes the controller class.
      */
@@ -43,8 +43,7 @@ public class AutoAbgebenController implements Initializable {
 	int fehler = 0; //fuehr fehler fall
 	int leih_id = -1;  //auto id
 	
-	//while (fehler <= 0) 
-	//{
+	
 	    	    leih_id = Integer.parseInt(ausleihID.getText());
 		    fehler = MC_Hammer.Auto_abholen(leih_id);
 		    
@@ -65,9 +64,7 @@ public class AutoAbgebenController implements Initializable {
 		    
 		    break;
 	    }
-	//}
-	//Stage popUp = (Stage) eror_k_id.getScene().getWindow();
-        //popUp.close();
+	
     }
 
     

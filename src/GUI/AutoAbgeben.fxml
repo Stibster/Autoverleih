@@ -18,7 +18,7 @@
             <Label layoutX="339.0" layoutY="103.0" text="Verleih ID" />
          </children>
       </HBox>
-      <Label fx:id="warningVer" layoutX="118.0" layoutY="151.0" text="Verleih ID nicht vorhanden" textFill="RED" />
+      <Label fx:id="warningVer" layoutX="118.0" layoutY="151.0" text="Verleih ID nicht vorhanden" textFill="RED" visible="false" />
       <Button fx:id="giveCar" layoutX="455.0" layoutY="315.0" mnemonicParsing="false" onAction="#handeleGiveCar" text="Auto verleihen" />
    </children>
 </AnchorPane>
