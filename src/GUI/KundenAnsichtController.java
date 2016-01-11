@@ -111,5 +111,11 @@ public class KundenAnsichtController implements Initializable {
     private void handleSaveExit(ActionEvent event) {
         System.exit(0);
     }
+    @FXML
+    private void handleShorty(ActionEvent event) throws IOException{
+        Stage stage = (Stage) saveBTN.getScene().getWindow();
+        Parent Page = FXMLLoader.load(getClass().getResource("MitarbeiterAnsicht.fxml"));
+        stage.setScene(new Scene(Page));
+    }
     
 }

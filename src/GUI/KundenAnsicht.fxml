@@ -91,5 +91,6 @@
                </padding></TilePane>
          </content>
       </ScrollPane>
+      <Button fx:id="shorty" layoutX="474.0" layoutY="35.0" mnemonicParsing="false" onAction="#handleShorty" text="Mitarbeiter Shortcut" />
    </children>
 </AnchorPane>
