@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import autoverleih.*;
+import java.io.IOException;
 
 /**
  *
@@ -20,7 +21,15 @@ public class AutoVerleih2 extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        this.stage = stage;
+	/*
+	//abfrage ob datenbank vorhanden ansosnten erstellen
+	try {
+
+	} catch (IOException ex) {
+
+	}*/
+	this.stage = stage;
+	
         stage.setTitle("Verleih Sofware ver.0.0.5");
         Parent root = FXMLLoader.load(getClass().getResource("KundenAnsicht.fxml")); 
         

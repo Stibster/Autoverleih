@@ -31,13 +31,13 @@
             <HBox layoutX="93.0" layoutY="144.0" spacing="100.0" AnchorPane.bottomAnchor="392.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <TextField fx:id="birthday" layoutX="93.0" layoutY="144.0" promptText="Geburstag" />
-                  <Label layoutX="370.0" layoutY="148.0" text="Geburstag" />
+                  <Label fx:id="bdLabel" layoutX="370.0" layoutY="148.0" text="Geburstag" />
                </children>
             </HBox>
             <HBox layoutX="65.0" layoutY="188.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <TextField fx:id="Ort" layoutX="65.0" layoutY="188.0" promptText="Ort" />
-                  <Label layoutX="370.0" layoutY="192.0" text="Wohnort" />
+                  <Label fx:id="ortLabel" layoutX="370.0" layoutY="192.0" text="Wohnort" />
                </children>
             </HBox>
             <HBox layoutX="65.0" layoutY="233.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">

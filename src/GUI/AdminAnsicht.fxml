@@ -88,5 +88,7 @@
             </HBox>
          </children>
       </VBox>
+      <Button fx:id="rndCar" layoutX="170.0" layoutY="138.0" mnemonicParsing="false" onAction="#handleRndCar" text="zufällige Autos (10)" />
+      <Button fx:id="rndKunde" layoutX="195.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleRndKunde" text="zufällige Kunden (10)" />
    </children>
 </AnchorPane>

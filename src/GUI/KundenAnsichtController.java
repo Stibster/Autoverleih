@@ -49,25 +49,27 @@ public class KundenAnsichtController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Image image = new Image("/Data/dummy1.jpg");
-        ImageView imageView = new ImageView();
-        imageView.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
-
-            @Override
-            public void handle(MouseEvent event) {
-                markeText.setText("Nissan");
-                modellText.setText("Skyline");
-                FarbeText.setText("Blau");
-                leistungText.setText("259PS");
-                sitzeText.setText("4 Türen");
-                kostenText.setText("89€ pro Tag");
-            }
-        });
-        imageView.setFitHeight(100);
+	for(int i=0; i<100; i++) {	    
+	    Image image = new Image("/Data/dummy1.jpg");
+	    ImageView imageView = new ImageView();
+	    imageView.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+		
+		@Override
+		public void handle(MouseEvent event) {
+		    markeText.setText("Nissan");
+		    modellText.setText("Skyline");
+		    FarbeText.setText("Blau");
+		    leistungText.setText("259PS");
+		    sitzeText.setText("4 Türen");
+		    kostenText.setText("89€ pro Tag");
+		}
+	    });
+	    imageView.setFitHeight(100);
 //        imageView.setFitWidth(80);
-        imageView.setPreserveRatio(true);
-        imageView.setImage(image);
-        tile.getChildren().add(imageView);
+	    imageView.setPreserveRatio(true);
+	    imageView.setImage(image);
+	    tile.getChildren().add(imageView);
+	}
     }
 
     @FXML

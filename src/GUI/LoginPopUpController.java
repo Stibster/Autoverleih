@@ -51,44 +51,48 @@ public class LoginPopUpController implements Initializable {
 
     @FXML
     private void handleAnmeldenBTN(ActionEvent event) {
-
-        if (nameText.getText().equals("root") && passText.getText().equals("root")) {
-            try {
-                Stage popUp = (Stage) label.getScene().getWindow();
-                Stage stage = (Stage) popUp.getOwner();
-
-                Parent Page = FXMLLoader.load(getClass().getResource("AdminAnsicht.fxml"));
-
-                stage.setScene(new Scene(Page));
-                stage.show();
-                popUp.close();
-            } catch (IOException ex) {
-                Logger.getLogger(MitarbeiterAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        if (nameText.getText().equals("a") && passText.getText().equals("a")) {
-            try {
-                Stage popUp = (Stage) label.getScene().getWindow();
-                Stage stage = (Stage) popUp.getOwner();
-
-                Parent Page = FXMLLoader.load(getClass().getResource("MitarbeiterAnsicht.fxml"));
-
-                stage.setScene(new Scene(Page));
-                stage.show();
-                popUp.close();
-            } catch (IOException ex) {
-                Logger.getLogger(MitarbeiterAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            label.setVisible(true);
-            passText.clear();
-        }
+	login();
     }
 
     @FXML
     private void handleVerlassenBTN(ActionEvent event) {
         Stage popUp = (Stage) label.getScene().getWindow();
         popUp.close();
+    }
+    
+    private void login(){
+	
+	if (nameText.getText().equals("root") && passText.getText().equals("root")) {
+	    try {
+		Stage popUp = (Stage) label.getScene().getWindow();
+		Stage stage = (Stage) popUp.getOwner();
+
+		Parent Page = FXMLLoader.load(getClass().getResource("AdminAnsicht.fxml"));
+
+		stage.setScene(new Scene(Page));
+		stage.show();
+		popUp.close();
+	    } catch (IOException ex) {
+		Logger.getLogger(MitarbeiterAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+	    }
+	}
+	if (nameText.getText().equals("a") && passText.getText().equals("a")) {
+	    try {
+		Stage popUp = (Stage) label.getScene().getWindow();
+		Stage stage = (Stage) popUp.getOwner();
+
+		Parent Page = FXMLLoader.load(getClass().getResource("MitarbeiterAnsicht.fxml"));
+
+		stage.setScene(new Scene(Page));
+		stage.show();
+		popUp.close();
+	    } catch (IOException ex) {
+		Logger.getLogger(MitarbeiterAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+	    }
+	} else {
+	    label.setVisible(true);
+	    passText.clear();
+	}
     }
     
 }
