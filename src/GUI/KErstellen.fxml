@@ -55,7 +55,7 @@
             <HBox layoutX="58.0" layoutY="331.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <TextField fx:id="email" layoutX="58.0" layoutY="331.0" promptText="E-Mail" />
-                  <Label fx:id = "emailLable"layoutX="367.0" layoutY="335.0" text="E-Mail" />
+                  <Label fx:id="emailLable" layoutX="367.0" layoutY="335.0" text="E-Mail" />
                </children>
             </HBox>
             <HBox layoutX="65.0" layoutY="368.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">

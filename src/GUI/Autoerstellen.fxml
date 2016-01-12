@@ -12,75 +12,75 @@
     <stylesheets>
 	<URL value="@Stylesheet.css" />
     </stylesheets>
-   <children>
-      <VBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <HBox layoutX="28.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-               <children>
-                  <TextField fx:id="kennzeichen" layoutX="28.0" layoutY="10.0" promptText="Kennzeichen" />
-                  <Label layoutX="286.0" text="Kennzeichen" />
-               </children>
-            </HBox>
-            <HBox layoutX="28.0" layoutY="37.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-               <children>
-                  <TextField fx:id="Hersteller" layoutX="28.0" layoutY="45.0" promptText="Hersteller" />
-                  <Label layoutX="286.0" layoutY="37.0" text="Hersteller" />
-               </children>
-            </HBox>
-            <HBox layoutX="28.0" layoutY="74.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-               <children>
-                  <TextField fx:id="Modell" layoutX="28.0" layoutY="80.0" promptText="Auto modell" />
-                  <Label layoutX="286.0" layoutY="74.0" text="Auto modell" />
-               </children>
-            </HBox>
-            <HBox layoutX="28.0" layoutY="111.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-               <children>
-                  <TextField fx:id="bauart" layoutX="28.0" layoutY="115.0" promptText="Bauart" />
-                  <Label layoutX="286.0" layoutY="111.0" text="Bauart" />
-               </children>
-            </HBox>
-            <HBox layoutX="28.0" layoutY="148.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-               <children>
-                  <TextField fx:id="Farbe" layoutX="28.0" layoutY="150.0" promptText="Farbe" />
-                  <Label layoutX="286.0" layoutY="148.0" text="Farbe" />
-               </children>
-            </HBox>
-            <HBox layoutX="28.0" layoutY="185.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-               <children>
-                  <TextField fx:id="oil" layoutX="28.0" layoutY="185.0" promptText="Kraftstoff" />
-                  <Label layoutX="286.0" layoutY="185.0" text="Kraftstoff" />
-               </children>
-            </HBox>
-            <HBox layoutX="28.0" layoutY="220.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-               <children>
-                  <TextField fx:id="verbrauch" layoutX="28.0" layoutY="220.0" promptText="Verbrauch" />
-                  <Label layoutX="286.0" layoutY="222.0" text="Verbrauch" />
-                  <ChoiceBox prefWidth="150.0" visible="false" />
-               </children>
-            </HBox>
-            <HBox layoutX="28.0" layoutY="255.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-               <children>
-                  <TextField fx:id="antrieb" layoutX="28.0" layoutY="255.0" promptText="Antrieb" />
-                  <Label layoutX="286.0" layoutY="259.0" text="Antrieb" />
-               </children>
-            </HBox>
-            <HBox layoutX="28.0" layoutY="290.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-               <children>
-                  <TextField fx:id="getrib" layoutX="28.0" layoutY="290.0" promptText="Getriebe" />
-                  <Label layoutX="286.0" layoutY="296.0" text="Getriebe" />
-               </children>
-            </HBox>
-            <HBox layoutX="28.0" layoutY="325.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-               <children>
-                  <TextField fx:id="extra" layoutX="28.0" layoutY="325.0" promptText="Extras" />
-                  <Label layoutX="286.0" layoutY="333.0" text="Extras" />
-               </children>
-            </HBox>
-         </children>
-         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </padding>
-      </VBox>
-      <Button fx:id="SaveButton" layoutX="534.0" layoutY="408.0" mnemonicParsing="false" onAction="#handleSaveButton" text="Speichern" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-   </children>
+    <children>
+	<VBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+	    <children>
+		<HBox layoutX="28.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+		    <children>
+			<TextField fx:id="kennzeichen" layoutX="28.0" layoutY="10.0" promptText="Kennzeichen" />
+			<Label fx:id="kennLabel" layoutX="286.0" text="Kennzeichen" />
+		    </children>
+		</HBox>
+		<HBox layoutX="28.0" layoutY="37.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+		    <children>
+			<TextField fx:id="Hersteller" layoutX="28.0" layoutY="45.0" promptText="Hersteller" />
+			<Label fx:id="HerLabel" layoutX="286.0" layoutY="37.0" text="Hersteller" />
+		    </children>
+		</HBox>
+		<HBox layoutX="28.0" layoutY="74.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+		    <children>
+			<TextField fx:id="Modell" layoutX="28.0" layoutY="80.0" promptText="Auto modell" />
+			<Label fx:id="ModLabel" layoutX="286.0" layoutY="74.0" text="Auto modell" />
+		    </children>
+		</HBox>
+		<HBox layoutX="28.0" layoutY="111.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+		    <children>
+			<TextField fx:id="bauart" layoutX="28.0" layoutY="115.0" promptText="Bauart" />
+			<Label fx:id="bauLabel" layoutX="286.0" layoutY="111.0" text="Bauart" />
+		    </children>
+		</HBox>
+		<HBox layoutX="28.0" layoutY="148.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+		    <children>
+			<TextField fx:id="Farbe" layoutX="28.0" layoutY="150.0" promptText="Farbe" />
+			<Label fx:id="FarbeLabel" layoutX="286.0" layoutY="148.0" text="Farbe" />
+		    </children>
+		</HBox>
+		<HBox layoutX="28.0" layoutY="185.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+		    <children>
+			<TextField fx:id="oil" layoutX="28.0" layoutY="185.0" promptText="Kraftstoff" />
+			<Label fx:id="oilLable" layoutX="286.0" layoutY="185.0" text="Kraftstoff" />
+		    </children>
+		</HBox>
+		<HBox layoutX="28.0" layoutY="220.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+		    <children>
+			<TextField fx:id="verbrauch" layoutX="28.0" layoutY="220.0" promptText="Verbrauch" />
+			<Label fx:id="verLabel" layoutX="286.0" layoutY="222.0" text="Verbrauch" />
+			<ChoiceBox prefWidth="150.0" visible="false" />
+		    </children>
+		</HBox>
+		<HBox layoutX="28.0" layoutY="255.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+		    <children>
+			<TextField fx:id="antrieb" layoutX="28.0" layoutY="255.0" promptText="Antrieb" />
+			<Label fx:id="antLable" layoutX="286.0" layoutY="259.0" text="Antrieb" />
+		    </children>
+		</HBox>
+		<HBox layoutX="28.0" layoutY="290.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+		    <children>
+			<TextField fx:id="getrib" layoutX="28.0" layoutY="290.0" promptText="Getriebe" />
+			<Label fx:id="getriebLabel" layoutX="286.0" layoutY="296.0" text="Getriebe" />
+		    </children>
+		</HBox>
+		<HBox layoutX="28.0" layoutY="325.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+		    <children>
+			<TextField fx:id="extra" layoutX="28.0" layoutY="325.0" promptText="Extras" />
+			<Label fx:id="exLabel" layoutX="286.0" layoutY="333.0" text="Extras" />
+		    </children>
+		</HBox>
+	    </children>
+	    <padding>
+		<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+	    </padding>
+	</VBox>
+	<Button fx:id="SaveButton" layoutX="534.0" layoutY="408.0" mnemonicParsing="false" onAction="#handleSaveButton" text="Speichern" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+    </children>
 </AnchorPane>

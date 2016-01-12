@@ -44,6 +44,12 @@ public class AdminAnsichtController implements Initializable {
     @FXML    private TextField idText;
     @FXML    private Button newCar;
     @FXML    private Button changeCar;
+    @FXML
+    private MenuItem carCreate;
+    @FXML
+    private Button rndCar;
+    @FXML
+    private Button rndKunde;
 
     /**
      * Initializes the controller class.
@@ -86,6 +92,31 @@ public class AdminAnsichtController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(MitarbeiterAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void handleCarCreateMenue(ActionEvent event) {
+	Stage popUp = new Stage();
+	popUp.setTitle("Auto Erstellen");
+	Parent Page;
+	try {
+	    Page = FXMLLoader.load(getClass().getResource("Autoerstellen.fxml"));
+
+	    popUp.setScene(new Scene(Page));
+	    popUp.initModality(Modality.APPLICATION_MODAL);
+	    popUp.initOwner(saveBTN.getScene().getWindow());
+	    popUp.showAndWait();
+	} catch (IOException ex) {
+	    Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+	}	
+    }
+
+    @FXML
+    private void handleRndCar(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleRndKunde(ActionEvent event) {
     }
     
 }
