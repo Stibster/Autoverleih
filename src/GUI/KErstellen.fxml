@@ -40,6 +40,12 @@
                   <Label fx:id="ortLabel" layoutX="370.0" layoutY="192.0" text="Wohnort" />
                </children>
             </HBox>
+            <HBox spacing="100.0">
+               <children>
+                  <TextField fx:id="plz" promptText="PLZ" />
+                  <Label fx:id="plzLable" text="Postleitzahl" />
+               </children>
+            </HBox>
             <HBox layoutX="65.0" layoutY="233.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <TextField fx:id="street" layoutX="65.0" layoutY="233.0" promptText="Strasse" />
@@ -61,19 +67,19 @@
             <HBox layoutX="65.0" layoutY="368.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <TextField fx:id="tel_num" layoutX="65.0" layoutY="368.0" promptText="Telefonnummer" />
-                  <Label fx:id = "tel_numLable" layoutX="353.0" layoutY="372.0" text="Telefonnummer" />
+                  <Label fx:id="tel_numLable" layoutX="353.0" layoutY="372.0" text="Telefonnummer" />
                </children>
             </HBox>
             <HBox layoutX="58.0" layoutY="440.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <TextField fx:id="car_date" layoutX="58.0" layoutY="440.0" promptText="Führerscheindatum" />
-                  <Label fx:id = "car_dateLable" layoutX="336.0" layoutY="444.0" text="Führerscheindatum" />
+                  <Label fx:id="car_dateLable" layoutX="336.0" layoutY="444.0" text="Führerscheindatum" />
                </children>
             </HBox>
             <HBox layoutX="65.0" layoutY="479.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <TextField fx:id="car_k" layoutX="65.0" layoutY="479.0" promptText="Führerschein Klasse" />
-                  <Label fx:id = "car_kLable" layoutX="367.0" layoutY="483.0" text="Führerschein Klasse" />
+                  <Label fx:id="car_kLable" layoutX="367.0" layoutY="483.0" text="Führerschein Klasse" />
                </children>
             </HBox>
          </children>

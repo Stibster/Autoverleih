@@ -10,8 +10,14 @@ import autoverleih.Kunde;
 import autoverleih.MetaController;
 import java.io.File;
 import java.net.URL;
+import java.text.DateFormatSymbols;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -51,6 +57,10 @@ public class KErstellenController implements Initializable {
     @FXML    private Label tel_numLable;
     @FXML    private Label car_dateLable;
     @FXML    private Label car_kLable;
+    @FXML
+    private TextField plz;
+    @FXML
+    private Label plzLable;
     /**
      * Initializes the controller class.
      */
@@ -88,18 +98,27 @@ public class KErstellenController implements Initializable {
 	File Fschein = null;
 	Date Fdate = null;
 	String Fklasse = null;
+	SimpleDateFormat format = new SimpleDateFormat("dd.mm.yyyy", new DateFormatSymbols(Locale.GERMANY));        
 	
 	Vorname =vorname_text.getText();
 	Name =  name_text.getText();
-	//Plz = Integer.parseInt(plz.getText());
+	Plz = Integer.parseInt(plz.getText());
 	ort = Ort.getText();
 	H_num = h_num.getText();
 	Str = street.getText();
 	Email = email.getText();
 	tel = Integer.parseInt(tel_num.getText());
-	//Geb = format.parse(birthday.getText());
-	//Fschein???? //grad keinen plan
-	//Fdate = format.parse(car_date.getText());
+	try {
+	    Geb = format.parse(birthday.getText());
+	} catch (ParseException ex) {
+	    Logger.getLogger(KErstellenController.class.getName()).log(Level.SEVERE, null, ex);
+	}
+	try {
+	    //Fschein???? //grad keinen plan
+	    Fdate = format.parse(car_date.getText());
+	} catch (ParseException ex) {
+	    Logger.getLogger(KErstellenController.class.getName()).log(Level.SEVERE, null, ex);
+	}
 	Fklasse = car_k.getText();
 	
 	
@@ -116,6 +135,7 @@ public class KErstellenController implements Initializable {
 		postLabel.setTextFill(Color.RED);
 		bdLabel.setTextFill(Color.RED);
 		ortLabel.setTextFill(Color.BLACK);
+		plzLable.setTextFill(Color.BLACK);
 		streetLabel.setTextFill(Color.BLACK);
 		h_numLable.setTextFill(Color.BLACK);
 		emailLable.setTextFill(Color.BLACK);
@@ -128,6 +148,7 @@ public class KErstellenController implements Initializable {
 		postLabel.setTextFill(Color.BLACK);
 		bdLabel.setTextFill(Color.BLACK);
 		ortLabel.setTextFill(Color.BLACK);
+		plzLable.setTextFill(Color.BLACK);
 		streetLabel.setTextFill(Color.BLACK);
 		h_numLable.setTextFill(Color.BLACK);
 		emailLable.setTextFill(Color.BLACK);
@@ -141,6 +162,7 @@ public class KErstellenController implements Initializable {
 		postLabel.setTextFill(Color.RED);
 		bdLabel.setTextFill(Color.BLACK);
 		ortLabel.setTextFill(Color.BLACK);
+		plzLable.setTextFill(Color.BLACK);
 		streetLabel.setTextFill(Color.BLACK);
 		h_numLable.setTextFill(Color.BLACK);
 		emailLable.setTextFill(Color.BLACK);
@@ -154,6 +176,7 @@ public class KErstellenController implements Initializable {
 		postLabel.setTextFill(Color.BLACK);
 		bdLabel.setTextFill(Color.BLACK);
 		ortLabel.setTextFill(Color.RED);
+		plzLable.setTextFill(Color.BLACK);
 		streetLabel.setTextFill(Color.BLACK);
 		h_numLable.setTextFill(Color.BLACK);
 		emailLable.setTextFill(Color.BLACK);
@@ -167,6 +190,7 @@ public class KErstellenController implements Initializable {
 		postLabel.setTextFill(Color.BLACK);
 		bdLabel.setTextFill(Color.BLACK);
 		ortLabel.setTextFill(Color.BLACK);
+		plzLable.setTextFill(Color.BLACK);
 		streetLabel.setTextFill(Color.RED);
 		h_numLable.setTextFill(Color.BLACK);
 		emailLable.setTextFill(Color.BLACK);
@@ -180,6 +204,7 @@ public class KErstellenController implements Initializable {
 		postLabel.setTextFill(Color.BLACK);
 		bdLabel.setTextFill(Color.BLACK);
 		ortLabel.setTextFill(Color.BLACK);
+		plzLable.setTextFill(Color.BLACK);
 		streetLabel.setTextFill(Color.BLACK);
 		h_numLable.setTextFill(Color.RED);
 		emailLable.setTextFill(Color.BLACK);
@@ -193,6 +218,7 @@ public class KErstellenController implements Initializable {
 		postLabel.setTextFill(Color.BLACK);
 		bdLabel.setTextFill(Color.BLACK);
 		ortLabel.setTextFill(Color.BLACK);
+		plzLable.setTextFill(Color.BLACK);
 		streetLabel.setTextFill(Color.BLACK);
 		h_numLable.setTextFill(Color.BLACK);
 		emailLable.setTextFill(Color.RED);
@@ -206,6 +232,7 @@ public class KErstellenController implements Initializable {
 		postLabel.setTextFill(Color.BLACK);
 		bdLabel.setTextFill(Color.BLACK);
 		ortLabel.setTextFill(Color.BLACK);
+		plzLable.setTextFill(Color.BLACK);
 		streetLabel.setTextFill(Color.BLACK);
 		h_numLable.setTextFill(Color.BLACK);
 		emailLable.setTextFill(Color.BLACK);
@@ -219,6 +246,7 @@ public class KErstellenController implements Initializable {
 		postLabel.setTextFill(Color.BLACK);
 		bdLabel.setTextFill(Color.RED);
 		ortLabel.setTextFill(Color.BLACK);
+		plzLable.setTextFill(Color.BLACK);
 		streetLabel.setTextFill(Color.BLACK);
 		h_numLable.setTextFill(Color.BLACK);
 		emailLable.setTextFill(Color.BLACK);
@@ -232,6 +260,7 @@ public class KErstellenController implements Initializable {
 		postLabel.setTextFill(Color.BLACK);
 		bdLabel.setTextFill(Color.BLACK);
 		ortLabel.setTextFill(Color.BLACK);
+		plzLable.setTextFill(Color.BLACK);
 		streetLabel.setTextFill(Color.BLACK);
 		h_numLable.setTextFill(Color.BLACK);
 		emailLable.setTextFill(Color.BLACK);
@@ -245,6 +274,7 @@ public class KErstellenController implements Initializable {
 		postLabel.setTextFill(Color.BLACK);
 		bdLabel.setTextFill(Color.BLACK);
 		ortLabel.setTextFill(Color.BLACK);
+		plzLable.setTextFill(Color.BLACK);
 		streetLabel.setTextFill(Color.BLACK);
 		h_numLable.setTextFill(Color.BLACK);
 		emailLable.setTextFill(Color.BLACK);
@@ -258,6 +288,7 @@ public class KErstellenController implements Initializable {
 		postLabel.setTextFill(Color.BLACK);
 		bdLabel.setTextFill(Color.BLACK);
 		ortLabel.setTextFill(Color.BLACK);
+		plzLable.setTextFill(Color.BLACK);
 		streetLabel.setTextFill(Color.BLACK);
 		h_numLable.setTextFill(Color.BLACK);
 		emailLable.setTextFill(Color.BLACK);
