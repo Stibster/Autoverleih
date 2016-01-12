@@ -29,32 +29,19 @@ public class KErstellenController implements Initializable {
 
     MetaController MC_Hammer = new MetaController();
 
-    @FXML
-    private TextField name_text;
-    @FXML
-    private TextField vorname_text;
-    @FXML
-    private Button k_pop_save;
-    @FXML
-    private Label preLabel;
-    @FXML
-    private Label postLabel;
-    @FXML
-    private TextField birthday;
-    @FXML
-    private TextField Ort;
-    @FXML
-    private TextField street;
-    @FXML
-    private TextField h_num;
-    @FXML
-    private TextField email;
-    @FXML
-    private TextField tel_num;
-    @FXML
-    private TextField car_date;
-    @FXML
-    private TextField car_k;
+    @FXML    private TextField name_text;
+    @FXML    private TextField vorname_text;
+    @FXML    private Button k_pop_save;
+    @FXML    private Label preLabel;
+    @FXML    private Label postLabel;
+    @FXML    private TextField birthday;
+    @FXML    private TextField Ort;
+    @FXML    private TextField street;
+    @FXML    private TextField h_num;
+    @FXML    private TextField email;
+    @FXML    private TextField tel_num;
+    @FXML    private TextField car_date;
+    @FXML    private TextField car_k;
 
     /**
      * Initializes the controller class.
@@ -84,22 +71,36 @@ public class KErstellenController implements Initializable {
 	String Vorname = null;
 	String Name = null;
 	int Plz = -1;
-	String Ort = null;
+	String ort = null;
 	String Str = null;
 	String H_num = null;
-	String email = null;
+	String Email = null;
 	int tel = -1;
 	Date Geb = null;
 	File Fschein = null;
 	Date Fdate = null;
 	String Fklasse = null;
-
-	fehler = MC_Hammer.addKunde(Vorname, Name, Plz, Ort, Str,
-		H_num, email, tel, Geb, Fschein, Fdate, Fklasse);
+	
+	Vorname =vorname_text.getText();
+	Name =  name_text.getText();
+	//Plz = Integer.parseInt(plz.getText());
+	ort = Ort.getText();
+	H_num = h_num.getText();
+	Str = street.getText();
+	Email = email.getText();
+	tel = Integer.parseInt(tel_num.getText());
+	//Geb = format.parse(birthday.getText());
+	//Fschein???? //grad keinen plan
+	//Fdate = format.parse(car_date.getText());
+	Fklasse = car_k.getText();
+	
+	
+	fehler = MC_Hammer.addKunde(Vorname, Name, Plz, ort, Str,
+		H_num, Email, tel, Geb, Fschein, Fdate, Fklasse);
 
 	switch (fehler) {
 	    case 1:
-		
+		Stage popUp = (Stage) preLabel.getScene().getWindow();
 		popUp.close();
 		break;
 	    case -1:
