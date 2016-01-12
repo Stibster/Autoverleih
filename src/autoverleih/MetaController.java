@@ -4,6 +4,7 @@
 package autoverleih;
 
 import GUI.Vfall_popupController;
+import java.io.File;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -208,6 +209,117 @@ public class MetaController {
         }
     }
 //##############################################################################
+   
+    //von Danilo May
+    // 1 return alles erfolgreich gespeichert
+    // 0 normal fall keine daten, nichts wird angezeigt
+    // -1 Vorname, Nachname und Geburtstag schon einmal zusammen vorhanden
+    // -2 Vorname muss ersten Buchstaben groß und Rest klein haben
+    // -3 Nachname muss ersten Buchstaben groß und Rest klein haben
+    // -4 Wohnort muss ersten Buchstaben groß und Rest klein haben
+    // -5 Strasse muss ersten Buchstaben groß und Rest klein haben
+    // -6 Hausnummer besteht nur aus Zahlen und/oder Buchstaben
+    // -7 EMail schema xxx(.yyy)@aaa.bb.cc
+    // -8 Telefonnummer falsch
+    // -9 Gebrutstag falsch
+    // -10 Führerschein falsch
+    // -11 Führerscheindatum falsch
+    
+    public int addKunde(String VN, String NN, int PLZ, String WO, String STR, String HN, String EM, int TN, Date GEB, File FS, Date FSD, String FSK){
+        DBV.restore(pfad);
+        int i = 0;
+        boolean Indikator = false;
+        Kunde kunde = new Kunde(0, VN, NN, PLZ, WO, STR, HN, EM, TN, GEB, FS, FSD, FSK);
+        int indikator = -1;
+        //Legt KundenID fest
+        int KID = DBV.makeKundenID();
+        kunde.setKunden_ID(KID);
+        //Prüft ob eine Person mit gleichem Vorname, Nachname, Geburtstag vorhanden ist
+        while (Indikator!=true){
+            while (i < DBV.Kunden.size() && Indikator == false){ 
+                if (DBV.Kunden.get(i).getVorname() == VN ) {
+                     if (DBV.Kunden.get(i).getNachname() == NN ) {
+                          if (DBV.Kunden.get(i).getGeburtstag() == GEB ) {
+                              Indikator = true;
+                          }
+                     }
+                } 
+                else {
+                    i++; 
+                }
+            }
+            if (Indikator = true){
+                indikator = -1;
+            }
+        }
+        //Legt Eingabe Regeln fest
+        String Buchstaben = "^([A-Z]) [a-z] ";
+        //String ZS = "^\\+[1-9]{1}[0-9]{3,14}$";
+        String At = "^[_A-Za-z0-9-\\\\+]+(\\\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\\\.[A-Za-z0-9]+)*(\\\\.[A-Za-z]{2,})$;";
+        String ZB = "[A-Za-z0-9]";
+        String Plz = "\\d{5})";
+        //Prüft ob Eingaberegeln mit Eingabe übereinstimmen
+        boolean Vorname = VN.matches(Buchstaben);
+        boolean Nachname = NN.matches(Buchstaben);
+        boolean Wohnort = WO.matches(Buchstaben);
+        boolean Strasse = STR.matches(Buchstaben);
+        boolean Hausnummer = HN.matches(ZB);
+        boolean EMail = EM.matches(At);
+        //boolean Telefonnummer = TN.matches(ZS);
+       
+        //Prüft ob Alle Ergebnisse passen
+        if (Indikator!=true){
+            if (Vorname == false){
+                Indikator = true;
+                indikator = -2;
+            }
+            if (Nachname == false){
+                Indikator = true;
+                indikator = -3;
+            }
+            if (Wohnort == false){
+                Indikator = true;
+                indikator = -4;
+            }
+            if (Strasse == false){
+                Indikator = true;
+                indikator = -5;
+            }
+            if (Hausnummer == false){
+                Indikator = true;
+                indikator = -6;
+            }
+            if (EMail == false){
+                Indikator = true;
+                indikator = -7;
+            }
+            /*if (Telefonnummer == null){
+                Indikator = true;
+                indikator = -8;
+            }*/
+            if (GEB == null){
+                Indikator = true;
+                indikator = -9;
+            }
+            if (FS == null){
+                Indikator = true;
+                indikator = -10;
+            }
+            if (FSD == null){
+                Indikator = true;
+                indikator = -11;
+            }
+        }
+        // speichert
+        if (Indikator != true){
+            DBV.addKunde(kunde);
+	    DBV.save(pfad);
+	    indikator = 1;
+        }
+        //gibt Erfolg oder Fehlschlag mit jeweiligem Fehlercode zurück
+        return indikator;    
+    }
+        
 }
 /*   
     
