@@ -59,8 +59,7 @@ public class Vfall_popupController implements Initializable {
 	back = null;   //ruegabe datum
         SimpleDateFormat format = new SimpleDateFormat("dd.mm.yyyy", new DateFormatSymbols(Locale.GERMANY)); //#Raicandy
         
-	//while (fehler <= 0) 
-	//{
+
 	    	    A_id = Integer.parseInt(autoID.getText());
 		    K_id = Integer.parseInt(kundeID.getText());
 		    start = format.parse(vonDate.getText());
@@ -125,9 +124,7 @@ public class Vfall_popupController implements Initializable {
 		    */
 		    break;
 	    }
-	//}
-	//Stage popUp = (Stage) eror_k_id.getScene().getWindow();
-        //popUp.close();
+
 
     }
     

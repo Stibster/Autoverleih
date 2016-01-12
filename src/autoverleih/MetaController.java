@@ -319,6 +319,141 @@ public class MetaController {
         //gibt Erfolg oder Fehlschlag mit jeweiligem Fehlercode zurück
         return indikator;    
     }
+    
+    /*
+    1 Erfolgreich gespeichert
+    0 normal, keine Daten nix wird angezeigt
+    -1 Auto_ID und Kennzeichen schon vorhanden
+    -2 Kennzeichen nur Großbuchstaben und Zahlen
+    -3 Hersteller nur Buchstaben 1. Groß
+    -4 Modell keine Sonderzeichen
+    -5 Bauart nur Buchstaben
+    -6 Farbe nur Buchstaben 1. Groß
+    -7 Kraftstoff: Nur Diesel/Benzin/E10/Gas
+    -8 Verbrauch Format: 000l/100km
+    -9 Antrieb nur Allrad/Heckantrieb/Frontantrieb
+    -10 Getriebe nur Automatikgetriebe/Schaltgetriebe
+    -11 Extras nur Buchstaben 1. Groß
+    */
+    
+    //********************************Adrian Neubert****************************
+    public int addAuto(File PATH, int AID,  String KZ, String HER, 
+            String MOD, String BA, boolean AK ,int SP, 
+            String FAR, int LEI, String KS, String VER, 
+            String ANT, String GET, int BJ, int KIL, 
+            Date TUE, double KAU, float GPT, boolean FAH,
+            String EXT, boolean ID)
+    {
+        DBV.restore(pfad);
+        int i = 0;
+        boolean Indikator = false;
+        Auto auto = new Auto(PATH, AID, KZ, HER, MOD, BA, AK, SP, FAR, LEI, KS, 
+             VER, ANT, GET, BJ, KIL, TUE, KAU, GPT, FAH, EXT, ID);
+        int indikator = -1;
+        while(Indikator != true)
+        {
+            while(i < DBV.Autos.size() && Indikator == false)
+            {
+                if(DBV.Autos.get(i).getAuto_ID()==AID)
+                {
+                    if(DBV.Autos.get(i).getKennzeichen()==KZ)
+                    {
+                        Indikator = true;
+                    }
+                }
+                else
+                {
+                    i++;
+                }
+            }
+            if(Indikator = true)
+            {
+                indikator = -1;
+            }        
+        }       
+        String Buchstaben ="^([A-Z])[a-z]";
+        //String Verbrauch =
+        String BuchZahl = "[A-Z][a-z][0-9]";
+        String Kenn = "[0-9][A-Z]";
+        String KrSt = "[Diesel][Benzin][E10][Gas]";
+        String Antr = "[Frontantrieb][Heckantrieb][Allrad]";
+        String Getr = "[Schaltgetriebe][Automatikgetriebe]";
+
+        boolean Kennzeichen = KZ.matches(Kenn);
+        boolean Hersteller = HER.matches(Buchstaben);
+        boolean Modell = MOD.matches(BuchZahl);
+        boolean Bauart = BA.matches(Buchstaben);
+        boolean Farbe = FAR.matches(Buchstaben);
+        boolean Kraftstoff = KS.matches(KrSt);
+        //boolean Verbrauch = VER.matches(Verbrauch);
+        boolean Antrieb = ANT.matches(Antr);
+        boolean Getriebe = GET.matches(Getr);
+        boolean Extras = EXT.matches(Buchstaben);
+        
+        if(Indikator!=true)
+        {
+            if(Kennzeichen == false)
+                    {
+                        Indikator = true;
+                        indikator = -2;
+                    }
+                    if(Hersteller == false)
+                    {
+                        Indikator = true;
+                        indikator = -3;
+                    }
+                    if(Modell == false)
+                    {
+                        Indikator = true;
+                        indikator = -4;
+                    }
+                     if(Bauart == false)
+                    {
+                        Indikator = true;
+                        indikator = -5;
+                    }
+                      if(Farbe == false)
+                    {
+                        Indikator = true;
+                        indikator = -6;
+                    }
+                       if(Kraftstoff == false)
+                    {
+                        Indikator = true;
+                        indikator = -7;
+                    }
+                  //      if(Verbrauch == false)
+                  //  {
+                  //      Indikator = true;
+                  //      indikator = -8;
+                  //  }
+                   if(Antrieb == false)
+                    {
+                        Indikator = true;
+                        indikator = -9;
+                    }
+                    if(Getriebe == false)
+                    {
+                        Indikator = true;
+                        indikator = -10;
+                    }
+                     if(Extras == false)
+                    {
+                        Indikator = true;
+                        indikator = -11;
+                    }
+        }
+        
+        if (Indikator != true)
+        {
+            DBV.addAuto(auto);
+            DBV.save(pfad);
+            indikator = 1;
+        }
+        return indikator;
+    }
+//##############################################################################
+   
         
 }
 /*   
