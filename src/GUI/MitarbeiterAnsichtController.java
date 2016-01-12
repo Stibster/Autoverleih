@@ -29,14 +29,26 @@ public class MitarbeiterAnsichtController implements Initializable {
 
     @FXML    private Button saveBTN;
     @FXML    private Button beispielBTN;
-    @FXML    private MenuItem login;
     @FXML    private MenuItem logOut;
     @FXML    private TextField customerSearchText;
     @FXML    private Button SearchWorkerBTN;
     @FXML    private TextField carSearchText;
-    @FXML    private Button SearchWorkerBTN1;
     @FXML    private TextArea console;
     @FXML    private TextField consoleText;
+    @FXML
+    private Button showAllBTN;
+    @FXML
+    private MenuItem addUserMenue;
+    @FXML
+    private MenuItem DelUser;
+    @FXML
+    private MenuItem Ausleihe;
+    @FXML
+    private MenuItem carRaus;
+    @FXML
+    private MenuItem carRein;
+    @FXML
+    private MenuItem logIn;
 
     /**
      * Initializes the controller class.

@@ -43,37 +43,37 @@
             <HBox layoutX="65.0" layoutY="233.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <TextField fx:id="street" layoutX="65.0" layoutY="233.0" promptText="Strasse" />
-                  <Label layoutX="370.0" layoutY="237.0" text="Strasse" />
+                  <Label fx:id="streetLabel" layoutX="370.0" layoutY="237.0" text="Strasse" />
                </children>
             </HBox>
             <HBox layoutX="58.0" layoutY="289.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <TextField fx:id="h_num" layoutX="58.0" layoutY="289.0" promptText="Hausnummer" />
-                  <Label layoutX="367.0" layoutY="293.0" text="Hausnummer" />
+                  <Label fx:id="h_numLable" layoutX="367.0" layoutY="293.0" text="Hausnummer" />
                </children>
             </HBox>
             <HBox layoutX="58.0" layoutY="331.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <TextField fx:id="email" layoutX="58.0" layoutY="331.0" promptText="E-Mail" />
-                  <Label layoutX="367.0" layoutY="335.0" text="E-Mail" />
+                  <Label fx:id = "emailLable"layoutX="367.0" layoutY="335.0" text="E-Mail" />
                </children>
             </HBox>
             <HBox layoutX="65.0" layoutY="368.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <TextField fx:id="tel_num" layoutX="65.0" layoutY="368.0" promptText="Telefonnummer" />
-                  <Label layoutX="353.0" layoutY="372.0" text="Telefonnummer" />
+                  <Label fx:id = "tel_numLable" layoutX="353.0" layoutY="372.0" text="Telefonnummer" />
                </children>
             </HBox>
             <HBox layoutX="58.0" layoutY="440.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <TextField fx:id="car_date" layoutX="58.0" layoutY="440.0" promptText="Führerscheindatum" />
-                  <Label layoutX="336.0" layoutY="444.0" text="Führerscheindatum" />
+                  <Label fx:id = "car_dateLable" layoutX="336.0" layoutY="444.0" text="Führerscheindatum" />
                </children>
             </HBox>
             <HBox layoutX="65.0" layoutY="479.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <TextField fx:id="car_k" layoutX="65.0" layoutY="479.0" promptText="Führerschein Klasse" />
-                  <Label layoutX="367.0" layoutY="483.0" text="Führerschein Klasse" />
+                  <Label fx:id = "car_kLable" layoutX="367.0" layoutY="483.0" text="Führerschein Klasse" />
                </children>
             </HBox>
          </children>

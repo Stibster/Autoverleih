@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**
@@ -42,7 +43,14 @@ public class KErstellenController implements Initializable {
     @FXML    private TextField tel_num;
     @FXML    private TextField car_date;
     @FXML    private TextField car_k;
-
+    @FXML    private Label bdLabel;
+    @FXML    private Label ortLabel;
+    @FXML    private Label streetLabel;
+    @FXML    private Label h_numLable;
+    @FXML    private Label emailLable;
+    @FXML    private Label tel_numLable;
+    @FXML    private Label car_dateLable;
+    @FXML    private Label car_kLable;
     /**
      * Initializes the controller class.
      */
@@ -104,39 +112,158 @@ public class KErstellenController implements Initializable {
 		popUp.close();
 		break;
 	    case -1:
-
+		preLabel.setTextFill(Color.RED);
+		postLabel.setTextFill(Color.RED);
+		bdLabel.setTextFill(Color.RED);
+		ortLabel.setTextFill(Color.BLACK);
+		streetLabel.setTextFill(Color.BLACK);
+		h_numLable.setTextFill(Color.BLACK);
+		emailLable.setTextFill(Color.BLACK);
+		tel_numLable.setTextFill(Color.BLACK);
+		car_dateLable.setTextFill(Color.BLACK);
+		car_kLable.setTextFill(Color.BLACK);
 		break;
 	    case -2:
+		preLabel.setTextFill(Color.RED);
+		postLabel.setTextFill(Color.BLACK);
+		bdLabel.setTextFill(Color.BLACK);
+		ortLabel.setTextFill(Color.BLACK);
+		streetLabel.setTextFill(Color.BLACK);
+		h_numLable.setTextFill(Color.BLACK);
+		emailLable.setTextFill(Color.BLACK);
+		tel_numLable.setTextFill(Color.BLACK);
+		car_dateLable.setTextFill(Color.BLACK);
+		car_kLable.setTextFill(Color.BLACK);
 
 		break;
 	    case -3:
+		preLabel.setTextFill(Color.BLACK);
+		postLabel.setTextFill(Color.RED);
+		bdLabel.setTextFill(Color.BLACK);
+		ortLabel.setTextFill(Color.BLACK);
+		streetLabel.setTextFill(Color.BLACK);
+		h_numLable.setTextFill(Color.BLACK);
+		emailLable.setTextFill(Color.BLACK);
+		tel_numLable.setTextFill(Color.BLACK);
+		car_dateLable.setTextFill(Color.BLACK);
+		car_kLable.setTextFill(Color.BLACK);
 
 		break;
 	    case -4:
+		preLabel.setTextFill(Color.BLACK);
+		postLabel.setTextFill(Color.BLACK);
+		bdLabel.setTextFill(Color.BLACK);
+		ortLabel.setTextFill(Color.RED);
+		streetLabel.setTextFill(Color.BLACK);
+		h_numLable.setTextFill(Color.BLACK);
+		emailLable.setTextFill(Color.BLACK);
+		tel_numLable.setTextFill(Color.BLACK);
+		car_dateLable.setTextFill(Color.BLACK);
+		car_kLable.setTextFill(Color.BLACK);
 
 		break;
 	    case -5:
+		preLabel.setTextFill(Color.BLACK);
+		postLabel.setTextFill(Color.BLACK);
+		bdLabel.setTextFill(Color.BLACK);
+		ortLabel.setTextFill(Color.BLACK);
+		streetLabel.setTextFill(Color.RED);
+		h_numLable.setTextFill(Color.BLACK);
+		emailLable.setTextFill(Color.BLACK);
+		tel_numLable.setTextFill(Color.BLACK);
+		car_dateLable.setTextFill(Color.BLACK);
+		car_kLable.setTextFill(Color.BLACK);
 
 		break;
 	    case -6:
+		preLabel.setTextFill(Color.BLACK);
+		postLabel.setTextFill(Color.BLACK);
+		bdLabel.setTextFill(Color.BLACK);
+		ortLabel.setTextFill(Color.BLACK);
+		streetLabel.setTextFill(Color.BLACK);
+		h_numLable.setTextFill(Color.RED);
+		emailLable.setTextFill(Color.BLACK);
+		tel_numLable.setTextFill(Color.BLACK);
+		car_dateLable.setTextFill(Color.BLACK);
+		car_kLable.setTextFill(Color.BLACK);
 
 		break;
 	    case -7:
+		preLabel.setTextFill(Color.BLACK);
+		postLabel.setTextFill(Color.BLACK);
+		bdLabel.setTextFill(Color.BLACK);
+		ortLabel.setTextFill(Color.BLACK);
+		streetLabel.setTextFill(Color.BLACK);
+		h_numLable.setTextFill(Color.BLACK);
+		emailLable.setTextFill(Color.RED);
+		tel_numLable.setTextFill(Color.BLACK);
+		car_dateLable.setTextFill(Color.BLACK);
+		car_kLable.setTextFill(Color.BLACK);
 
 		break;
 	    case -8:
+		preLabel.setTextFill(Color.BLACK);
+		postLabel.setTextFill(Color.BLACK);
+		bdLabel.setTextFill(Color.BLACK);
+		ortLabel.setTextFill(Color.BLACK);
+		streetLabel.setTextFill(Color.BLACK);
+		h_numLable.setTextFill(Color.BLACK);
+		emailLable.setTextFill(Color.BLACK);
+		tel_numLable.setTextFill(Color.RED);
+		car_dateLable.setTextFill(Color.BLACK);
+		car_kLable.setTextFill(Color.BLACK);
 
 		break;
 	    case -9:
+		preLabel.setTextFill(Color.BLACK);
+		postLabel.setTextFill(Color.BLACK);
+		bdLabel.setTextFill(Color.RED);
+		ortLabel.setTextFill(Color.BLACK);
+		streetLabel.setTextFill(Color.BLACK);
+		h_numLable.setTextFill(Color.BLACK);
+		emailLable.setTextFill(Color.BLACK);
+		tel_numLable.setTextFill(Color.BLACK);
+		car_dateLable.setTextFill(Color.BLACK);
+		car_kLable.setTextFill(Color.BLACK);
 
 		break;
-	    case -10:
+	    case -10://kein bild ausgewaehlt
+		preLabel.setTextFill(Color.BLACK);
+		postLabel.setTextFill(Color.BLACK);
+		bdLabel.setTextFill(Color.BLACK);
+		ortLabel.setTextFill(Color.BLACK);
+		streetLabel.setTextFill(Color.BLACK);
+		h_numLable.setTextFill(Color.BLACK);
+		emailLable.setTextFill(Color.BLACK);
+		tel_numLable.setTextFill(Color.BLACK);
+		car_dateLable.setTextFill(Color.BLACK);
+		car_kLable.setTextFill(Color.BLACK);
 
 		break;
 	    case -11:
+		preLabel.setTextFill(Color.BLACK);
+		postLabel.setTextFill(Color.BLACK);
+		bdLabel.setTextFill(Color.BLACK);
+		ortLabel.setTextFill(Color.BLACK);
+		streetLabel.setTextFill(Color.BLACK);
+		h_numLable.setTextFill(Color.BLACK);
+		emailLable.setTextFill(Color.BLACK);
+		tel_numLable.setTextFill(Color.BLACK);
+		car_dateLable.setTextFill(Color.BLACK);
+		car_kLable.setTextFill(Color.RED);
 
 		break;
 	    default:
+		preLabel.setTextFill(Color.BLACK);
+		postLabel.setTextFill(Color.BLACK);
+		bdLabel.setTextFill(Color.BLACK);
+		ortLabel.setTextFill(Color.BLACK);
+		streetLabel.setTextFill(Color.BLACK);
+		h_numLable.setTextFill(Color.BLACK);
+		emailLable.setTextFill(Color.BLACK);
+		tel_numLable.setTextFill(Color.BLACK);
+		car_dateLable.setTextFill(Color.BLACK);
+		car_kLable.setTextFill(Color.BLACK);
 
 		break;
 	}
