@@ -92,20 +92,18 @@ public class MetaController {
       Indikator = false;
       i = 0;
       boolean Kollision = false;
-      /*
+      
       while(Indikator != true){
         while (i < DBV.Ausleihen.size() && Indikator == false) { 
 
             if (DBV.Ausleihen.get(i).getAuto_ID() == Auto_ID ) {
                 //Test ob ausleihezeiträume kollidieren.
                 // Autor: Steve Vogel
-                
-                Vfall_popupController Vfall = new Vfall_popupController();
-                
-                GregorianCalendar cal_aus = DateToCalendar(Vfall.start); //Eingegebenes Ausleihdatum
-                GregorianCalendar cal_rue = DateToCalendar(Vfall.back);
-                GregorianCalendar cal_Baus = DateToCalendar(ausleihe.Ausleihdatum); //Bestehendes Ausleihdatum
-                GregorianCalendar cal_Brue = DateToCalendar(ausleihe.Rueckgabedatum);
+                                
+                GregorianCalendar cal_aus = DateToCalendar(Ausleihdatum); //Eingegebenes Ausleihdatum
+                GregorianCalendar cal_rue = DateToCalendar(Rueckgabedatum);
+                GregorianCalendar cal_Baus = DateToCalendar(DBV.Ausleihen.get(i).Ausleihdatum); //Bestehendes Ausleihdatum
+                GregorianCalendar cal_Brue = DateToCalendar(DBV.Ausleihen.get(i).Rueckgabedatum);
                 
                 long aus = cal_aus.getTimeInMillis();
                 long rue = cal_rue.getTimeInMillis();
@@ -118,7 +116,7 @@ public class MetaController {
                 for(long j=0; j<zeitraum; j++) {
                     for(long k=0; k<Bzeitraum; k++) {
                         if(cal_Baus.equals(cal_aus)) {
-                            Kollision = true;
+                            Indikator = true;
                         }
                         else {
                             cal_Baus.add(GregorianCalendar.DAY_OF_MONTH, 1);
@@ -144,7 +142,7 @@ public class MetaController {
                 ausleihe.setAusleihdatum(Ausleihdatum);
                 ausleihe.setRueckgabedatum(Rueckgabedatum);
             }
-      }*/
+      }
       
         //Wenn alles korrekt ist wird die Ausleihe hinzugefügt.
 	if(indikator >= 0)

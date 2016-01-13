@@ -21,6 +21,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.scene.paint.Color;
 
 /**
  * FXML Controller class
@@ -140,69 +141,445 @@ public class AutoerstellenController implements Initializable {
 		popUp.close();
 		break;
 	    case -1:
-		/*
-kennLabel;
- HerLabel;
- ModLabel;
-bauLabel;
- FarbeLabel;
- oilLable;
-verLabel;
-antLable;
-getriebLabel;
-exLabel;
- anLabel;
-sitzLabel;
-psLabel;
-yearLabel;
-kmLabel;
-tuevLabel;
-kautLabel;
-    gptLabel;*/
+                kennLabel.setTextFill(Color.BLACK);
+                HerLabel.setTextFill(Color.BLACK);
+                ModLabel.setTextFill(Color.BLACK);
+                bauLabel.setTextFill(Color.BLACK);
+                FarbeLabel.setTextFill(Color.BLACK);
+                oilLable.setTextFill(Color.BLACK);
+                verLabel.setTextFill(Color.BLACK);
+                antLable.setTextFill(Color.BLACK);
+                getriebLabel.setTextFill(Color.BLACK);
+                exLabel.setTextFill(Color.BLACK);
+                anLabel.setTextFill(Color.BLACK);
+                sitzLabel.setTextFill(Color.BLACK);
+                psLabel.setTextFill(Color.BLACK);
+                yearLabel.setTextFill(Color.BLACK);
+                kmLabel.setTextFill(Color.BLACK);
+                tuevLabel.setTextFill(Color.BLACK);
+                kautLabel.setTextFill(Color.BLACK);
+                gptLabel.setTextFill(Color.BLACK);
 		
 		break;
 	    case -2:
-		
+		kennLabel.setTextFill(Color.BLACK);
+                HerLabel.setTextFill(Color.BLACK);
+                ModLabel.setTextFill(Color.BLACK);
+                bauLabel.setTextFill(Color.BLACK);
+                FarbeLabel.setTextFill(Color.BLACK);
+                oilLable.setTextFill(Color.BLACK);
+                verLabel.setTextFill(Color.BLACK);
+                antLable.setTextFill(Color.BLACK);
+                getriebLabel.setTextFill(Color.BLACK);
+                exLabel.setTextFill(Color.BLACK);
+                anLabel.setTextFill(Color.BLACK);
+                sitzLabel.setTextFill(Color.BLACK);
+                psLabel.setTextFill(Color.BLACK);
+                yearLabel.setTextFill(Color.BLACK);
+                kmLabel.setTextFill(Color.BLACK);
+                tuevLabel.setTextFill(Color.BLACK);
+                kautLabel.setTextFill(Color.BLACK);
+                gptLabel.setTextFill(Color.BLACK);
 
 		break;
 	    case -3:
-		
+		kennLabel.setTextFill(Color.BLACK);
+                HerLabel.setTextFill(Color.BLACK);
+                ModLabel.setTextFill(Color.BLACK);
+                bauLabel.setTextFill(Color.BLACK);
+                FarbeLabel.setTextFill(Color.BLACK);
+                oilLable.setTextFill(Color.BLACK);
+                verLabel.setTextFill(Color.BLACK);
+                antLable.setTextFill(Color.BLACK);
+                getriebLabel.setTextFill(Color.BLACK);
+                exLabel.setTextFill(Color.BLACK);
+                anLabel.setTextFill(Color.BLACK);
+                sitzLabel.setTextFill(Color.BLACK);
+                psLabel.setTextFill(Color.BLACK);
+                yearLabel.setTextFill(Color.BLACK);
+                kmLabel.setTextFill(Color.BLACK);
+                tuevLabel.setTextFill(Color.BLACK);
+                kautLabel.setTextFill(Color.BLACK);
+                gptLabel.setTextFill(Color.BLACK);
 		
 
 		break;
 	    case -4:
-		
+		kennLabel.setTextFill(Color.BLACK);
+                HerLabel.setTextFill(Color.BLACK);
+                ModLabel.setTextFill(Color.BLACK);
+                bauLabel.setTextFill(Color.BLACK);
+                FarbeLabel.setTextFill(Color.BLACK);
+                oilLable.setTextFill(Color.BLACK);
+                verLabel.setTextFill(Color.BLACK);
+                antLable.setTextFill(Color.BLACK);
+                getriebLabel.setTextFill(Color.BLACK);
+                exLabel.setTextFill(Color.BLACK);
+                anLabel.setTextFill(Color.BLACK);
+                sitzLabel.setTextFill(Color.BLACK);
+                psLabel.setTextFill(Color.BLACK);
+                yearLabel.setTextFill(Color.BLACK);
+                kmLabel.setTextFill(Color.BLACK);
+                tuevLabel.setTextFill(Color.BLACK);
+                kautLabel.setTextFill(Color.BLACK);
+                gptLabel.setTextFill(Color.BLACK);
 
 		break;
 	    case -5:
-		
+		kennLabel.setTextFill(Color.BLACK);
+                HerLabel.setTextFill(Color.BLACK);
+                ModLabel.setTextFill(Color.BLACK);
+                bauLabel.setTextFill(Color.BLACK);
+                FarbeLabel.setTextFill(Color.BLACK);
+                oilLable.setTextFill(Color.BLACK);
+                verLabel.setTextFill(Color.BLACK);
+                antLable.setTextFill(Color.BLACK);
+                getriebLabel.setTextFill(Color.BLACK);
+                exLabel.setTextFill(Color.BLACK);
+                anLabel.setTextFill(Color.BLACK);
+                sitzLabel.setTextFill(Color.BLACK);
+                psLabel.setTextFill(Color.BLACK);
+                yearLabel.setTextFill(Color.BLACK);
+                kmLabel.setTextFill(Color.BLACK);
+                tuevLabel.setTextFill(Color.BLACK);
+                kautLabel.setTextFill(Color.BLACK);
+                gptLabel.setTextFill(Color.BLACK);
 
 		break;
 	    case -6:
-		
+		kennLabel.setTextFill(Color.BLACK);
+                HerLabel.setTextFill(Color.BLACK);
+                ModLabel.setTextFill(Color.BLACK);
+                bauLabel.setTextFill(Color.BLACK);
+                FarbeLabel.setTextFill(Color.BLACK);
+                oilLable.setTextFill(Color.BLACK);
+                verLabel.setTextFill(Color.BLACK);
+                antLable.setTextFill(Color.BLACK);
+                getriebLabel.setTextFill(Color.BLACK);
+                exLabel.setTextFill(Color.BLACK);
+                anLabel.setTextFill(Color.BLACK);
+                sitzLabel.setTextFill(Color.BLACK);
+                psLabel.setTextFill(Color.BLACK);
+                yearLabel.setTextFill(Color.BLACK);
+                kmLabel.setTextFill(Color.BLACK);
+                tuevLabel.setTextFill(Color.BLACK);
+                kautLabel.setTextFill(Color.BLACK);
+                gptLabel.setTextFill(Color.BLACK);
 
 		break;
 	    case -7:
-		
+		kennLabel.setTextFill(Color.BLACK);
+                HerLabel.setTextFill(Color.BLACK);
+                ModLabel.setTextFill(Color.BLACK);
+                bauLabel.setTextFill(Color.BLACK);
+                FarbeLabel.setTextFill(Color.BLACK);
+                oilLable.setTextFill(Color.BLACK);
+                verLabel.setTextFill(Color.BLACK);
+                antLable.setTextFill(Color.BLACK);
+                getriebLabel.setTextFill(Color.BLACK);
+                exLabel.setTextFill(Color.BLACK);
+                anLabel.setTextFill(Color.BLACK);
+                sitzLabel.setTextFill(Color.BLACK);
+                psLabel.setTextFill(Color.BLACK);
+                yearLabel.setTextFill(Color.BLACK);
+                kmLabel.setTextFill(Color.BLACK);
+                tuevLabel.setTextFill(Color.BLACK);
+                kautLabel.setTextFill(Color.BLACK);
+                gptLabel.setTextFill(Color.BLACK);
 
 		break;
 	    case -8:
-		
+		kennLabel.setTextFill(Color.BLACK);
+                HerLabel.setTextFill(Color.BLACK);
+                ModLabel.setTextFill(Color.BLACK);
+                bauLabel.setTextFill(Color.BLACK);
+                FarbeLabel.setTextFill(Color.BLACK);
+                oilLable.setTextFill(Color.BLACK);
+                verLabel.setTextFill(Color.BLACK);
+                antLable.setTextFill(Color.BLACK);
+                getriebLabel.setTextFill(Color.BLACK);
+                exLabel.setTextFill(Color.BLACK);
+                anLabel.setTextFill(Color.BLACK);
+                sitzLabel.setTextFill(Color.BLACK);
+                psLabel.setTextFill(Color.BLACK);
+                yearLabel.setTextFill(Color.BLACK);
+                kmLabel.setTextFill(Color.BLACK);
+                tuevLabel.setTextFill(Color.BLACK);
+                kautLabel.setTextFill(Color.BLACK);
+                gptLabel.setTextFill(Color.BLACK);
 
 		break;
 	    case -9:
-		
+		kennLabel.setTextFill(Color.BLACK);
+                HerLabel.setTextFill(Color.BLACK);
+                ModLabel.setTextFill(Color.BLACK);
+                bauLabel.setTextFill(Color.BLACK);
+                FarbeLabel.setTextFill(Color.BLACK);
+                oilLable.setTextFill(Color.BLACK);
+                verLabel.setTextFill(Color.BLACK);
+                antLable.setTextFill(Color.BLACK);
+                getriebLabel.setTextFill(Color.BLACK);
+                exLabel.setTextFill(Color.BLACK);
+                anLabel.setTextFill(Color.BLACK);
+                sitzLabel.setTextFill(Color.BLACK);
+                psLabel.setTextFill(Color.BLACK);
+                yearLabel.setTextFill(Color.BLACK);
+                kmLabel.setTextFill(Color.BLACK);
+                tuevLabel.setTextFill(Color.BLACK);
+                kautLabel.setTextFill(Color.BLACK);
+                gptLabel.setTextFill(Color.BLACK);
 
 		break;
 	    case -10://kein bild ausgewaehlt
-		
+		kennLabel.setTextFill(Color.BLACK);
+                HerLabel.setTextFill(Color.BLACK);
+                ModLabel.setTextFill(Color.BLACK);
+                bauLabel.setTextFill(Color.BLACK);
+                FarbeLabel.setTextFill(Color.BLACK);
+                oilLable.setTextFill(Color.BLACK);
+                verLabel.setTextFill(Color.BLACK);
+                antLable.setTextFill(Color.BLACK);
+                getriebLabel.setTextFill(Color.BLACK);
+                exLabel.setTextFill(Color.BLACK);
+                anLabel.setTextFill(Color.BLACK);
+                sitzLabel.setTextFill(Color.BLACK);
+                psLabel.setTextFill(Color.BLACK);
+                yearLabel.setTextFill(Color.BLACK);
+                kmLabel.setTextFill(Color.BLACK);
+                tuevLabel.setTextFill(Color.BLACK);
+                kautLabel.setTextFill(Color.BLACK);
+                gptLabel.setTextFill(Color.BLACK);
+                
 		break;
 	    case -11:
-		
+		kennLabel.setTextFill(Color.BLACK);
+                HerLabel.setTextFill(Color.BLACK);
+                ModLabel.setTextFill(Color.BLACK);
+                bauLabel.setTextFill(Color.BLACK);
+                FarbeLabel.setTextFill(Color.BLACK);
+                oilLable.setTextFill(Color.BLACK);
+                verLabel.setTextFill(Color.BLACK);
+                antLable.setTextFill(Color.BLACK);
+                getriebLabel.setTextFill(Color.BLACK);
+                exLabel.setTextFill(Color.BLACK);
+                anLabel.setTextFill(Color.BLACK);
+                sitzLabel.setTextFill(Color.BLACK);
+                psLabel.setTextFill(Color.BLACK);
+                yearLabel.setTextFill(Color.BLACK);
+                kmLabel.setTextFill(Color.BLACK);
+                tuevLabel.setTextFill(Color.BLACK);
+                kautLabel.setTextFill(Color.BLACK);
+                gptLabel.setTextFill(Color.BLACK);
+                
+                break;
+	    case -12:
+		kennLabel.setTextFill(Color.BLACK);
+                HerLabel.setTextFill(Color.BLACK);
+                ModLabel.setTextFill(Color.BLACK);
+                bauLabel.setTextFill(Color.BLACK);
+                FarbeLabel.setTextFill(Color.BLACK);
+                oilLable.setTextFill(Color.BLACK);
+                verLabel.setTextFill(Color.BLACK);
+                antLable.setTextFill(Color.BLACK);
+                getriebLabel.setTextFill(Color.BLACK);
+                exLabel.setTextFill(Color.BLACK);
+                anLabel.setTextFill(Color.BLACK);
+                sitzLabel.setTextFill(Color.BLACK);
+                psLabel.setTextFill(Color.BLACK);
+                yearLabel.setTextFill(Color.BLACK);
+                kmLabel.setTextFill(Color.BLACK);
+                tuevLabel.setTextFill(Color.BLACK);
+                kautLabel.setTextFill(Color.BLACK);
+                gptLabel.setTextFill(Color.BLACK);
+                
+                break;
+	    case -13:
+		kennLabel.setTextFill(Color.BLACK);
+                HerLabel.setTextFill(Color.BLACK);
+                ModLabel.setTextFill(Color.BLACK);
+                bauLabel.setTextFill(Color.BLACK);
+                FarbeLabel.setTextFill(Color.BLACK);
+                oilLable.setTextFill(Color.BLACK);
+                verLabel.setTextFill(Color.BLACK);
+                antLable.setTextFill(Color.BLACK);
+                getriebLabel.setTextFill(Color.BLACK);
+                exLabel.setTextFill(Color.BLACK);
+                anLabel.setTextFill(Color.BLACK);
+                sitzLabel.setTextFill(Color.BLACK);
+                psLabel.setTextFill(Color.BLACK);
+                yearLabel.setTextFill(Color.BLACK);
+                kmLabel.setTextFill(Color.BLACK);
+                tuevLabel.setTextFill(Color.BLACK);
+                kautLabel.setTextFill(Color.BLACK);
+                gptLabel.setTextFill(Color.BLACK);
 
+                break;
+	    case -14:
+		kennLabel.setTextFill(Color.BLACK);
+                HerLabel.setTextFill(Color.BLACK);
+                ModLabel.setTextFill(Color.BLACK);
+                bauLabel.setTextFill(Color.BLACK);
+                FarbeLabel.setTextFill(Color.BLACK);
+                oilLable.setTextFill(Color.BLACK);
+                verLabel.setTextFill(Color.BLACK);
+                antLable.setTextFill(Color.BLACK);
+                getriebLabel.setTextFill(Color.BLACK);
+                exLabel.setTextFill(Color.BLACK);
+                anLabel.setTextFill(Color.BLACK);
+                sitzLabel.setTextFill(Color.BLACK);
+                psLabel.setTextFill(Color.BLACK);
+                yearLabel.setTextFill(Color.BLACK);
+                kmLabel.setTextFill(Color.BLACK);
+                tuevLabel.setTextFill(Color.BLACK);
+                kautLabel.setTextFill(Color.BLACK);
+                gptLabel.setTextFill(Color.BLACK);
+                
+                break;
+	    case -15:
+		kennLabel.setTextFill(Color.BLACK);
+                HerLabel.setTextFill(Color.BLACK);
+                ModLabel.setTextFill(Color.BLACK);
+                bauLabel.setTextFill(Color.BLACK);
+                FarbeLabel.setTextFill(Color.BLACK);
+                oilLable.setTextFill(Color.BLACK);
+                verLabel.setTextFill(Color.BLACK);
+                antLable.setTextFill(Color.BLACK);
+                getriebLabel.setTextFill(Color.BLACK);
+                exLabel.setTextFill(Color.BLACK);
+                anLabel.setTextFill(Color.BLACK);
+                sitzLabel.setTextFill(Color.BLACK);
+                psLabel.setTextFill(Color.BLACK);
+                yearLabel.setTextFill(Color.BLACK);
+                kmLabel.setTextFill(Color.BLACK);
+                tuevLabel.setTextFill(Color.BLACK);
+                kautLabel.setTextFill(Color.BLACK);
+                gptLabel.setTextFill(Color.BLACK);
+                
+                break;
+	    case -16:
+		kennLabel.setTextFill(Color.BLACK);
+                HerLabel.setTextFill(Color.BLACK);
+                ModLabel.setTextFill(Color.BLACK);
+                bauLabel.setTextFill(Color.BLACK);
+                FarbeLabel.setTextFill(Color.BLACK);
+                oilLable.setTextFill(Color.BLACK);
+                verLabel.setTextFill(Color.BLACK);
+                antLable.setTextFill(Color.BLACK);
+                getriebLabel.setTextFill(Color.BLACK);
+                exLabel.setTextFill(Color.BLACK);
+                anLabel.setTextFill(Color.BLACK);
+                sitzLabel.setTextFill(Color.BLACK);
+                psLabel.setTextFill(Color.BLACK);
+                yearLabel.setTextFill(Color.BLACK);
+                kmLabel.setTextFill(Color.BLACK);
+                tuevLabel.setTextFill(Color.BLACK);
+                kautLabel.setTextFill(Color.BLACK);
+                gptLabel.setTextFill(Color.BLACK);
+                
+                break;
+	    case -17:
+		kennLabel.setTextFill(Color.BLACK);
+                HerLabel.setTextFill(Color.BLACK);
+                ModLabel.setTextFill(Color.BLACK);
+                bauLabel.setTextFill(Color.BLACK);
+                FarbeLabel.setTextFill(Color.BLACK);
+                oilLable.setTextFill(Color.BLACK);
+                verLabel.setTextFill(Color.BLACK);
+                antLable.setTextFill(Color.BLACK);
+                getriebLabel.setTextFill(Color.BLACK);
+                exLabel.setTextFill(Color.BLACK);
+                anLabel.setTextFill(Color.BLACK);
+                sitzLabel.setTextFill(Color.BLACK);
+                psLabel.setTextFill(Color.BLACK);
+                yearLabel.setTextFill(Color.BLACK);
+                kmLabel.setTextFill(Color.BLACK);
+                tuevLabel.setTextFill(Color.BLACK);
+                kautLabel.setTextFill(Color.BLACK);
+                gptLabel.setTextFill(Color.BLACK);
+                
+                break;
+	    case -18:
+		kennLabel.setTextFill(Color.BLACK);
+                HerLabel.setTextFill(Color.BLACK);
+                ModLabel.setTextFill(Color.BLACK);
+                bauLabel.setTextFill(Color.BLACK);
+                FarbeLabel.setTextFill(Color.BLACK);
+                oilLable.setTextFill(Color.BLACK);
+                verLabel.setTextFill(Color.BLACK);
+                antLable.setTextFill(Color.BLACK);
+                getriebLabel.setTextFill(Color.BLACK);
+                exLabel.setTextFill(Color.BLACK);
+                anLabel.setTextFill(Color.BLACK);
+                sitzLabel.setTextFill(Color.BLACK);
+                psLabel.setTextFill(Color.BLACK);
+                yearLabel.setTextFill(Color.BLACK);
+                kmLabel.setTextFill(Color.BLACK);
+                tuevLabel.setTextFill(Color.BLACK);
+                kautLabel.setTextFill(Color.BLACK);
+                gptLabel.setTextFill(Color.BLACK);
+                
+                break;
+	    case -19:
+		kennLabel.setTextFill(Color.BLACK);
+                HerLabel.setTextFill(Color.BLACK);
+                ModLabel.setTextFill(Color.BLACK);
+                bauLabel.setTextFill(Color.BLACK);
+                FarbeLabel.setTextFill(Color.BLACK);
+                oilLable.setTextFill(Color.BLACK);
+                verLabel.setTextFill(Color.BLACK);
+                antLable.setTextFill(Color.BLACK);
+                getriebLabel.setTextFill(Color.BLACK);
+                exLabel.setTextFill(Color.BLACK);
+                anLabel.setTextFill(Color.BLACK);
+                sitzLabel.setTextFill(Color.BLACK);
+                psLabel.setTextFill(Color.BLACK);
+                yearLabel.setTextFill(Color.BLACK);
+                kmLabel.setTextFill(Color.BLACK);
+                tuevLabel.setTextFill(Color.BLACK);
+                kautLabel.setTextFill(Color.BLACK);
+                gptLabel.setTextFill(Color.BLACK);
+                
+                break;
+	    case -20:
+		kennLabel.setTextFill(Color.BLACK);
+                HerLabel.setTextFill(Color.BLACK);
+                ModLabel.setTextFill(Color.BLACK);
+                bauLabel.setTextFill(Color.BLACK);
+                FarbeLabel.setTextFill(Color.BLACK);
+                oilLable.setTextFill(Color.BLACK);
+                verLabel.setTextFill(Color.BLACK);
+                antLable.setTextFill(Color.BLACK);
+                getriebLabel.setTextFill(Color.BLACK);
+                exLabel.setTextFill(Color.BLACK);
+                anLabel.setTextFill(Color.BLACK);
+                sitzLabel.setTextFill(Color.BLACK);
+                psLabel.setTextFill(Color.BLACK);
+                yearLabel.setTextFill(Color.BLACK);
+                kmLabel.setTextFill(Color.BLACK);
+                tuevLabel.setTextFill(Color.BLACK);
+                kautLabel.setTextFill(Color.BLACK);
+                gptLabel.setTextFill(Color.BLACK);
+                
 		break;
 	    default:
-		
+		kennLabel.setTextFill(Color.BLACK);
+                HerLabel.setTextFill(Color.BLACK);
+                ModLabel.setTextFill(Color.BLACK);
+                bauLabel.setTextFill(Color.BLACK);
+                FarbeLabel.setTextFill(Color.BLACK);
+                oilLable.setTextFill(Color.BLACK);
+                verLabel.setTextFill(Color.BLACK);
+                antLable.setTextFill(Color.BLACK);
+                getriebLabel.setTextFill(Color.BLACK);
+                exLabel.setTextFill(Color.BLACK);
+                anLabel.setTextFill(Color.BLACK);
+                sitzLabel.setTextFill(Color.BLACK);
+                psLabel.setTextFill(Color.BLACK);
+                yearLabel.setTextFill(Color.BLACK);
+                kmLabel.setTextFill(Color.BLACK);
+                tuevLabel.setTextFill(Color.BLACK);
+                kautLabel.setTextFill(Color.BLACK);
+                gptLabel.setTextFill(Color.BLACK);
 
 		break;
 	}
