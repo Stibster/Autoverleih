@@ -92,19 +92,18 @@ public class MetaController {
       Indikator = false;
       i = 0;
       boolean Kollision = false;
-      
+      /*
       while(Indikator != true){
         while (i < DBV.Ausleihen.size() && Indikator == false) { 
 
-            // Autor: Steve Vogel
-            if (DBV.Ausleihen.get(i).getAuto_ID() == Auto_ID && DBV.Ausleihen.get(i).getAusleihdatum() != null) {
+            if (DBV.Ausleihen.get(i).getAuto_ID() == Auto_ID ) {
                 //Test ob ausleihezeiträume kollidieren.
-                
+                // Autor: Steve Vogel
                 
                 Vfall_popupController Vfall = new Vfall_popupController();
                 
-                GregorianCalendar cal_aus = DateToCalendar(Ausleihdatum); //Eingegebenes Ausleihdatum
-                GregorianCalendar cal_rue = DateToCalendar(Rueckgabedatum);
+                GregorianCalendar cal_aus = DateToCalendar(Vfall.start); //Eingegebenes Ausleihdatum
+                GregorianCalendar cal_rue = DateToCalendar(Vfall.back);
                 GregorianCalendar cal_Baus = DateToCalendar(ausleihe.Ausleihdatum); //Bestehendes Ausleihdatum
                 GregorianCalendar cal_Brue = DateToCalendar(ausleihe.Rueckgabedatum);
                 
@@ -119,7 +118,7 @@ public class MetaController {
                 for(long j=0; j<zeitraum; j++) {
                     for(long k=0; k<Bzeitraum; k++) {
                         if(cal_Baus.equals(cal_aus)) {
-                            indikator = -3;
+                            Kollision = true;
                         }
                         else {
                             cal_Baus.add(GregorianCalendar.DAY_OF_MONTH, 1);
@@ -130,6 +129,8 @@ public class MetaController {
                     j++;
                 }
                 //Ende Steve Vogel
+                
+                i++;
             } 
             else {
                 i++; 
@@ -143,7 +144,7 @@ public class MetaController {
                 ausleihe.setAusleihdatum(Ausleihdatum);
                 ausleihe.setRueckgabedatum(Rueckgabedatum);
             }
-      }
+      }*/
       
         //Wenn alles korrekt ist wird die Ausleihe hinzugefügt.
 	if(indikator >= 0)
@@ -327,28 +328,39 @@ public class MetaController {
     -3 Hersteller nur Buchstaben 1. Groß
     -4 Modell keine Sonderzeichen
     -5 Bauart nur Buchstaben
-    -6 Farbe nur Buchstaben 1. Groß
-    -7 Kraftstoff: Nur Diesel/Benzin/E10/Gas
-    -8 Verbrauch Format: 000l/100km
-    -9 Antrieb nur Allrad/Heckantrieb/Frontantrieb
-    -10 Getriebe nur Automatikgetriebe/Schaltgetriebe
-    -11 Extras nur Buchstaben 1. Groß
+    -6 Sitzplätze nur 2-9
+    -7 Farbe nur Buchstaben 1. Groß
+    -8 Leistung 25-1000 
+    -9 Kraftstoff: Nur Diesel/Benzin/E10/Gas
+    -10 Verbrauch Format: 000l/100km
+    -11 Antrieb nur Allrad/Heckantrieb/Frontantrieb
+    -12 Getriebe nur Automatikgetriebe/Schaltgetriebe
+    -13 Baujahr 1990 - 2016
+    -14 1 - max Integer
+    -15 TÜV
+    -16 Kaution bis 250 - 5000 Euro
+    -17 Gebühr pro Tag 5 - 500 Euro
+    -18 fahrbar
+    -19 Extras nur Buchstaben 1. Groß
+    -20 Ist da
     */
     
     //********************************Adrian Neubert****************************
-    public int addAuto(File PATH, int AID,  String KZ, String HER, 
+    public int addAuto(File PATH,  String KZ, String HER, 
             String MOD, String BA, boolean AK ,int SP, 
             String FAR, int LEI, String KS, String VER, 
             String ANT, String GET, int BJ, int KIL, 
             Date TUE, double KAU, float GPT, boolean FAH,
             String EXT, boolean ID)
     {
+        int AID = DBV.makeAutoID();
         DBV.restore(pfad);
         int i = 0;
         boolean Indikator = false;
         Auto auto = new Auto(PATH, AID, KZ, HER, MOD, BA, AK, SP, FAR, LEI, KS, 
              VER, ANT, GET, BJ, KIL, TUE, KAU, GPT, FAH, EXT, ID);
         int indikator = -1;
+        // Prüft ob ein Auto schon vorhanden ist/anhand des Kennzeichen und der ID
         while(Indikator != true)
         {
             while(i < DBV.Autos.size() && Indikator == false)
@@ -367,13 +379,15 @@ public class MetaController {
             }
             if(Indikator = true)
             {
-                indikator = -1;
+                indikator = -1;               
             }        
-        }       
-        String Buchstaben ="^([A-Z])[a-z]";
-        //String Verbrauch =
-        String BuchZahl = "[A-Z][a-z][0-9]";
-        String Kenn = "[0-9][A-Z]";
+        }
+        
+        //Regeln für ddie Texteingabe
+        String Buchstaben ="([A-Z])[a-z]";
+        //String Verbrauch =  "[]";
+        String BuchZahl = "[a-zA-Z_0-9]";
+        String Kenn = "[A-Z_0-9]";
         String KrSt = "[Diesel][Benzin][E10][Gas]";
         String Antr = "[Frontantrieb][Heckantrieb][Allrad]";
         String Getr = "[Schaltgetriebe][Automatikgetriebe]";
@@ -406,41 +420,76 @@ public class MetaController {
                         Indikator = true;
                         indikator = -4;
                     }
-                     if(Bauart == false)
+                    if(Bauart == false)
                     {
                         Indikator = true;
                         indikator = -5;
                     }
-                      if(Farbe == false)
+                    if(SP < 2 || SP > 9)
                     {
                         Indikator = true;
                         indikator = -6;
                     }
-                       if(Kraftstoff == false)
+                    if(Farbe == false)
                     {
                         Indikator = true;
                         indikator = -7;
                     }
-                  //      if(Verbrauch == false)
-                  //  {
-                  //      Indikator = true;
-                  //      indikator = -8;
-                  //  }
-                   if(Antrieb == false)
+                    if(LEI < 25 || LEI > 1000)
+                    {
+                        Indikator = true;
+                        indikator = -8;
+                    }
+                    if(Kraftstoff == false)
                     {
                         Indikator = true;
                         indikator = -9;
                     }
-                    if(Getriebe == false)
-                    {
-                        Indikator = true;
-                        indikator = -10;
-                    }
-                     if(Extras == false)
+                  //   if(Verbrauch == false)
+                  //  {
+                  //    Indikator = true;
+                  //    indikator = -10;
+                  //  }
+                    if(Antrieb == false)
                     {
                         Indikator = true;
                         indikator = -11;
                     }
+                    if(Getriebe == false)
+                    {
+                        Indikator = true;
+                        indikator = -12;
+                    }
+                    if(BJ < 1990 || BJ > 2016)
+                    {
+                        Indikator = true;
+                        indikator = -13;
+                    }
+                    if(KIL < 1)
+                    {
+                        Indikator = true;
+                        indikator = -14;
+                    }
+                    //TÜV
+                    
+                    if(KAU < 250 || KAU > 5000)
+                    {
+                        Indikator = true;
+                        indikator = -16;
+                    }
+                    if (GPT < 5 || GPT > 500)
+                    {
+                        Indikator = true;
+                        indikator = -17;
+                    }
+                    //ist da und fahrbar??
+                    
+                    if(Extras == false)
+                    {
+                        Indikator = true;
+                        indikator = -11;
+                    }
+                     
         }
         
         if (Indikator != true)
