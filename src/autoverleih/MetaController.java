@@ -93,7 +93,7 @@ public class MetaController {
       i = 0;
       boolean Kollision = false;
       
-      while(Indikator != true){
+      while(Indikator != true){ //MUMPITZ
         while (i < DBV.Ausleihen.size() && Indikator == false) { 
 
             if (DBV.Ausleihen.get(i).getAuto_ID() == Auto_ID ) {

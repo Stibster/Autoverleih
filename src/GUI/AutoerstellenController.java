@@ -140,6 +140,9 @@ public class AutoerstellenController implements Initializable {
 		Stage popUp = (Stage) kennLabel.getScene().getWindow();
 		popUp.close();
 		break;
+                
+                //Autor: Steve Vogel
+                
 	    case -1:
                 kennLabel.setTextFill(Color.BLACK);
                 HerLabel.setTextFill(Color.BLACK);
@@ -582,6 +585,8 @@ public class AutoerstellenController implements Initializable {
                 gptLabel.setTextFill(Color.BLACK);
 
 		break;
+                
+            //Ende Steve Vogel
 	}
     }
     
