@@ -21,24 +21,24 @@ public class Auto {
     
 //###Autodaten erstellt von Daniel Meerwald#####################################
     File Foto;
-    int Auto_ID; 
-    String Kennzeichen;
-    String Hersteller;
-    String Modell;
-    String Bauart;
-    boolean Anhaengerkupplung;
-    int Sitzplaetze;
-    String Farbe; 
-    int Leistung;
-    String Kraftstoff;
-    String Verbrauch;
-    String Antrieb;
-    String Getriebe;
-    int Baujahr; //int ist einfach einfacher als date, da es nur um das Jahr geht. #Raicandy
-    int Kilometerstand;
-    Date TUEV; 
-    double Kaution;
-    float Gebuehr_pro_Tag;
+    int Auto_ID; //+ 
+    String Kennzeichen; //+
+    String Hersteller;//+
+    String Modell;//+
+    String Bauart;//+
+    boolean Anhaengerkupplung;//+
+    int Sitzplaetze;//+
+    String Farbe; //+
+    int Leistung;//+
+    String Kraftstoff;//+
+    String Verbrauch;//+
+    String Antrieb;//+
+    String Getriebe;//+
+    int Baujahr; //+int ist einfach einfacher als date, da es nur um das Jahr geht. #Raicandy
+    int Kilometerstand; //+
+    Date TUEV; //+
+    double Kaution; //+
+    float Gebuehr_pro_Tag;//p
     boolean fahrbar;
     String Extras;
     boolean ist_da;

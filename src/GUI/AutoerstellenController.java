@@ -34,6 +34,14 @@ public class AutoerstellenController implements Initializable {
     @FXML    private TextField antrieb;
     @FXML    private TextField getrib;
     @FXML    private TextField extra;
+    @FXML    private TextField g_b_t;
+    @FXML    private TextField kaution;
+    @FXML    private TextField tuev;
+    @FXML    private TextField km_stand;
+    @FXML    private TextField year;
+    @FXML    private TextField ps;
+    @FXML    private TextField space;
+    @FXML    private TextField anheanger;
     @FXML    private Button SaveButton;
     @FXML    private Label kennLabel;
     @FXML    private Label HerLabel;
@@ -45,7 +53,14 @@ public class AutoerstellenController implements Initializable {
     @FXML    private Label antLable;
     @FXML    private Label getriebLabel;
     @FXML    private Label exLabel;
-
+    @FXML    private Label anLabel;
+    @FXML    private Label sitzLabel;
+    @FXML    private Label psLabel;
+    @FXML    private Label yearLabel;
+    @FXML    private Label kmLabel;
+    @FXML    private Label tuevLabel;
+    @FXML    private Label kautLabel;
+    @FXML    private Label gptLabel;
     /**
      * Initializes the controller class.
      */

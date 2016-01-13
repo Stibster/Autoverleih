@@ -39,12 +39,30 @@
 			<Label fx:id="bauLabel" layoutX="286.0" layoutY="111.0" text="Bauart" />
 		    </children>
 		</HBox>
+            <HBox spacing="100.0">
+               <children>
+                  <TextField fx:id="anheanger" promptText="Anhängerkupplung" />
+                  <Label fx:id="anLabel" text="Anhängerkupplung" />
+               </children>
+            </HBox>
+            <HBox spacing="100.0">
+               <children>
+                  <TextField fx:id="space" promptText="Sitzplätze" />
+                  <Label fx:id="sitzLabel" text="Sitzplätze" />
+               </children>
+            </HBox>
 		<HBox layoutX="28.0" layoutY="148.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
 		    <children>
 			<TextField fx:id="Farbe" layoutX="28.0" layoutY="150.0" promptText="Farbe" />
 			<Label fx:id="FarbeLabel" layoutX="286.0" layoutY="148.0" text="Farbe" />
 		    </children>
 		</HBox>
+            <HBox spacing="100.0">
+               <children>
+                  <TextField fx:id="ps" promptText="Leistung in PS" />
+                  <Label fx:id="psLabel" text="Leistung in PS" />
+               </children>
+            </HBox>
 		<HBox layoutX="28.0" layoutY="185.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
 		    <children>
 			<TextField fx:id="oil" layoutX="28.0" layoutY="185.0" promptText="Kraftstoff" />
@@ -66,10 +84,40 @@
 		</HBox>
 		<HBox layoutX="28.0" layoutY="290.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
 		    <children>
-			<TextField fx:id="getrib" layoutX="28.0" layoutY="290.0" promptText="Getriebe" />
+      			<TextField fx:id="getrib" layoutX="28.0" layoutY="290.0" promptText="Getriebe" />
 			<Label fx:id="getriebLabel" layoutX="286.0" layoutY="296.0" text="Getriebe" />
 		    </children>
 		</HBox>
+            <HBox spacing="100.0">
+               <children>
+                  <TextField fx:id="year" promptText="Baujahr" />
+                  <Label fx:id="yearLabel" text="Baujahr" />
+               </children>
+            </HBox>
+            <HBox spacing="100.0">
+               <children>
+                  <TextField fx:id="km_stand" promptText="Kilometerstand" />
+                  <Label fx:id="kmLabel" text="Kilometerstand" />
+               </children>
+            </HBox>
+            <HBox spacing="100.0">
+               <children>
+                  <TextField fx:id="tuev" promptText="TÜV ablaufdatum" />
+                  <Label fx:id="tuevLabel" text="TÜV ablaufsdatum" />
+               </children>
+            </HBox>
+            <HBox spacing="100.0">
+               <children>
+                  <TextField fx:id="kaution" promptText="Kaution" />
+                  <Label fx:id="kautLabel" text="Kaution in €" />
+               </children>
+            </HBox>
+            <HBox spacing="100.0">
+               <children>
+                  <TextField fx:id="g_b_t" promptText="Gebühr pro Tag" />
+                  <Label fx:id="gptLabel" text="Gebühr pro Tag in €" />
+               </children>
+            </HBox>
 		<HBox layoutX="28.0" layoutY="325.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
 		    <children>
 			<TextField fx:id="extra" layoutX="28.0" layoutY="325.0" promptText="Extras" />

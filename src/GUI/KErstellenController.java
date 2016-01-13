@@ -84,7 +84,7 @@ public class KErstellenController implements Initializable {
     // -10 Führerschein falsch
     // -11 Führerscheindatum falsch
     @FXML
-    private void handleK_POP_SAVE(ActionEvent event) {
+    private void handleK_POP_SAVE(ActionEvent event) throws ParseException {
 	int fehler = 0; //fuehr fehler fall
 	String Vorname = null;
 	String Name = null;
@@ -108,18 +108,12 @@ public class KErstellenController implements Initializable {
 	Str = street.getText();
 	Email = email.getText();
 	tel = Integer.parseInt(tel_num.getText());
-	try {
+	
 	    Geb = format.parse(birthday.getText());
-	} catch (ParseException ex) {
-	    Logger.getLogger(KErstellenController.class.getName()).log(Level.SEVERE, null, ex);
-	}
-	try {
+	
+	
 	    //Fschein???? //grad keinen plan
 	    Fdate = format.parse(car_date.getText());
-	} catch (ParseException ex) {
-	    Logger.getLogger(KErstellenController.class.getName()).log(Level.SEVERE, null, ex);
-	}
-	Fklasse = car_k.getText();
 	
 	
 	fehler = MC_Hammer.addKunde(Vorname, Name, Plz, ort, Str,
