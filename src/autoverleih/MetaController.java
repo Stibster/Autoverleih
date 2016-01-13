@@ -502,7 +502,7 @@ public class MetaController {
         return indikator;
     }
 //##############################################################################
-      public void removeAuto(int A_ID)
+      public int removeAuto(int A_ID)
       {
           int indikator; 
           if (DBV.Autos.contains(A_ID))
@@ -514,8 +514,10 @@ public class MetaController {
           {
               indikator = -1; //fehlschlag
           }
+	  
+	  return indikator;
       }
-      public void removeKunde(int K_ID)
+      public int removeKunde(int K_ID)
       {
           int indikator; 
           if (DBV.Kunden.contains(K_ID))
@@ -527,6 +529,8 @@ public class MetaController {
           {
               indikator = -1; //fehlschlag
           }
+	  
+	  return indikator;
     
       } 
 }
