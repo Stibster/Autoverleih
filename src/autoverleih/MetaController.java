@@ -515,7 +515,20 @@ public class MetaController {
               indikator = -1; //fehlschlag
           }
       }
-        
+      public void removeKunde(int K_ID)
+      {
+          int indikator; 
+          if (DBV.Kunden.contains(K_ID))
+          {
+              DBV.removeKunde(K_ID);
+              indikator = 1; //erfolgreich
+          }
+          else 
+          {
+              indikator = -1; //fehlschlag
+          }
+    
+      } 
 }
 /*   
     
@@ -538,9 +551,7 @@ public class MetaController {
     
     }
 
-    public void removeKunde(int K_ID){
-    
-    }
+
     
 
     public void removeAusleihe(int K_ID, int A_ID){
