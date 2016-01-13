@@ -135,7 +135,7 @@
         <Fahrbar>false</Fahrbar>
         <Gebuehr_pro_Tag>0.0</Gebuehr_pro_Tag>
         <Hersteller>d</Hersteller>
-        <ist_da>true</ist_da>
+        <ist_da>false</ist_da>
         <Kaution>0.0</Kaution>
         <Kennzeichen>d</Kennzeichen>
         <Kilometerstand>0</Kilometerstand>
