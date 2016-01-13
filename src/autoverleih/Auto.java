@@ -35,9 +35,9 @@ public class Auto {
     String Antrieb;
     String Getriebe;
     int Baujahr; //int ist einfach einfacher als date, da es nur um das Jahr geht. #Raicandy
-    int Kilometerstand;
+    int Kilometerstand; 
     Date TUEV; 
-    double Kaution;
+    double Kaution; 
     float Gebuehr_pro_Tag;
     boolean fahrbar;
     String Extras;
