@@ -166,7 +166,8 @@ public class MetaController {
         int i = 0;
         boolean indikator = false;
 
-        while (i < DBV.Autos.size() && indikator == false) { //Suche bis zum Ende der Liste.
+        while (i < DBV.Autos.size() && indikator == false) //Suche bis zum Ende der Liste.
+        { 
 
             if (DBV.Autos.get(i).getAuto_ID() == A_ID ) {
                 DBV.Autos.get(i).setIst_Da(false);
@@ -501,7 +502,19 @@ public class MetaController {
         return indikator;
     }
 //##############################################################################
-   
+      public void removeAuto(int A_ID)
+      {
+          int indikator; 
+          if (DBV.Autos.contains(A_ID))
+          {
+              DBV.removeAuto(A_ID);
+              indikator = 1; //erfolgreich
+          }
+          else 
+          {
+              indikator = -1; //fehlschlag
+          }
+      }
         
 }
 /*   
@@ -529,9 +542,7 @@ public class MetaController {
     
     }
     
-    public void removeAuto(int A_ID){
-       
-    }
+
     public void removeAusleihe(int K_ID, int A_ID){
         
     }
