@@ -92,18 +92,19 @@ public class MetaController {
       Indikator = false;
       i = 0;
       boolean Kollision = false;
-      /*
+      
       while(Indikator != true){
         while (i < DBV.Ausleihen.size() && Indikator == false) { 
 
-            if (DBV.Ausleihen.get(i).getAuto_ID() == Auto_ID ) {
+            // Autor: Steve Vogel
+            if (DBV.Ausleihen.get(i).getAuto_ID() == Auto_ID && DBV.Ausleihen.get(i).getAusleihdatum() != null) {
                 //Test ob ausleihezeiträume kollidieren.
-                // Autor: Steve Vogel
+                
                 
                 Vfall_popupController Vfall = new Vfall_popupController();
                 
-                GregorianCalendar cal_aus = DateToCalendar(Vfall.start); //Eingegebenes Ausleihdatum
-                GregorianCalendar cal_rue = DateToCalendar(Vfall.back);
+                GregorianCalendar cal_aus = DateToCalendar(Ausleihdatum); //Eingegebenes Ausleihdatum
+                GregorianCalendar cal_rue = DateToCalendar(Rueckgabedatum);
                 GregorianCalendar cal_Baus = DateToCalendar(ausleihe.Ausleihdatum); //Bestehendes Ausleihdatum
                 GregorianCalendar cal_Brue = DateToCalendar(ausleihe.Rueckgabedatum);
                 
@@ -118,7 +119,7 @@ public class MetaController {
                 for(long j=0; j<zeitraum; j++) {
                     for(long k=0; k<Bzeitraum; k++) {
                         if(cal_Baus.equals(cal_aus)) {
-                            Kollision = true;
+                            indikator = -3;
                         }
                         else {
                             cal_Baus.add(GregorianCalendar.DAY_OF_MONTH, 1);
@@ -129,8 +130,6 @@ public class MetaController {
                     j++;
                 }
                 //Ende Steve Vogel
-                
-                i++;
             } 
             else {
                 i++; 
@@ -144,7 +143,7 @@ public class MetaController {
                 ausleihe.setAusleihdatum(Ausleihdatum);
                 ausleihe.setRueckgabedatum(Rueckgabedatum);
             }
-      }*/
+      }
       
         //Wenn alles korrekt ist wird die Ausleihe hinzugefügt.
 	if(indikator >= 0)
