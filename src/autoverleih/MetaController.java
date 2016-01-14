@@ -353,8 +353,8 @@ public class MetaController {
     -10 Verbrauch 0-9 
     -11 Antrieb nur Allrad/Heckantrieb/Frontantrieb
     -12 Getriebe nur Automatikgetriebe/Schaltgetriebe
-    -13 Baujahr 1990 - 2016
-    -14 1 - max Integer
+    -13 Baujahr 1900 - 2016 //Steve: 1900, sonst blutet mein Herz
+    -14 km-Stand: 1 - max Integer
     -15 TÜV
     -16 Kaution bis 250 - 5000 Euro
     -17 Gebühr pro Tag 5 - 500 Euro
@@ -478,7 +478,7 @@ public class MetaController {
                         Indikator = true;
                         indikator = -12;
                     }
-                    if(BJ < 1990 || BJ > 2016)
+                    if(BJ < 1900 || BJ > 2016)
                     {
                         Indikator = true;
                         indikator = -13;

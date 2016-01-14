@@ -144,7 +144,7 @@ public class AutoerstellenController implements Initializable {
                 //Autor: Steve Vogel
                 
 	    case -1:
-                kennLabel.setTextFill(Color.BLACK);
+                kennLabel.setTextFill(Color.RED);
                 HerLabel.setTextFill(Color.BLACK);
                 ModLabel.setTextFill(Color.BLACK);
                 bauLabel.setTextFill(Color.BLACK);
@@ -165,7 +165,7 @@ public class AutoerstellenController implements Initializable {
 		
 		break;
 	    case -2:
-		kennLabel.setTextFill(Color.BLACK);
+		kennLabel.setTextFill(Color.RED);
                 HerLabel.setTextFill(Color.BLACK);
                 ModLabel.setTextFill(Color.BLACK);
                 bauLabel.setTextFill(Color.BLACK);
@@ -187,7 +187,7 @@ public class AutoerstellenController implements Initializable {
 		break;
 	    case -3:
 		kennLabel.setTextFill(Color.BLACK);
-                HerLabel.setTextFill(Color.BLACK);
+                HerLabel.setTextFill(Color.RED);
                 ModLabel.setTextFill(Color.BLACK);
                 bauLabel.setTextFill(Color.BLACK);
                 FarbeLabel.setTextFill(Color.BLACK);
@@ -210,7 +210,7 @@ public class AutoerstellenController implements Initializable {
 	    case -4:
 		kennLabel.setTextFill(Color.BLACK);
                 HerLabel.setTextFill(Color.BLACK);
-                ModLabel.setTextFill(Color.BLACK);
+                ModLabel.setTextFill(Color.RED);
                 bauLabel.setTextFill(Color.BLACK);
                 FarbeLabel.setTextFill(Color.BLACK);
                 oilLable.setTextFill(Color.BLACK);
@@ -232,7 +232,7 @@ public class AutoerstellenController implements Initializable {
 		kennLabel.setTextFill(Color.BLACK);
                 HerLabel.setTextFill(Color.BLACK);
                 ModLabel.setTextFill(Color.BLACK);
-                bauLabel.setTextFill(Color.BLACK);
+                bauLabel.setTextFill(Color.RED);
                 FarbeLabel.setTextFill(Color.BLACK);
                 oilLable.setTextFill(Color.BLACK);
                 verLabel.setTextFill(Color.BLACK);
@@ -261,7 +261,7 @@ public class AutoerstellenController implements Initializable {
                 getriebLabel.setTextFill(Color.BLACK);
                 exLabel.setTextFill(Color.BLACK);
                 anLabel.setTextFill(Color.BLACK);
-                sitzLabel.setTextFill(Color.BLACK);
+                sitzLabel.setTextFill(Color.RED);
                 psLabel.setTextFill(Color.BLACK);
                 yearLabel.setTextFill(Color.BLACK);
                 kmLabel.setTextFill(Color.BLACK);
@@ -275,7 +275,7 @@ public class AutoerstellenController implements Initializable {
                 HerLabel.setTextFill(Color.BLACK);
                 ModLabel.setTextFill(Color.BLACK);
                 bauLabel.setTextFill(Color.BLACK);
-                FarbeLabel.setTextFill(Color.BLACK);
+                FarbeLabel.setTextFill(Color.RED);
                 oilLable.setTextFill(Color.BLACK);
                 verLabel.setTextFill(Color.BLACK);
                 antLable.setTextFill(Color.BLACK);
@@ -304,7 +304,7 @@ public class AutoerstellenController implements Initializable {
                 exLabel.setTextFill(Color.BLACK);
                 anLabel.setTextFill(Color.BLACK);
                 sitzLabel.setTextFill(Color.BLACK);
-                psLabel.setTextFill(Color.BLACK);
+                psLabel.setTextFill(Color.RED);
                 yearLabel.setTextFill(Color.BLACK);
                 kmLabel.setTextFill(Color.BLACK);
                 tuevLabel.setTextFill(Color.BLACK);
@@ -318,7 +318,7 @@ public class AutoerstellenController implements Initializable {
                 ModLabel.setTextFill(Color.BLACK);
                 bauLabel.setTextFill(Color.BLACK);
                 FarbeLabel.setTextFill(Color.BLACK);
-                oilLable.setTextFill(Color.BLACK);
+                oilLable.setTextFill(Color.RED);
                 verLabel.setTextFill(Color.BLACK);
                 antLable.setTextFill(Color.BLACK);
                 getriebLabel.setTextFill(Color.BLACK);
@@ -334,7 +334,7 @@ public class AutoerstellenController implements Initializable {
 
 		break;
 	    case -10://kein bild ausgewaehlt
-		kennLabel.setTextFill(Color.BLACK);
+		kennLabel.setTextFill(Color.BLUE);
                 HerLabel.setTextFill(Color.BLACK);
                 ModLabel.setTextFill(Color.BLACK);
                 bauLabel.setTextFill(Color.BLACK);
@@ -362,7 +362,7 @@ public class AutoerstellenController implements Initializable {
                 FarbeLabel.setTextFill(Color.BLACK);
                 oilLable.setTextFill(Color.BLACK);
                 verLabel.setTextFill(Color.BLACK);
-                antLable.setTextFill(Color.BLACK);
+                antLable.setTextFill(Color.RED);
                 getriebLabel.setTextFill(Color.BLACK);
                 exLabel.setTextFill(Color.BLACK);
                 anLabel.setTextFill(Color.BLACK);
@@ -384,7 +384,7 @@ public class AutoerstellenController implements Initializable {
                 oilLable.setTextFill(Color.BLACK);
                 verLabel.setTextFill(Color.BLACK);
                 antLable.setTextFill(Color.BLACK);
-                getriebLabel.setTextFill(Color.BLACK);
+                getriebLabel.setTextFill(Color.RED);
                 exLabel.setTextFill(Color.BLACK);
                 anLabel.setTextFill(Color.BLACK);
                 sitzLabel.setTextFill(Color.BLACK);
@@ -410,7 +410,7 @@ public class AutoerstellenController implements Initializable {
                 anLabel.setTextFill(Color.BLACK);
                 sitzLabel.setTextFill(Color.BLACK);
                 psLabel.setTextFill(Color.BLACK);
-                yearLabel.setTextFill(Color.BLACK);
+                yearLabel.setTextFill(Color.RED);
                 kmLabel.setTextFill(Color.BLACK);
                 tuevLabel.setTextFill(Color.BLACK);
                 kautLabel.setTextFill(Color.BLACK);
@@ -432,7 +432,7 @@ public class AutoerstellenController implements Initializable {
                 sitzLabel.setTextFill(Color.BLACK);
                 psLabel.setTextFill(Color.BLACK);
                 yearLabel.setTextFill(Color.BLACK);
-                kmLabel.setTextFill(Color.BLACK);
+                kmLabel.setTextFill(Color.RED);
                 tuevLabel.setTextFill(Color.BLACK);
                 kautLabel.setTextFill(Color.BLACK);
                 gptLabel.setTextFill(Color.BLACK);
@@ -454,7 +454,7 @@ public class AutoerstellenController implements Initializable {
                 psLabel.setTextFill(Color.BLACK);
                 yearLabel.setTextFill(Color.BLACK);
                 kmLabel.setTextFill(Color.BLACK);
-                tuevLabel.setTextFill(Color.BLACK);
+                tuevLabel.setTextFill(Color.RED);
                 kautLabel.setTextFill(Color.BLACK);
                 gptLabel.setTextFill(Color.BLACK);
                 
@@ -476,7 +476,7 @@ public class AutoerstellenController implements Initializable {
                 yearLabel.setTextFill(Color.BLACK);
                 kmLabel.setTextFill(Color.BLACK);
                 tuevLabel.setTextFill(Color.BLACK);
-                kautLabel.setTextFill(Color.BLACK);
+                kautLabel.setTextFill(Color.RED);
                 gptLabel.setTextFill(Color.BLACK);
                 
                 break;
@@ -498,13 +498,13 @@ public class AutoerstellenController implements Initializable {
                 kmLabel.setTextFill(Color.BLACK);
                 tuevLabel.setTextFill(Color.BLACK);
                 kautLabel.setTextFill(Color.BLACK);
-                gptLabel.setTextFill(Color.BLACK);
+                gptLabel.setTextFill(Color.RED);
                 
                 break;
 	    case -18:
 		kennLabel.setTextFill(Color.BLACK);
-                HerLabel.setTextFill(Color.BLACK);
-                ModLabel.setTextFill(Color.BLACK);
+                HerLabel.setTextFill(Color.BLUE);
+                ModLabel.setTextFill(Color.BLUE);
                 bauLabel.setTextFill(Color.BLACK);
                 FarbeLabel.setTextFill(Color.BLACK);
                 oilLable.setTextFill(Color.BLACK);
@@ -532,7 +532,7 @@ public class AutoerstellenController implements Initializable {
                 verLabel.setTextFill(Color.BLACK);
                 antLable.setTextFill(Color.BLACK);
                 getriebLabel.setTextFill(Color.BLACK);
-                exLabel.setTextFill(Color.BLACK);
+                exLabel.setTextFill(Color.RED);
                 anLabel.setTextFill(Color.BLACK);
                 sitzLabel.setTextFill(Color.BLACK);
                 psLabel.setTextFill(Color.BLACK);
@@ -552,10 +552,10 @@ public class AutoerstellenController implements Initializable {
                 oilLable.setTextFill(Color.BLACK);
                 verLabel.setTextFill(Color.BLACK);
                 antLable.setTextFill(Color.BLACK);
-                getriebLabel.setTextFill(Color.BLACK);
+                getriebLabel.setTextFill(Color.BLUE);
                 exLabel.setTextFill(Color.BLACK);
                 anLabel.setTextFill(Color.BLACK);
-                sitzLabel.setTextFill(Color.BLACK);
+                sitzLabel.setTextFill(Color.BLUE);
                 psLabel.setTextFill(Color.BLACK);
                 yearLabel.setTextFill(Color.BLACK);
                 kmLabel.setTextFill(Color.BLACK);
