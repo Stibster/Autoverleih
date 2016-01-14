@@ -46,7 +46,7 @@ public class MetaController {
         Ausleihe ausleihe = new Ausleihe();       
         int i = 0;
         boolean Indikator = false;
-	int indikator = -1;
+	int indikator = 0;
         
     //#####################Überprüfung für die Auto-ID.#########################
       while(Indikator != true){
@@ -59,11 +59,11 @@ public class MetaController {
                 i++; 
             }
         }
-            if (Indikator = true){
+            if (Indikator == true){
                 ausleihe.setAuto_ID(Auto_ID);
             }
             else{
-		indikator = -1;
+		return -1;
             }
       }
             
@@ -80,11 +80,11 @@ public class MetaController {
                 i++; 
             }
         }
-            if (Indikator = true){
+            if (Indikator == true){
                 ausleihe.setKunden_ID(Kunden_ID);
             }
             else{
-		indikator = -2;
+		return -2;
 	    }
       }
       

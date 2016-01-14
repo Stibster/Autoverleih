@@ -135,7 +135,7 @@
         <Fahrbar>false</Fahrbar>
         <Gebuehr_pro_Tag>0.0</Gebuehr_pro_Tag>
         <Hersteller>d</Hersteller>
-        <ist_da>false</ist_da>
+        <ist_da>true</ist_da>
         <Kaution>0.0</Kaution>
         <Kennzeichen>d</Kennzeichen>
         <Kilometerstand>0</Kilometerstand>
@@ -146,6 +146,36 @@
     <Ausleiheliste>
         <Auto_ID>2</Auto_ID>
         <Kunden_ID>2</Kunden_ID>
+        <TUEV>false</TUEV>
+    </Ausleiheliste>
+    <Ausleiheliste>
+        <Auto_ID>4</Auto_ID>
+        <Kunden_ID>1</Kunden_ID>
+        <TUEV>false</TUEV>
+    </Ausleiheliste>
+    <Ausleiheliste>
+        <Auto_ID>19</Auto_ID>
+        <Kunden_ID>1</Kunden_ID>
+        <TUEV>false</TUEV>
+    </Ausleiheliste>
+    <Ausleiheliste>
+        <Auto_ID>4</Auto_ID>
+        <Kunden_ID>10</Kunden_ID>
+        <TUEV>false</TUEV>
+    </Ausleiheliste>
+    <Ausleiheliste>
+        <Auto_ID>4</Auto_ID>
+        <Kunden_ID>1</Kunden_ID>
+        <TUEV>false</TUEV>
+    </Ausleiheliste>
+    <Ausleiheliste>
+        <Auto_ID>9</Auto_ID>
+        <Kunden_ID>99</Kunden_ID>
+        <TUEV>false</TUEV>
+    </Ausleiheliste>
+    <Ausleiheliste>
+        <Auto_ID>4</Auto_ID>
+        <Kunden_ID>1</Kunden_ID>
         <TUEV>false</TUEV>
     </Ausleiheliste>
 </DB_Verwalter_Root>
