@@ -1,5 +1,11 @@
 
 
+import autoverleih.DB_Verwalter;
+import autoverleih.Input;
+import autoverleih.Kunde;
+import autoverleih.Ausleihe;
+import autoverleih.Auto;
+import static java.lang.Double.parseDouble;
 import java.text.ParseException;
 import java.util.Scanner;
 
@@ -422,7 +428,7 @@ public class Sprint_1_Tester
 		 System.out.println("Kraftstoff: ");
                  auto.setKraftstoff(eingabe.readString());
                  System.out.println("Verbrauch: ");
-                 auto.setVerbrauch(eingabe.readString());
+                 auto.setVerbrauch(Double.parseDouble((Input.readString())));
                  System.out.println("Antrieb: ");
                  auto.setAntrieb(eingabe.readString());
                  System.out.println("Getriebe: ");
@@ -505,7 +511,7 @@ public class Sprint_1_Tester
 		 System.out.println("Kraftstoff: ");
                  auto.setKraftstoff(eingabe.readString());
                  System.out.println("Verbrauch: ");
-                 auto.setVerbrauch(eingabe.readString());
+                 auto.setVerbrauch(Double.parseDouble((Input.readString())));
                  System.out.println("Antrieb: ");
                  auto.setAntrieb(eingabe.readString());
                  System.out.println("Getriebe: ");
