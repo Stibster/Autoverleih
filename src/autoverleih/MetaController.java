@@ -8,6 +8,8 @@ import java.io.File;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *  
@@ -231,6 +233,8 @@ public class MetaController {
         boolean Indikator = false;
         Kunde kunde = new Kunde(0, VN, NN, PLZ, WO, STR, HN, EM, TN, GEB, FS, FSD, FSK);
         int indikator = -1;
+        Pattern p;
+        Matcher m;
         //Legt KundenID fest
         int KID = DBV.makeKundenID();
         kunde.setKunden_ID(KID);
@@ -246,18 +250,36 @@ public class MetaController {
         }
 	
         //Legt Eingabe Regeln fest
-        String Buchstaben = "^([A-Z]) [a-z] ";
+        String Buchstaben = "/^[a-z ,.'-]+$/i";
         String ZS = "^\\+[1-9]{1}[0-9]{3,14}$";
-        String At = "^[_A-Za-z0-9-\\\\+]+(\\\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\\\.[A-Za-z0-9]+)*(\\\\.[A-Za-z]{2,})$;";
-	String ZB = "[A-Za-z_0-9]";
         String Plz = "\\d{5})";
         //Prüft ob Eingaberegeln mit Eingabe übereinstimmen
-        boolean Vorname = VN.matches(Buchstaben);
-        boolean Nachname = NN.matches(Buchstaben);
-        boolean Wohnort = WO.matches(Buchstaben);
-        boolean Strasse = STR.matches(Buchstaben);
-        boolean Hausnummer = HN.matches(ZB);
-        boolean EMail = EM.matches("[MUMPITZ]"); //mit At ausgetauscht, weil kaputte Emailregel
+        
+        String Name = "[A-Z][a-zA-Z]*";
+        p = Pattern.compile(Name);
+        m = p.matcher(VN);
+        boolean Vorname = m.matches();
+        
+        m = p.matcher(NN);
+        boolean Nachname = m.matches();
+        
+        m = p.matcher(WO);
+        boolean Wohnort = m.matches();
+        
+        m = p.matcher(STR);
+        boolean Strasse = m.matches();
+        
+        String At = "^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+        p = Pattern.compile(At);
+        m = p.matcher(EM);
+        boolean EMail = m.matches();  
+        
+        String ZB = "[0-9][a-zA-Z]";
+        p = Pattern.compile(ZB);
+        m = p.matcher(HN);
+        boolean Hausnummer = m.matches();
+        int Postleitzahl = (int)(Math.log10(PLZ)+1);
+  
         boolean Telefonnummer = TN.matches(ZS);
        
         //Prüft ob Alle Ergebnisse passen
@@ -301,6 +323,9 @@ public class MetaController {
             if (FSD == null){
                 Indikator = true;
                 indikator = -11;
+            }if (Postleitzahl != 5){
+                Indikator = true;
+                indikator = -12;
             }
         }
         // speichert
@@ -354,7 +379,7 @@ public class MetaController {
 	
         Auto auto = new Auto(PATH, AID, KZ, HER, MOD, BA, AK, SP, FAR, LEI, KS, 
              VER, ANT, GET, BJ, KIL, TUE, KAU, GPT, FAH, EXT, ID);
-        int indikator = -1;
+        int indikator = 0;
         // Prüft ob ein Auto schon vorhanden ist/anhand des Kennzeichen und der ID
         while(Indikator != true)
         {
