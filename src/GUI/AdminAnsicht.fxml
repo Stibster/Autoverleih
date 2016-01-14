@@ -19,8 +19,8 @@
             <Menu mnemonicParsing="false" text="Werkzeuge">
                <items>
                   <MenuItem fx:id="carCreate" mnemonicParsing="false" onAction="#handleCarCreateMenue" text="Fahrzeug erstellen" />
-                  <MenuItem mnemonicParsing="false" text="Fahrzeug Bearbeiten" />
-                  <MenuItem mnemonicParsing="false" text="Fahrzeug Löschen" />
+                  <MenuItem fx:id="carChange" mnemonicParsing="false" onAction="#handleCarChangeMenue" text="Fahrzeug Bearbeiten" />
+                  <MenuItem fx:id="carDel" mnemonicParsing="false" onAction="#handleCarDelMenue" text="Fahrzeug Löschen" />
                   <MenuItem mnemonicParsing="false" text="Close" />
                </items>
             </Menu>

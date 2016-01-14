@@ -55,6 +55,10 @@ public class AdminAnsichtController implements Initializable {
     
     MetaController MC_Hammer = new MetaController();
     String pfad = "Data/xml/TestDatenbank.xml";
+    @FXML
+    private MenuItem carDel;
+    @FXML
+    private MenuItem carChange;
 
     /**
      * Initializes the controller class.
@@ -128,6 +132,40 @@ public class AdminAnsichtController implements Initializable {
 	MC_Hammer.DBV.restore(pfad);
 	MC_Hammer.DBV.randomKunden(10);
 	MC_Hammer.DBV.save(pfad);
+    }
+
+    @FXML
+    private void handleCarDelMenue(ActionEvent event) {
+	Stage popUp = new Stage();
+        popUp.setTitle("Auto Löschen");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("AutoDel.fxml"));
+
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void handleCarChangeMenue(ActionEvent event) {
+	Stage popUp = new Stage();
+        popUp.setTitle("Auto Löschen");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("AutoBearbeiten.fxml"));
+
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

@@ -49,6 +49,8 @@ public class MitarbeiterAnsichtController implements Initializable {
     private MenuItem carRein;
     @FXML
     private MenuItem logIn;
+    @FXML
+    private MenuItem changeUser;
 
     /**
      * Initializes the controller class.
@@ -182,6 +184,23 @@ public class MitarbeiterAnsichtController implements Initializable {
         Parent Page;
         try {
             Page = FXMLLoader.load(getClass().getResource("AutoRein.fxml"));
+
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void handleChangeUserMenue(ActionEvent event) {
+	Stage popUp = new Stage();
+        popUp.setTitle("Kunde Bearbeiten");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("KuBearbeiten.fxml"));
 
             popUp.setScene(new Scene(Page));
             popUp.initModality(Modality.APPLICATION_MODAL);

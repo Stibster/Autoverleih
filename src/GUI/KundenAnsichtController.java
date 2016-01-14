@@ -119,5 +119,13 @@ public class KundenAnsichtController implements Initializable {
         Parent Page = FXMLLoader.load(getClass().getResource("MitarbeiterAnsicht.fxml"));
         stage.setScene(new Scene(Page));
     }
-    
+    //###########################################
+    // Admin shortcut Christopher Haack
+    @FXML
+    private void handleShortyA(ActionEvent event) throws IOException{
+        Stage stage = (Stage) saveBTN.getScene().getWindow();
+        Parent Page = FXMLLoader.load(getClass().getResource("AdminAnsicht.fxml"));
+        stage.setScene(new Scene(Page));
+    }
+    //#######################################
 }

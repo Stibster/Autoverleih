@@ -42,6 +42,7 @@
             <Menu mnemonicParsing="false" text="Werkzeuge">
                <items>
                   <MenuItem fx:id="addUserMenue" mnemonicParsing="false" onAction="#handleAddUserMenue" text="Kunde Erstellen" />
+                  <MenuItem fx:id="changeUser" mnemonicParsing="false" onAction="#handleChangeUserMenue" text="Kunde Bearbeiten" />
                   <MenuItem fx:id="DelUser" mnemonicParsing="false" onAction="#handleDelUserMenue" text="Kunde Löschen" />
                   <MenuItem fx:id="Ausleihe" mnemonicParsing="false" onAction="#handleAusleiheMenue" text="Vermietungsfall Erstellen" />
                   <MenuItem fx:id="carRaus" mnemonicParsing="false" onAction="#handleCarRausMenue" text="Fahrzeug Abholen" />
