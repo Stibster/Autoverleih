@@ -93,7 +93,7 @@ public class KErstellenController implements Initializable {
 	String Str = null;
 	String H_num = null;
 	String Email = null;
-	int tel = -1;
+	String tel = null;
 	Date Geb = null;
 	File Fschein = null;
 	Date Fdate = null;
@@ -107,7 +107,7 @@ public class KErstellenController implements Initializable {
 	H_num = h_num.getText();
 	Str = street.getText();
 	Email = email.getText();
-	tel = Integer.parseInt(tel_num.getText());
+	tel = tel_num.getText();
 	
 	    Geb = format.parse(birthday.getText());
 	
@@ -250,7 +250,7 @@ public class KErstellenController implements Initializable {
 
 		break;
 	    case -10://kein bild ausgewaehlt
-		preLabel.setTextFill(Color.BLACK);
+		preLabel.setTextFill(Color.BLUE);
 		postLabel.setTextFill(Color.BLACK);
 		bdLabel.setTextFill(Color.BLACK);
 		ortLabel.setTextFill(Color.BLACK);

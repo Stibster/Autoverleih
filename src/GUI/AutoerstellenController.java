@@ -129,7 +129,7 @@ public class AutoerstellenController implements Initializable {
 	}
 	//#####################
     
-	fehler = MC_Hammer.addAuto(Foto, Kennzeichen, hersteller
+	fehler = MC_Hammer.addAuto(Kennzeichen, hersteller
 		,modell, Bauart, anhaengerkupplung, sitzplaetze,
 		farbe, leistung, kraftstoff,Verbrauch, Antrieb,
 		getriebe, baujahr, kilometerstand,TUEV, Kaution, 

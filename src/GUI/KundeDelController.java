@@ -33,6 +33,7 @@ public class KundeDelController implements Initializable {
     private Button del;
 
      MetaController MC_Hammer = new MetaController();
+     String pfad = "Data/xml/TestDatenbank.xml";
     /**
      * Initializes the controller class.
      */
@@ -46,7 +47,7 @@ public class KundeDelController implements Initializable {
 	int K_id;
 	int fehler = 0;
 	 K_id = Integer.parseInt(k_ID.getText());
-	 
+	 MC_Hammer.DBV.restore(pfad);
 	 fehler = MC_Hammer.removeKunde(K_id);
 	 switch (fehler) 
 	    {
@@ -60,7 +61,7 @@ public class KundeDelController implements Initializable {
 	            
 		    break;
 
-		default:
+		case 0:
 		    id_warning.setVisible(false);
 		    
 		    break;

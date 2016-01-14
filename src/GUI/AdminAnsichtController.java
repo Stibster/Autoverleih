@@ -5,8 +5,10 @@
  */
 package GUI;
 
+import autoverleih.MetaController;
 import java.io.IOException;
 import java.net.URL;
+import java.text.ParseException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -50,6 +52,9 @@ public class AdminAnsichtController implements Initializable {
     private Button rndCar;
     @FXML
     private Button rndKunde;
+    
+    MetaController MC_Hammer = new MetaController();
+    String pfad = "Data/xml/TestDatenbank.xml";
 
     /**
      * Initializes the controller class.
@@ -112,12 +117,17 @@ public class AdminAnsichtController implements Initializable {
     }
     
     @FXML
-    private void handleRndCar(ActionEvent event) {
-	
+    private void handleRndCar(ActionEvent event) throws ParseException {
+	MC_Hammer.DBV.restore(pfad);
+	MC_Hammer.DBV.randomAutos(10);
+	MC_Hammer.DBV.save(pfad);
     }
 
     @FXML
-    private void handleRndKunde(ActionEvent event) {
+    private void handleRndKunde(ActionEvent event) throws ParseException {
+	MC_Hammer.DBV.restore(pfad);
+	MC_Hammer.DBV.randomKunden(10);
+	MC_Hammer.DBV.save(pfad);
     }
     
 }

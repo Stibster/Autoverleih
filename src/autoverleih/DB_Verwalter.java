@@ -163,44 +163,31 @@ public class DB_Verwalter {
     
     public int makeAutoID(){
         int i = 0;
-        boolean indikator = false;
         int A_ID = 1;
-        while (i < Autos.size() && indikator == false) { //Suche bis zum Ende der Liste.
+        while (i < Autos.size()) { //Suche bis zum Ende der Liste.
 
             if (Autos.get(i).getAuto_ID() == A_ID ) {
                 A_ID++;
-                indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
             } else {
                 i++; //Andernfalls wird das nächste Element vergleichen.
             }
         }
-        if(indikator == false){
-            return A_ID;
-        }
-        else{
-            return -1;
-        }
+        return A_ID;
     }
     
     public int makeKundenID(){
         int i = 0;
-        boolean indikator = false;
         int K_ID = 1;
-        while (i < Kunden.size() && indikator == false) { //Suche bis zum Ende der Liste.
+        while (i < Kunden.size()) { //Suche bis zum Ende der Liste.
 
             if (Kunden.get(i).getKunden_ID() == K_ID ) {
                 K_ID++;
-                indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+                
             } else {
                 i++; //Andernfalls wird das nächste Element vergleichen.
             }
         }
-        if(indikator == false){
-            return K_ID;
-        }
-        else{
-            return -1;
-        }
+        return K_ID;
     }
     
     
@@ -392,11 +379,13 @@ public class DB_Verwalter {
             String Alphabet ="abcdefghijklmnopqrstuvwxyz";
             Random random = new Random();
             SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy", new DateFormatSymbols(Locale.GERMANY));
+	    File PATH = new File("Data/dummy1.jpg");
 
             for (int i=0; i<Anzahl; i++){
                 
                  Auto auto = new Auto();
                  
+		 auto.setFoto(PATH);
                  auto.setAuto_ID(makeAutoID());
                  auto.setKennzeichen(generateRandomString(Chars, random, 8));
                  auto.setHersteller(generateRandomString(Alphabet, random, 6));
@@ -414,6 +403,8 @@ public class DB_Verwalter {
                  auto.setTUEV(format.parse("01.01.2017"));
                  auto.setKaution(generateRandomInt(Numbers, random, 3));
                  auto.setGebuehr_pro_Tag(generateRandomInt(Numbers, random, 2));
+		 auto.setIst_Da(true);
+		 auto.setFahrbar(true);
 		 Autos.add(auto);
             }
         }
@@ -439,7 +430,7 @@ public class DB_Verwalter {
                  kunde.setStrasse(generateRandomString(Alphabet, random, 10));
                  kunde.setHausnummer(generateRandomString(Chars, random, 4));
                  kunde.setE_Mail(generateRandomString(Chars, random, 12));
-                 kunde.setTelefonnummer(generateRandomInt(Numbers, random, 9));
+                 kunde.setTelefonnummer(generateRandomString(Numbers, random, 9));
                  kunde.setGeburtstag(format.parse("01.01.1990"));
                  kunde.setFuehrerscheindatum(format.parse("01.01.2008"));
 		 Kunden.add(kunde);

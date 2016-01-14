@@ -92,20 +92,19 @@ public class MetaController {
       Indikator = false;
       i = 0;
       boolean Kollision = false;
-      /*
-      while(Indikator != true){
+      
+      
         while (i < DBV.Ausleihen.size() && Indikator == false) { 
 
             if (DBV.Ausleihen.get(i).getAuto_ID() == Auto_ID ) {
                 //Test ob ausleihezeiträume kollidieren.
                 // Autor: Steve Vogel
                 
-                Vfall_popupController Vfall = new Vfall_popupController();
                 
-                GregorianCalendar cal_aus = DateToCalendar(Vfall.start); //Eingegebenes Ausleihdatum
-                GregorianCalendar cal_rue = DateToCalendar(Vfall.back);
-                GregorianCalendar cal_Baus = DateToCalendar(ausleihe.Ausleihdatum); //Bestehendes Ausleihdatum
-                GregorianCalendar cal_Brue = DateToCalendar(ausleihe.Rueckgabedatum);
+                GregorianCalendar cal_aus = DateToCalendar(Ausleihdatum); //Eingegebenes Ausleihdatum
+                GregorianCalendar cal_rue = DateToCalendar(Rueckgabedatum);
+                GregorianCalendar cal_Baus = DateToCalendar(DBV.Ausleihen.get(i).Ausleihdatum); //Bestehendes Ausleihdatum
+                GregorianCalendar cal_Brue = DateToCalendar(DBV.Ausleihen.get(i).Rueckgabedatum);
                 
                 long aus = cal_aus.getTimeInMillis();
                 long rue = cal_rue.getTimeInMillis();
@@ -118,7 +117,7 @@ public class MetaController {
                 for(long j=0; j<zeitraum; j++) {
                     for(long k=0; k<Bzeitraum; k++) {
                         if(cal_Baus.equals(cal_aus)) {
-                            Kollision = true;
+                            Indikator = true;
                         }
                         else {
                             cal_Baus.add(GregorianCalendar.DAY_OF_MONTH, 1);
@@ -138,13 +137,13 @@ public class MetaController {
         }
             if (Indikator == true){
                 
-		indikator = -3;
+		return -3;
             }
             else{
                 ausleihe.setAusleihdatum(Ausleihdatum);
                 ausleihe.setRueckgabedatum(Rueckgabedatum);
             }
-      }*/
+      
       
         //Wenn alles korrekt ist wird die Ausleihe hinzugefügt.
 	if(indikator >= 0)
@@ -226,7 +225,7 @@ public class MetaController {
     // -10 Führerschein falsch
     // -11 Führerscheindatum falsch
     
-    public int addKunde(String VN, String NN, int PLZ, String WO, String STR, String HN, String EM, int TN, Date GEB, File FS, Date FSD, String FSK){
+    public int addKunde(String VN, String NN, int PLZ, String WO, String STR, String HN, String EM, String TN, Date GEB, File FS, Date FSD, String FSK){
         DBV.restore(pfad);
         int i = 0;
         boolean Indikator = false;
@@ -236,28 +235,21 @@ public class MetaController {
         int KID = DBV.makeKundenID();
         kunde.setKunden_ID(KID);
         //Prüft ob eine Person mit gleichem Vorname, Nachname, Geburtstag vorhanden ist
-        while (Indikator!=true){
-            while (i < DBV.Kunden.size() && Indikator == false){ 
-                if (DBV.Kunden.get(i).getVorname() == VN ) {
-                     if (DBV.Kunden.get(i).getNachname() == NN ) {
-                          if (DBV.Kunden.get(i).getGeburtstag() == GEB ) {
-                              Indikator = true;
-                          }
-                     }
-                } 
-                else {
-                    i++; 
-                }
-            }
-            if (Indikator = true){
-                indikator = -1;
+	while (i < DBV.Kunden.size() && Indikator == false) { //Suche bis zum Ende der Liste.
+
+            if (DBV.Kunden.get(i).getVorname() == VN && DBV.Kunden.get(i).getNachname() == NN && DBV.Kunden.get(i).getGeburtstag() == GEB) {
+                Indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+		return -1;
+            } else {
+                i++; //Andernfalls wird das nächste Element vergleichen.
             }
         }
+	
         //Legt Eingabe Regeln fest
         String Buchstaben = "^([A-Z]) [a-z] ";
-        //String ZS = "^\\+[1-9]{1}[0-9]{3,14}$";
+        String ZS = "^\\+[1-9]{1}[0-9]{3,14}$";
         String At = "^[_A-Za-z0-9-\\\\+]+(\\\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\\\.[A-Za-z0-9]+)*(\\\\.[A-Za-z]{2,})$;";
-        String ZB = "[A-Za-z0-9]";
+	String ZB = "[A-Za-z_0-9]";
         String Plz = "\\d{5})";
         //Prüft ob Eingaberegeln mit Eingabe übereinstimmen
         boolean Vorname = VN.matches(Buchstaben);
@@ -265,8 +257,8 @@ public class MetaController {
         boolean Wohnort = WO.matches(Buchstaben);
         boolean Strasse = STR.matches(Buchstaben);
         boolean Hausnummer = HN.matches(ZB);
-        boolean EMail = EM.matches(At);
-        //boolean Telefonnummer = TN.matches(ZS);
+        boolean EMail = EM.matches("[MUMPITZ]"); //mit At ausgetauscht, weil kaputte Emailregel
+        boolean Telefonnummer = TN.matches(ZS);
        
         //Prüft ob Alle Ergebnisse passen
         if (Indikator!=true){
@@ -293,19 +285,19 @@ public class MetaController {
             if (EMail == false){
                 Indikator = true;
                 indikator = -7;
-            }
-            /*if (Telefonnummer == null){
+            }/* 
+            if (Telefonnummer == false){
                 Indikator = true;
                 indikator = -8;
             }*/
             if (GEB == null){
                 Indikator = true;
                 indikator = -9;
-            }
+            }/*
             if (FS == null){
                 Indikator = true;
                 indikator = -10;
-            }
+            }*/
             if (FSD == null){
                 Indikator = true;
                 indikator = -11;
@@ -347,7 +339,7 @@ public class MetaController {
     */
     
     //********************************Adrian Neubert****************************
-    public int addAuto(File PATH,  String KZ, String HER, 
+    public int addAuto(String KZ, String HER, 
             String MOD, String BA, boolean AK ,int SP, 
             String FAR, int LEI, String KS, double VER, 
             String ANT, String GET, int BJ, int KIL, 
@@ -358,6 +350,8 @@ public class MetaController {
         DBV.restore(pfad);
         int i = 0;
         boolean Indikator = false;
+	File PATH = new File("Data/dummy1.jpg");
+	
         Auto auto = new Auto(PATH, AID, KZ, HER, MOD, BA, AK, SP, FAR, LEI, KS, 
              VER, ANT, GET, BJ, KIL, TUE, KAU, GPT, FAH, EXT, ID);
         int indikator = -1;

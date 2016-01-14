@@ -111,6 +111,12 @@ public class Auto {
     //@XmlElement(name = "Foto") //Typ file müssen wir glaube ich seperat speichern. #Raicandy
     public File getFoto() {
         return Foto;
+	
+    }
+    
+    public String getFotoString() {
+        return Foto.getPath();
+	
     }
     
     @XmlElement(name = "Auto_ID")

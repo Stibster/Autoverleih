@@ -27,7 +27,7 @@ public class Kunde {
     String Strasse;
     String Hausnummer;
     String E_Mail;
-    int Telefonnummer;
+    String Telefonnummer;
     Date Geburtstag;
     File Fuehrerschein;
     Date Fuehrerscheindatum;
@@ -35,7 +35,7 @@ public class Kunde {
     //Rechnung Rechnung; //Kommt später noch, wenn die Klasse Rechnung implementiert wird. #Raicandy
     
          //###Konstruktoren erstellt von Danilo May############################### 
-    public Kunde(int KID, String VN, String NN, int PLZ, String WO, String STR, String HN, String EM, int TN, Date GEB, File FS, Date FSD, String FSK) {
+    public Kunde(int KID, String VN, String NN, int PLZ, String WO, String STR, String HN, String EM, String TN, Date GEB, File FS, Date FSD, String FSK) {
         Kunden_ID = KID;
         Vorname = VN;
         Nachname = NN;
@@ -113,7 +113,7 @@ public class Kunde {
     }
 
     @XmlElement(name = "Telefonnummer")
-    public int getTelefonnummer() {
+    public String getTelefonnummer() {
         return Telefonnummer;
     }
 
@@ -169,7 +169,7 @@ public class Kunde {
         this.E_Mail = E_Mail;
     }
 
-    public void setTelefonnummer(int Telefonnummer) {
+    public void setTelefonnummer(String Telefonnummer) {
         this.Telefonnummer = Telefonnummer;
     }
 
