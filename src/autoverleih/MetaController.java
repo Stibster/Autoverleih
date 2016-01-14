@@ -511,7 +511,7 @@ public class MetaController {
 
             if (DBV.Autos.get(i).getAuto_ID() == A_ID ) 
             {
-                DBV.Autos.get(i).setIst_Da(true);
+                DBV.removeAuto(A_ID);
                 indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
             } else 
             {
@@ -531,21 +531,33 @@ public class MetaController {
         
       }
       public int removeKunde(int K_ID)
-      {
-          int indikator; 
-          if (DBV.Kunden.contains(K_ID))
-          {
-              DBV.removeKunde(K_ID);
-              indikator = 1; //erfolgreich
-          }
-          else 
-          {
-              indikator = -1; //fehlschlag
-          }
-	  
-	  return indikator;
-    
-      } 
+       {              
+              boolean indikator = false;
+              int i = 0;
+
+       while (i < DBV.Kunden.size() && indikator == false) 
+       { //Suche bis zum Ende der Liste.
+
+            if (DBV.Kunden.get(i).getKunden_ID()== K_ID ) 
+            {
+                DBV.removeKunde(K_ID);
+                indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+            } else 
+            {
+                i++; //Andernfalls wird das nächste Element vergleichen.
+            }
+        }
+        if(indikator == false)
+        {
+            
+                return -1;
+        }
+        else
+        {
+            DBV.save(pfad);
+            return 1;
+        }
+       }
 }
 /*   
     
