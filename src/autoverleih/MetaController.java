@@ -18,7 +18,7 @@ public class MetaController {
     
     
     Input eingabe = new Input();
-    DB_Verwalter DBV = new DB_Verwalter();
+    public DB_Verwalter DBV = new DB_Verwalter();
     String pfad = "Data/xml/TestDatenbank.xml";
     
     // 1 return alles erfolgreich gespeichert
@@ -92,16 +92,18 @@ public class MetaController {
       Indikator = false;
       i = 0;
       boolean Kollision = false;
-      
+      /*
       while(Indikator != true){
         while (i < DBV.Ausleihen.size() && Indikator == false) { 
 
             if (DBV.Ausleihen.get(i).getAuto_ID() == Auto_ID ) {
                 //Test ob ausleihezeiträume kollidieren.
                 // Autor: Steve Vogel
-                                
-                GregorianCalendar cal_aus = DateToCalendar(Ausleihdatum); //Eingegebenes Ausleihdatum
-                GregorianCalendar cal_rue = DateToCalendar(Rueckgabedatum);
+                
+                Vfall_popupController Vfall = new Vfall_popupController();
+                
+                GregorianCalendar cal_aus = DateToCalendar(Vfall.start); //Eingegebenes Ausleihdatum
+                GregorianCalendar cal_rue = DateToCalendar(Vfall.back);
                 GregorianCalendar cal_Baus = DateToCalendar(ausleihe.Ausleihdatum); //Bestehendes Ausleihdatum
                 GregorianCalendar cal_Brue = DateToCalendar(ausleihe.Rueckgabedatum);
                 
@@ -142,7 +144,7 @@ public class MetaController {
                 ausleihe.setAusleihdatum(Ausleihdatum);
                 ausleihe.setRueckgabedatum(Rueckgabedatum);
             }
-      }
+      }*/
       
         //Wenn alles korrekt ist wird die Ausleihe hinzugefügt.
 	if(indikator >= 0)
@@ -331,7 +333,7 @@ public class MetaController {
     -7 Farbe nur Buchstaben 1. Groß
     -8 Leistung 25-1000 
     -9 Kraftstoff: Nur Diesel/Benzin/E10/Gas
-    -10 Verbrauch Format: 000l/100km
+    -10 Verbrauch 0-9 
     -11 Antrieb nur Allrad/Heckantrieb/Frontantrieb
     -12 Getriebe nur Automatikgetriebe/Schaltgetriebe
     -13 Baujahr 1990 - 2016
@@ -347,7 +349,7 @@ public class MetaController {
     //********************************Adrian Neubert****************************
     public int addAuto(File PATH,  String KZ, String HER, 
             String MOD, String BA, boolean AK ,int SP, 
-            String FAR, int LEI, String KS, String VER, 
+            String FAR, int LEI, String KS, double VER, 
             String ANT, String GET, int BJ, int KIL, 
             Date TUE, double KAU, float GPT, boolean FAH,
             String EXT, boolean ID)
@@ -384,7 +386,6 @@ public class MetaController {
         
         //Regeln für ddie Texteingabe
         String Buchstaben ="([A-Z])[a-z]";
-        //String Verbrauch =  "[]";
         String BuchZahl = "[a-zA-Z_0-9]";
         String Kenn = "[A-Z_0-9]";
         String KrSt = "[Diesel][Benzin][E10][Gas]";
@@ -397,7 +398,6 @@ public class MetaController {
         boolean Bauart = BA.matches(Buchstaben);
         boolean Farbe = FAR.matches(Buchstaben);
         boolean Kraftstoff = KS.matches(KrSt);
-        //boolean Verbrauch = VER.matches(Verbrauch);
         boolean Antrieb = ANT.matches(Antr);
         boolean Getriebe = GET.matches(Getr);
         boolean Extras = EXT.matches(Buchstaben);
@@ -444,11 +444,11 @@ public class MetaController {
                         Indikator = true;
                         indikator = -9;
                     }
-                  //   if(Verbrauch == false)
-                  //  {
-                  //    Indikator = true;
-                  //    indikator = -10;
-                  //  }
+                     if(VER < 3 || VER > 50)
+                    {
+                      Indikator = true;
+                      indikator = -10;
+                    }
                     if(Antrieb == false)
                     {
                         Indikator = true;
@@ -469,6 +469,7 @@ public class MetaController {
                         Indikator = true;
                         indikator = -14;
                     }
+                    
                     //TÜV
                     
                     if(KAU < 250 || KAU > 5000)
@@ -486,7 +487,7 @@ public class MetaController {
                     if(Extras == false)
                     {
                         Indikator = true;
-                        indikator = -11;
+                        indikator = -19;
                     }
                      
         }
@@ -500,37 +501,63 @@ public class MetaController {
         return indikator;
     }
 //##############################################################################
-      public int removeAuto(int A_ID)
-      {
-          int indikator; 
-          if (DBV.Autos.contains(A_ID))
-          {
-              DBV.removeAuto(A_ID);
-              indikator = 1; //erfolgreich
-          }
-          else 
-          {
-              indikator = -1; //fehlschlag
-          }
-	  
-	  return indikator;
+   public int removeAuto(int A_ID)
+      {              
+              boolean indikator = false;
+              int i = 0;
+
+       while (i < DBV.Autos.size() && indikator == false) 
+       { //Suche bis zum Ende der Liste.
+
+            if (DBV.Autos.get(i).getAuto_ID() == A_ID ) 
+            {
+                DBV.removeAuto(A_ID);
+                indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+            } else 
+            {
+                i++; //Andernfalls wird das nächste Element vergleichen.
+            }
+        }
+        if(indikator == false)
+        {
+            
+                return -1;
+        }
+        else
+        {
+            DBV.save(pfad);
+            return 1;
+        }
+        
       }
       public int removeKunde(int K_ID)
-      {
-          int indikator; 
-          if (DBV.Kunden.contains(K_ID))
-          {
-              DBV.removeKunde(K_ID);
-              indikator = 1; //erfolgreich
-          }
-          else 
-          {
-              indikator = -1; //fehlschlag
-          }
-	  
-	  return indikator;
-    
-      } 
+       {              
+              boolean indikator = false;
+              int i = 0;
+
+       while (i < DBV.Kunden.size() && indikator == false) 
+       { //Suche bis zum Ende der Liste.
+
+            if (DBV.Kunden.get(i).getKunden_ID()== K_ID ) 
+            {
+                DBV.removeKunde(K_ID);
+                indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+            } else 
+            {
+                i++; //Andernfalls wird das nächste Element vergleichen.
+            }
+        }
+        if(indikator == true)
+        {
+		DBV.save(pfad);
+            return 1;
+        }
+        else
+        {
+	    System.out.println(",meopü");
+                return -1;
+        }
+       }
 }
 /*   
     

@@ -92,7 +92,7 @@ public class AutoerstellenController implements Initializable {
     String farbe  = null; 
     int leistung  = -1;
     String kraftstoff  = null;
-    String Verbrauch = null;
+    double Verbrauch = -1;
     String Antrieb = null;
     String getriebe = null;
     int baujahr  = -1; //int ist einfach einfacher als date, da es nur um das Jahr geht. #Raicandy
@@ -113,7 +113,7 @@ public class AutoerstellenController implements Initializable {
 	Bauart = bauart.getText();
 	farbe = Farbe.getText();
 	kraftstoff = oil.getText();
-	Verbrauch = verbrauch.getText();
+	Verbrauch = Double.parseDouble(verbrauch.getText());
 	Antrieb = antrieb.getText();
 	getriebe = getrib.getText();
 	extras = extra.getText();

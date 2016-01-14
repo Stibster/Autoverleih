@@ -406,7 +406,7 @@ public class DB_Verwalter {
                  auto.setFarbe(generateRandomString(Alphabet, random, 4));
                  auto.setLeistung(generateRandomInt(Numbers, random, 3));
                  auto.setKraftstoff(generateRandomString(Alphabet, random, 5));
-                 auto.setVerbrauch(generateRandomString(Chars, random, 8));
+                 auto.setVerbrauch(generateRandomInt(Numbers, random, 8));
                  auto.setAntrieb(generateRandomString(Alphabet, random, 5));
                  auto.setGetriebe(generateRandomString(Alphabet, random, 5));
                  auto.setBaujahr(generateRandomInt(Numbers, random, 4));

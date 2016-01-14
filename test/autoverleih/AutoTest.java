@@ -47,8 +47,8 @@ public class AutoTest {
     @Test
     public void testToString() {
         System.out.println("toString");
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
-        String expResult = "Auto ID: 11\nKennzeichen: abc\nHersteller: audi\nModell: abc\nBauart: bau\nAnhaengerkupplung: true\nSitzplaetze: 5\nFarbe: g\nLeistung: 500\nKraftstoff: b\nVerbrauch: hg\nAntrieb: all\nGetriebe: sch\nBaujahr: 1995\nKilometerstand: 60000\nTÜV: Wed Nov 02 00:00:00 CET 2016\nKaution: 5000.0\nGebuehr pro Tag: 50.0\nFahrbar: true\nExtras: klima\nGerade verfuegbar: true\n";
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        String expResult = "Auto ID: 11\nKennzeichen: abc\nHersteller: audi\nModell: abc\nBauart: bau\nAnhaengerkupplung: true\nSitzplaetze: 5\nFarbe: g\nLeistung: 500\nKraftstoff: b\nVerbrauch: 5.0\nAntrieb: all\nGetriebe: sch\nBaujahr: 1995\nKilometerstand: 60000\nTÜV: Wed Nov 02 00:00:00 CET 2016\nKaution: 5000.0\nGebuehr pro Tag: 50.0\nFahrbar: true\nExtras: klima\nGerade verfuegbar: true\n";
         String result = Proto.toString();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -61,7 +61,7 @@ public class AutoTest {
     @Test
     public void testGetFoto() {
         System.out.println("getFoto");
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         File expResult = Foto1;
         File result = Proto.getFoto();
         assertEquals(expResult, result);
@@ -75,7 +75,7 @@ public class AutoTest {
     @Test
     public void testGetAuto_ID() {
         System.out.println("getAuto_ID");
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         int expResult = 11;
         int result = Proto.getAuto_ID();
         assertEquals(expResult, result);
@@ -87,7 +87,7 @@ public class AutoTest {
     @Test
     public void testGetKennzeichen() {
         System.out.println("getKennzeichen");
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "bde", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "bde", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         String expResult = "abc";
         String result = Proto.getKennzeichen();
         assertEquals(expResult, result);
@@ -99,7 +99,7 @@ public class AutoTest {
     @Test
     public void testGetHersteller() {
         System.out.println("getHersteller");
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         String expResult = "audi";
         String result = Proto.getHersteller();
         assertEquals(expResult, result);
@@ -113,7 +113,7 @@ public class AutoTest {
     @Test
     public void testGetModell() {
         System.out.println("getModell");
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         String expResult = "abc";
         String result = Proto.getModell();
         assertEquals(expResult, result);
@@ -127,7 +127,7 @@ public class AutoTest {
     @Test
     public void testIsAnhaengerkupplung() {
         System.out.println("isAnhaengerkupplung");
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         boolean expResult = true;
         boolean result = Proto.isAnhaengerkupplung();
         assertEquals(expResult, result);
@@ -141,7 +141,7 @@ public class AutoTest {
     @Test
     public void testGetSitzplaetze() {
         System.out.println("getSitzplaetze");
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         int expResult = 5;
         int result = Proto.getSitzplaetze();
         assertEquals(expResult, result);
@@ -155,7 +155,7 @@ public class AutoTest {
     @Test
     public void testGetFarbe() {
         System.out.println("getFarbe");
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         String expResult = "g";
         String result = Proto.getFarbe();
         assertEquals(expResult, result);
@@ -169,7 +169,7 @@ public class AutoTest {
     @Test
     public void testGetLeistung() {
         System.out.println("getLeistung");
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         int expResult = 500;
         int result = Proto.getLeistung();
         assertEquals(expResult, result);
@@ -183,7 +183,7 @@ public class AutoTest {
     @Test
     public void testGetKraftstoff() {
         System.out.println("getKraftstoff");
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         String expResult = "b";
         String result = Proto.getKraftstoff();
         assertEquals(expResult, result);
@@ -197,10 +197,11 @@ public class AutoTest {
     @Test
     public void testGetVerbrauch() {
         System.out.println("getVerbrauch");
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
-        String expResult = "hg";
-        String result = Proto.getVerbrauch();
-        assertEquals(expResult, result);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        double delta = 0.0;
+        double expResult = 5.0;
+        double result = Proto.getVerbrauch();
+        assertEquals(expResult, result, delta);
         // TODO review the generated test code and remove the default call to fail.
         //
     }
@@ -211,7 +212,7 @@ public class AutoTest {
     @Test
     public void testGetAntrieb() {
         System.out.println("getAntrieb");
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         String expResult = "all";
         String result = Proto.getAntrieb();
         assertEquals(expResult, result);
@@ -225,7 +226,7 @@ public class AutoTest {
     @Test
     public void testGetGetriebe() {
         System.out.println("getGetriebe");
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         String expResult = "sch";
         String result = Proto.getGetriebe();
         assertEquals(expResult, result);
@@ -239,7 +240,7 @@ public class AutoTest {
     @Test
     public void testGetBaujahr() {
         System.out.println("getBaujahr");
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         int expResult = 1995;
         int result = Proto.getBaujahr();
         assertEquals(expResult, result);
@@ -253,7 +254,7 @@ public class AutoTest {
     @Test
     public void testGetKilometerstand() {
         System.out.println("getKilometerstand");
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         int expResult = 60000;
         int result = Proto.getKilometerstand();
         assertEquals(expResult, result);
@@ -267,7 +268,7 @@ public class AutoTest {
     @Test
     public void testGetTUEV() {
         System.out.println("getTUEV");
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Date expResult = tuev;
         Date result = Proto.getTUEV();
         assertEquals(expResult, result);
@@ -281,7 +282,7 @@ public class AutoTest {
     @Test
     public void testGetKaution() {
         System.out.println("getKaution");
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         double expResult = 5000;
         double result = Proto.getKaution();
         assertEquals(expResult, result, 0.0);
@@ -295,7 +296,7 @@ public class AutoTest {
     @Test
     public void testGetGebuehr_pro_Tag() {
         System.out.println("getGebuehr_pro_Tag");
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         float expResult = 50F;
         float result = Proto.getGebuehr_pro_Tag();
         assertEquals(expResult, result, 0.0);
@@ -309,7 +310,7 @@ public class AutoTest {
     @Test
     public void testIsFahrbar() {
         System.out.println("isFahrbar");
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         boolean expResult = true;
         boolean result = Proto.isFahrbar();
         assertEquals(expResult, result);
@@ -323,7 +324,7 @@ public class AutoTest {
     @Test
     public void testGetIst_Da() {
         System.out.println("getIst_Da");
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         boolean expResult = true;
         boolean result = Proto.getIst_Da();
         assertEquals(expResult, result);
@@ -337,7 +338,7 @@ public class AutoTest {
     @Test
     public void testGetExtras() {
         System.out.println("getExtras");
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         String expResult = "klima";
         String result = Proto.getExtras();
         assertEquals(expResult, result);
@@ -352,7 +353,7 @@ public class AutoTest {
     public void testSetFoto() {
         System.out.println("setFoto");
         File Foto2 = new File("C:\\Autoverleih\\Test1");
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setFoto(Foto2);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -365,7 +366,7 @@ public class AutoTest {
     public void testSetAuto_ID() {
         System.out.println("setAuto_ID");
         int Auto_ID =9;
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setAuto_ID(Auto_ID);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -378,7 +379,7 @@ public class AutoTest {
     public void testSetKennzeichen() {
         System.out.println("setKennzeichen");
         String Kennzeichen = "asd";
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setKennzeichen(Kennzeichen);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -391,7 +392,7 @@ public class AutoTest {
     public void testSetHersteller() {
         System.out.println("setHersteller");
         String Hersteller = "benz";
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setHersteller(Hersteller);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -404,7 +405,7 @@ public class AutoTest {
     public void testSetModell() {
         System.out.println("setModell");
         String Modell = "oh";
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setModell(Modell);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -417,7 +418,7 @@ public class AutoTest {
     public void testSetAnhaengerkupplung() {
         System.out.println("setAnhaengerkupplung");
         boolean Anhaengerkupplung = false;
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setAnhaengerkupplung(Anhaengerkupplung);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -430,7 +431,7 @@ public class AutoTest {
     public void testSetSitzplaetze() {
         System.out.println("setSitzplaetze");
         int Sitzplaetze = 8;
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setSitzplaetze(Sitzplaetze);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -443,7 +444,7 @@ public class AutoTest {
     public void testSetFarbe() {
         System.out.println("setFarbe");
         String Farbe = "b";
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setFarbe(Farbe);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -456,7 +457,7 @@ public class AutoTest {
     public void testSetLeistung() {
         System.out.println("setLeistung");
         int Leistung = 6;
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setLeistung(Leistung);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -469,7 +470,7 @@ public class AutoTest {
     public void testSetKraftstoff() {
         System.out.println("setKraftstoff");
         String Kraftstoff = "uh";
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setKraftstoff(Kraftstoff);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -481,8 +482,8 @@ public class AutoTest {
     @Test
     public void testSetVerbrauch() {
         System.out.println("setVerbrauch");
-        String Verbrauch = "oij";
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        double Verbrauch = 6.0;
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setVerbrauch(Verbrauch);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -495,7 +496,7 @@ public class AutoTest {
     public void testSetAntrieb() {
         System.out.println("setAntrieb");
         String Antrieb = "ur";
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setAntrieb(Antrieb);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -508,7 +509,7 @@ public class AutoTest {
     public void testSetGetriebe() {
         System.out.println("setGetriebe");
         String Getriebe = "eser";
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setGetriebe(Getriebe);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -521,7 +522,7 @@ public class AutoTest {
     public void testSetBaujahr() {
         System.out.println("setBaujahr");
         int Baujahr = 65;
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setBaujahr(Baujahr);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -534,7 +535,7 @@ public class AutoTest {
     public void testSetKilometerstand() {
         System.out.println("setKilometerstand");
         int Kilometerstand = 546;
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setKilometerstand(Kilometerstand);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -547,7 +548,7 @@ public class AutoTest {
     public void testSetTUEV() {
         System.out.println("setTUEV");
         Date TUEV = null;
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setTUEV(TUEV);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -560,7 +561,7 @@ public class AutoTest {
     public void testSetKaution() {
         System.out.println("setKaution");
         double Kaution = 30;
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setKaution(Kaution);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -573,7 +574,7 @@ public class AutoTest {
     public void testSetGebuehr_pro_Tag() {
         System.out.println("setGebuehr_pro_Tag");
         float Gebuehr_pro_Tag = 60F;
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setGebuehr_pro_Tag(Gebuehr_pro_Tag);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -586,7 +587,7 @@ public class AutoTest {
     public void testSetFahrbar() {
         System.out.println("setFahrbar");
         boolean fahrbar = false;
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setFahrbar(fahrbar);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -599,7 +600,7 @@ public class AutoTest {
     public void testSetExtras() {
         System.out.println("setExtras");
         String Extras = "nix";
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setExtras(Extras);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -612,7 +613,7 @@ public class AutoTest {
     public void testSetIst_Da() {
         System.out.println("setIst_Da");
         boolean ist_da = false;
-        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", "hg", "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setIst_Da(ist_da);
         // TODO review the generated test code and remove the default call to fail.
         //
