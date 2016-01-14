@@ -46,7 +46,7 @@ public class MetaController {
         Ausleihe ausleihe = new Ausleihe();       
         int i = 0;
         boolean Indikator = false;
-	int indikator = -1;
+	int indikator = 0;
         
     //#####################Überprüfung für die Auto-ID.#########################
       while(Indikator != true){
@@ -59,11 +59,11 @@ public class MetaController {
                 i++; 
             }
         }
-            if (Indikator = true){
+            if (Indikator == true){
                 ausleihe.setAuto_ID(Auto_ID);
             }
             else{
-		indikator = -1;
+		return -1;
             }
       }
             
@@ -80,11 +80,11 @@ public class MetaController {
                 i++; 
             }
         }
-            if (Indikator = true){
+            if (Indikator == true){
                 ausleihe.setKunden_ID(Kunden_ID);
             }
             else{
-		indikator = -2;
+		return -2;
 	    }
       }
       
@@ -93,7 +93,7 @@ public class MetaController {
       i = 0;
       boolean Kollision = false;
       
-      while(Indikator != true){ //MUMPITZ
+      while(Indikator != true){
         while (i < DBV.Ausleihen.size() && Indikator == false) { 
 
             if (DBV.Ausleihen.get(i).getAuto_ID() == Auto_ID ) {
@@ -102,8 +102,8 @@ public class MetaController {
                                 
                 GregorianCalendar cal_aus = DateToCalendar(Ausleihdatum); //Eingegebenes Ausleihdatum
                 GregorianCalendar cal_rue = DateToCalendar(Rueckgabedatum);
-                GregorianCalendar cal_Baus = DateToCalendar(DBV.Ausleihen.get(i).Ausleihdatum); //Bestehendes Ausleihdatum
-                GregorianCalendar cal_Brue = DateToCalendar(DBV.Ausleihen.get(i).Rueckgabedatum);
+                GregorianCalendar cal_Baus = DateToCalendar(ausleihe.Ausleihdatum); //Bestehendes Ausleihdatum
+                GregorianCalendar cal_Brue = DateToCalendar(ausleihe.Rueckgabedatum);
                 
                 long aus = cal_aus.getTimeInMillis();
                 long rue = cal_rue.getTimeInMillis();
@@ -116,7 +116,7 @@ public class MetaController {
                 for(long j=0; j<zeitraum; j++) {
                     for(long k=0; k<Bzeitraum; k++) {
                         if(cal_Baus.equals(cal_aus)) {
-                            Indikator = true;
+                            Kollision = true;
                         }
                         else {
                             cal_Baus.add(GregorianCalendar.DAY_OF_MONTH, 1);
@@ -164,7 +164,8 @@ public class MetaController {
         int i = 0;
         boolean indikator = false;
 
-        while (i < DBV.Autos.size() && indikator == false) { //Suche bis zum Ende der Liste.
+        while (i < DBV.Autos.size() && indikator == false) //Suche bis zum Ende der Liste.
+        { 
 
             if (DBV.Autos.get(i).getAuto_ID() == A_ID ) {
                 DBV.Autos.get(i).setIst_Da(false);
@@ -499,8 +500,37 @@ public class MetaController {
         return indikator;
     }
 //##############################################################################
-   
-        
+      public int removeAuto(int A_ID)
+      {
+          int indikator; 
+          if (DBV.Autos.contains(A_ID))
+          {
+              DBV.removeAuto(A_ID);
+              indikator = 1; //erfolgreich
+          }
+          else 
+          {
+              indikator = -1; //fehlschlag
+          }
+	  
+	  return indikator;
+      }
+      public int removeKunde(int K_ID)
+      {
+          int indikator; 
+          if (DBV.Kunden.contains(K_ID))
+          {
+              DBV.removeKunde(K_ID);
+              indikator = 1; //erfolgreich
+          }
+          else 
+          {
+              indikator = -1; //fehlschlag
+          }
+	  
+	  return indikator;
+    
+      } 
 }
 /*   
     
@@ -523,13 +553,9 @@ public class MetaController {
     
     }
 
-    public void removeKunde(int K_ID){
+
     
-    }
-    
-    public void removeAuto(int A_ID){
-       
-    }
+
     public void removeAusleihe(int K_ID, int A_ID){
         
     }
