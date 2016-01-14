@@ -18,7 +18,7 @@ public class MetaController {
     
     
     Input eingabe = new Input();
-    DB_Verwalter DBV = new DB_Verwalter();
+    public DB_Verwalter DBV = new DB_Verwalter();
     String pfad = "Data/xml/TestDatenbank.xml";
     
     // 1 return alles erfolgreich gespeichert
@@ -547,15 +547,15 @@ public class MetaController {
                 i++; //Andernfalls wird das nächste Element vergleichen.
             }
         }
-        if(indikator == false)
+        if(indikator == true)
         {
-            
-                return -1;
+		DBV.save(pfad);
+            return 1;
         }
         else
         {
-            DBV.save(pfad);
-            return 1;
+	    System.out.println(",meopü");
+                return -1;
         }
        }
 }
