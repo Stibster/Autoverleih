@@ -349,7 +349,7 @@ public class MetaController {
     //********************************Adrian Neubert****************************
     public int addAuto(File PATH,  String KZ, String HER, 
             String MOD, String BA, boolean AK ,int SP, 
-            String FAR, int LEI, String KS, String VER, 
+            String FAR, int LEI, String KS, double VER, 
             String ANT, String GET, int BJ, int KIL, 
             Date TUE, double KAU, float GPT, boolean FAH,
             String EXT, boolean ID)
@@ -488,7 +488,7 @@ public class MetaController {
                     if(Extras == false)
                     {
                         Indikator = true;
-                        indikator = -11;
+                        indikator = -19;
                     }
                      
         }
