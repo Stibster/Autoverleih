@@ -95,6 +95,28 @@ public class AutobearbeitenController implements Initializable {
             }
         }
 	*/
+	
+	/* 
+	//werte in felder laden.
+	
+	kennzeichen.setText(value);
+	Hersteller.setText(value);
+	Modell.setText(value);
+	bauart.setText(value);
+	Farbe.setText(value);
+	oil.setText(value);
+	verbrauch.setText(value);
+	antrieb.setText(value);
+	getrib.setText(value);
+	extra.setText(value);
+	g_b_t.setText(value);
+	kaution.setText(value);
+	tuev.setText(value);
+	km_stand.setText(value);
+	year.setText(value);
+	ps.setText(value);
+	space.setText(value);
+	*/
     }
     
 }
