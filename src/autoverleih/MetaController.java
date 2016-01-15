@@ -384,8 +384,7 @@ public class MetaController {
         Auto auto = new Auto(PATH, AID, KZ, HER, MOD, BA, AK, SP, FAR, LEI, KS, 
              VER, ANT, GET, BJ, KIL, TUE, KAU, GPT, FAH, EXT, ID);
         // Prüft ob ein Auto schon vorhanden ist/anhand des Kennzeichen und der ID
-        while(Indikator != true)
-        {
+        
             while(i < DBV.Autos.size() && Indikator == false)
             {
                 if(DBV.Autos.get(i).getAuto_ID()==AID && DBV.Autos.get(i).getKennzeichen() == KZ)
@@ -400,8 +399,6 @@ public class MetaController {
                 }
             }
             
-            
-        }
         //Prüft die Eingaberegeln 
         //Kennzeichen Regel
         String Kennzeichen = "[A-Z_0-9]";
