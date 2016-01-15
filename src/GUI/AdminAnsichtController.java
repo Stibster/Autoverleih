@@ -173,7 +173,7 @@ public class AdminAnsichtController implements Initializable {
     @FXML
     private void handleClearButton(ActionEvent event) {
 	
-	MC_Hammer.DBV.Kunden.clear();
+	
     }
     
 }

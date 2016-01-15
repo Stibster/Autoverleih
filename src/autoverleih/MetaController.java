@@ -28,6 +28,9 @@ public class MetaController {
     // -1 auto id
     // -2 kunde
     // -3 ausleihdatum
+    // -4 Auto nicht ausgeliehen.
+    // -5 Auto nicht da.
+    // -6 Auto schon vorhanden.
     
 //#####################Erstellt von Steve Vogel#################################
     
@@ -166,13 +169,31 @@ public class MetaController {
         DBV.restore(pfad);
         int i = 0;
         boolean indikator = false;
+        boolean token = false;
+        
+        while (i < DBV.Ausleihen.size() && token == false) //Suche bis zum Ende der Liste.
+        { 
 
+            if (DBV.Ausleihen.get(i).getAuto_ID() == A_ID ) {
+                token = true;
+            } else {
+                i++; //Andernfalls wird das nächste Element vergleichen.
+            }
+            
+        }
+        if(token == true){
         while (i < DBV.Autos.size() && indikator == false) //Suche bis zum Ende der Liste.
         { 
 
             if (DBV.Autos.get(i).getAuto_ID() == A_ID ) {
+                
+                if(DBV.Autos.get(i).getIst_Da()){
                 DBV.Autos.get(i).setIst_Da(false);
                 indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+                }
+                else{
+                    return -5;
+                }
             } else {
                 i++; //Andernfalls wird das nächste Element vergleichen.
             }
@@ -185,6 +206,10 @@ public class MetaController {
             DBV.save(pfad);
             return 1;
         }
+        }
+        else{
+            return -4;
+        }
     }
 //#####################Erstellt von Daniel Meerwald#############################    
     public int Auto_zurueckbringen(int A_ID){
@@ -192,15 +217,36 @@ public class MetaController {
         DBV.restore(pfad);
         int i = 0;
         boolean indikator = false;
+        boolean token = false;
+        
+        while (i < DBV.Ausleihen.size() && token == false) //Suche bis zum Ende der Liste.
+        { 
 
-        while (i < DBV.Autos.size() && indikator == false) { //Suche bis zum Ende der Liste.
-
-            if (DBV.Autos.get(i).getAuto_ID() == A_ID ) {
-                DBV.Autos.get(i).setIst_Da(true);
-                indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+            if (DBV.Ausleihen.get(i).getAuto_ID() == A_ID ) {
+                token = true;
             } else {
                 i++; //Andernfalls wird das nächste Element vergleichen.
             }
+            
+        }
+        if(token == true){
+        while (i < DBV.Autos.size() && indikator == false) { //Suche bis zum Ende der Liste.
+            
+            if (DBV.Autos.get(i).getAuto_ID() == A_ID ) {
+                if(DBV.Autos.get(i).getIst_Da()){
+                DBV.Autos.get(i).setIst_Da(true);
+                indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+                }
+                else{
+                    return -6;
+                }
+            } else {
+                i++; //Andernfalls wird das nächste Element vergleichen.
+            }
+        }
+        }
+        else{
+            return -4;
         }
         if(indikator == false){
                 return -1;
