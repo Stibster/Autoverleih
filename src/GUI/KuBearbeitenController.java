@@ -122,6 +122,7 @@ public class KuBearbeitenController implements Initializable {
 	Str = street.getText();
 	Email = email.getText();
 	tel = tel_num.getText();
+        Fklasse = car_k.getText();
 	
 	    Geb = format.parse(birthday.getText());
 	

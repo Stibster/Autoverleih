@@ -1,5 +1,6 @@
 package GUI;
 
+import autoverleih.MetaController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -43,33 +44,48 @@ public class KundenAnsichtController implements Initializable {
     @FXML    private TextField kostenText;
     @FXML    private MenuItem logOut;
     @FXML    private TilePane tile;
-
+    MetaController MC_Hammer = new MetaController();
+    String pfad = "Data/xml/TestDatenbank.xml";
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-	for(int i=0; i<100; i++) {	    
-	    Image image = new Image("/Data/dummy1.jpg");
-	    ImageView imageView = new ImageView();
-	    imageView.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
-		
-		@Override
-		public void handle(MouseEvent event) {
-		    markeText.setText("Nissan");
-		    modellText.setText("Skyline");
-		    FarbeText.setText("Blau");
-		    leistungText.setText("259PS");
-		    sitzeText.setText("4 Türen");
-		    kostenText.setText("89€ pro Tag");
-		}
-	    });
-	    imageView.setFitHeight(100);
-//        imageView.setFitWidth(80);
-	    imageView.setPreserveRatio(true);
-	    imageView.setImage(image);
-	    tile.getChildren().add(imageView);
-	}
+        MC_Hammer.DBV.restore(pfad);
+        int i;
+        if(!MC_Hammer.DBV.Autos.isEmpty()){
+            
+            for(i=0; i<MC_Hammer.DBV.Autos.size(); i++) {	    
+                Image image = new Image(MC_Hammer.DBV.Autos.get(i).getFotoString());
+                ImageView imageView = new ImageView();
+                int i2 = i;
+                
+                    imageView.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+
+                        String Hersteller = MC_Hammer.DBV.Autos.get(i2).getHersteller();
+                        String modell = MC_Hammer.DBV.Autos.get(i2).getModell();
+                        String Farbe = MC_Hammer.DBV.Autos.get(i2).getFarbe();
+                        String leistung = String.valueOf(MC_Hammer.DBV.Autos.get(i2).getLeistung()+ " PS");
+                        String sitze = String.valueOf(MC_Hammer.DBV.Autos.get(i2).getSitzplaetze()+ " Sitzplätze");
+                        String kosten =String.valueOf(MC_Hammer.DBV.Autos.get(i2).getGebuehr_pro_Tag()+ " € Pro Tag");
+                        @Override
+                            public void handle(MouseEvent event) {
+                                markeText.setText(Hersteller);
+                                modellText.setText(modell);
+                                FarbeText.setText(Farbe);
+                                leistungText.setText(leistung);
+                                sitzeText.setText(sitze);
+                                kostenText.setText(kosten);
+                            }
+                    });
+                imageView.setFitHeight(100);
+    //        imageView.setFitWidth(80);
+                imageView.setPreserveRatio(true);
+                imageView.setImage(image);
+                tile.getChildren().add(imageView);
+            }
+        }
     }
 
     @FXML

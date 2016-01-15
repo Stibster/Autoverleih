@@ -34,7 +34,7 @@
             <TextArea fx:id="CarText" prefHeight="525.0" prefWidth="480.0" />
          </children>
       </HBox>
-      <TextArea fx:id="console" editable="false" layoutY="700.0" prefHeight="200.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0" />
+      <TextArea fx:id="console" editable="false" layoutY="700.0" prefHeight="200.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0" />
       <Label layoutX="41.0" layoutY="79.0" text="Kundensuche" />
       <Label layoutX="696.0" layoutY="79.0" text="Fahrzeugsuche" />
       <MenuBar layoutX="20.0" layoutY="20.0" prefHeight="0.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-0.0" AnchorPane.topAnchor="0.0">
@@ -63,6 +63,6 @@
             </Menu>
          </menus>
       </MenuBar>
-      <TextField fx:id="consoleText" layoutY="675.0" prefHeight="25.0" prefWidth="826.0" />
+      <TextField fx:id="consoleText" layoutY="675.0" prefHeight="25.0" prefWidth="826.0" visible="false" />
    </children>
 </AnchorPane>
