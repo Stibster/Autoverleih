@@ -437,13 +437,14 @@ public class MetaController {
             Date TUE, double KAU, float GPT, boolean FAH,
             String EXT, boolean ID)
     {
-        int AID = DBV.makeAutoID();
         DBV.restore(pfad);
         int i = 0;
         boolean Indikator = false;
         Pattern p;
         Matcher m;
 	File PATH = new File("Data/dummy1.jpg");
+	int AID = DBV.makeAutoID();
+	int fehler = 0;
 	
         Auto auto = new Auto(PATH, AID, KZ, HER, MOD, BA, AK, SP, FAR, LEI, KS, 
              VER, ANT, GET, BJ, KIL, TUE, KAU, GPT, FAH, EXT, ID);
@@ -454,7 +455,7 @@ public class MetaController {
                 if(DBV.Autos.get(i).getAuto_ID()==AID && DBV.Autos.get(i).getKennzeichen() == KZ)
                 {
                     Indikator = true;
-                    return -1;
+                    return fehler -1;
 
                 }
                 else
@@ -462,16 +463,15 @@ public class MetaController {
                     i++;
                 }
             }
-            
+         String Buchstaben = "[A-Z][a-zA-Z]*";   
         //Prüft die Eingaberegeln 
         //Kennzeichen Regel
-        String Kennzeichen = "[A-Z_0-9]";
-        p = Pattern.compile(Kennzeichen);
+        //String Kennzeichen = "[A-Z_0-9]";
+        p = Pattern.compile(Buchstaben);
         m = p.matcher(KZ);
         boolean Schild = m.matches();
         
         //Hersteller Regel
-        String Buchstaben = "[A-Z][a-zA-Z]*";
         p = Pattern.compile(Buchstaben);
         m = p.matcher(HER);
         boolean Hersteller = m.matches();
@@ -492,20 +492,20 @@ public class MetaController {
         boolean Farbe = m.matches();
         
         // Kraftstoff
-        String KrSt = "[Diesel][Benzin][E10][Gas]";
-        p = Pattern.compile(KrSt);
+        //String KrSt = "[Diesel][Benzin][E10][Gas]";
+        p = Pattern.compile(Buchstaben);
         m = p.matcher(KS);
         boolean Kraftstoff  = m.matches();
         
         // Antrieb Regel
-        String Antr = "[Frontantrieb][Heckantrieb][Allrad]";
-        p = Pattern.compile(Antr);
+        //String Antr = "[Frontantrieb][Heckantrieb][Allrad]";
+        p = Pattern.compile(Buchstaben);
         m = p.matcher(ANT);
         boolean Antrieb = m.matches();
         
         //Getriebe Regel
-        String Getr = "[Schaltgetriebe][Automatikgetriebe]";
-        p = Pattern.compile(Getr);
+        //String Getr = "[Schaltgetriebe][Automatikgetriebe]";
+        p = Pattern.compile(Buchstaben);
         m = p.matcher(GET);
         boolean Getriebe = m.matches();
         
@@ -520,68 +520,68 @@ public class MetaController {
                     if(Schild == false)
                     {
                         Indikator = true;
-                        return -2;
+                        return fehler -2;
                     }
                     
                     if(Hersteller == false)
                     {
-                        Indikator = true;
-                        return -3;
+                        Indikator  = true;
+                        return fehler -3;
                     }
                     if(Modell == false)
                     {
                         Indikator = true;
-                        return -4;
+                        return fehler -4;
                     }
                     if(Bauart == false)
                     {
                         Indikator = true;
-                        return -5;
+                        return fehler -5;
                     }
                     if(SP < 2 || SP > 9)
                     {
                         Indikator = true;
-                        return -6;
+                        return fehler -6;
                     }
                     if(Farbe == false)
                     {
                         Indikator = true;
-                        return -7;
+                        return fehler -7;
                     }
                     if(LEI < 25 || LEI > 1000)
                     {
                         Indikator = true;
-                        return -8;
+                        return fehler -8;
                     }
                     if(Kraftstoff == false)
                     {
                         Indikator = true;
-                        return -9;
+                        return fehler -9;
                     }
                      if(VER < 3 || VER > 50)
                     {
                         Indikator = true;
-                        return -10;
+                        return fehler -10;
                     }
                     if(Antrieb == false)
                     {
                         Indikator = true;
-                        return -11;
+                        return fehler -11;
                     }
                     if(Getriebe == false)
                     {
                         Indikator = true;
-                        return -12;
+                        return fehler -12;
                     }
                     if(BJ < 1900 || BJ > 2016)
                     {
                         Indikator = true;
-                        return -13;
+                        return fehler -13;
                     }
                     if(KIL < 1)
                     {
                         Indikator = true;
-                        return -14;
+                        return fehler -14;
                     }
                     
                     //TÜV ???
@@ -589,26 +589,26 @@ public class MetaController {
                     if(KAU < 250 || KAU > 5000)
                     {
                         Indikator = true;
-                        return -16;
+                        return fehler -16;
                     }
                     if (GPT < 5 || GPT > 500)
                     {
                         Indikator = true;
-                        return -17;
+                        return fehler -17;
                     }                    
                     if(Extras == false)
                     {
                         Indikator = true;
-                        return -19;
+                        return fehler -19;
                     }
         }
         else
         {
            DBV.addAuto(auto);
            DBV.save(pfad);
-           return 1;              
+	   return fehler = 1; 
         }
-        return 0;
+        return fehler;
     }
 //##############################################################################
    public int removeAuto(int A_ID)
