@@ -55,12 +55,23 @@ public class AutoReinController implements Initializable {
 		    break;
 		case -1:
 		    
+                    warningVer.setText("Verleih ID nicht vorhanden");
 		    warningVer.setVisible(true);
 	            
 		    break;
-
+                case -2:
+		    warningVer.setText("Auto nicht im Haus");
+		    warningVer.setVisible(true);
+	            
+		    break;
+                case -6:
+		    warningVer.setText("Auto schon im Haus");
+		    warningVer.setVisible(true);
+	            
+		    break;
 		default:
-		    warningVer.setVisible(false);
+
+                    warningVer.setVisible(false);
 		    
 		    break;
 	    }

@@ -54,10 +54,20 @@ public class AutoAbgebenController implements Initializable {
 		    popUp.close();
 		    break;
 		case -1:
-		    
+		    warningVer.setText("Verleih ID nicht vorhanden");
 		    warningVer.setVisible(true);
 	            
 		    break;
+                case -5:
+		    warningVer.setText("Auto nicht im Haus");
+		    warningVer.setVisible(true);
+                    break;
+                case -4:
+		    warningVer.setText("Kein Verleih vorhanden");
+		    warningVer.setVisible(true);
+	            
+		    break;
+
 
 		default:
 		    warningVer.setVisible(false);
