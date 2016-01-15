@@ -140,7 +140,7 @@ public class Auto {
     }
 
     @XmlElement(name = "Anhaengerkupplung")
-    public boolean isAnhaengerkupplung() {
+    public boolean getAnhaengerkupplung() {
         return Anhaengerkupplung;
     }
 
@@ -212,6 +212,11 @@ public class Auto {
     @XmlElement(name = "ist_da")
     public boolean getIst_Da() {
         return ist_da;
+    }
+    
+    @XmlElement(name = "Bauart")
+    public String getBauart() {
+        return Bauart;
     }
 
 //###Setter Methoden erstellt von Daniel Meerwald###############################    
@@ -301,6 +306,10 @@ public class Auto {
     
     public void setIst_Da(boolean ist_da) {
         this.ist_da = ist_da;
+    }
+    
+    public void setBauart(String Bauart) {
+        this.Bauart = Bauart;
     }
 //##############################################################################   
 }

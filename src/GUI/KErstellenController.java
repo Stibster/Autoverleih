@@ -91,7 +91,7 @@ public class KErstellenController implements Initializable {
 	int fehler = 0; //fuehr fehler fall
 	String Vorname = null;
 	String Name = null;
-	int Plz = -1;
+        String Plz = null;
 	String ort = null;
 	String Str = null;
 	String H_num = null;
@@ -105,7 +105,7 @@ public class KErstellenController implements Initializable {
 	
 	Vorname =vorname_text.getText();
 	Name =  name_text.getText();
-	Plz = Integer.parseInt(plz.getText());
+	Plz = plz.getText();
 	ort = Ort.getText();
 	H_num = h_num.getText();
 	Str = street.getText();
