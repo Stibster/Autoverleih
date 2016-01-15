@@ -51,6 +51,10 @@ public class MitarbeiterAnsichtController implements Initializable {
     private MenuItem logIn;
     @FXML
     private MenuItem changeUser;
+    @FXML
+    private TextArea CusText;
+    @FXML
+    private TextArea CarText;
 
     /**
      * Initializes the controller class.

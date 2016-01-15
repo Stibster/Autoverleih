@@ -61,6 +61,16 @@ public class AdminAnsichtController implements Initializable {
     private MenuItem carChange;
     @FXML
     private Button clearBut;
+    @FXML
+    private Button dbcarsDelet;
+    @FXML
+    private Button dbKuDel;
+    @FXML
+    private Button dbVFALLDel;
+    @FXML
+    private TextField rndCarText;
+    @FXML
+    private TextField rndCusText;
 
     /**
      * Initializes the controller class.
@@ -125,14 +135,14 @@ public class AdminAnsichtController implements Initializable {
     @FXML
     private void handleRndCar(ActionEvent event) throws ParseException {
 	MC_Hammer.DBV.restore(pfad);
-	MC_Hammer.DBV.randomAutos(10);
+	MC_Hammer.DBV.randomAutos(Integer.parseInt(rndCarText.getText()));
 	MC_Hammer.DBV.save(pfad);
     }
 
     @FXML
     private void handleRndKunde(ActionEvent event) throws ParseException {
 	MC_Hammer.DBV.restore(pfad);
-	MC_Hammer.DBV.randomKunden(10);
+	MC_Hammer.DBV.randomKunden(Integer.parseInt(rndCusText.getText()));
 	MC_Hammer.DBV.save(pfad);
     }
 
@@ -176,6 +186,27 @@ public class AdminAnsichtController implements Initializable {
         MC_Hammer.DBV.clearAll();
         MC_Hammer.DBV.save(pfad);
 	
+    }
+
+    @FXML
+    private void handleDbCarsDelButton(ActionEvent event) {
+        
+        MC_Hammer.DBV.clearAutos();
+        MC_Hammer.DBV.save(pfad);
+    }
+
+    @FXML
+    private void handleDbKuDelButton(ActionEvent event) {
+        
+        MC_Hammer.DBV.clearKunden();
+        MC_Hammer.DBV.save(pfad);
+    }
+
+    @FXML
+    private void handleDbVFALLDelButton(ActionEvent event) {
+        
+        MC_Hammer.DBV.clearAusleihen();
+        MC_Hammer.DBV.save(pfad);
     }
     
 }

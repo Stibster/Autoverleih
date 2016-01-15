@@ -88,8 +88,13 @@
             </HBox>
          </children>
       </VBox>
-      <Button fx:id="rndCar" layoutX="170.0" layoutY="138.0" mnemonicParsing="false" onAction="#handleRndCar" text="zufällige Autos (10)" />
-      <Button fx:id="rndKunde" layoutX="195.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleRndKunde" text="zufällige Kunden (10)" />
-      <Button fx:id="clearBut" layoutX="229.0" layoutY="253.0" mnemonicParsing="false" onAction="#handleClearButton" text="Datenbank löschen" />
+      <Button fx:id="rndCar" layoutX="170.0" layoutY="138.0" mnemonicParsing="false" onAction="#handleRndCar" text="zufällige Autos" />
+      <Button fx:id="rndKunde" layoutX="165.0" layoutY="178.0" mnemonicParsing="false" onAction="#handleRndKunde" text="zufällige Kunden" />
+      <Button fx:id="clearBut" layoutX="229.0" layoutY="253.0" mnemonicParsing="false" onAction="#handleClearButton" text="Komplette Datenbank löschen" />
+      <Button fx:id="dbcarsDelet" layoutX="195.0" layoutY="307.0" mnemonicParsing="false" onAction="#handleDbCarsDelButton" text="Datenbank Autos Löschen" />
+      <Button fx:id="dbKuDel" layoutX="229.0" layoutY="364.0" mnemonicParsing="false" onAction="#handleDbKuDelButton" text="Datenbank Kunden Löschen" />
+      <Button fx:id="dbVFALLDel" layoutX="262.0" layoutY="420.0" mnemonicParsing="false" onAction="#handleDbVFALLDelButton" text="Datenbank Vermietungsfall Löschen" />
+      <TextField fx:id="rndCarText" layoutX="319.0" layoutY="138.0" text="10" />
+      <TextField fx:id="rndCusText" layoutX="319.0" layoutY="178.0" text="10" />
    </children>
 </AnchorPane>
