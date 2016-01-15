@@ -83,17 +83,17 @@ public class KuBearbeitenController implements Initializable {
                 i++; //Andernfalls wird das nächste Element vergleichen.
             }
         }
-	
+	SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy", new DateFormatSymbols(Locale.GERMANY));
 	vorname_text.setText(MC_Hammer.DBV.Kunden.get(i).getVorname());
 	name_text.setText(MC_Hammer.DBV.Kunden.get(i).getNachname());
-	birthday.setText(String.valueOf(MC_Hammer.DBV.Kunden.get(i).getGeburtstag()));
+	birthday.setText(String.valueOf(format.format(MC_Hammer.DBV.Kunden.get(i).getGeburtstag())));
 	Ort.setText(MC_Hammer.DBV.Kunden.get(i).getWohnort());
 	plz.setText(MC_Hammer.DBV.Kunden.get(i).getPostleitzahl());
 	street.setText(MC_Hammer.DBV.Kunden.get(i).getStrasse());
 	h_num.setText(MC_Hammer.DBV.Kunden.get(i).getHausnummer());
 	email.setText(MC_Hammer.DBV.Kunden.get(i).getE_Mail());
 	tel_num.setText(MC_Hammer.DBV.Kunden.get(i).getTelefonnummer());
-	car_date.setText(String.valueOf(MC_Hammer.DBV.Kunden.get(i).getFuehrerscheindatum()));
+	car_date.setText(String.valueOf(format.format(MC_Hammer.DBV.Kunden.get(i).getFuehrerscheindatum())));
 	car_k.setText(MC_Hammer.DBV.Kunden.get(i).getFuehrerscheinklasse());
     }
 
@@ -130,7 +130,7 @@ public class KuBearbeitenController implements Initializable {
 	    Fdate = format.parse(car_date.getText());
 	
 	
-	fehler = MC_Hammer.addKunde(Vorname, Name, Plz, ort, Str,
+	fehler = MC_Hammer.addKunde2(K_ID, Vorname, Name, Plz, ort, Str,
 		H_num, Email, tel, Geb, Fschein, Fdate, Fklasse);
 
 	switch (fehler) {

@@ -316,8 +316,8 @@ public class MetaController {
 	
         //Legt Eingabe Regeln fest
         String Buchstaben = "/^[a-z ,.'-]+$/i";
-        String Tel = "\\d{11-12}";
-        String Plz = "\\d{5})";
+        String Tel = "\\d{13}";//MUSS ÜBERARBEITET WERDEN LÄNGE 4-12
+        String Plz = "\\d{5}";
         //Prüft ob Eingaberegeln mit Eingabe übereinstimmen
         
         String Name = "[A-Z][a-zA-Z]*";
@@ -403,7 +403,125 @@ public class MetaController {
         //gibt Erfolg oder Fehlschlag mit jeweiligem Fehlercode zurück
         return indikator;    
     }
-    
+    public int addKunde2(int K_ID, String VN, String NN, String PLZ, String WO, 
+	    String STR, String HN, String EM, String TN, Date GEB, File FS, Date FSD, String FSK){
+        DBV.restore(pfad);
+        int i = 0;
+        boolean Indikator = false;
+        Kunde kunde = new Kunde(0, VN, NN, null, WO, STR, HN, EM, null, GEB, FS, FSD, FSK);
+        int indikator = -1;
+        Pattern p;
+        Matcher m;
+        //Legt KundenID fest
+        int KID = K_ID;
+        kunde.setKunden_ID(KID);
+         //Legt Postleitzahl fest
+        PLZ = Zahlen(PLZ);
+        kunde.setPostleitzahl(PLZ);
+         //Legt Telefonnummer fest
+        TN = Zahlen(TN);
+        kunde.setTelefonnummer(TN);
+        
+        //Prüft ob eine Person mit gleichem Vorname, Nachname, Geburtstag vorhanden ist
+	while (i < DBV.Kunden.size() && Indikator == false) { //Suche bis zum Ende der Liste.
+
+            if (DBV.Kunden.get(i).getVorname() == VN && DBV.Kunden.get(i).getNachname() == NN && DBV.Kunden.get(i).getGeburtstag() == GEB) {
+                Indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+		return -1;
+            } else {
+                i++; //Andernfalls wird das nächste Element vergleichen.
+            }
+        }
+	
+        //Legt Eingabe Regeln fest
+        String Buchstaben = "/^[a-z ,.'-]+$/i";
+        String Tel = "\\d{13}";//MUSS ÜBERARBEITET WERDEN LÄNGE 4-12
+        String Plz = "\\d{5}";
+        //Prüft ob Eingaberegeln mit Eingabe übereinstimmen
+        
+        String Name = "[A-Z][a-zA-Z]*";
+        p = Pattern.compile(Name);
+        m = p.matcher(VN);
+        boolean Vorname = m.matches();
+        
+        m = p.matcher(NN);
+        boolean Nachname = m.matches();
+        
+        m = p.matcher(WO);
+        boolean Wohnort = m.matches();
+        
+        m = p.matcher(STR);
+        boolean Strasse = m.matches();
+        
+        String At = "^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+        p = Pattern.compile(At);
+        m = p.matcher(EM);
+        boolean EMail = m.matches();  
+        
+        String ZB = "[0-9][a-zA-Z]";
+        p = Pattern.compile(ZB);
+        m = p.matcher(HN);
+        boolean Hausnummer = m.matches();
+        
+        boolean Postleitzahl = PLZ.matches(Plz);
+  
+        boolean Telefonnummer = TN.matches(Tel);
+       
+        //Prüft ob Alle Ergebnisse passen
+        if (Indikator!=true){
+            if (Vorname == false){
+                Indikator = true;
+                indikator = -2;
+            }
+            if (Nachname == false){
+                Indikator = true;
+                indikator = -3;
+            }
+            if (Wohnort == false){
+                Indikator = true;
+                indikator = -4;
+            }
+            if (Strasse == false){
+                Indikator = true;
+                indikator = -5;
+            }
+            if (Hausnummer == false){
+                Indikator = true;
+                indikator = -6;
+            }
+            if (EMail == false){
+                Indikator = true;
+                indikator = -7;
+            } 
+            if (Telefonnummer == false){
+                Indikator = true;
+                indikator = -8;
+            }
+            if (GEB == null){
+                Indikator = true;
+                indikator = -9;
+            }/*
+            if (FS == null){
+                Indikator = true;
+                indikator = -10;
+            }*/
+            if (FSD == null){
+                Indikator = true;
+                indikator = -11;
+            }if (Postleitzahl == false){
+                Indikator = true;
+                indikator = -12;
+            }
+        }
+        // speichert
+        if (Indikator != true){
+            DBV.addKunde(kunde);
+	    DBV.save(pfad);
+	    indikator = 1;
+        }
+        //gibt Erfolg oder Fehlschlag mit jeweiligem Fehlercode zurück
+        return indikator;    
+    }
     /*
     1 Erfolgreich gespeichert
     0 normal, keine Daten nix wird angezeigt
@@ -450,8 +568,6 @@ public class MetaController {
              VER, ANT, GET, BJ, KIL, TUE, KAU, GPT, FAH, EXT, ID);
         // Prüft ob ein Auto schon vorhanden ist/anhand des Kennzeichen und der ID
         
-            while(i < DBV.Autos.size() && Indikator == false)
-            {
                 if(DBV.Autos.get(i).getAuto_ID()==AID && DBV.Autos.get(i).getKennzeichen() == KZ)
                 {
                     Indikator = true;
@@ -462,7 +578,185 @@ public class MetaController {
                 {
                     i++;
                 }
-            }
+            
+         String Buchstaben = "[A-Z][a-zA-Z]*";   
+        //Prüft die Eingaberegeln 
+        //Kennzeichen Regel
+        //String Kennzeichen = "[A-Z_0-9]";
+        p = Pattern.compile(Buchstaben);
+        m = p.matcher(KZ);
+        boolean Schild = m.matches();
+        
+        //Hersteller Regel
+        p = Pattern.compile(Buchstaben);
+        m = p.matcher(HER);
+        boolean Hersteller = m.matches();
+        
+        // Modell Regel(Buchstaben)
+        p = Pattern.compile(Buchstaben);
+        m = p.matcher(MOD);
+        boolean Modell = m.matches();
+        
+        // Bauart Regel       
+        p = Pattern.compile(Buchstaben);
+        m = p.matcher(BA);
+        boolean Bauart = m.matches();
+        
+        //Farbe Regel
+        p = Pattern.compile(Buchstaben);
+        m = p.matcher(FAR);
+        boolean Farbe = m.matches();
+        
+        // Kraftstoff
+        //String KrSt = "[Diesel][Benzin][E10][Gas]";
+        p = Pattern.compile(Buchstaben);
+        m = p.matcher(KS);
+        boolean Kraftstoff  = m.matches();
+        
+        // Antrieb Regel
+        //String Antr = "[Frontantrieb][Heckantrieb][Allrad]";
+        p = Pattern.compile(Buchstaben);
+        m = p.matcher(ANT);
+        boolean Antrieb = m.matches();
+        
+        //Getriebe Regel
+        //String Getr = "[Schaltgetriebe][Automatikgetriebe]";
+        p = Pattern.compile(Buchstaben);
+        m = p.matcher(GET);
+        boolean Getriebe = m.matches();
+        
+        
+        // Extras Regel
+        p = Pattern.compile(Buchstaben);
+        m = p.matcher(EXT);
+        boolean Extras = m.matches();    
+        
+        if(Indikator!=true)
+        {           
+                    if(Schild == false)
+                    {
+                        Indikator = true;
+                        return fehler -2;
+                    }
+                    
+                    if(Hersteller == false)
+                    {
+                        Indikator  = true;
+                        return fehler -3;
+                    }
+                    if(Modell == false)
+                    {
+                        Indikator = true;
+                        return fehler -4;
+                    }
+                    if(Bauart == false)
+                    {
+                        Indikator = true;
+                        return fehler -5;
+                    }
+                    if(SP < 2 || SP > 9)
+                    {
+                        Indikator = true;
+                        return fehler -6;
+                    }
+                    if(Farbe == false)
+                    {
+                        Indikator = true;
+                        return fehler -7;
+                    }
+                    if(LEI < 25 || LEI > 1000)
+                    {
+                        Indikator = true;
+                        return fehler -8;
+                    }
+                    if(Kraftstoff == false)
+                    {
+                        Indikator = true;
+                        return fehler -9;
+                    }
+                     if(VER < 3 || VER > 50)
+                    {
+                        Indikator = true;
+                        return fehler -10;
+                    }
+                    if(Antrieb == false)
+                    {
+                        Indikator = true;
+                        return fehler -11;
+                    }
+                    if(Getriebe == false)
+                    {
+                        Indikator = true;
+                        return fehler -12;
+                    }
+                    if(BJ < 1900 || BJ > 2016)
+                    {
+                        Indikator = true;
+                        return fehler -13;
+                    }
+                    if(KIL < 1)
+                    {
+                        Indikator = true;
+                        return fehler -14;
+                    }
+                    
+                    //TÜV ???
+                    
+                    if(KAU < 250 || KAU > 5000)
+                    {
+                        Indikator = true;
+                        return fehler -16;
+                    }
+                    if (GPT < 5 || GPT > 500)
+                    {
+                        Indikator = true;
+                        return fehler -17;
+                    }                    
+                    if(Extras == false)
+                    {
+                        Indikator = true;
+                        return fehler -19;
+                    }
+        }
+        else
+        {
+           DBV.addAuto(auto);
+           DBV.save(pfad);
+	   return fehler = 1; 
+        }
+        return fehler;
+    }
+    public int addAuto2(int A_ID, String KZ, String HER, 
+            String MOD, String BA, boolean AK ,int SP, 
+            String FAR, int LEI, String KS, double VER, 
+            String ANT, String GET, int BJ, int KIL, 
+            Date TUE, double KAU, float GPT, boolean FAH,
+            String EXT, boolean ID)
+    {
+        DBV.restore(pfad);
+        int i = 0;
+        boolean Indikator = false;
+        Pattern p;
+        Matcher m;
+	File PATH = new File("Data/dummy1.jpg");
+	int AID = A_ID;
+	int fehler = 0;
+	
+        Auto auto = new Auto(PATH, AID, KZ, HER, MOD, BA, AK, SP, FAR, LEI, KS, 
+             VER, ANT, GET, BJ, KIL, TUE, KAU, GPT, FAH, EXT, ID);
+        // Prüft ob ein Auto schon vorhanden ist/anhand des Kennzeichen und der ID
+        
+                if(DBV.Autos.get(i).getAuto_ID()==AID && DBV.Autos.get(i).getKennzeichen() == KZ)
+                {
+                    Indikator = true;
+                    return fehler -1;
+
+                }
+                else
+                {
+                    i++;
+                }
+            
          String Buchstaben = "[A-Z][a-zA-Z]*";   
         //Prüft die Eingaberegeln 
         //Kennzeichen Regel

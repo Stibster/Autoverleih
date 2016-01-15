@@ -131,7 +131,7 @@ public class AutobearbeitenController implements Initializable {
 	baujahr = Integer.parseInt(year.getText());
 	leistung = Integer.parseInt(ps.getText());
 	sitzplaetze = Integer.parseInt(space.getText());
-	if (anheanger.getText() == "yes") {
+	if (anheanger.getText() == "Ja") {
 	    anhaengerkupplung = true;
 	}
 	else{
@@ -139,7 +139,7 @@ public class AutobearbeitenController implements Initializable {
 	}
 	//#####################
     
-	fehler = MC_Hammer.addAuto(Kennzeichen, hersteller
+	fehler = MC_Hammer.addAuto2(A_ID, Kennzeichen, hersteller
 		,modell, Bauart, anhaengerkupplung, sitzplaetze,
 		farbe, leistung, kraftstoff,Verbrauch, Antrieb,
 		getriebe, baujahr, kilometerstand,TUEV, Kaution, 
@@ -576,23 +576,23 @@ public class AutobearbeitenController implements Initializable {
 		break;
 	    default:
 		kennLabel.setTextFill(Color.BLACK);
-                HerLabel.setTextFill(Color.BLACK);
+                HerLabel.setTextFill(Color.BLUE);
                 ModLabel.setTextFill(Color.BLACK);
-                bauLabel.setTextFill(Color.BLACK);
+                bauLabel.setTextFill(Color.BLUE);
                 FarbeLabel.setTextFill(Color.BLACK);
-                oilLable.setTextFill(Color.BLACK);
+                oilLable.setTextFill(Color.BLUE);
                 verLabel.setTextFill(Color.BLACK);
-                antLable.setTextFill(Color.BLACK);
+                antLable.setTextFill(Color.BLUE);
                 getriebLabel.setTextFill(Color.BLACK);
-                exLabel.setTextFill(Color.BLACK);
+                exLabel.setTextFill(Color.BLUE);
                 anLabel.setTextFill(Color.BLACK);
-                sitzLabel.setTextFill(Color.BLACK);
+                sitzLabel.setTextFill(Color.BLUE);
                 psLabel.setTextFill(Color.BLACK);
-                yearLabel.setTextFill(Color.BLACK);
+                yearLabel.setTextFill(Color.BLUE);
                 kmLabel.setTextFill(Color.BLACK);
-                tuevLabel.setTextFill(Color.BLACK);
+                tuevLabel.setTextFill(Color.BLUE);
                 kautLabel.setTextFill(Color.BLACK);
-                gptLabel.setTextFill(Color.BLACK);
+                gptLabel.setTextFill(Color.BLUE);
 
 		break;
                 
@@ -615,7 +615,7 @@ public class AutobearbeitenController implements Initializable {
                 i++; //Andernfalls wird das nächste Element vergleichen.
             }
         }
-
+        SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy", new DateFormatSymbols(Locale.GERMANY));
         kennzeichen.setText(MC_Hammer.DBV.Autos.get(i).getKennzeichen());
 	Hersteller.setText(MC_Hammer.DBV.Autos.get(i).getHersteller());
 	Modell.setText(MC_Hammer.DBV.Autos.get(i).getModell());
@@ -628,9 +628,9 @@ public class AutobearbeitenController implements Initializable {
 	extra.setText(MC_Hammer.DBV.Autos.get(i).getExtras());
 	g_b_t.setText(String.valueOf(MC_Hammer.DBV.Autos.get(i).getGebuehr_pro_Tag()));
 	kaution.setText(String.valueOf(MC_Hammer.DBV.Autos.get(i).getKaution()));
-	tuev.setText(String.valueOf(MC_Hammer.DBV.Autos.get(i).getTUEV()));
+	tuev.setText(String.valueOf(format.format(MC_Hammer.DBV.Autos.get(i).getTUEV())));
 	km_stand.setText(String.valueOf(MC_Hammer.DBV.Autos.get(i).getKilometerstand()));
-	year.setText(String.valueOf(MC_Hammer.DBV.Autos.get(i).getBaujahr()));
+	year.setText(String.valueOf(format.format(MC_Hammer.DBV.Autos.get(i).getBaujahr())));
 	ps.setText(String.valueOf(MC_Hammer.DBV.Autos.get(i).getLeistung()));
         if(MC_Hammer.DBV.Autos.get(i).getAnhaengerkupplung()){
             anheanger.setText("Ja");

@@ -451,6 +451,7 @@ public void clearAusleihen(){
                  kunde.setTelefonnummer(generateRandomString(Numbers, random, 11-12));
                  kunde.setGeburtstag(format.parse("01.01.1990"));
                  kunde.setFuehrerscheindatum(format.parse("01.01.2008"));
+                 kunde.setFuehrerscheinklasse("B");
 		 Kunden.add(kunde);
             }
         }
