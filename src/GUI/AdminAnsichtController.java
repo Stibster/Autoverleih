@@ -59,6 +59,8 @@ public class AdminAnsichtController implements Initializable {
     private MenuItem carDel;
     @FXML
     private MenuItem carChange;
+    @FXML
+    private Button clearBut;
 
     /**
      * Initializes the controller class.
@@ -166,6 +168,12 @@ public class AdminAnsichtController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void handleClearButton(ActionEvent event) {
+	
+	MC_Hammer.DBV.Kunden.clear();
     }
     
 }

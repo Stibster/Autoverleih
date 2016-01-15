@@ -90,5 +90,6 @@
       </VBox>
       <Button fx:id="rndCar" layoutX="170.0" layoutY="138.0" mnemonicParsing="false" onAction="#handleRndCar" text="zufällige Autos (10)" />
       <Button fx:id="rndKunde" layoutX="195.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleRndKunde" text="zufällige Kunden (10)" />
+      <Button fx:id="clearBut" layoutX="229.0" layoutY="253.0" mnemonicParsing="false" onAction="#handleClearButton" text="Datenbank löschen" />
    </children>
 </AnchorPane>
