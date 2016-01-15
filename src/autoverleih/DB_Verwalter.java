@@ -425,12 +425,12 @@ public class DB_Verwalter {
                  kunde.setKunden_ID(makeKundenID()); 
                  kunde.setNachname(generateRandomString(Alphabet, random, 7)); 
                  kunde.setVorname(generateRandomString(Alphabet, random, 5));
-                 kunde.setPostleitzahl(generateRandomInt(Numbers, random, 4));
+                 kunde.setPostleitzahl(generateRandomString(Numbers, random, 5));
                  kunde.setWohnort(generateRandomString(Alphabet, random, 6));
                  kunde.setStrasse(generateRandomString(Alphabet, random, 10));
                  kunde.setHausnummer(generateRandomString(Chars, random, 4));
                  kunde.setE_Mail(generateRandomString(Chars, random, 12));
-                 kunde.setTelefonnummer(generateRandomString(Numbers, random, 9));
+                 kunde.setTelefonnummer(generateRandomString(Numbers, random, 11-12));
                  kunde.setGeburtstag(format.parse("01.01.1990"));
                  kunde.setFuehrerscheindatum(format.parse("01.01.2008"));
 		 Kunden.add(kunde);
