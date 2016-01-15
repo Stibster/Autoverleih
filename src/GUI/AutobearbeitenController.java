@@ -90,6 +90,7 @@ public class AutobearbeitenController implements Initializable {
 	// alle werte die uebergeben werden meussen############
 	File Foto = null;
      
+    int AID;
     String Kennzeichen = null;
     String hersteller = null;
     String modell = null;
@@ -114,6 +115,7 @@ public class AutobearbeitenController implements Initializable {
     SimpleDateFormat format = new SimpleDateFormat("dd.mm.yyyy", new DateFormatSymbols(Locale.GERMANY));
     //###############
 // werte uebergeben    
+        AID = Integer.parseInt(a_id.getText());
 	Kennzeichen = kennzeichen.getText();
 	hersteller = Hersteller.getText();
 	modell = Modell.getText();
@@ -131,6 +133,46 @@ public class AutobearbeitenController implements Initializable {
 	baujahr = Integer.parseInt(year.getText());
 	leistung = Integer.parseInt(ps.getText());
 	sitzplaetze = Integer.parseInt(space.getText());
+        
+        //Überprüfung ob Auto zum bearbeiten vorhanden ist, erstellt von Daniel Meerwald #Raicandy
+        int i = 0;
+        boolean Indikator = false;
+        
+        while (i < MC_Hammer.DBV.Autos.size() && Indikator == false) { 
+
+            if (MC_Hammer.DBV.Autos.get(i).getAuto_ID() == AID ) {
+                Indikator = true; 
+            } 
+            else {
+                i++; 
+            }
+        }
+        
+        boolean token = true;
+        
+        if(Indikator == false){
+                a_id_label.setTextFill(Color.RED);
+                kennLabel.setTextFill(Color.RED);
+                HerLabel.setTextFill(Color.RED);
+                ModLabel.setTextFill(Color.RED);
+                bauLabel.setTextFill(Color.RED);
+                FarbeLabel.setTextFill(Color.RED);
+                oilLable.setTextFill(Color.RED);
+                verLabel.setTextFill(Color.RED);
+                antLable.setTextFill(Color.RED);
+                getriebLabel.setTextFill(Color.RED);
+                exLabel.setTextFill(Color.RED);
+                anLabel.setTextFill(Color.RED);
+                sitzLabel.setTextFill(Color.RED);
+                psLabel.setTextFill(Color.RED);
+                yearLabel.setTextFill(Color.RED);
+                kmLabel.setTextFill(Color.RED);
+                tuevLabel.setTextFill(Color.RED);
+                kautLabel.setTextFill(Color.RED);
+                gptLabel.setTextFill(Color.RED);
+		token = false;
+                
+        }
 	if (anheanger.getText() == "Ja") {
 	    anhaengerkupplung = true;
 	}
@@ -138,7 +180,7 @@ public class AutobearbeitenController implements Initializable {
 	    anhaengerkupplung = false;
 	}
 	//#####################
-    
+        if(token){
 	fehler = MC_Hammer.addAuto2(A_ID, Kennzeichen, hersteller
 		,modell, Bauart, anhaengerkupplung, sitzplaetze,
 		farbe, leistung, kraftstoff,Verbrauch, Antrieb,
@@ -598,6 +640,7 @@ public class AutobearbeitenController implements Initializable {
                 
             //Ende Steve Vogel
 	}
+       }
     }
 
     @FXML

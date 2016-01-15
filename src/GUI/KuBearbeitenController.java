@@ -112,8 +112,10 @@ public class KuBearbeitenController implements Initializable {
 	File Fschein = null;
 	Date Fdate = null;
 	String Fklasse = null;
+        int KID;
 	SimpleDateFormat format = new SimpleDateFormat("dd.mm.yyyy", new DateFormatSymbols(Locale.GERMANY));        
 	
+        KID = Integer.parseInt(k_id.getText());
 	Vorname =vorname_text.getText();
 	Name =  name_text.getText();
 	Plz = plz.getText();
@@ -123,6 +125,38 @@ public class KuBearbeitenController implements Initializable {
 	Email = email.getText();
 	tel = tel_num.getText();
         Fklasse = car_k.getText();
+        //Überprüfung ob Kunde zum bearbeiten vorhanden ist, erstellt von Daniel Meerwald #Raicandy
+        int i = 0;
+        boolean Indikator = false;
+        
+        while (i < MC_Hammer.DBV.Kunden.size() && Indikator == false) { 
+
+            if (MC_Hammer.DBV.Kunden.get(i).getKunden_ID()== KID ) {
+                Indikator = true; 
+            } 
+            else {
+                i++; 
+            }
+        }
+        
+        boolean token = true;
+        
+        if(Indikator == false){
+                k_id_Label.setTextFill(Color.RED);
+                preLabel.setTextFill(Color.RED);
+		postLabel.setTextFill(Color.RED);
+		bdLabel.setTextFill(Color.RED);
+		ortLabel.setTextFill(Color.RED);
+		plzLable.setTextFill(Color.RED);
+		streetLabel.setTextFill(Color.RED);
+		h_numLable.setTextFill(Color.RED);
+		emailLable.setTextFill(Color.RED);
+		tel_numLable.setTextFill(Color.RED);
+		car_dateLable.setTextFill(Color.RED);
+		car_kLable.setTextFill(Color.RED);
+		token = false;
+                
+        }
 	
 	    Geb = format.parse(birthday.getText());
 	
@@ -130,7 +164,7 @@ public class KuBearbeitenController implements Initializable {
 	    //Fschein???? //grad keinen plan
 	    Fdate = format.parse(car_date.getText());
 	
-	
+	if(token){
 	fehler = MC_Hammer.addKunde2(K_ID, Vorname, Name, Plz, ort, Str,
 		H_num, Email, tel, Geb, Fschein, Fdate, Fklasse);
 
@@ -323,5 +357,6 @@ public class KuBearbeitenController implements Initializable {
 
 		break;
 	}
+       }
     }
 }
