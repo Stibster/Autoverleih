@@ -67,6 +67,7 @@ public class AutobearbeitenController implements Initializable {
      */
     
     MetaController MC_Hammer = new MetaController();
+    String pfad = "Data/xml/TestDatenbank.xml";
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -79,13 +80,15 @@ public class AutobearbeitenController implements Initializable {
 
     @FXML
     private void handleLoadButton(ActionEvent event) {
-	/* kann auf dbv net zugreifen!!!!
+	/*
+	int U_ID= -1;
+	// kann auf dbv net zugreifen!!!!
         int i = 0;
         boolean indikator = false;
-
+	MC_Hammer.DBV.restore(pfad);
         while (i < MC_Hammer.DBV.Users.size() && indikator == false) { //Suche bis zum Ende der Liste.
 
-            if (Users.get(i).getUser_ID() == U_ID ) {
+            if (MC_Hammer.DBV.Users.get(i).getUser_ID() == U_ID ) {
                 indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
             } else {
                 i++; //Andernfalls wird das nächste Element vergleichen.

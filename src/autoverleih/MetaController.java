@@ -226,8 +226,10 @@ public class MetaController {
     // -9 Gebrutstag falsch
     // -10 Führerschein falsch
     // -11 Führerscheindatum falsch
+    // -12 Postleitzahl
     
-    public int addKunde(String VN, String NN, int PLZ, String WO, String STR, String HN, String EM, String TN, Date GEB, File FS, Date FSD, String FSK){
+    public int addKunde(String VN, String NN, int PLZ, String WO, 
+	    String STR, String HN, String EM, String TN, Date GEB, File FS, Date FSD, String FSK){
         DBV.restore(pfad);
         int i = 0;
         boolean Indikator = false;

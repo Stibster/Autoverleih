@@ -69,7 +69,7 @@ public class KErstellenController implements Initializable {
 
     }
 
-    //von Danilo May
+   
     // 1 return alles erfolgreich gespeichert
     // 0 normal fall keine daten, nichts wird angezeigt
     // -1 Vorname, Nachname und Geburtstag schon einmal zusammen vorhanden
@@ -83,6 +83,9 @@ public class KErstellenController implements Initializable {
     // -9 Gebrutstag falsch
     // -10 Führerschein falsch
     // -11 Führerscheindatum falsch
+    // -12 Postleitzahl
+    
+    //int mit vorgestellter 0 gehen beim parsen weg!!
     @FXML
     private void handleK_POP_SAVE(ActionEvent event) throws ParseException {
 	int fehler = 0; //fuehr fehler fall
@@ -261,6 +264,8 @@ public class KErstellenController implements Initializable {
 		tel_numLable.setTextFill(Color.BLACK);
 		car_dateLable.setTextFill(Color.BLACK);
 		car_kLable.setTextFill(Color.BLACK);
+		
+		//sollte gar nicht aufrteten bis jetze
 
 		break;
 	    case -11:
@@ -275,6 +280,20 @@ public class KErstellenController implements Initializable {
 		tel_numLable.setTextFill(Color.BLACK);
 		car_dateLable.setTextFill(Color.BLACK);
 		car_kLable.setTextFill(Color.RED);
+
+		break;
+	    case -12:
+		preLabel.setTextFill(Color.BLACK);
+		postLabel.setTextFill(Color.BLACK);
+		bdLabel.setTextFill(Color.BLACK);
+		ortLabel.setTextFill(Color.BLACK);
+		plzLable.setTextFill(Color.RED);
+		streetLabel.setTextFill(Color.BLACK);
+		h_numLable.setTextFill(Color.BLACK);
+		emailLable.setTextFill(Color.BLACK);
+		tel_numLable.setTextFill(Color.BLACK);
+		car_dateLable.setTextFill(Color.BLACK);
+		car_kLable.setTextFill(Color.BLACK);
 
 		break;
 	    default:

@@ -377,6 +377,19 @@
         <Vorname>shghu</Vorname>
         <Wohnort>jlwctr</Wohnort>
     </Kundenliste>
+    <Kundenliste>
+        <E_Mail>test@test.de</E_Mail>
+        <Fuehrerscheindatum>1980-01-03T00:07:00+01:00</Fuehrerscheindatum>
+        <Geburtstag>1980-01-03T00:07:00+01:00</Geburtstag>
+        <Hausnummer>5a</Hausnummer>
+        <Kunden_ID>22</Kunden_ID>
+        <Nachname>Dsadsa</Nachname>
+        <Postleitzahl>32907</Postleitzahl>
+        <Strasse>Ddsadsad</Strasse>
+        <Telefonnummer>3921398217398</Telefonnummer>
+        <Vorname>Dsatdha</Vorname>
+        <Wohnort>Dsada</Wohnort>
+    </Kundenliste>
     <Autoliste>
         <Anhaengerkupplung>true</Anhaengerkupplung>
         <Antrieb>yfobz</Antrieb>
