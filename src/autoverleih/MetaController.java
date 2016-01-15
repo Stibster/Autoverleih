@@ -379,18 +379,16 @@ public class MetaController {
 	
         Auto auto = new Auto(PATH, AID, KZ, HER, MOD, BA, AK, SP, FAR, LEI, KS, 
              VER, ANT, GET, BJ, KIL, TUE, KAU, GPT, FAH, EXT, ID);
-        int indikator = 0;
         // Prüft ob ein Auto schon vorhanden ist/anhand des Kennzeichen und der ID
         while(Indikator != true)
         {
             while(i < DBV.Autos.size() && Indikator == false)
             {
-                if(DBV.Autos.get(i).getAuto_ID()==AID)
+                if(DBV.Autos.get(i).getAuto_ID()==AID && DBV.Autos.get(i).getKennzeichen() == KZ)
                 {
-                    if(DBV.Autos.get(i).getKennzeichen()==KZ)
-                    {
-                        Indikator = true;
-                    }
+                    Indikator = true;
+                    return -1;
+
                 }
                 else
                 {
@@ -399,94 +397,97 @@ public class MetaController {
             }
             if(Indikator = true)
             {
-                indikator = -1;               
+                return 1;               
             }        
         }
         
-        //Regeln für ddie Texteingabe
-        String Buchstaben ="([A-Z])[a-z]";
+        //Regeln für die Texteingabe
+        String Buchstaben ="[A-Za-z]";
         String BuchZahl = "[a-zA-Z_0-9]";
         String Kenn = "[A-Z_0-9]";
         String KrSt = "[Diesel][Benzin][E10][Gas]";
         String Antr = "[Frontantrieb][Heckantrieb][Allrad]";
         String Getr = "[Schaltgetriebe][Automatikgetriebe]";
 
-        boolean Kennzeichen = KZ.matches(Kenn);
-        boolean Hersteller = HER.matches(Buchstaben);
-        boolean Modell = MOD.matches(BuchZahl);
-        boolean Bauart = BA.matches(Buchstaben);
-        boolean Farbe = FAR.matches(Buchstaben);
-        boolean Kraftstoff = KS.matches(KrSt);
-        boolean Antrieb = ANT.matches(Antr);
-        boolean Getriebe = GET.matches(Getr);
-        boolean Extras = EXT.matches(Buchstaben);
+        //boolean Kennzeichen = KZ.matches(Kenn);
+        //boolean Hersteller = HER.matches(Buchstaben);
+        //boolean Modell = MOD.matches(BuchZahl);
+        //boolean Bauart = BA.matches(Buchstaben);
+        //boolean Farbe = FAR.matches(Buchstaben);
+        //boolean Kraftstoff = KS.matches(KrSt);
+        //boolean Antrieb = ANT.matches(Antr);
+        //boolean Getriebe = GET.matches(Getr);
+        //boolean Extras = EXT.matches(Buchstaben);
         
         if(Indikator!=true)
         {
-            if(Kennzeichen == false)
+            if(DBV.Autos.get(i).getKennzeichen().matches("[A-Z_0-9]"))
+            {
+                Indikator = true;
+            }
+            else
+            {
+                return -2;
+            }
+                   if(Hersteller == false)
                     {
                         Indikator = true;
-                        indikator = -2;
-                    }
-                    if(Hersteller == false)
-                    {
-                        Indikator = true;
-                        indikator = -3;
+                        return -3;
                     }
                     if(Modell == false)
                     {
                         Indikator = true;
-                        indikator = -4;
+                        return -4;
                     }
                     if(Bauart == false)
                     {
                         Indikator = true;
-                        indikator = -5;
+                        return -5;
                     }
                     if(SP < 2 || SP > 9)
                     {
                         Indikator = true;
-                        indikator = -6;
+                        return -6;
                     }
                     if(Farbe == false)
                     {
                         Indikator = true;
-                        indikator = -7;
+                        return -7;
                     }
                     if(LEI < 25 || LEI > 1000)
                     {
                         Indikator = true;
-                        indikator = -8;
+                        return -8;
                     }
                     if(Kraftstoff == false)
                     {
                         Indikator = true;
-                        indikator = -9;
+                        return -9;
                     }
                      if(VER < 3 || VER > 50)
                     {
-                      Indikator = true;
-                      indikator = -10;
+                        Indikator = true;
+                        return -10;
                     }
                     if(Antrieb == false)
                     {
                         Indikator = true;
-                        indikator = -11;
+                        return -11;
                     }
                     if(Getriebe == false)
                     {
                         Indikator = true;
-                        indikator = -12;
+                        return -12;
                     }
                     if(BJ < 1900 || BJ > 2016)
                     {
                         Indikator = true;
-                        indikator = -13;
+                        return -13;
                     }
                     if(KIL < 1)
                     {
                         Indikator = true;
-                        indikator = -14;
+                        return -14;
                     }
                     
                     //TÜV
@@ -494,30 +495,29 @@ public class MetaController {
                     if(KAU < 250 || KAU > 5000)
                     {
                         Indikator = true;
-                        indikator = -16;
+                        return -16;
                     }
                     if (GPT < 5 || GPT > 500)
                     {
                         Indikator = true;
-                        indikator = -17;
+                        return -17;
                     }
                     //ist da und fahrbar??
                     
                     if(Extras == false)
                     {
                         Indikator = true;
-                        indikator = -19;
+                        return -19;
                     }
                      
         }
-        
-        if (Indikator != true)
+        else
         {
-            DBV.addAuto(auto);
-            DBV.save(pfad);
-            indikator = 1;
+           DBV.addAuto(auto);
+           DBV.save(pfad);
+           return 1;              
         }
-        return indikator;
+        return 0;
     }
 //##############################################################################
    public int removeAuto(int A_ID)
@@ -576,7 +576,7 @@ public class MetaController {
 	    System.out.println(",meopü");
                 return -1;
         }
-       }
+        }
 }
 /*   
     

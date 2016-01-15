@@ -125,7 +125,7 @@ public class Sprint_1_Tester
                  System.out.println("E-Mail: ");
                  kunde.setE_Mail(eingabe.readString());
                  System.out.println("Telefonnummer: ");
-                 kunde.setTelefonnummer(eingabe.readint());
+                 kunde.setTelefonnummer(eingabe.readString());
                  System.out.println("Geburtstag: ");
                  kunde.setGeburtstag(eingabe.readdate());
                  System.out.println("Führerscheindatum: ");
@@ -184,7 +184,7 @@ public class Sprint_1_Tester
                  System.out.println("E-Mail: ");
                  kunde.setE_Mail(eingabe.readString());
                  System.out.println("Telefonnummer: ");
-                 kunde.setTelefonnummer(eingabe.readint());
+                 kunde.setTelefonnummer(eingabe.readString());
                  System.out.println("Geburtstag: ");
                  kunde.setGeburtstag(eingabe.readdate());
                  System.out.println("Führerscheindatum: ");
