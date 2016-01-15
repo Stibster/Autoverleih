@@ -375,6 +375,8 @@ public class MetaController {
         DBV.restore(pfad);
         int i = 0;
         boolean Indikator = false;
+        Pattern p;
+        Matcher m;
 	File PATH = new File("Data/dummy1.jpg");
 	
         Auto auto = new Auto(PATH, AID, KZ, HER, MOD, BA, AK, SP, FAR, LEI, KS, 
@@ -395,41 +397,70 @@ public class MetaController {
                     i++;
                 }
             }
-            if(Indikator = true)
-            {
-                return 1;               
-            }        
+            
+            
         }
+        //Prüft die Eingaberegeln 
+        //Kennzeichen Regel
+        String Kennzeichen = "[A-Z_0-9]";
+        p = Pattern.compile(Kennzeichen);
+        m = p.matcher(KZ);
+        boolean Schild = m.matches();
         
-        //Regeln für die Texteingabe
-        String Buchstaben ="[A-Za-z]";
-        String BuchZahl = "[a-zA-Z_0-9]";
-        String Kenn = "[A-Z_0-9]";
+        //Hersteller Regel
+        String Buchstaben = "[A-Z][a-zA-Z]*";
+        p = Pattern.compile(Buchstaben);
+        m = p.matcher(HER);
+        boolean Hersteller = m.matches();
+        
+        // Modell Regel(Buchstaben)
+        p = Pattern.compile(Buchstaben);
+        m = p.matcher(MOD);
+        boolean Modell = m.matches();
+        
+        // Bauart Regel       
+        p = Pattern.compile(Buchstaben);
+        m = p.matcher(BA);
+        boolean Bauart = m.matches();
+        
+        //Farbe Regel
+        p = Pattern.compile(Buchstaben);
+        m = p.matcher(FAR);
+        boolean Farbe = m.matches();
+        
+        // Kraftstoff
         String KrSt = "[Diesel][Benzin][E10][Gas]";
+        p = Pattern.compile(KrSt);
+        m = p.matcher(KS);
+        boolean Kraftstoff  = m.matches();
+        
+        // Antrieb Regel
         String Antr = "[Frontantrieb][Heckantrieb][Allrad]";
+        p = Pattern.compile(Antr);
+        m = p.matcher(ANT);
+        boolean Antrieb = m.matches();
+        
+        //Getriebe Regel
         String Getr = "[Schaltgetriebe][Automatikgetriebe]";
-
-        //boolean Kennzeichen = KZ.matches(Kenn);
-        //boolean Hersteller = HER.matches(Buchstaben);
-        //boolean Modell = MOD.matches(BuchZahl);
-        //boolean Bauart = BA.matches(Buchstaben);
-        //boolean Farbe = FAR.matches(Buchstaben);
-        //boolean Kraftstoff = KS.matches(KrSt);
-        //boolean Antrieb = ANT.matches(Antr);
-        //boolean Getriebe = GET.matches(Getr);
-        //boolean Extras = EXT.matches(Buchstaben);
+        p = Pattern.compile(Getr);
+        m = p.matcher(GET);
+        boolean Getriebe = m.matches();
+        
+        
+        // Extras Regel
+        p = Pattern.compile(Buchstaben);
+        m = p.matcher(EXT);
+        boolean Extras = m.matches();    
         
         if(Indikator!=true)
-        {
-            if(DBV.Autos.get(i).getKennzeichen().matches("[A-Z_0-9]"))
-            {
-                Indikator = true;
-            }
-            else
-            {
-                return -2;
-            }
-                   if(Hersteller == false)
+        {           
+                    if(Schild == false)
+                    {
+                        Indikator = true;
+                        return -2;
+                    }
+                    
+                    if(Hersteller == false)
                     {
                         Indikator = true;
                         return -3;
@@ -490,7 +521,7 @@ public class MetaController {
                         return -14;
                     }
                     
-                    //TÜV
+                    //TÜV ???
                     
                     if(KAU < 250 || KAU > 5000)
                     {
@@ -501,15 +532,12 @@ public class MetaController {
                     {
                         Indikator = true;
                         return -17;
-                    }
-                    //ist da und fahrbar??
-                    
+                    }                    
                     if(Extras == false)
                     {
                         Indikator = true;
                         return -19;
                     }
-                     
         }
         else
         {
