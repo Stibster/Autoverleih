@@ -62,6 +62,23 @@ public class DB_Verwalter {
 	
     }
     
+//###Clear-Methoden erstellt von Daniel Meerwald################################
+    
+public void clearAll(){
+    Kunden.clear();
+    Autos.clear();
+    Ausleihen.clear();
+}
+public void clearAutos(){
+    Autos.clear();
+}
+public void clearKunden(){
+    Kunden.clear();
+}
+public void clearAusleihen(){
+    Ausleihen.clear();
+}
+    
 //###Listen.Anzeige-Methoden erstellt von Daniel Meerwald#######################
     public void Autos_anzeigen(){
         int i = 0;

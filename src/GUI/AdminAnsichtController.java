@@ -173,6 +173,8 @@ public class AdminAnsichtController implements Initializable {
     @FXML
     private void handleClearButton(ActionEvent event) {
 	
+        MC_Hammer.DBV.clearAll();
+        MC_Hammer.DBV.save(pfad);
 	
     }
     
