@@ -257,8 +257,18 @@ public class MetaController {
         }
     }
 //##############################################################################
-   
-    //von Danilo May
+     //von Danilo May
+    //Formt aus String einen neuen mit allen Zahlen
+    public static String Zahlen(final CharSequence input){
+    final StringBuilder sb = new StringBuilder(input.length());
+    for(int i = 0; i < input.length(); i++){
+        final char c = input.charAt(i);
+        if(c > 47 && c < 58){
+            sb.append(c);
+        }
+    }
+    return sb.toString();
+}
     // 1 return alles erfolgreich gespeichert
     // 0 normal fall keine daten, nichts wird angezeigt
     // -1 Vorname, Nachname und Geburtstag schon einmal zusammen vorhanden
@@ -274,18 +284,25 @@ public class MetaController {
     // -11 Führerscheindatum falsch
     // -12 Postleitzahl
     
-    public int addKunde(String VN, String NN, int PLZ, String WO, 
+    public int addKunde(String VN, String NN, String PLZ, String WO, 
 	    String STR, String HN, String EM, String TN, Date GEB, File FS, Date FSD, String FSK){
         DBV.restore(pfad);
         int i = 0;
         boolean Indikator = false;
-        Kunde kunde = new Kunde(0, VN, NN, PLZ, WO, STR, HN, EM, TN, GEB, FS, FSD, FSK);
+        Kunde kunde = new Kunde(0, VN, NN, null, WO, STR, HN, EM, null, GEB, FS, FSD, FSK);
         int indikator = -1;
         Pattern p;
         Matcher m;
         //Legt KundenID fest
         int KID = DBV.makeKundenID();
         kunde.setKunden_ID(KID);
+         //Legt Postleitzahl fest
+        PLZ = Zahlen(PLZ);
+        kunde.setPostleitzahl(PLZ);
+         //Legt Telefonnummer fest
+        TN = Zahlen(TN);
+        kunde.setTelefonnummer(TN);
+        
         //Prüft ob eine Person mit gleichem Vorname, Nachname, Geburtstag vorhanden ist
 	while (i < DBV.Kunden.size() && Indikator == false) { //Suche bis zum Ende der Liste.
 
@@ -299,7 +316,7 @@ public class MetaController {
 	
         //Legt Eingabe Regeln fest
         String Buchstaben = "/^[a-z ,.'-]+$/i";
-        String ZS = "^\\+[1-9]{1}[0-9]{3,14}$";
+        String Tel = "\\d{11-12}";
         String Plz = "\\d{5})";
         //Prüft ob Eingaberegeln mit Eingabe übereinstimmen
         
@@ -326,9 +343,10 @@ public class MetaController {
         p = Pattern.compile(ZB);
         m = p.matcher(HN);
         boolean Hausnummer = m.matches();
-        int Postleitzahl = (int)(Math.log10(PLZ)+1);
+        
+        boolean Postleitzahl = PLZ.matches(Plz);
   
-        boolean Telefonnummer = TN.matches(ZS);
+        boolean Telefonnummer = TN.matches(Tel);
        
         //Prüft ob Alle Ergebnisse passen
         if (Indikator!=true){
@@ -355,11 +373,11 @@ public class MetaController {
             if (EMail == false){
                 Indikator = true;
                 indikator = -7;
-            }/* 
+            } 
             if (Telefonnummer == false){
                 Indikator = true;
                 indikator = -8;
-            }*/
+            }
             if (GEB == null){
                 Indikator = true;
                 indikator = -9;
@@ -371,7 +389,7 @@ public class MetaController {
             if (FSD == null){
                 Indikator = true;
                 indikator = -11;
-            }if (Postleitzahl != 5){
+            }if (Postleitzahl == false){
                 Indikator = true;
                 indikator = -12;
             }
