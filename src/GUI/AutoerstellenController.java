@@ -590,9 +590,6 @@ public class AutoerstellenController implements Initializable {
 		break;
                 
             //Ende Steve Vogel
-                
-                
-                //dmflkdflk
 	}
     }
     

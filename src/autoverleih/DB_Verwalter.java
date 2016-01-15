@@ -31,11 +31,11 @@ public class DB_Verwalter {
 //###DB_Verwalterdaten erstellt von Daniel Meerwald#############################
     @XmlElement(name = "Kundenliste")
     @XmlElementWrapper(name = "wrapper")
-    List<Kunde> Kunden = new ArrayList<>();
+    public List<Kunde> Kunden = new ArrayList<>();
     
     @XmlElement(name = "Autoliste")
     @XmlElementWrapper(name = "wrapper")
-    List<Auto> Autos = new ArrayList<>();
+    public List<Auto> Autos = new ArrayList<>();
     
     @XmlElement(name = "Ausleiheliste")
     @XmlElementWrapper(name = "wrapper")
