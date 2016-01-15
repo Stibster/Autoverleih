@@ -58,6 +58,8 @@ public class KuBearbeitenController implements Initializable {
     @FXML    private Button k_pop_save;
    
     MetaController MC_Hammer = new MetaController();
+    String pfad = "Data/xml/TestDatenbank.xml";
+    int K_ID;
     /**
      * Initializes the controller class.
      */
@@ -68,21 +70,31 @@ public class KuBearbeitenController implements Initializable {
 
     @FXML
     private void handleLoadButton(ActionEvent event) {
-	/*
-	//fehlt die load aus db die verstehe ich net wiso ich net zurgeifen kann
-	k_id.setText(value);
-	vorname_text.setText(value);
-	name_text.setText(value);
-	birthday.setText(value);
-	Ort.setText(value);
-	plz.setText(value);
-	street.setText(value);
-	h_num.setText(value);
-	email.setText(value);
-	tel_num.setText(value);
-	car_date.setText(value);
-	car_k.setText(value);
-	*/
+        
+        int i = 0;
+        K_ID = Integer.parseInt(k_id.getText());
+        boolean indikator = false;
+
+        MC_Hammer.DBV.restore(pfad);
+        while (i < MC_Hammer.DBV.Kunden.size() && indikator == false) { //Suche bis zum Ende der Liste.
+            if (MC_Hammer.DBV.Kunden.get(i).getKunden_ID() == K_ID ) {
+                indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+            } else {
+                i++; //Andernfalls wird das nächste Element vergleichen.
+            }
+        }
+	
+	vorname_text.setText(MC_Hammer.DBV.Kunden.get(i).getVorname());
+	name_text.setText(MC_Hammer.DBV.Kunden.get(i).getNachname());
+	birthday.setText(String.valueOf(MC_Hammer.DBV.Kunden.get(i).getGeburtstag()));
+	Ort.setText(MC_Hammer.DBV.Kunden.get(i).getWohnort());
+	plz.setText(MC_Hammer.DBV.Kunden.get(i).getPostleitzahl());
+	street.setText(MC_Hammer.DBV.Kunden.get(i).getStrasse());
+	h_num.setText(MC_Hammer.DBV.Kunden.get(i).getHausnummer());
+	email.setText(MC_Hammer.DBV.Kunden.get(i).getE_Mail());
+	tel_num.setText(MC_Hammer.DBV.Kunden.get(i).getTelefonnummer());
+	car_date.setText(String.valueOf(MC_Hammer.DBV.Kunden.get(i).getFuehrerscheindatum()));
+	car_k.setText(MC_Hammer.DBV.Kunden.get(i).getFuehrerscheinklasse());
     }
 
     @FXML
