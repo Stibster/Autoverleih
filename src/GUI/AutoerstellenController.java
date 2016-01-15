@@ -127,6 +127,9 @@ public class AutoerstellenController implements Initializable {
 	if (anheanger.getText() == "yes") {
 	    anhaengerkupplung = true;
 	}
+	else{
+	    anhaengerkupplung = false;
+	}
 	//#####################
     
 	fehler = MC_Hammer.addAuto(Kennzeichen, hersteller
