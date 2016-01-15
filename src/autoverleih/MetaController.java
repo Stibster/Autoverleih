@@ -631,8 +631,7 @@ public class MetaController {
         m = p.matcher(EXT);
         boolean Extras = m.matches();    
         
-        if(Indikator!=true)
-        {           
+                  
                     if(Schild == false)
                     {
                         Indikator = true;
@@ -717,14 +716,11 @@ public class MetaController {
                         Indikator = true;
                         return fehler -19;
                     }
-        }
-        else
-        {
+        
            DBV.addAuto(auto);
            DBV.save(pfad);
-	   return fehler = 1; 
-        }
-        return fehler;
+	   return 1; 
+        
     }
     public int addAuto2(int A_ID, String KZ, String HER, 
             String MOD, String BA, boolean AK ,int SP, 
@@ -749,7 +745,7 @@ public class MetaController {
                 if(DBV.Autos.get(i).getAuto_ID()==AID && DBV.Autos.get(i).getKennzeichen() == KZ)
                 {
                     Indikator = true;
-                    return fehler -1;
+                    return -1;
 
                 }
                 else
@@ -809,100 +805,81 @@ public class MetaController {
         m = p.matcher(EXT);
         boolean Extras = m.matches();    
         
-        if(Indikator!=true)
-        {           
+                 
                     if(Schild == false)
                     {
-                        Indikator = true;
-                        return fehler -2;
+                        return -2;
                     }
                     
                     if(Hersteller == false)
                     {
-                        Indikator  = true;
-                        return fehler -3;
+                        return -3;
                     }
                     if(Modell == false)
                     {
-                        Indikator = true;
-                        return fehler -4;
+                        return -4;
                     }
                     if(Bauart == false)
                     {
-                        Indikator = true;
-                        return fehler -5;
+                        return -5;
                     }
                     if(SP < 2 || SP > 9)
                     {
-                        Indikator = true;
-                        return fehler -6;
+                        return -6;
                     }
                     if(Farbe == false)
                     {
-                        Indikator = true;
-                        return fehler -7;
+                        return -7;
                     }
                     if(LEI < 25 || LEI > 1000)
                     {
-                        Indikator = true;
-                        return fehler -8;
+                        return -8;
                     }
                     if(Kraftstoff == false)
                     {
-                        Indikator = true;
-                        return fehler -9;
+                        return -9;
                     }
                      if(VER < 3 || VER > 50)
                     {
-                        Indikator = true;
-                        return fehler -10;
+                        return -10;
                     }
                     if(Antrieb == false)
                     {
-                        Indikator = true;
-                        return fehler -11;
+                        return -11;
                     }
                     if(Getriebe == false)
                     {
-                        Indikator = true;
-                        return fehler -12;
+                        return -12;
                     }
                     if(BJ < 1900 || BJ > 2016)
                     {
-                        Indikator = true;
-                        return fehler -13;
+                        return -13;
                     }
                     if(KIL < 1)
                     {
-                        Indikator = true;
-                        return fehler -14;
+                        return -14;
                     }
                     
                     //TÜV ???
                     
                     if(KAU < 250 || KAU > 5000)
                     {
-                        Indikator = true;
-                        return fehler -16;
+                        return -16;
                     }
                     if (GPT < 5 || GPT > 500)
                     {
-                        Indikator = true;
-                        return fehler -17;
+                        return -17;
                     }                    
                     if(Extras == false)
                     {
-                        Indikator = true;
-                        return fehler -19;
+                        return -19;
                     }
-        }
-        else
-        {
+        
+       
            DBV.addAuto(auto);
            DBV.save(pfad);
-	   return fehler = 1; 
-        }
-        return fehler;
+	   return 1; 
+        
     }
 //##############################################################################
    public int removeAuto(int A_ID)

@@ -385,14 +385,14 @@ public class AutobearbeitenController implements Initializable {
                 gptLabel.setTextFill(Color.BLACK);
 
 		break;
-	    case -10://kein bild ausgewaehlt
-		kennLabel.setTextFill(Color.BLUE);
+	    case -10:
+		kennLabel.setTextFill(Color.BLACK);
                 HerLabel.setTextFill(Color.BLACK);
                 ModLabel.setTextFill(Color.BLACK);
                 bauLabel.setTextFill(Color.BLACK);
                 FarbeLabel.setTextFill(Color.BLACK);
                 oilLable.setTextFill(Color.BLACK);
-                verLabel.setTextFill(Color.BLACK);
+                verLabel.setTextFill(Color.RED);
                 antLable.setTextFill(Color.BLACK);
                 getriebLabel.setTextFill(Color.BLACK);
                 exLabel.setTextFill(Color.BLACK);
@@ -673,7 +673,7 @@ public class AutobearbeitenController implements Initializable {
 	kaution.setText(String.valueOf(MC_Hammer.DBV.Autos.get(i).getKaution()));
 	tuev.setText(String.valueOf(format.format(MC_Hammer.DBV.Autos.get(i).getTUEV())));
 	km_stand.setText(String.valueOf(MC_Hammer.DBV.Autos.get(i).getKilometerstand()));
-	year.setText(String.valueOf(format.format(MC_Hammer.DBV.Autos.get(i).getBaujahr())));
+	year.setText(String.valueOf(MC_Hammer.DBV.Autos.get(i).getBaujahr()));
 	ps.setText(String.valueOf(MC_Hammer.DBV.Autos.get(i).getLeistung()));
         if(MC_Hammer.DBV.Autos.get(i).getAnhaengerkupplung()){
             anheanger.setText("Ja");

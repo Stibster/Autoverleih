@@ -412,7 +412,7 @@ public void clearAusleihen(){
                  auto.setFarbe(generateRandomString(Alphabet, random, 4));
                  auto.setLeistung(generateRandomInt(Numbers, random, 3));
                  auto.setKraftstoff(generateRandomString(Alphabet, random, 5));
-                 auto.setVerbrauch(generateRandomInt(Numbers, random, 8));
+                 auto.setVerbrauch(Double.parseDouble(generateRandomString(Numbers, random, 1)));
                  auto.setAntrieb(generateRandomString(Alphabet, random, 5));
                  auto.setGetriebe(generateRandomString(Alphabet, random, 5));
                  auto.setBaujahr(generateRandomInt(Numbers, random, 4));
@@ -423,6 +423,7 @@ public void clearAusleihen(){
                  auto.setBauart(generateRandomString(Alphabet, random, 5));
 		 auto.setIst_Da(true);
 		 auto.setFahrbar(true);
+                 auto.setExtras("Keine");
 		 Autos.add(auto);
             }
         }
