@@ -137,6 +137,19 @@ public class AdminAnsichtController implements Initializable {
 	MC_Hammer.DBV.restore(pfad);
 	MC_Hammer.DBV.randomAutos(Integer.parseInt(rndCarText.getText()));
 	MC_Hammer.DBV.save(pfad);
+	Stage popUp = new Stage();
+        popUp.setTitle("Bestetigung");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("Bestetigung.fxml"));
+
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
@@ -144,6 +157,19 @@ public class AdminAnsichtController implements Initializable {
 	MC_Hammer.DBV.restore(pfad);
 	MC_Hammer.DBV.randomKunden(Integer.parseInt(rndCusText.getText()));
 	MC_Hammer.DBV.save(pfad);
+	Stage popUp = new Stage();
+        popUp.setTitle("Bestetigung");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("Bestetigung.fxml"));
+
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
@@ -175,6 +201,7 @@ public class AdminAnsichtController implements Initializable {
             popUp.initModality(Modality.APPLICATION_MODAL);
             popUp.initOwner(saveBTN.getScene().getWindow());
             popUp.showAndWait();
+	    
         } catch (IOException ex) {
             Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -185,7 +212,19 @@ public class AdminAnsichtController implements Initializable {
 	
         MC_Hammer.DBV.clearAll();
         MC_Hammer.DBV.save(pfad);
-	
+	Stage popUp = new Stage();
+        popUp.setTitle("Bestetigung");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("Bestetigung.fxml"));
+
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
@@ -193,6 +232,19 @@ public class AdminAnsichtController implements Initializable {
         
         MC_Hammer.DBV.clearAutos();
         MC_Hammer.DBV.save(pfad);
+	Stage popUp = new Stage();
+        popUp.setTitle("Bestetigung");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("Bestetigung.fxml"));
+
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
@@ -200,6 +252,19 @@ public class AdminAnsichtController implements Initializable {
         
         MC_Hammer.DBV.clearKunden();
         MC_Hammer.DBV.save(pfad);
+	Stage popUp = new Stage();
+        popUp.setTitle("Bestetigung");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("Bestetigung.fxml"));
+
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
@@ -207,6 +272,19 @@ public class AdminAnsichtController implements Initializable {
         
         MC_Hammer.DBV.clearAusleihen();
         MC_Hammer.DBV.save(pfad);
+	Stage popUp = new Stage();
+        popUp.setTitle("Bestetigung");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("Bestetigung.fxml"));
+
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
