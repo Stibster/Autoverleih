@@ -22,7 +22,7 @@ public class Kunde {
     int Kunden_ID;
     String Vorname;
     String Nachname;
-    int Postleitzahl;
+    String Postleitzahl;
     String Wohnort;
     String Strasse;
     String Hausnummer;
@@ -35,7 +35,7 @@ public class Kunde {
     //Rechnung Rechnung; //Kommt später noch, wenn die Klasse Rechnung implementiert wird. #Raicandy
     
          //###Konstruktoren erstellt von Danilo May############################### 
-    public Kunde(int KID, String VN, String NN, int PLZ, String WO, String STR, String HN, String EM, String TN, Date GEB, File FS, Date FSD, String FSK) {
+    public Kunde(int KID, String VN, String NN, String PLZ, String WO, String STR, String HN, String EM, String TN, Date GEB, File FS, Date FSD, String FSK) {
         Kunden_ID = KID;
         Vorname = VN;
         Nachname = NN;
@@ -88,7 +88,7 @@ public class Kunde {
     }
 
     @XmlElement(name = "Postleitzahl")
-    public int getPostleitzahl() {
+    public String getPostleitzahl() {
         return Postleitzahl;
     }
 
@@ -149,7 +149,7 @@ public class Kunde {
         this.Nachname = Nachname;
     }
 
-    public void setPostleitzahl(int Postleitzahl) {
+    public void setPostleitzahl(String Postleitzahl) {
         this.Postleitzahl = Postleitzahl;
     }
 
