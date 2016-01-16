@@ -316,7 +316,7 @@ public class MetaController {
 	
         //Legt Eingabe Regeln fest
         String Buchstaben = "/^[a-z ,.'-]+$/i";
-        String Tel = "\\d{13}";//MUSS ÜBERARBEITET WERDEN LÄNGE 4-12
+        String Tel = "\\d{4,13}";//MUSS ÜBERARBEITET WERDEN LÄNGE 4-12
         String Plz = "\\d{5}";
         //Prüft ob Eingaberegeln mit Eingabe übereinstimmen
         
@@ -339,7 +339,7 @@ public class MetaController {
         m = p.matcher(EM);
         boolean EMail = m.matches();  
         
-        String ZB = "[0-9][a-zA-Z]";
+        String ZB = "[0-9]{1,}[a-zA-Z]";
         p = Pattern.compile(ZB);
         m = p.matcher(HN);
         boolean Hausnummer = m.matches();
@@ -435,7 +435,7 @@ public class MetaController {
 	
         //Legt Eingabe Regeln fest
         String Buchstaben = "/^[a-z ,.'-]+$/i";
-        String Tel = "\\d{13}";//MUSS ÜBERARBEITET WERDEN LÄNGE 4-12
+        String Tel = "\\d{4,13}";//MUSS ÜBERARBEITET WERDEN LÄNGE 4-12
         String Plz = "\\d{5}";
         //Prüft ob Eingaberegeln mit Eingabe übereinstimmen
         
@@ -458,7 +458,7 @@ public class MetaController {
         m = p.matcher(EM);
         boolean EMail = m.matches();  
         
-        String ZB = "[0-9][a-zA-Z]";
+        String ZB = "[0-9]{1,}[a-zA-Z]";
         p = Pattern.compile(ZB);
         m = p.matcher(HN);
         boolean Hausnummer = m.matches();
