@@ -3,7 +3,7 @@
  */
 
 .mainFxmlClass {
-
+    -fx-font-family: "Comic Sans MS";
 }
 .root {
     -fx-background-color: #686868;   

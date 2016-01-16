@@ -1,5 +1,6 @@
 package GUI;
 
+import autoverleih.MetaController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -35,33 +36,27 @@ public class MitarbeiterAnsichtController implements Initializable {
     @FXML    private TextField carSearchText;
     @FXML    private TextArea console;
     @FXML    private TextField consoleText;
-    @FXML
-    private Button showAllBTN;
-    @FXML
-    private MenuItem addUserMenue;
-    @FXML
-    private MenuItem DelUser;
-    @FXML
-    private MenuItem Ausleihe;
-    @FXML
-    private MenuItem carRaus;
-    @FXML
-    private MenuItem carRein;
-    @FXML
-    private MenuItem logIn;
-    @FXML
-    private MenuItem changeUser;
-    @FXML
-    private TextArea CusText;
-    @FXML
-    private TextArea CarText;
+    @FXML    private Button showAllBTN;
+    @FXML    private MenuItem addUserMenue;
+    @FXML    private MenuItem DelUser;
+    @FXML    private MenuItem Ausleihe;
+    @FXML    private MenuItem carRaus;
+    @FXML    private MenuItem carRein;
+    @FXML    private MenuItem logIn;
+    @FXML    private MenuItem changeUser;
+    @FXML    private TextArea CusText;
+    @FXML    private TextArea CarText;
+    private final String path = "Data/xml/TestDatenbank.xml";
+    private String ausgabe = "";
+    private MetaController MC = new MetaController();
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        showAllCars();
+        showAllCust();
     }
 
     @FXML
@@ -215,4 +210,33 @@ public class MitarbeiterAnsichtController implements Initializable {
         }
     }
 
+    @FXML
+    private void handleShowAllBTN(ActionEvent event) {
+        showAllCars();
+        showAllCust();
+    }
+    
+    private void showAllCars(){
+        int i = 0;
+        MC.DBV.restore(path);
+        ausgabe = "Anzahl gespeicherter Autos derzeit: " + MC.DBV.Autos.size()+"\n\n";
+        while (i < MC.DBV.Autos.size()) {
+            ausgabe += MC.DBV.Autos.get(i).getAuto_ID() +", "+ MC.DBV.Autos.get(i).getHersteller()+", ";
+            ausgabe += MC.DBV.Autos.get(i).getModell();
+            ausgabe += "\n";
+            i++;
+        }
+        CarText.setText(ausgabe);
+    }
+    private void showAllCust(){
+        int i = 0;
+        MC.DBV.restore(path);
+        ausgabe = "Anzahl gespeicherter Kunden derzeit: " + MC.DBV.Kunden.size()+"\n\n";
+        while (i < MC.DBV.Kunden.size()) {
+            ausgabe += "test ";
+            ausgabe += "\n";
+            i++;
+        }
+        CusText.setText(ausgabe);
+    }
 }
