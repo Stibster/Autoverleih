@@ -241,5 +241,6 @@ public class MitarbeiterAnsichtController implements Initializable {
             i++;
         }
         CusText.setText(ausgabe);
+        
     }
 }

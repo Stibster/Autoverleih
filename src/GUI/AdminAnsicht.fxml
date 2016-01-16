@@ -16,7 +16,7 @@
    <children>
       <ScrollPane layoutX="14.0" layoutY="78.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="100.0">
          <content>
-            <TilePane fx:id="tile" hgap="30.0" vgap="30.0">
+            <TilePane fx:id="tile" alignment="TOP_CENTER" hgap="30.0" prefHeight="278.0" prefWidth="869.0" vgap="30.0">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
@@ -93,15 +93,15 @@
             <Insets bottom="40.0" right="20.0" top="130.0" />
          </padding>
       </VBox>
-      <VBox alignment="CENTER" layoutX="165.0" layoutY="138.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="26.0">
+      <VBox alignment="CENTER" layoutX="165.0" layoutY="138.0" spacing="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
          <children>
-            <HBox alignment="CENTER" layoutX="170.0" layoutY="138.0">
+            <HBox alignment="CENTER" layoutX="170.0" layoutY="138.0" spacing="5.0">
                <children>
                   <Button fx:id="rndCar" layoutX="170.0" layoutY="138.0" mnemonicParsing="false" onAction="#handleRndCar" prefHeight="26.0" prefWidth="109.0" text="zufällige Autos" />
                   <TextField fx:id="rndCarText" layoutX="319.0" layoutY="138.0" prefHeight="26.0" prefWidth="70.0" text="10" />
                </children>
             </HBox>
-            <HBox alignment="CENTER" layoutX="165.0" layoutY="178.0">
+            <HBox alignment="CENTER" layoutX="165.0" layoutY="178.0" spacing="5.0">
                <children>
                   <Button fx:id="rndKunde" layoutX="165.0" layoutY="178.0" mnemonicParsing="false" onAction="#handleRndKunde" text="zufällige Kunden" />
                   <TextField fx:id="rndCusText" layoutX="319.0" layoutY="178.0" prefHeight="26.0" prefWidth="70.0" text="10" />
@@ -109,14 +109,15 @@
             </HBox>
          </children>
       </VBox>
-      <VBox layoutX="977.0" layoutY="26.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="26.0">
+      <VBox layoutX="977.0" layoutY="26.0" prefHeight="192.0" prefWidth="216.0" spacing="5.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="30.0">
          <children>
             <Button fx:id="clearBut" layoutX="380.0" layoutY="191.0" mnemonicParsing="false" onAction="#handleClearButton" prefHeight="26.0" prefWidth="216.0" text="Komplette Datenbank löschen" />
             <Button fx:id="dbKuDel" layoutX="381.0" layoutY="219.0" mnemonicParsing="false" onAction="#handleDbKuDelButton" prefHeight="26.0" prefWidth="216.0" text="Datenbank Kunden Löschen" />
             <Button fx:id="dbcarsDelet" layoutX="384.0" layoutY="245.0" mnemonicParsing="false" onAction="#handleDbCarsDelButton" prefHeight="26.0" prefWidth="216.0" text="Datenbank Autos Löschen" />
             <Button fx:id="dbVFALLDel" layoutX="384.0" layoutY="268.0" mnemonicParsing="false" onAction="#handleDbVFALLDelButton" text="Datenbank Vermietungsfall Löschen" />
+            <Button fx:id="testBtn" mnemonicParsing="false" onAction="#handleTestBtn" text="Test" />
          </children>
       </VBox>
-      <Button fx:id="scriptRndcar" layoutX="14.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleScriptRndCarButton" text="zufällige Autos Script" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="26.0" />
+      <Button fx:id="scriptRndcar" layoutX="14.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleScriptRndCarButton" text="zufällige Autos Script" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="30.0" />
    </children>
 </AnchorPane>

@@ -52,35 +52,43 @@ public class KundenAnsichtController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        MC_Hammer.DBV.restore(pfad);
+        try {
+            MC_Hammer.DBV.restore(pfad);
+        } catch (Exception e) {
+            MC_Hammer.DBV.save(pfad);
+            System.err.println(e);
+            System.out.println("Neue Datenbank erstellt");
+        }
+        
         int i;
-        if(!MC_Hammer.DBV.Autos.isEmpty()){
-            
-            for(i=0; i<MC_Hammer.DBV.Autos.size(); i++) {	    
+        if (!MC_Hammer.DBV.Autos.isEmpty()) {
+
+            for (i = 0; i < MC_Hammer.DBV.Autos.size(); i++) {
                 Image image = new Image(MC_Hammer.DBV.Autos.get(i).getFotoString());
                 ImageView imageView = new ImageView();
                 int i2 = i;
-                
-                    imageView.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
 
-                        String Hersteller = MC_Hammer.DBV.Autos.get(i2).getHersteller();
-                        String modell = MC_Hammer.DBV.Autos.get(i2).getModell();
-                        String Farbe = MC_Hammer.DBV.Autos.get(i2).getFarbe();
-                        String leistung = String.valueOf(MC_Hammer.DBV.Autos.get(i2).getLeistung()+ " PS");
-                        String sitze = String.valueOf(MC_Hammer.DBV.Autos.get(i2).getSitzplaetze()+ " Sitzplätze");
-                        String kosten =String.valueOf(MC_Hammer.DBV.Autos.get(i2).getGebuehr_pro_Tag()+ " € Pro Tag");
-                        @Override
-                            public void handle(MouseEvent event) {
-                                markeText.setText(Hersteller);
-                                modellText.setText(modell);
-                                FarbeText.setText(Farbe);
-                                leistungText.setText(leistung);
-                                sitzeText.setText(sitze);
-                                kostenText.setText(kosten);
-                            }
-                    });
+                imageView.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+
+                    String Hersteller = MC_Hammer.DBV.Autos.get(i2).getHersteller();
+                    String modell = MC_Hammer.DBV.Autos.get(i2).getModell();
+                    String Farbe = MC_Hammer.DBV.Autos.get(i2).getFarbe();
+                    String leistung = String.valueOf(MC_Hammer.DBV.Autos.get(i2).getLeistung() + " PS");
+                    String sitze = String.valueOf(MC_Hammer.DBV.Autos.get(i2).getSitzplaetze() + " Sitzplätze");
+                    String kosten = String.valueOf(MC_Hammer.DBV.Autos.get(i2).getGebuehr_pro_Tag() + " € Pro Tag");
+
+                    @Override
+                    public void handle(MouseEvent event) {
+                        markeText.setText(Hersteller);
+                        modellText.setText(modell);
+                        FarbeText.setText(Farbe);
+                        leistungText.setText(leistung);
+                        sitzeText.setText(sitze);
+                        kostenText.setText(kosten);
+                    }
+                });
                 imageView.setFitHeight(100);
-    //        imageView.setFitWidth(80);
+                //        imageView.setFitWidth(80);
                 imageView.setPreserveRatio(true);
                 imageView.setImage(image);
                 tile.getChildren().add(imageView);

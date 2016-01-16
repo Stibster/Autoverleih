@@ -8,29 +8,26 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="119.0" prefWidth="434.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="GUI.BestetigungController">
+<AnchorPane id="AnchorPane" prefHeight="119.0" prefWidth="434.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.BestetigungController">
     <stylesheets>
 	<URL value="@Stylesheet.css" />
     </stylesheets>
    <children>
-      <VBox layoutY="50.0" prefHeight="242.0" prefWidth="298.0" spacing="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" layoutY="50.0" prefHeight="242.0" prefWidth="298.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox layoutX="50.0" layoutY="50.0" AnchorPane.leftAnchor="0.0">
+            <HBox alignment="CENTER" layoutX="50.0" layoutY="50.0" AnchorPane.leftAnchor="0.0">
                <children>
                   <Label layoutX="50.0" layoutY="50.0" text="Aktion erflogreich" />
                   <Label layoutX="386.0" layoutY="59.0" text="Label" visible="false" />
                </children>
             </HBox>
-            <HBox layoutX="50.0" layoutY="167.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <HBox alignment="CENTER" layoutX="50.0" layoutY="167.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <Button fx:id="okButton" layoutX="50.0" layoutY="167.0" mnemonicParsing="false" onAction="#handleOKButton" text="Ok" />
                   <Label layoutX="392.0" layoutY="171.0" text="Label" visible="false" />
                </children>
             </HBox>
          </children>
-         <padding>
-            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
-         </padding>
       </VBox>
    </children>
 </AnchorPane>
