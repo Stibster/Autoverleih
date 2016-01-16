@@ -283,7 +283,23 @@ public class AdminAnsichtController implements Initializable {
     }
 
     @FXML
-    private void handleScriptRndCarButton(ActionEvent event) {
+    private void handleScriptRndCarButton(ActionEvent event) throws ParseException {
+        MC_Hammer.DBV.restore(pfad);
+	MC_Hammer.DBV.randomRealAutos(Integer.parseInt(rndCarText.getText()));
+	MC_Hammer.DBV.save(pfad);
+	Stage popUp = new Stage();
+        popUp.setTitle("Bestätigung");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("Bestetigung.fxml"));
+
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @FXML

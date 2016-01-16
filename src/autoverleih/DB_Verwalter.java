@@ -458,4 +458,222 @@ public void clearAusleihen(){
         }
         
 //##############################################################################
+        
+//###Random Auto Script Methode erstellt von Steve Vogel########################
+        public void randomRealAutos(int Anzahl) throws ParseException {
+            
+            String Chars ="0123456789abcdefghijklmnopqrstuvwxyz";
+            String Numbers ="0123456789";
+            String Alphabet ="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            Random random = new Random();
+            SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy", new DateFormatSymbols(Locale.GERMANY));
+            File AUDIA3 = new File("Data/audia3.jpg");
+            File AUDIA4 = new File("Data/audia4.jpg");
+            File AUDIRS6 = new File("Data/audirs6.jpg");
+            File BMW3 = new File("Data/bmw3.jpg");
+            File BMW5 = new File("Data/bmw5.jpg");
+            File BMWM3 = new File("Data/bmwm3.jpg");
+            File VWPOLO = new File("Data/vwpolo.jpg");
+            File VWGOLF = new File("Data/vwgolf.jpg");
+            File VWPASSAT = new File("Data/vwpassat.jpg");
+            File PATH = new File("Data/dummy1.jpg");
+            
+            String[] marke;
+            String[] audiModell;
+            String[] bmwModell;
+            String[] vwModell;
+            String[] farbe;
+            String[] rndMarke = new String[1];
+            String[] rndAudiModell = new String[1];
+            String[] rndBmwModell = new String[1];
+            String[] rndVwModell = new String[1];
+            String[] rndFarbe = new String[1];
+            
+            marke = new String[] {"Audi", "BMW", "Volkswagen"};
+            audiModell = new String[] {"A3", "A4", "RS6 Performance"};
+            bmwModell = new String[] {"330d", "M3 GTS", "535i"};
+            vwModell = new String[] {"Polo", "Golf R", "Passat"};
+            farbe = new String[] {"Rot", "Blau", "Silber", "Schwarz", "Weiss"};
+            
+            for (int i=0; i<Anzahl; i++) {
+                
+                for (int j=0; j<rndMarke.length; j++) {
+                    
+                    rndMarke[j] = marke[random.nextInt(marke.length)];
+                }
+                for (int j=0; j<rndFarbe.length; j++) {
+                    
+                    rndFarbe[j] = farbe[random.nextInt(farbe.length)];
+                }
+                for (int j=0; j<rndBmwModell.length; j++) {
+                    
+                    rndBmwModell[j] = bmwModell[random.nextInt(bmwModell.length)];
+                }
+                for (int j=0; j<rndVwModell.length; j++) {
+                    
+                    rndVwModell[j] = vwModell[random.nextInt(vwModell.length)];
+                }
+                for (int j=0; j<rndAudiModell.length; j++) {
+                    
+                    rndAudiModell[j] = audiModell[random.nextInt(audiModell.length)];
+                }
+                
+                Auto auto = new Auto();
+                
+                for (int j=0; j<rndMarke.length; j++) {
+                    auto.setHersteller(rndMarke[j]);
+                    
+                    if(rndMarke[j] == "Audi") {
+                        for (int k=0; k<rndAudiModell.length; k++) {
+                            auto.setModell(rndAudiModell[k]);
+                            
+                            if(rndAudiModell[k] == "A3") {
+                                
+                                auto.setFoto(AUDIA3);
+                                auto.setSitzplaetze(Integer.parseInt("5"));
+                                auto.setLeistung(Integer.parseInt("180"));
+                                auto.setKraftstoff("Benzin");
+                                auto.setVerbrauch(Double.parseDouble("6.6"));
+                                auto.setAntrieb("Allrad");
+                                auto.setGetriebe("Schaltgetriebe");
+                                auto.setBaujahr(Integer.parseInt("2015"));
+                                auto.setBauart("Cabriolet");
+                                auto.setExtras("Ausstattungsserie Comfort");
+                            }
+                            else if(rndAudiModell[k] == "A4") {
+                                
+                                auto.setFoto(AUDIA4);
+                                auto.setSitzplaetze(Integer.parseInt("5"));
+                                auto.setLeistung(Integer.parseInt("190"));
+                                auto.setKraftstoff("Diesel");
+                                auto.setVerbrauch(Double.parseDouble("7.9"));
+                                auto.setAntrieb("Vorderradantrieb");
+                                auto.setGetriebe("Schaltgetriebe");
+                                auto.setBaujahr(Integer.parseInt("2015"));
+                                auto.setBauart("Limousine");
+                                auto.setExtras("Matrix-LED-Scheinwerfer");
+                            }
+                            else if(rndAudiModell[k] == "RS6 Performance"){
+                                
+                                auto.setFoto(AUDIRS6);
+                                auto.setSitzplaetze(Integer.parseInt("5"));
+                                auto.setLeistung(Integer.parseInt("605"));
+                                auto.setKraftstoff("Benzin");
+                                auto.setVerbrauch(Double.parseDouble("7.9"));
+                                auto.setAntrieb("Allrad");
+                                auto.setGetriebe("8-Gang-tiptronic");
+                                auto.setBaujahr(Integer.parseInt("2015"));
+                                auto.setBauart("Kombi");
+                                auto.setExtras("Dynamikpaket plus (305 km/h)");
+                            }
+                        }
+                    }
+                    else if(rndMarke[j] == "BMW") {
+                        for (int k=0; k<rndBmwModell.length; k++) {
+                            auto.setModell(rndBmwModell[k]);
+                            
+                            if(rndBmwModell[k] == "330d") {
+                                
+                                auto.setFoto(BMW3);
+                                auto.setSitzplaetze(Integer.parseInt("5"));
+                                auto.setLeistung(Integer.parseInt("258"));
+                                auto.setKraftstoff("Diesel");
+                                auto.setVerbrauch(Double.parseDouble("4.9"));
+                                auto.setAntrieb("Hinterradantrieb");
+                                auto.setGetriebe("Automatik");
+                                auto.setBaujahr(Integer.parseInt("2015"));
+                                auto.setBauart("Limousine");
+                                auto.setExtras("Luxery Line");
+                            }
+                            else if(rndBmwModell[k] == "M3 GTS") {
+                                
+                                auto.setFoto(BMWM3);
+                                auto.setSitzplaetze(Integer.parseInt("2"));
+                                auto.setLeistung(Integer.parseInt("450"));
+                                auto.setKraftstoff("Bezin");
+                                auto.setVerbrauch(Double.parseDouble("12.7"));
+                                auto.setAntrieb("Hinterradantrieb");
+                                auto.setGetriebe("7-Gang-Doppelkupplung");
+                                auto.setBaujahr(Integer.parseInt("2010"));
+                                auto.setBauart("Limousine");
+                                auto.setExtras("Überrollkäfig");
+                            }
+                            else {
+                                
+                                auto.setFoto(BMW5);
+                                auto.setSitzplaetze(Integer.parseInt("5"));
+                                auto.setLeistung(Integer.parseInt("306"));
+                                auto.setKraftstoff("Benzin");
+                                auto.setVerbrauch(Double.parseDouble("8.1"));
+                                auto.setAntrieb("Hinterradantrieb");
+                                auto.setGetriebe("Automatik");
+                                auto.setBaujahr(Integer.parseInt("2015"));
+                                auto.setBauart("Kombi");
+                                auto.setExtras("Keine");
+                            }
+                        }
+                    }
+                    else if(rndMarke[j] == "Volkswagen"){
+                        for (int k=0; k<rndVwModell.length; k++) {
+                            auto.setModell(rndVwModell[k]);
+                            
+                            if(rndVwModell[k] == "Polo") {
+                                
+                                auto.setFoto(VWPOLO);
+                                auto.setSitzplaetze(Integer.parseInt("4"));
+                                auto.setLeistung(Integer.parseInt("60"));
+                                auto.setKraftstoff("Benzin");
+                                auto.setVerbrauch(Double.parseDouble("4.7"));
+                                auto.setAntrieb("Vorderradantrieb");
+                                auto.setGetriebe("Schaltgetriebe");
+                                auto.setBaujahr(Integer.parseInt("2015"));
+                                auto.setBauart("Stufenheck");
+                                auto.setExtras("BlueMotion");
+                            }
+                            else if(rndVwModell[k] == "Golf R") {
+                                
+                                auto.setFoto(VWGOLF);
+                                auto.setSitzplaetze(Integer.parseInt("5"));
+                                auto.setLeistung(Integer.parseInt("300"));
+                                auto.setKraftstoff("Benzin");
+                                auto.setVerbrauch(Double.parseDouble("7.1"));
+                                auto.setAntrieb("Allrad");
+                                auto.setGetriebe("Schaltgetriebe");
+                                auto.setBaujahr(Integer.parseInt("2015"));
+                                auto.setBauart("Stufenheck");
+                                auto.setExtras("Keine");
+                            }
+                            else {
+                                
+                                auto.setFoto(VWPASSAT);
+                                auto.setSitzplaetze(Integer.parseInt("5"));
+                                auto.setLeistung(Integer.parseInt("280"));
+                                auto.setKraftstoff("Benzin");
+                                auto.setVerbrauch(Double.parseDouble("7.2"));
+                                auto.setAntrieb("Allrad");
+                                auto.setGetriebe("6-Gang-DSG");
+                                auto.setBaujahr(Integer.parseInt("2015"));
+                                auto.setBauart("Kombi");
+                                auto.setExtras("Ausstattungsserie Highline");
+                            }
+                        }
+                    }
+                }
+                for (int j=0; j<rndFarbe.length; j++) {
+                    auto.setFarbe(rndFarbe[j]);
+                }
+                auto.setIst_Da(true);
+		auto.setFahrbar(true);
+                auto.setKaution(generateRandomInt(Numbers, random, 3));
+                auto.setGebuehr_pro_Tag(generateRandomInt(Numbers, random, 2));
+                auto.setKilometerstand(generateRandomInt(Numbers, random, 5));
+                auto.setTUEV(format.parse("01.01.2017"));
+                auto.setAnhaengerkupplung(false);
+                auto.setAuto_ID(makeAutoID());
+                auto.setKennzeichen("MW-" + (generateRandomString(Alphabet, random, 2)) + " " + (generateRandomInt(Numbers, random, 4)));
+                              
+                Autos.add(auto);
+                
+            }
+        }        
 }
