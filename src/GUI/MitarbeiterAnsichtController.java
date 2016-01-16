@@ -233,7 +233,10 @@ public class MitarbeiterAnsichtController implements Initializable {
         MC.DBV.restore(path);
         ausgabe = "Anzahl gespeicherter Kunden derzeit: " + MC.DBV.Kunden.size()+"\n\n";
         while (i < MC.DBV.Kunden.size()) {
-            ausgabe += "test ";
+            ausgabe += MC.DBV.Kunden.get(i).getVorname() + ", ";
+	     ausgabe += MC.DBV.Kunden.get(i).getNachname() + ", ";
+	      ausgabe += MC.DBV.Kunden.get(i).getWohnort() + ", ";
+	       ausgabe += MC.DBV.Kunden.get(i).getFuehrerscheinklasse();
             ausgabe += "\n";
             i++;
         }
