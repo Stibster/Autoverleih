@@ -13,6 +13,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,7 +22,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.TilePane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -35,7 +39,6 @@ public class AdminAnsichtController implements Initializable {
     @FXML    private Button saveBTN;
     @FXML    private MenuItem logIn;
     @FXML    private MenuItem logOut;
-    @FXML    private ImageView fahrzeugFoto;
     @FXML    private TextField markeText;
     @FXML    private TextField modellText;
     @FXML    private TextField FarbeText;
@@ -44,8 +47,6 @@ public class AdminAnsichtController implements Initializable {
     @FXML    private TextField kostenText;
     @FXML    private TextField kennzeichenText;
     @FXML    private TextField idText;
-    @FXML    private Button newCar;
-    @FXML    private Button changeCar;
     @FXML
     private MenuItem carCreate;
     @FXML
@@ -71,13 +72,54 @@ public class AdminAnsichtController implements Initializable {
     private TextField rndCarText;
     @FXML
     private TextField rndCusText;
+    @FXML
+    private TilePane tile;
+    @FXML
+    private Button scriptRndcar;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        MC_Hammer.DBV.restore(pfad);
+        int i;
+        if(!MC_Hammer.DBV.Autos.isEmpty()){
+            
+            for(i=0; i<MC_Hammer.DBV.Autos.size(); i++) {	    
+                Image image = new Image(MC_Hammer.DBV.Autos.get(i).getFotoString());
+                ImageView imageView = new ImageView();
+                int i2 = i;
+                
+                    imageView.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+
+                        String Hersteller = MC_Hammer.DBV.Autos.get(i2).getHersteller();
+                        String modell = MC_Hammer.DBV.Autos.get(i2).getModell();
+                        String Farbe = MC_Hammer.DBV.Autos.get(i2).getFarbe();
+                        String leistung = String.valueOf(MC_Hammer.DBV.Autos.get(i2).getLeistung()+ " PS");
+                        String sitze = String.valueOf(MC_Hammer.DBV.Autos.get(i2).getSitzplaetze()+ " Sitzplätze");
+                        String kosten =String.valueOf(MC_Hammer.DBV.Autos.get(i2).getGebuehr_pro_Tag()+ " € Pro Tag");
+			String a_id =String.valueOf(MC_Hammer.DBV.Autos.get(i2).getAuto_ID());
+			String kennz = MC_Hammer.DBV.Autos.get(i2).getKennzeichen();
+                        @Override
+                            public void handle(MouseEvent event) {
+                                markeText.setText(Hersteller);
+                                modellText.setText(modell);
+                                FarbeText.setText(Farbe);
+                                leistungText.setText(leistung);
+                                sitzeText.setText(sitze);
+                                kostenText.setText(kosten);
+				idText.setText(a_id);
+				kennzeichenText.setText(kennz);
+                            }
+                    });
+                imageView.setFitHeight(100);
+    //        imageView.setFitWidth(80);
+                imageView.setPreserveRatio(true);
+                imageView.setImage(image);
+                tile.getChildren().add(imageView);
+            }
+        }
     }
 
     @FXML
@@ -285,6 +327,10 @@ public class AdminAnsichtController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void handleScriptRndCarButton(ActionEvent event) {
     }
     
 }
