@@ -221,9 +221,10 @@ public class MitarbeiterAnsichtController implements Initializable {
         MC.DBV.restore(path);
         ausgabe = "Anzahl gespeicherter Autos derzeit: " + MC.DBV.Autos.size()+"\n\n";
         while (i < MC.DBV.Autos.size()) {
-            ausgabe += MC.DBV.Autos.get(i).getAuto_ID() +", "+ MC.DBV.Autos.get(i).getHersteller()+", ";
-            ausgabe += MC.DBV.Autos.get(i).getModell();
-            ausgabe += "\n";
+            ausgabe += "ID: "+MC.DBV.Autos.get(i).getAuto_ID();
+             ausgabe += "   Hersteller: "+ MC.DBV.Autos.get(i).getHersteller();
+              ausgabe += "    Modell:"+MC.DBV.Autos.get(i).getModell();
+               ausgabe += "\n";
             i++;
         }
         CarText.setText(ausgabe);
@@ -233,10 +234,11 @@ public class MitarbeiterAnsichtController implements Initializable {
         MC.DBV.restore(path);
         ausgabe = "Anzahl gespeicherter Kunden derzeit: " + MC.DBV.Kunden.size()+"\n\n";
         while (i < MC.DBV.Kunden.size()) {
-            ausgabe += MC.DBV.Kunden.get(i).getVorname() + ", ";
-	     ausgabe += MC.DBV.Kunden.get(i).getNachname() + ", ";
-	      ausgabe += MC.DBV.Kunden.get(i).getWohnort() + ", ";
-	       ausgabe += MC.DBV.Kunden.get(i).getFuehrerscheinklasse();
+           ausgabe +="ID: "+ MC.DBV.Kunden.get(i).getKunden_ID();
+            ausgabe +="    Vorname: "+ MC.DBV.Kunden.get(i).getVorname();
+	     ausgabe +="    Nachname: "+ MC.DBV.Kunden.get(i).getNachname();
+	      ausgabe +="   Wohnort: "+ MC.DBV.Kunden.get(i).getWohnort();
+	       ausgabe += "    FS-Klasse: "+MC.DBV.Kunden.get(i).getFuehrerscheinklasse();
             ausgabe += "\n";
             i++;
         }

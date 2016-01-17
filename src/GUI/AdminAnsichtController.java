@@ -122,7 +122,8 @@ public class AdminAnsichtController implements Initializable {
 	    popUp.showAndWait();
 	} catch (IOException ex) {
 	    Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
-	}	
+	}
+        refreshTile();
     }
     
     @FXML
@@ -164,6 +165,7 @@ public class AdminAnsichtController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        refreshTile();
     }
 
     @FXML
@@ -181,6 +183,7 @@ public class AdminAnsichtController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        refreshTile();
     }
 
     @FXML
@@ -199,6 +202,7 @@ public class AdminAnsichtController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        refreshTile();
     }
 
     @FXML
@@ -219,6 +223,7 @@ public class AdminAnsichtController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        refreshTile();
     }
 
     @FXML
@@ -260,6 +265,7 @@ public class AdminAnsichtController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        refreshTile();
     }
 
     @FXML
@@ -300,6 +306,7 @@ public class AdminAnsichtController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        refreshTile();
     }
     
     @FXML
