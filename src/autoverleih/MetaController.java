@@ -339,7 +339,7 @@ public class MetaController {
         m = p.matcher(EM);
         boolean EMail = m.matches();  
         
-        String ZB = "[0-9]{1,}[a-zA-Z]";
+        String ZB = "[0-9]{1,}[a-zA-Z]?";
         p = Pattern.compile(ZB);
         m = p.matcher(HN);
         boolean Hausnummer = m.matches();
@@ -458,7 +458,7 @@ public class MetaController {
         m = p.matcher(EM);
         boolean EMail = m.matches();  
         
-        String ZB = "[0-9]{1,}[a-zA-Z]";
+        String ZB = "[0-9]{1,}[a-zA-Z]?";
         p = Pattern.compile(ZB);
         m = p.matcher(HN);
         boolean Hausnummer = m.matches();
