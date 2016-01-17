@@ -129,7 +129,7 @@ public class AutoTest {
         System.out.println("isAnhaengerkupplung");
         Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         boolean expResult = true;
-        boolean result = Proto.isAnhaengerkupplung();
+        boolean result = Proto.getAnhaengerkupplung();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //

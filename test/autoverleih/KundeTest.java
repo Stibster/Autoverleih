@@ -50,8 +50,8 @@ public class KundeTest {
     @Test
     public void testToString() {
         System.out.println("toString");
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
-        String expResult = "Kunden_ID: 2\n" + "Vorname: vn\n" + "Nachname:  nn\n" + "Postleitzahl: 9045\n" + "Wohnort: wo\n" + "Strasse:  str\n" + "Hausnummer: n3\n" + "E-Mail: em\n" + "Telefonnummer: 134\n" + "Geburtstag: Fri Nov 13 00:00:00 CET 1970\n" + "Fuehrerschein: C:\\Autoverleih\\Test2\n" + "Fuehrerscheindatum: Fri Nov 16 00:00:00 CET 2018\n" + "Fuehrerscheinklasse: ads\n";
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
+        String expResult = "Kunden_ID: 2\n" + "Vorname: vn\n" + "Nachname:  nn\n" + "Postleitzahl: 05984\n" + "Wohnort: wo\n" + "Strasse:  str\n" + "Hausnummer: n3\n" + "E-Mail: em\n" + "Telefonnummer: 059846874652\n" + "Geburtstag: Fri Nov 13 00:00:00 CET 1970\n" + "Fuehrerschein: C:\\Autoverleih\\Test2\n" + "Fuehrerscheindatum: Fri Nov 16 00:00:00 CET 2018\n" + "Fuehrerscheinklasse: ads\n";
         String result = instance.toString();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -64,7 +64,7 @@ public class KundeTest {
     @Test
     public void testGetKunden_ID() {
         System.out.println("getKunden_ID");
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
         int expResult = 2;
         int result = instance.getKunden_ID();
         assertEquals(expResult, result);
@@ -78,7 +78,7 @@ public class KundeTest {
     @Test
     public void testGetVorname() {
         System.out.println("getVorname");
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
         String expResult = "vn";
         String result = instance.getVorname();
         assertEquals(expResult, result);
@@ -92,7 +92,7 @@ public class KundeTest {
     @Test
     public void testGetNachname() {
         System.out.println("getNachname");
-        Kunde instance = new Kunde(2, "vn", "nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
+        Kunde instance = new Kunde(2, "vn", "nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
         String expResult = "nn";
         String result = instance.getNachname();
         assertEquals(expResult, result);
@@ -106,9 +106,9 @@ public class KundeTest {
     @Test
     public void testGetPostleitzahl() {
         System.out.println("getPostleitzahl");
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
-        int expResult = 9045;
-        int result = instance.getPostleitzahl();
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
+        String expResult = "05984";
+        String result = instance.getPostleitzahl();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -120,7 +120,7 @@ public class KundeTest {
     @Test
     public void testGetWohnort() {
         System.out.println("getWohnort");
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
         String expResult = "wo";
         String result = instance.getWohnort();
         assertEquals(expResult, result);
@@ -134,7 +134,7 @@ public class KundeTest {
     @Test
     public void testGetStrasse() {
         System.out.println("getStrasse");
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", "str", "n3", "em", 134, Geb,  FS, FD, "ads" );
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", "str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
         String expResult = "str";
         String result = instance.getStrasse();
         assertEquals(expResult, result);
@@ -148,7 +148,7 @@ public class KundeTest {
     @Test
     public void testGetHausnummer() {
         System.out.println("getHausnummer");
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
         String expResult = "n3";
         String result = instance.getHausnummer();
         assertEquals(expResult, result);
@@ -162,7 +162,7 @@ public class KundeTest {
     @Test
     public void testGetE_Mail() {
         System.out.println("getE_Mail");
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
         String expResult = "em";
         String result = instance.getE_Mail();
         assertEquals(expResult, result);
@@ -176,9 +176,9 @@ public class KundeTest {
     @Test
     public void testGetTelefonnummer() {
         System.out.println("getTelefonnummer");
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
-        int expResult =134;
-        int result = instance.getTelefonnummer();
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
+        String expResult ="059846874652";
+        String result = instance.getTelefonnummer();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -190,7 +190,7 @@ public class KundeTest {
     @Test
     public void testGetGeburtstag() {
         System.out.println("getGeburtstag");
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
         Date expResult = Geb;
         Date result = instance.getGeburtstag();
         assertEquals(expResult, result);
@@ -204,7 +204,7 @@ public class KundeTest {
     @Test
     public void testGetFuehrerschein() {
         System.out.println("getFuehrerschein");
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
         File expResult = FS;
         File result = instance.getFuehrerschein();
         assertEquals(expResult, result);
@@ -218,7 +218,7 @@ public class KundeTest {
     @Test
     public void testGetFuehrerscheindatum() {
         System.out.println("getFuehrerscheindatum");
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
         Date expResult = FD;
         Date result = instance.getFuehrerscheindatum();
         assertEquals(expResult, result);
@@ -232,7 +232,7 @@ public class KundeTest {
     @Test
     public void testGetFuehrerscheinklasse() {
         System.out.println("getFuehrerscheinklasse");
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
         String expResult = "ads";
         String result = instance.getFuehrerscheinklasse();
         assertEquals(expResult, result);
@@ -247,7 +247,7 @@ public class KundeTest {
     public void testSetKunden_ID() {
         System.out.println("setKunden_ID");
         int Kunden_ID = 3;
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
         instance.setKunden_ID(Kunden_ID);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -260,7 +260,7 @@ public class KundeTest {
     public void testSetVorname() {
         System.out.println("setVorname");
         String Vorname = "fds";
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
         instance.setVorname(Vorname);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -273,7 +273,7 @@ public class KundeTest {
     public void testSetNachname() {
         System.out.println("setNachname");
         String Nachname = "fsg";
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
         instance.setNachname(Nachname);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -285,8 +285,8 @@ public class KundeTest {
     @Test
     public void testSetPostleitzahl() {
         System.out.println("setPostleitzahl");
-        int Postleitzahl = 064;
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
+        String Postleitzahl = "06489";
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
         instance.setPostleitzahl(Postleitzahl);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -299,7 +299,7 @@ public class KundeTest {
     public void testSetWohnort() {
         System.out.println("setWohnort");
         String Wohnort = "fds";
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
         instance.setWohnort(Wohnort);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -312,7 +312,7 @@ public class KundeTest {
     public void testSetStrasse() {
         System.out.println("setStrasse");
         String Strasse = "jg";
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
         instance.setStrasse(Strasse);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -325,7 +325,7 @@ public class KundeTest {
     public void testSetHausnummer() {
         System.out.println("setHausnummer");
         String Hausnummer = "jhg";
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
         instance.setHausnummer(Hausnummer);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -338,7 +338,7 @@ public class KundeTest {
     public void testSetE_Mail() {
         System.out.println("setE_Mail");
         String E_Mail = "jhg";
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
         instance.setE_Mail(E_Mail);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -350,8 +350,8 @@ public class KundeTest {
     @Test
     public void testSetTelefonnummer() {
         System.out.println("setTelefonnummer");
-        int Telefonnummer = 78;
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
+        String Telefonnummer = "78879412318";
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
         instance.setTelefonnummer(Telefonnummer);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -364,7 +364,7 @@ public class KundeTest {
     public void testSetGeburtstag() {
         System.out.println("setGeburtstag");
         Date Geburtstag = FD;
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
         instance.setGeburtstag(Geburtstag);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -377,7 +377,7 @@ public class KundeTest {
     public void testSetFuehrerschein() {
         System.out.println("setFuehrerschein");
         File Fuehrerschein = FS2;
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
         instance.setFuehrerschein(Fuehrerschein);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -390,7 +390,7 @@ public class KundeTest {
     public void testSetFuehrerscheindatum() {
         System.out.println("setFuehrerscheindatum");
         Date Fuehrerscheindatum = Geb;
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
         instance.setFuehrerscheindatum(Fuehrerscheindatum);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -403,7 +403,7 @@ public class KundeTest {
     public void testSetFuehrerscheinklasse() {
         System.out.println("setFuehrerscheinklasse");
         String Fuehrerscheinklasse = "uh";
-        Kunde instance = new Kunde(2, "vn"," nn", 9045, "wo", " str", "n3", "em", 134, Geb,  FS, FD, "ads" );
+        Kunde instance = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", Geb,  FS, FD, "ads" );
         instance.setFuehrerscheinklasse(Fuehrerscheinklasse);
         // TODO review the generated test code and remove the default call to fail.
         //
