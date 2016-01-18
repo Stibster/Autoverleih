@@ -67,7 +67,7 @@ public class LoginPopUpController implements Initializable {
         int Adminhash = 3506402;
         int Mitarbeiterhash = 103149417;
         
-	if (nameText.getText().equals("root") && Hash == Adminhash) { //pass = root
+	if (nameText.getText().equals("Administrator") && Hash == Adminhash) { //pass = root
 	    try {
 		Stage popUp = (Stage) label.getScene().getWindow();
 		Stage stage = (Stage) popUp.getOwner();
