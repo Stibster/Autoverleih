@@ -115,7 +115,7 @@ public class Sprint_1_Tester
                  System.out.println("Vorname: ");
                  kunde.setVorname(eingabe.readString());
                  System.out.println("Postleitzahl: ");
-                 kunde.setPostleitzahl(eingabe.readint());
+                 kunde.setPostleitzahl(eingabe.readString());
                  System.out.println("Wohnort: ");
                  kunde.setWohnort(eingabe.readString());
                  System.out.println("Straße: ");
@@ -174,7 +174,7 @@ public class Sprint_1_Tester
                  System.out.println("Vorname: ");
                  kunde.setVorname(eingabe.readString());
                  System.out.println("Postleitzahl: ");
-                 kunde.setPostleitzahl(eingabe.readint());
+                 kunde.setPostleitzahl(eingabe.readString());
                  System.out.println("Wohnort: ");
                  kunde.setWohnort(eingabe.readString());
                  System.out.println("Straße: ");
