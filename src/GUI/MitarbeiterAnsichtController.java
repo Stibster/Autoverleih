@@ -46,21 +46,18 @@ public class MitarbeiterAnsichtController implements Initializable {
     @FXML    private MenuItem changeUser;
     @FXML    private TextArea CusText;
     @FXML    private TextArea CarText;
+    @FXML    private MenuItem vfalShow;
+    @FXML    private MenuItem about;    
     private final String path = "TestDatenbank.xml";
     private String ausgabe = "";
     private MetaController MC = new MetaController();
-    @FXML
-    private MenuItem vfalShow;
-    @FXML
-    private MenuItem about;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        showAllCars();
-        showAllCust();
+        refresh();
     }
 
     @FXML
@@ -127,7 +124,8 @@ public class MitarbeiterAnsichtController implements Initializable {
 	    popUp.showAndWait();
 	} catch (IOException ex) {
 	    Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
-	}	
+	}
+        refresh();
     }
     
     /**********erstellt: Denis Bursillon********************************************/
@@ -146,6 +144,7 @@ public class MitarbeiterAnsichtController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        refresh();
     }
     
     /**********erstellt: Denis Bursillon********************************************/
@@ -201,8 +200,48 @@ public class MitarbeiterAnsichtController implements Initializable {
             Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+     
+    //Haack Christopher ######################
+    @FXML
+    private void handleAusleiheShowMenue(ActionEvent event) {
+	 Stage popUp = new Stage();
+        popUp.setTitle("Verleihen anzeigen");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("VfallShow.fxml"));
 
-     /**********erstellt: Denis Bursillon********************************************/
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void handleaboutmenue(ActionEvent event) {
+	Stage popUp = new Stage();
+        popUp.setTitle("About");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("hilfepopup.fxml"));
+            
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void handleCloseMenue(ActionEvent event) {
+	System.exit(0);
+    }
+
+         /**********erstellt: Denis Bursillon********************************************/
     @FXML
     private void handleChangeUserMenue(ActionEvent event) {
 	Stage popUp = new Stage();
@@ -218,6 +257,7 @@ public class MitarbeiterAnsichtController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        refresh();
     }
 
     @FXML
@@ -272,43 +312,10 @@ public class MitarbeiterAnsichtController implements Initializable {
     }
 
     
-    //Haack Christopher ######################
-    @FXML
-    private void handleAusleiheShowMenue(ActionEvent event) {
-	 Stage popUp = new Stage();
-        popUp.setTitle("Verleihen anzeigen");
-        Parent Page;
-        try {
-            Page = FXMLLoader.load(getClass().getResource("VfallShow.fxml"));
-
-            popUp.setScene(new Scene(Page));
-            popUp.initModality(Modality.APPLICATION_MODAL);
-            popUp.initOwner(saveBTN.getScene().getWindow());
-            popUp.showAndWait();
-        } catch (IOException ex) {
-            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @FXML
-    private void handleaboutmenue(ActionEvent event) {
-	Stage popUp = new Stage();
-        popUp.setTitle("About");
-        Parent Page;
-        try {
-            Page = FXMLLoader.load(getClass().getResource("hilfepopup.fxml"));
-            
-            popUp.setScene(new Scene(Page));
-            popUp.initModality(Modality.APPLICATION_MODAL);
-            popUp.initOwner(saveBTN.getScene().getWindow());
-            popUp.showAndWait();
-        } catch (IOException ex) {
-            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @FXML
-    private void handleCloseMenue(ActionEvent event) {
-	System.exit(0);
+    private void refresh() {
+        CusText.clear();
+        showAllCust();
+        CarText.clear();
+        showAllCars();
     }
 }
