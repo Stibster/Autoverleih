@@ -271,13 +271,13 @@ public void clearAusleihen(){
             }
         }
     }
-    public void removeAusleihe(int K_ID, int A_ID){
+    public void removeAusleihe(int A_ID){
         int i = 0;
         boolean indikator = false;
 
         while (i < Ausleihen.size() && indikator == false) { //Suche bis zum Ende der Liste.
 
-            if (Ausleihen.get(i).getKunden_ID() == K_ID &&Ausleihen.get(i).getAuto_ID() == A_ID) {
+            if (Ausleihen.get(i).getAusleihe_ID()== A_ID) {
                 Ausleihen.remove(i);
                 indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
             } else {

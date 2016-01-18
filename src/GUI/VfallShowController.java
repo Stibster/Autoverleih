@@ -87,7 +87,8 @@ public class VfallShowController implements Initializable {
         aid = MC_Hammer.DBV.getAusleihebyID(ausid).getAuto_ID();
         }
 	
-        
+        getA_ID_Label.setTextFill(Color.BLACK);
+        warningAdmin.setVisible(false);
 	
 	switch (fehler) {
 	    case 1:

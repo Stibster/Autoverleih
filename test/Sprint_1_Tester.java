@@ -299,13 +299,10 @@ public class Sprint_1_Tester
                  int KID;
                  System.out.println("Welches Ausleihe wollen sie bearbeiten?");
                  
-                 System.out.println("AutoID: ");
+                 System.out.println("AusleiheID: ");
                  AID = eingabe.readint();
                  
-                 System.out.println("KudnenID: ");
-                 KID = eingabe.readint();
-                 
-                 DBV.removeAusleihe(KID,AID);
+                 DBV.removeAusleihe(AID);
                  
                  Ausleihe ausleihe = new Ausleihe();
                  System.out.println("---Neue Ausleihe---");
@@ -333,13 +330,10 @@ public class Sprint_1_Tester
                  int KID;
                  System.out.println("Welches Ausleihe wollen sie löschen?");
                  
-                 System.out.println("AutoID: ");
+                 System.out.println("AusleiheID: ");
                  AID = eingabe.readint();
                  
-                 System.out.println("KudnenID: ");
-                 KID = eingabe.readint();
-                 
-                 DBV.removeAusleihe(KID,AID);
+                 DBV.removeAusleihe(AID);
              }
              
              

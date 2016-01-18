@@ -76,7 +76,7 @@ public class LoginPopUpController implements Initializable {
 		Logger.getLogger(MitarbeiterAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
 	    }
 	}
-	if (nameText.getText().equals("a") && passText.getText().equals("a")) {
+	if (nameText.getText().equals("Mitarbeiter") && passText.getText().equals("a")) {
 	    try {
 		Stage popUp = (Stage) label.getScene().getWindow();
 		Stage stage = (Stage) popUp.getOwner();
