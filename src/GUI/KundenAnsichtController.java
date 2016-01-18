@@ -203,4 +203,9 @@ public class KundenAnsichtController implements Initializable {
             Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @FXML
+    private void handelCloseMenue(ActionEvent event) {
+	System.exit(0);
+    }
 }

@@ -30,7 +30,7 @@
                   <MenuItem fx:id="carCreate" mnemonicParsing="false" onAction="#handleCarCreateMenue" text="Fahrzeug Erstellen" />
                   <MenuItem fx:id="carChange" mnemonicParsing="false" onAction="#handleCarChangeMenue" text="Fahrzeug Bearbeiten" />
                   <MenuItem fx:id="carDel" mnemonicParsing="false" onAction="#handleCarDelMenue" text="Fahrzeug Löschen" />
-                  <MenuItem mnemonicParsing="false" text="Schließen" />
+                  <MenuItem mnemonicParsing="false" onAction="#handlCloseMenue" text="Schließen" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Login">

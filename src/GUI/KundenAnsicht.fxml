@@ -65,7 +65,7 @@
          <menus>
             <Menu mnemonicParsing="false" text="Werkzeuge">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Schließen" />
+                  <MenuItem mnemonicParsing="false" onAction="#handelCloseMenue" text="Schließen" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Login">

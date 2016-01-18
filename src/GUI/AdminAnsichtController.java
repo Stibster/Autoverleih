@@ -344,4 +344,9 @@ public class AdminAnsichtController implements Initializable  {
             Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @FXML
+    private void handlCloseMenue(ActionEvent event) {
+	System.exit(0);
+    }
 }

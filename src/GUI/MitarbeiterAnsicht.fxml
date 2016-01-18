@@ -48,7 +48,7 @@
                   <MenuItem fx:id="vfalShow" mnemonicParsing="false" onAction="#handleAusleiheShowMenue" text="Vermietungsfälle Anzeigen" />
                   <MenuItem fx:id="carRaus" mnemonicParsing="false" onAction="#handleCarRausMenue" text="Fahrzeug Abholen" />
                   <MenuItem fx:id="carRein" mnemonicParsing="false" onAction="#handleCarReinMenue" text="Fahrzeug Rückgabe" />
-                  <MenuItem mnemonicParsing="false" text="Schließen" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleCloseMenue" text="Schließen" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Login">

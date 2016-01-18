@@ -306,4 +306,9 @@ public class MitarbeiterAnsichtController implements Initializable {
             Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @FXML
+    private void handleCloseMenue(ActionEvent event) {
+	System.exit(0);
+    }
 }
