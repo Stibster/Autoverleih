@@ -44,11 +44,13 @@
             <Label fx:id="getA_ID_Label" layoutX="14.0" layoutY="14.0" text="Ausleihe ID" />
          </children>
       </HBox>
-      <HBox layoutX="14.0" layoutY="37.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="200.0">
+      <HBox layoutX="14.0" layoutY="37.0" spacing="20.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="200.0">
          <children>
             <TextField fx:id="getA_ID" layoutX="14.0" layoutY="32.0" prefHeight="26.0" prefWidth="136.0" promptText="Ausleihe ID" />
             <Label fx:id="warningAdmin" text="Admin Holen" textFill="BLUE" visible="false" />
             <Button fx:id="showAfall" layoutX="275.0" layoutY="27.0" mnemonicParsing="false" onAction="#handleShowAfallButton" text="Anzeigen" />
+            <Button fx:id="delete" mnemonicParsing="false" onAction="#handleDeleteButton" text="Löschen" />
+            <Button fx:id="create" mnemonicParsing="false" onAction="#handleCreateButton" text="Erstellen" />
          </children>
       </HBox>
       <Label fx:id="warningAfall" layoutX="229.0" layoutY="14.0" text="Keine Ausleihe vorhanden" textFill="RED" visible="false" />

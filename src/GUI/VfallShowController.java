@@ -48,6 +48,10 @@ public class VfallShowController implements Initializable {
     @FXML    private Label getA_ID_Label;
     @FXML    private Label warningAdmin;
     @FXML    private Label warningAfall;
+    @FXML
+    private Button delete;
+    @FXML
+    private Button create;
     /**
      * Initializes the controller class.
      */
@@ -161,5 +165,13 @@ public class VfallShowController implements Initializable {
 	}
         
     return -2;}
+
+    @FXML
+    private void handleDeleteButton(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleCreateButton(ActionEvent event) {
+    }
     
 }
