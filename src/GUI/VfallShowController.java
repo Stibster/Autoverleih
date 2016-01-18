@@ -177,6 +177,38 @@ public class VfallShowController implements Initializable {
 
     @FXML
     private void handleDeleteButton(ActionEvent event) {
+	
+	int ausid = 0;
+	int fehler = 0;
+	fehler =  abgleich(ausid);
+	
+	ausid = Integer.parseInt(getA_ID.getText());
+	
+	getA_ID_Label.setTextFill(Color.BLACK);
+        warningAdmin.setVisible(false);
+	
+	switch (fehler) {
+	    case 1:
+		
+		MC_Hammer.DBV.removeAusleihe(ausid);
+		MC_Hammer.DBV.save(path);
+		bestätigung();
+		
+		
+		break;
+	    case -1:
+                getA_ID_Label.setTextFill(Color.RED);
+		warningAdmin.setVisible(false);
+		warningAfall.setVisible(false);
+		
+		break;
+	    default:
+		getA_ID_Label.setTextFill(Color.BLACK);
+		warningAdmin.setVisible(true);
+		warningAfall.setVisible(false);
+		
+		break;
+	}
     }
 
     @FXML
@@ -190,6 +222,22 @@ public class VfallShowController implements Initializable {
             popUp.setScene(new Scene(Page));
             popUp.initModality(Modality.APPLICATION_MODAL);
             popUp.initOwner(create.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void bestätigung(){
+        Stage popUp = new Stage();
+        popUp.setTitle("Bestätigung");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("Bestetigung.fxml"));
+
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(delete.getScene().getWindow());
             popUp.showAndWait();
         } catch (IOException ex) {
             Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);

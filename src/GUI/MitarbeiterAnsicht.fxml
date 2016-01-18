@@ -14,7 +14,7 @@
         <URL value="@Stylesheet.css" />
     </stylesheets>
     <children>
-      <Button fx:id="saveBTN" layoutX="1044.0" layoutY="861.0" mnemonicParsing="false" onAction="#handleSaveExit" text="Speichern und Beenden" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+      <Button fx:id="saveBTN" layoutX="1044.0" layoutY="861.0" mnemonicParsing="false" onAction="#handleSaveExit" text="Speichern und Beenden" visible="false" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
       <Separator layoutX="14.0" layoutY="71.0" prefHeight="0.0" prefWidth="1209.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="71.0" />
       <Button fx:id="beispielBTN" layoutX="1078.0" layoutY="35.0" mnemonicParsing="false" onAction="#handleBeispiel" text="Zeige Beispiel" visible="false" AnchorPane.rightAnchor="33.0" AnchorPane.topAnchor="35.0" />
       <HBox alignment="CENTER" layoutY="102.0" spacing="30.0" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="102.0">
