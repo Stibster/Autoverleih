@@ -68,6 +68,7 @@ public class MitarbeiterAnsichtController implements Initializable {
     private void handleBeispiel(ActionEvent event) {
     }
 
+    /**********erstellt: Denis Bursillon********************************************/
     @FXML
     private void handleLogin() {
         Stage popUp = new Stage();
@@ -85,6 +86,7 @@ public class MitarbeiterAnsichtController implements Initializable {
         }
     }
     
+    /**********erstellt: Denis Bursillon********************************************/
     @FXML
     private void handleLogOut(ActionEvent event) {
         Stage stage = (Stage) saveBTN.getScene().getWindow();
@@ -106,6 +108,7 @@ public class MitarbeiterAnsichtController implements Initializable {
     private void handleSearch(ActionEvent event) {
     }
     
+    /**********erstellt: Denis Bursillon********************************************/
     @FXML 
     private void handleAddUserMenue() throws InterruptedException{
 	Stage popUp = new Stage();
@@ -123,6 +126,7 @@ public class MitarbeiterAnsichtController implements Initializable {
 	}	
     }
     
+    /**********erstellt: Denis Bursillon********************************************/
     @FXML
     private void handleDelUserMenue(){
         Stage popUp = new Stage();
@@ -140,6 +144,7 @@ public class MitarbeiterAnsichtController implements Initializable {
         }
     }
     
+    /**********erstellt: Denis Bursillon********************************************/
     @FXML
     private void handleAusleiheMenue(){
         Stage popUp = new Stage();
@@ -157,7 +162,7 @@ public class MitarbeiterAnsichtController implements Initializable {
         }
     }
     
-    
+    /**********erstellt: Denis Bursillon********************************************/
     @FXML
      private void handleCarRausMenue(){
         Stage popUp = new Stage();
@@ -175,7 +180,7 @@ public class MitarbeiterAnsichtController implements Initializable {
         }
     }
     
-    
+    /**********erstellt: Denis Bursillon********************************************/
     @FXML
      private void handleCarReinMenue(){
         Stage popUp = new Stage();
@@ -193,6 +198,7 @@ public class MitarbeiterAnsichtController implements Initializable {
         }
     }
 
+     /**********erstellt: Denis Bursillon********************************************/
     @FXML
     private void handleChangeUserMenue(ActionEvent event) {
 	Stage popUp = new Stage();
@@ -216,6 +222,7 @@ public class MitarbeiterAnsichtController implements Initializable {
         showAllCust();
     }
     
+    /**********erstellt: Denis Bursillon********************************************/
     private void showAllCars(){
         int i = 0;
         MC.DBV.restore(path);
@@ -229,6 +236,9 @@ public class MitarbeiterAnsichtController implements Initializable {
         }
         CarText.setText(ausgabe);
     }
+    
+    /**********erstellt: Denis Bursillon********************************************/
+    /**********fertiggestellt:          ********************************************/
     private void showAllCust(){
         int i = 0;
         MC.DBV.restore(path);

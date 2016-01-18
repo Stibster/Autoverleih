@@ -2,6 +2,7 @@ package GUI;
 
 import autoverleih.MetaController;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -58,51 +59,15 @@ public class KundenAnsichtController implements Initializable {
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb)  {
         try {
-            MC_Hammer.DBV.restore(pfad);
-        } catch (Exception e) {
-            MC_Hammer.DBV.save(pfad);
-            System.err.println(e);
-            System.out.println("Neue Datenbank erstellt");
-        }     
-        int i;
-        if (!MC_Hammer.DBV.Autos.isEmpty()) {
-
-            for (i = 0; i < MC_Hammer.DBV.Autos.size(); i++) {
-                Image image = new Image(MC_Hammer.DBV.Autos.get(i).getFotoString());
-                ImageView imageView = new ImageView();
-                int i2 = i;
-                
-                imageView.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
-                    String Hersteller = MC_Hammer.DBV.Autos.get(i2).getHersteller();
-                    String modell = MC_Hammer.DBV.Autos.get(i2).getModell();
-                    String Farbe = MC_Hammer.DBV.Autos.get(i2).getFarbe();
-                    String leistung = String.valueOf(MC_Hammer.DBV.Autos.get(i2).getLeistung() + " PS");
-                    String sitze = String.valueOf(MC_Hammer.DBV.Autos.get(i2).getSitzplaetze() + " Sitzplätze");
-                    String kosten = String.valueOf(MC_Hammer.DBV.Autos.get(i2).getGebuehr_pro_Tag() + " € Pro Tag");
-                    Image imageBig = new Image(MC_Hammer.DBV.Autos.get(i2).getFotoString());
-
-                    @Override
-                    public void handle(MouseEvent event) {
-                        markeText.setText(Hersteller);
-                        modellText.setText(modell);
-                        FarbeText.setText(Farbe);
-                        leistungText.setText(leistung);
-                        sitzeText.setText(sitze);
-                        kostenText.setText(kosten);
-                        showView.setImage(imageBig);
-                    }
-                });
-                imageView.setFitHeight(75);
-                //        imageView.setFitWidth(80);
-                imageView.setPreserveRatio(true);
-                imageView.setImage(image);
-                tile.getChildren().add(imageView);
-            }
+            showCars();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(KundenAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
+    /**********erstellt: Denis Bursillon********************************************/
     @FXML
     private void handleLogin() {
         Stage popUp = new Stage();
@@ -144,6 +109,8 @@ public class KundenAnsichtController implements Initializable {
     private void handleSaveExit(ActionEvent event) {
         System.exit(0);
     }
+    
+    /**********erstellt: Denis Bursillon********************************************/
     @FXML
     private void handleShorty(ActionEvent event) throws IOException{
         Stage stage = (Stage) saveBTN.getScene().getWindow();
@@ -159,4 +126,51 @@ public class KundenAnsichtController implements Initializable {
         stage.setScene(new Scene(Page));
     }
     //#######################################
+    
+    
+    /**********erstellt: Denis Bursillon********************************************/
+    private void showCars() throws MalformedURLException {
+        try {
+            MC_Hammer.DBV.restore(pfad);
+        } catch (Exception e) {
+            MC_Hammer.DBV.save(pfad);
+            System.err.println(e);
+            System.out.println("Neue Datenbank erstellt");
+        }
+        int i;
+        if (!MC_Hammer.DBV.Autos.isEmpty()) {
+
+            for (i = 0; i < MC_Hammer.DBV.Autos.size(); i++) {
+                Image image = new Image(MC_Hammer.DBV.Autos.get(i).getFotoString());
+                ImageView imageView = new ImageView();
+                int i2 = i;
+
+                imageView.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+                    String Hersteller = MC_Hammer.DBV.Autos.get(i2).getHersteller();
+                    String modell = MC_Hammer.DBV.Autos.get(i2).getModell();
+                    String Farbe = MC_Hammer.DBV.Autos.get(i2).getFarbe();
+                    String leistung = String.valueOf(MC_Hammer.DBV.Autos.get(i2).getLeistung() + " PS");
+                    String sitze = String.valueOf(MC_Hammer.DBV.Autos.get(i2).getSitzplaetze() + " Sitzplätze");
+                    String kosten = String.valueOf(MC_Hammer.DBV.Autos.get(i2).getGebuehr_pro_Tag() + " € Pro Tag");
+                    Image imageBig = new Image(MC_Hammer.DBV.Autos.get(i2).getFotoString());
+
+                    @Override
+                    public void handle(MouseEvent event) {
+                        markeText.setText(Hersteller);
+                        modellText.setText(modell);
+                        FarbeText.setText(Farbe);
+                        leistungText.setText(leistung);
+                        sitzeText.setText(sitze);
+                        kostenText.setText(kosten);
+                        showView.setImage(imageBig);
+                    }
+                });
+                imageView.setFitHeight(75);
+                //        imageView.setFitWidth(80);
+                imageView.setPreserveRatio(true);
+                imageView.setImage(image);
+                tile.getChildren().add(imageView);
+            }
+        }
+    }
 }

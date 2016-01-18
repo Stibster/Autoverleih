@@ -1,5 +1,7 @@
 /*
  * Empty Stylesheet file.
+ * /**********erstellt: Denis Bursillon********************************************
+ * 
  */
 
 .mainFxmlClass {
@@ -12,7 +14,8 @@
     -fx-background-color: #888888;
 }
 .scroll-pane > .viewport{
-    -fx-background-color: #458651;
+//    -fx-background-color: #458651;
+    -fx-background-color: #686868;
 }
 #scroll-pane1 > .viewport{
     -fx-background-color: #685214;

@@ -75,6 +75,8 @@ public class AdminAnsichtController implements Initializable  {
     /**
      * Initializes the controller class.
      */
+    
+    /**********erstellt: Denis Bursillon********************************************/
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
@@ -84,6 +86,7 @@ public class AdminAnsichtController implements Initializable  {
         }
     }
 
+    /**********erstellt: Denis Bursillon********************************************/
     @FXML
     private void handleLogOut(ActionEvent event) {
         Stage stage = (Stage) saveBTN.getScene().getWindow();
@@ -106,6 +109,7 @@ public class AdminAnsichtController implements Initializable  {
         System.exit(0);
     }
 
+    /**********erstellt: Denis Bursillon********************************************/
     @FXML
     private void handleCarCreateMenue(ActionEvent event) throws MalformedURLException {
 	Stage popUp = new Stage();
@@ -229,11 +233,13 @@ public class AdminAnsichtController implements Initializable  {
         refreshTile();
     }
 
+    /**********erstellt: Denis Bursillon********************************************/
     private void refreshTile() throws MalformedURLException {
         tile.getChildren().clear();  
         fillTile();
     }
     
+    /**********erstellt: Denis Bursillon********************************************/
     private void fillTile() throws MalformedURLException {
         MC_Hammer.DBV.restore(pfad);
         int i;
@@ -276,12 +282,11 @@ public class AdminAnsichtController implements Initializable  {
                         FileChooser fileChooser = new FileChooser();
                         fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
                         File file = fileChooser.showOpenDialog(tile.getScene().getWindow());
-                        try {
-                            System.out.println("" + file.toURI().toURL().toString());
-                        } catch (MalformedURLException ex) {
-                            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-
+//                        try {
+//                            System.out.println("" + file.toURI().toURL().toString());
+//                        } catch (MalformedURLException ex) {
+//                            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+//                        }
                         MC_Hammer.DBV.Autos.get(i2).setFoto(file);
                         MC_Hammer.DBV.save(pfad);
                         try {
@@ -302,6 +307,7 @@ public class AdminAnsichtController implements Initializable  {
         }
     }
     
+    /**********erstellt: Denis Bursillon********************************************/
     private void bestätigung(){
         Stage popUp = new Stage();
         popUp.setTitle("Bestätigung");
