@@ -322,7 +322,7 @@ public class MetaController {
         String Plz = "\\d{5}";
         //Prüft ob Eingaberegeln mit Eingabe übereinstimmen
         
-        String Name = "[A-Z][a-zA-Z]*";
+        String Name = "^[A-Z][a-zA-Z]*(\\W[A-Z][a-zA-Z]*)*$";
         p = Pattern.compile(Name);
         m = p.matcher(VN);
         boolean Vorname = m.matches();
@@ -443,7 +443,7 @@ public class MetaController {
         String Plz = "\\d{5}";
         //Prüft ob Eingaberegeln mit Eingabe übereinstimmen
         
-        String Name = "[A-Z][a-zA-Z]*";
+        String Name = "^[A-Z][a-zA-Z]*(\\W[A-Z][a-zA-Z]*)*$";
         p = Pattern.compile(Name);
         m = p.matcher(VN);
         boolean Vorname = m.matches();
