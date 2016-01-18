@@ -47,8 +47,9 @@
          </menus>
       </MenuBar>
       <Button fx:id="saveBTN" layoutX="1044.0" layoutY="861.0" mnemonicParsing="false" onAction="#handleSaveExit" text="Speichern und Beenden" visible="false" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-      <VBox alignment="CENTER" layoutX="929.0" layoutY="336.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="BOTTOM_CENTER" layoutX="929.0" layoutY="336.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
+            <ImageView fx:id="showView" fitHeight="200.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" />
             <TextField fx:id="idText" layoutX="929.0" layoutY="336.0" prefHeight="25.0" promptText="ID">
                <VBox.margin>
                   <Insets />

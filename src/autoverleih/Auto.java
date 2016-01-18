@@ -5,6 +5,7 @@ Bitte alle Kommentare von euch mit euren Tag(Nickname) versehen und einem Hashta
 package autoverleih;
 
 import java.io.File;
+import java.net.MalformedURLException;
 import java.util.Date;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -114,8 +115,9 @@ public class Auto {
 	
     }
     
-    public String getFotoString() {
-        return Foto.getPath();
+    public String getFotoString() throws MalformedURLException {
+        return Foto.toURI().toURL().toString();
+//        return Foto.getPath();
 	
     }
     

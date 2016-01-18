@@ -44,8 +44,15 @@ public class KundenAnsichtController implements Initializable {
     @FXML    private TextField kostenText;
     @FXML    private MenuItem logOut;
     @FXML    private TilePane tile;
+    @FXML    private ImageView showView;
+    @FXML    private Button shorty;
+    @FXML    private Button shortyA;
+    
+    
+    
     MetaController MC_Hammer = new MetaController();
     String pfad = "Data/xml/TestDatenbank.xml";
+
     
     /**
      * Initializes the controller class.
@@ -58,8 +65,7 @@ public class KundenAnsichtController implements Initializable {
             MC_Hammer.DBV.save(pfad);
             System.err.println(e);
             System.out.println("Neue Datenbank erstellt");
-        }
-        
+        }     
         int i;
         if (!MC_Hammer.DBV.Autos.isEmpty()) {
 
@@ -67,15 +73,15 @@ public class KundenAnsichtController implements Initializable {
                 Image image = new Image(MC_Hammer.DBV.Autos.get(i).getFotoString());
                 ImageView imageView = new ImageView();
                 int i2 = i;
-
+                
                 imageView.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
-
                     String Hersteller = MC_Hammer.DBV.Autos.get(i2).getHersteller();
                     String modell = MC_Hammer.DBV.Autos.get(i2).getModell();
                     String Farbe = MC_Hammer.DBV.Autos.get(i2).getFarbe();
                     String leistung = String.valueOf(MC_Hammer.DBV.Autos.get(i2).getLeistung() + " PS");
                     String sitze = String.valueOf(MC_Hammer.DBV.Autos.get(i2).getSitzplaetze() + " Sitzplätze");
                     String kosten = String.valueOf(MC_Hammer.DBV.Autos.get(i2).getGebuehr_pro_Tag() + " € Pro Tag");
+                    Image imageBig = new Image(MC_Hammer.DBV.Autos.get(i2).getFotoString());
 
                     @Override
                     public void handle(MouseEvent event) {
@@ -85,9 +91,10 @@ public class KundenAnsichtController implements Initializable {
                         leistungText.setText(leistung);
                         sitzeText.setText(sitze);
                         kostenText.setText(kosten);
+                        showView.setImage(imageBig);
                     }
                 });
-                imageView.setFitHeight(100);
+                imageView.setFitHeight(75);
                 //        imageView.setFitWidth(80);
                 imageView.setPreserveRatio(true);
                 imageView.setImage(image);

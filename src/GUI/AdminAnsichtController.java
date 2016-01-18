@@ -38,7 +38,7 @@ import javafx.stage.Stage;
  *
  * @author Denis
  */
-public class AdminAnsichtController implements Initializable {
+public class AdminAnsichtController implements Initializable  {
 
     @FXML    private Button saveBTN;
     @FXML    private MenuItem logIn;
@@ -65,16 +65,23 @@ public class AdminAnsichtController implements Initializable {
     @FXML    private TilePane tile;
     @FXML    private Button scriptRndcar;
     @FXML    private Button testBtn;   
-     
+    @FXML    private ImageView showView;     
+    
+    
     MetaController MC_Hammer = new MetaController();
     String pfad = "Data/xml/TestDatenbank.xml";
+
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        try {
             fillTile();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
@@ -97,23 +104,10 @@ public class AdminAnsichtController implements Initializable {
     @FXML
     private void handleSaveExit(ActionEvent event) {
         System.exit(0);
-        
-        Stage stage = (Stage) saveBTN.getScene().getWindow();
-        Parent Page;
-        try {
-            Page = FXMLLoader.load(getClass().getResource("MitarbeiterAnsicht.fxml"));
-
-            Scene scene = new Scene(Page);
-
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(MitarbeiterAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     @FXML
-    private void handleCarCreateMenue(ActionEvent event) {
+    private void handleCarCreateMenue(ActionEvent event) throws MalformedURLException {
 	Stage popUp = new Stage();
 	popUp.setTitle("Auto Erstellen");
 	Parent Page;
@@ -131,7 +125,7 @@ public class AdminAnsichtController implements Initializable {
     }
     
     @FXML
-    private void handleRndCar(ActionEvent event) throws ParseException {
+    private void handleRndCar(ActionEvent event) throws ParseException, MalformedURLException {
 	MC_Hammer.DBV.restore(pfad);
 	MC_Hammer.DBV.randomAutos(Integer.parseInt(rndCarText.getText()));
 	MC_Hammer.DBV.save(pfad);
@@ -140,7 +134,7 @@ public class AdminAnsichtController implements Initializable {
     }
 
     @FXML
-    private void handleRndKunde(ActionEvent event) throws ParseException {
+    private void handleRndKunde(ActionEvent event) throws ParseException, MalformedURLException {
 	MC_Hammer.DBV.restore(pfad);
 	MC_Hammer.DBV.randomKunden(Integer.parseInt(rndCusText.getText()));
 	MC_Hammer.DBV.save(pfad);
@@ -149,7 +143,7 @@ public class AdminAnsichtController implements Initializable {
     }
 
     @FXML
-    private void handleCarDelMenue(ActionEvent event) {
+    private void handleCarDelMenue(ActionEvent event) throws MalformedURLException {
 	Stage popUp = new Stage();
         popUp.setTitle("Auto Löschen");
         Parent Page;
@@ -167,7 +161,7 @@ public class AdminAnsichtController implements Initializable {
     }
 
     @FXML
-    private void handleCarChangeMenue(ActionEvent event) {
+    private void handleCarChangeMenue(ActionEvent event) throws MalformedURLException {
 	Stage popUp = new Stage();
         popUp.setTitle("Auto Löschen");
         Parent Page;
@@ -186,7 +180,7 @@ public class AdminAnsichtController implements Initializable {
     }
 
     @FXML
-    private void handleClearButton(ActionEvent event) {
+    private void handleClearButton(ActionEvent event) throws MalformedURLException {
 	
         MC_Hammer.DBV.clearAll();
         MC_Hammer.DBV.save(pfad);
@@ -195,7 +189,7 @@ public class AdminAnsichtController implements Initializable {
     }
 
     @FXML
-    private void handleDbCarsDelButton(ActionEvent event) {
+    private void handleDbCarsDelButton(ActionEvent event) throws MalformedURLException {
         
         MC_Hammer.DBV.clearAutos();
         MC_Hammer.DBV.save(pfad);
@@ -221,7 +215,7 @@ public class AdminAnsichtController implements Initializable {
     }
 
     @FXML
-    private void handleScriptRndCarButton(ActionEvent event) throws ParseException {
+    private void handleScriptRndCarButton(ActionEvent event) throws ParseException, MalformedURLException {
         MC_Hammer.DBV.restore(pfad);
 	MC_Hammer.DBV.randomRealAutos(Integer.parseInt(rndCarText.getText()));
 	MC_Hammer.DBV.save(pfad);
@@ -231,16 +225,16 @@ public class AdminAnsichtController implements Initializable {
     }
     
     @FXML
-    private void handleTestBtn(ActionEvent event) {
+    private void handleTestBtn(ActionEvent event) throws MalformedURLException {
         refreshTile();
     }
 
-    private void refreshTile() {
+    private void refreshTile() throws MalformedURLException {
         tile.getChildren().clear();  
         fillTile();
     }
     
-    private void fillTile() {
+    private void fillTile() throws MalformedURLException {
         MC_Hammer.DBV.restore(pfad);
         int i;
         if (!MC_Hammer.DBV.Autos.isEmpty()) {
@@ -259,6 +253,7 @@ public class AdminAnsichtController implements Initializable {
                     String kosten = String.valueOf(MC_Hammer.DBV.Autos.get(i2).getGebuehr_pro_Tag() + " € Pro Tag");
                     String a_id = String.valueOf(MC_Hammer.DBV.Autos.get(i2).getAuto_ID());
                     String kennz = MC_Hammer.DBV.Autos.get(i2).getKennzeichen();
+                    Image imageBig = new Image(MC_Hammer.DBV.Autos.get(i2).getFotoString());
 
                     @Override
                     public void handle(MouseEvent event) {
@@ -270,6 +265,7 @@ public class AdminAnsichtController implements Initializable {
                         kostenText.setText(kosten);
                         idText.setText(a_id);
                         kennzeichenText.setText(kennz);
+                        showView.setImage(imageBig);
                     }
                 });
                 imageView.addEventHandler(ContextMenuEvent.CONTEXT_MENU_REQUESTED, new EventHandler<ContextMenuEvent>() {
@@ -278,13 +274,18 @@ public class AdminAnsichtController implements Initializable {
                     public void handle(ContextMenuEvent event) {
                         MC_Hammer.DBV.restore(pfad);
                         FileChooser fileChooser = new FileChooser();
+                        fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
                         File file = fileChooser.showOpenDialog(tile.getScene().getWindow());
                         try {
-                            String url = file.toURI().toURL().toString();
-                            MC_Hammer.DBV.Autos.get(i2).setFoto(file);
-                            MC_Hammer.DBV.save(pfad);
+                            System.out.println("" + file.toURI().toURL().toString());
+                        } catch (MalformedURLException ex) {
+                            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+
+                        MC_Hammer.DBV.Autos.get(i2).setFoto(file);
+                        MC_Hammer.DBV.save(pfad);
+                        try {
                             refreshTile();
-                            
                         } catch (MalformedURLException ex) {
                             Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
                         }
@@ -292,7 +293,7 @@ public class AdminAnsichtController implements Initializable {
                     }
                 });
                 
-                imageView.setFitHeight(100);
+                imageView.setFitHeight(75);
                 //        imageView.setFitWidth(80);
                 imageView.setPreserveRatio(true);
                 imageView.setImage(image);
@@ -303,7 +304,7 @@ public class AdminAnsichtController implements Initializable {
     
     private void bestätigung(){
         Stage popUp = new Stage();
-        popUp.setTitle("Bestetigung");
+        popUp.setTitle("Bestätigung");
         Parent Page;
         try {
             Page = FXMLLoader.load(getClass().getResource("Bestetigung.fxml"));
