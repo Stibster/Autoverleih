@@ -61,8 +61,13 @@ public class LoginPopUpController implements Initializable {
     }
     
     private void login(){
-	
-	if (nameText.getText().equals("root") && passText.getText().equals("root")) {
+	// Hashabfrage erstellt von Daniel Meerwald
+        String Passhash = passText.getText();
+        int Hash = Passhash.hashCode();
+        int Adminhash = 3506402;
+        int Mitarbeiterhash = 103149417;
+        
+	if (nameText.getText().equals("root") && Hash == Adminhash) { //pass = root
 	    try {
 		Stage popUp = (Stage) label.getScene().getWindow();
 		Stage stage = (Stage) popUp.getOwner();
@@ -76,7 +81,7 @@ public class LoginPopUpController implements Initializable {
 		Logger.getLogger(MitarbeiterAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
 	    }
 	}
-	if (nameText.getText().equals("Mitarbeiter") && passText.getText().equals("a")) {
+	if (nameText.getText().equals("Mitarbeiter") && Hash == Mitarbeiterhash) { // pass = login
 	    try {
 		Stage popUp = (Stage) label.getScene().getWindow();
 		Stage stage = (Stage) popUp.getOwner();
