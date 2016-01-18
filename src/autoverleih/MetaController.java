@@ -317,8 +317,8 @@ public class MetaController {
         }
 	
         //Legt Eingabe Regeln fest
-        String Buchstaben = "/^[a-z ,.'-]+$/i";
-        String Tel = "\\d{4,13}";//MUSS ÜBERARBEITET WERDEN LÄNGE 4-12
+        String Fsk = "^[ABCDTL][21ME]?[E]?$";
+        String Tel = "\\d{4,13}";
         String Plz = "\\d{5}";
         //Prüft ob Eingaberegeln mit Eingabe übereinstimmen
         
@@ -347,8 +347,8 @@ public class MetaController {
         boolean Hausnummer = m.matches();
         
         boolean Postleitzahl = PLZ.matches(Plz);
-  
-        boolean Telefonnummer = TN.matches(Tel);
+	boolean Telefonnummer = TN.matches(Tel);
+	boolean Fuehrerscheinklasse = FSK.matches(Fsk);
        
         //Prüft ob Alle Ergebnisse passen
         if (Indikator!=true){
@@ -383,11 +383,11 @@ public class MetaController {
             if (GEB == null){
                 Indikator = true;
                 indikator = -9;
-            }/*
-            if (FS == null){
+            }
+            if (Fuehrerscheinklasse == false){
                 Indikator = true;
                 indikator = -10;
-            }*/
+            }
             if (FSD == null){
                 Indikator = true;
                 indikator = -11;
@@ -438,8 +438,8 @@ public class MetaController {
         }
 	
         //Legt Eingabe Regeln fest
-        String Buchstaben = "/^[a-z ,.'-]+$/i";
-        String Tel = "\\d{4,13}";//MUSS ÜBERARBEITET WERDEN LÄNGE 4-12
+        String Fsk = "^[ABCDTL][21ME]?[E]?$";
+        String Tel = "\\d{4,13}";
         String Plz = "\\d{5}";
         //Prüft ob Eingaberegeln mit Eingabe übereinstimmen
         
@@ -468,8 +468,8 @@ public class MetaController {
         boolean Hausnummer = m.matches();
         
         boolean Postleitzahl = PLZ.matches(Plz);
-  
-        boolean Telefonnummer = TN.matches(Tel);
+ 	boolean Telefonnummer = TN.matches(Tel);
+        boolean Fuehrerscheinklasse = FSK.matches(Fsk);
        
         //Prüft ob Alle Ergebnisse passen
         if (Indikator!=true){
@@ -504,11 +504,11 @@ public class MetaController {
             if (GEB == null){
                 Indikator = true;
                 indikator = -9;
-            }/*
-            if (FS == null){
+            }
+            if (Fuehrerscheinklasse == false){
                 Indikator = true;
                 indikator = -10;
-            }*/
+            }
             if (FSD == null){
                 Indikator = true;
                 indikator = -11;
