@@ -14,9 +14,7 @@ public class Sprint_1_Tester
 {
        public static void main(String[] args) throws ParseException
     {
-        //Noch zu programmieren:    #Raicandy
-                //Überprüfen ob Datei  C:\\TestDatenbank.xml vorhanden ist, wenn nicht wird diese leer erstellt. #Raicandy
-            
+        
         Input eingabe = new Input();
 	DB_Verwalter DBV = new DB_Verwalter();
         String pfad = "C:\\TestDatenbank.xml";

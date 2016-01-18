@@ -123,7 +123,7 @@ public class VfallShowController implements Initializable {
 		break;
 		
     }
-    
+    }
     public void showAllAusleihe(){
         int i = 0;
 	int kID = 0;
