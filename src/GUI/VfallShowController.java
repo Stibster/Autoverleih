@@ -126,6 +126,7 @@ public class VfallShowController implements Initializable {
         int i = 0;
 	int kID = 0;
         int aID = 0;
+        vfall_text.clear();
         MC_Hammer.DBV.restore(path);
         ausgabe = "Anzahl gespeicherter Ausleihen derzeit: " + MC_Hammer.DBV.Ausleihen.size()+"\n\n";
         while (i < MC_Hammer.DBV.Ausleihen.size()) {
@@ -144,6 +145,7 @@ public class VfallShowController implements Initializable {
         vfall_text.setText(ausgabe);
         
     }
+    
     
     //1 kein fehler
     //-1 Ausleihe id falsch
@@ -180,10 +182,11 @@ public class VfallShowController implements Initializable {
 	
 	int ausid = 0;
 	int fehler = 0;
-	fehler =  abgleich(ausid);
+	
 	
 	ausid = Integer.parseInt(getA_ID.getText());
-	
+	fehler =  abgleich(ausid);
+        
 	getA_ID_Label.setTextFill(Color.BLACK);
         warningAdmin.setVisible(false);
 	
@@ -192,6 +195,7 @@ public class VfallShowController implements Initializable {
 		
 		MC_Hammer.DBV.removeAusleihe(ausid);
 		MC_Hammer.DBV.save(path);
+                showAllAusleihe();
 		bestätigung();
 		
 		
@@ -223,6 +227,7 @@ public class VfallShowController implements Initializable {
             popUp.initModality(Modality.APPLICATION_MODAL);
             popUp.initOwner(create.getScene().getWindow());
             popUp.showAndWait();
+            showAllAusleihe();
         } catch (IOException ex) {
             Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
