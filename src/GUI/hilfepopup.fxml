@@ -8,14 +8,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="GUI.HilfepopupController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.HilfepopupController">
     <stylesheets>
 	<URL value="@Stylesheet.css" />
     </stylesheets>
    <children>
       <Button fx:id="okBTN" layoutX="491.0" layoutY="341.0" mnemonicParsing="false" onAction="#handleOkBTN" text="OK" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
-      <Label fx:id="nameLabel" layoutX="121.0" layoutY="342.0" text="Label" />
+      <Label fx:id="nameLabel" layoutX="170.0" layoutY="200.0" text="Label" />
       <ImageView fx:id="imgView" fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-      <TextField fx:id="textfiel" layoutX="47.0" layoutY="200.0" prefHeight="132.0" prefWidth="520.0" />
    </children>
 </AnchorPane>
