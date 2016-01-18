@@ -270,7 +270,8 @@ public class AdminAnsichtController implements Initializable  {
                         kostenText.setText(kosten);
                         idText.setText(a_id);
                         kennzeichenText.setText(kennz);
-                        showView.setImage(imageBig);
+                        if (MC_Hammer.DBV.Autos.get(i2).getFoto().exists()) showView.setImage(imageBig);
+                        else showView.setImage(new Image("Data/dummy1.jpg"));
                     }
                 });
                 imageView.addEventHandler(ContextMenuEvent.CONTEXT_MENU_REQUESTED, new EventHandler<ContextMenuEvent>() {
