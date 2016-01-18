@@ -13,7 +13,7 @@
 	<URL value="@Stylesheet.css" />
     </stylesheets>
    <children>
-      <VBox layoutX="422.0" layoutY="14.0" spacing="50.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+      <VBox layoutX="422.0" layoutY="14.0" spacing="20.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
          <children>
             <VBox layoutX="437.0" layoutY="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
                <children>
@@ -23,6 +23,13 @@
                   <TextField fx:id="setK_Vorname" editable="false" layoutX="437.0" layoutY="91.0" promptText="Vorname" />
                   <TextField fx:id="setK_Tel" editable="false" layoutX="437.0" layoutY="117.0" promptText="Telefonnummer" />
                   <TextField fx:id="setK_Ort" editable="false" layoutX="437.0" layoutY="143.0" promptText="Wohnort" />
+               </children>
+            </VBox>
+            <VBox>
+               <children>
+                  <Label text="Datumsangaben" />
+                  <TextField fx:id="vonDate" editable="false" promptText="Von Datum" />
+                  <TextField fx:id="bisDate" editable="false" promptText="Bis Datum" />
                </children>
             </VBox>
             <VBox layoutX="437.0" layoutY="225.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0">
@@ -38,7 +45,7 @@
             </VBox>
          </children>
       </VBox>
-      <TextArea fx:id="vfall_text" editable="false" layoutX="14.0" layoutY="74.0" prefHeight="311.0" prefWidth="636.0" />
+      <TextArea fx:id="vfall_text" editable="false" layoutX="14.0" layoutY="74.0" prefHeight="369.0" prefWidth="636.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="77.0" />
       <HBox layoutX="14.0" layoutY="14.0" spacing="65.0" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="14.0">
          <children>
             <Label fx:id="getA_ID_Label" layoutX="14.0" layoutY="14.0" text="Ausleihe ID" />
