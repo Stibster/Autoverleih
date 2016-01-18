@@ -17,7 +17,7 @@ public class Sprint_1_Tester
         
         Input eingabe = new Input();
 	DB_Verwalter DBV = new DB_Verwalter();
-        String pfad = "C:\\TestDatenbank.xml";
+        String pfad = "/TestDatenbank.xml";
         String eingegeben;
         
         try (Scanner in = new Scanner(System.in)) { //Scanner zum einlesen.

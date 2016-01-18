@@ -24,16 +24,17 @@ public class AutoVerleih2 extends Application {
     
     @Override
     public void start(Stage stage) {
-
-	File datas = new File("Data/xml/TestDatenbank.xml");
+        
+        String pfad = "/TestDatenbank.xml";
+	File datas = new File(pfad);
 	if (datas.exists() == true) {
-	    MC.DBV.restore("Data/xml/TestDatenbank.xml");
+	    MC.DBV.restore(pfad);
 	} else {
-	    MC.DBV.save("Data/xml/TestDatenbank.xml");
+	    MC.DBV.save(pfad);
 	}
 	this.stage = stage;
 
-        stage.setTitle("Verleih Software ver.0.0.5");
+        stage.setTitle("Autoverleih Software - Finale Version 2. Sprint");
         Parent root; 
 	try {
 	    root = FXMLLoader.load(getClass().getResource("KundenAnsicht.fxml"));

@@ -23,7 +23,7 @@ public class MetaController {
 //##############erstellt von Daniel Meerwald####################################    
     Input eingabe = new Input();
     public DB_Verwalter DBV = new DB_Verwalter();
-    String pfad = "Data/xml/TestDatenbank.xml";
+    String pfad = "/TestDatenbank.xml";
     
     // 1 return alles erfolgreich gespeichert
     // 0 normal fall keine daten, nichts wird angezeigt

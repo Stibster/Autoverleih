@@ -69,7 +69,7 @@ public class AdminAnsichtController implements Initializable  {
     
     
     MetaController MC_Hammer = new MetaController();
-    String pfad = "Data/xml/TestDatenbank.xml";
+    String pfad = "/TestDatenbank.xml";
     @FXML
     private MenuItem about;
 
