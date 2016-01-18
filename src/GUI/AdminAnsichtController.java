@@ -6,7 +6,9 @@
 package GUI;
 
 import autoverleih.MetaController;
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.ParseException;
 import java.util.ResourceBundle;
@@ -24,8 +26,10 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.TilePane;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -131,19 +135,7 @@ public class AdminAnsichtController implements Initializable {
 	MC_Hammer.DBV.restore(pfad);
 	MC_Hammer.DBV.randomAutos(Integer.parseInt(rndCarText.getText()));
 	MC_Hammer.DBV.save(pfad);
-	Stage popUp = new Stage();
-        popUp.setTitle("Bestetigung");
-        Parent Page;
-        try {
-            Page = FXMLLoader.load(getClass().getResource("Bestetigung.fxml"));
-
-            popUp.setScene(new Scene(Page));
-            popUp.initModality(Modality.APPLICATION_MODAL);
-            popUp.initOwner(saveBTN.getScene().getWindow());
-            popUp.showAndWait();
-        } catch (IOException ex) {
-            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        bestätigung();
         refreshTile();
     }
 
@@ -152,19 +144,7 @@ public class AdminAnsichtController implements Initializable {
 	MC_Hammer.DBV.restore(pfad);
 	MC_Hammer.DBV.randomKunden(Integer.parseInt(rndCusText.getText()));
 	MC_Hammer.DBV.save(pfad);
-	Stage popUp = new Stage();
-        popUp.setTitle("Bestetigung");
-        Parent Page;
-        try {
-            Page = FXMLLoader.load(getClass().getResource("Bestetigung.fxml"));
-
-            popUp.setScene(new Scene(Page));
-            popUp.initModality(Modality.APPLICATION_MODAL);
-            popUp.initOwner(saveBTN.getScene().getWindow());
-            popUp.showAndWait();
-        } catch (IOException ex) {
-            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        bestätigung();
         refreshTile();
     }
 
@@ -210,19 +190,7 @@ public class AdminAnsichtController implements Initializable {
 	
         MC_Hammer.DBV.clearAll();
         MC_Hammer.DBV.save(pfad);
-	Stage popUp = new Stage();
-        popUp.setTitle("Bestetigung");
-        Parent Page;
-        try {
-            Page = FXMLLoader.load(getClass().getResource("Bestetigung.fxml"));
-
-            popUp.setScene(new Scene(Page));
-            popUp.initModality(Modality.APPLICATION_MODAL);
-            popUp.initOwner(saveBTN.getScene().getWindow());
-            popUp.showAndWait();
-        } catch (IOException ex) {
-            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        bestätigung();
         refreshTile();
     }
 
@@ -231,19 +199,7 @@ public class AdminAnsichtController implements Initializable {
         
         MC_Hammer.DBV.clearAutos();
         MC_Hammer.DBV.save(pfad);
-	Stage popUp = new Stage();
-        popUp.setTitle("Bestetigung");
-        Parent Page;
-        try {
-            Page = FXMLLoader.load(getClass().getResource("Bestetigung.fxml"));
-
-            popUp.setScene(new Scene(Page));
-            popUp.initModality(Modality.APPLICATION_MODAL);
-            popUp.initOwner(saveBTN.getScene().getWindow());
-            popUp.showAndWait();
-        } catch (IOException ex) {
-            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        bestätigung();
         refreshTile();
     }
 
@@ -253,19 +209,7 @@ public class AdminAnsichtController implements Initializable {
         MC_Hammer.DBV.clearKunden();
         MC_Hammer.DBV.save(pfad);
 	Stage popUp = new Stage();
-        popUp.setTitle("Bestetigung");
-        Parent Page;
-        try {
-            Page = FXMLLoader.load(getClass().getResource("Bestetigung.fxml"));
-
-            popUp.setScene(new Scene(Page));
-            popUp.initModality(Modality.APPLICATION_MODAL);
-            popUp.initOwner(saveBTN.getScene().getWindow());
-            popUp.showAndWait();
-        } catch (IOException ex) {
-            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        refreshTile();
+        bestätigung();
     }
 
     @FXML
@@ -273,19 +217,7 @@ public class AdminAnsichtController implements Initializable {
         
         MC_Hammer.DBV.clearAusleihen();
         MC_Hammer.DBV.save(pfad);
-	Stage popUp = new Stage();
-        popUp.setTitle("Bestetigung");
-        Parent Page;
-        try {
-            Page = FXMLLoader.load(getClass().getResource("Bestetigung.fxml"));
-
-            popUp.setScene(new Scene(Page));
-            popUp.initModality(Modality.APPLICATION_MODAL);
-            popUp.initOwner(saveBTN.getScene().getWindow());
-            popUp.showAndWait();
-        } catch (IOException ex) {
-            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        bestätigung();
     }
 
     @FXML
@@ -294,18 +226,7 @@ public class AdminAnsichtController implements Initializable {
 	MC_Hammer.DBV.randomRealAutos(Integer.parseInt(rndCarText.getText()));
 	MC_Hammer.DBV.save(pfad);
 	Stage popUp = new Stage();
-        popUp.setTitle("Bestätigung");
-        Parent Page;
-        try {
-            Page = FXMLLoader.load(getClass().getResource("Bestetigung.fxml"));
-
-            popUp.setScene(new Scene(Page));
-            popUp.initModality(Modality.APPLICATION_MODAL);
-            popUp.initOwner(saveBTN.getScene().getWindow());
-            popUp.showAndWait();
-        } catch (IOException ex) {
-            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        bestätigung();
         refreshTile();
     }
     
@@ -351,6 +272,26 @@ public class AdminAnsichtController implements Initializable {
                         kennzeichenText.setText(kennz);
                     }
                 });
+                imageView.addEventHandler(ContextMenuEvent.CONTEXT_MENU_REQUESTED, new EventHandler<ContextMenuEvent>() {
+
+                    @Override
+                    public void handle(ContextMenuEvent event) {
+                        MC_Hammer.DBV.restore(pfad);
+                        FileChooser fileChooser = new FileChooser();
+                        File file = fileChooser.showOpenDialog(tile.getScene().getWindow());
+                        try {
+                            String url = file.toURI().toURL().toString();
+                            MC_Hammer.DBV.Autos.get(i2).setFoto(file);
+                            MC_Hammer.DBV.save(pfad);
+                            refreshTile();
+                            
+                        } catch (MalformedURLException ex) {
+                            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+
+                    }
+                });
+                
                 imageView.setFitHeight(100);
                 //        imageView.setFitWidth(80);
                 imageView.setPreserveRatio(true);
@@ -358,5 +299,21 @@ public class AdminAnsichtController implements Initializable {
                 tile.getChildren().add(imageView);
             }
         }
-    }    
+    }
+    
+    private void bestätigung(){
+        Stage popUp = new Stage();
+        popUp.setTitle("Bestetigung");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("Bestetigung.fxml"));
+
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
