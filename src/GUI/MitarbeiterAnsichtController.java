@@ -220,8 +220,19 @@ public class MitarbeiterAnsichtController implements Initializable {
 
     @FXML
     private void handleShowAllBTN(ActionEvent event) {
-        showAllCars();
-        showAllCust();
+         Stage popUp = new Stage();
+        popUp.setTitle("Verleihen anzeigen");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("VfallShow.fxml"));
+
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+	}
     }
     
     /**********erstellt: Denis Bursillon********************************************/

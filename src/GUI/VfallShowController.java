@@ -8,16 +8,24 @@ package GUI;
 import autoverleih.Auto;
 import autoverleih.Kunde;
 import autoverleih.MetaController;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -172,6 +180,19 @@ public class VfallShowController implements Initializable {
 
     @FXML
     private void handleCreateButton(ActionEvent event) {
+	Stage popUp = new Stage();
+        popUp.setTitle("Vermietung Erstellen");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("Vfall_popup.fxml"));
+
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(create.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
