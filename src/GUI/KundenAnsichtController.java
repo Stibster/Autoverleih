@@ -166,11 +166,8 @@ public class KundenAnsichtController implements Initializable {
                     }
                 });
                 
-                if (!MC_Hammer.DBV.Autos.get(i).getFoto().exists()) {
-                    imageView.setImage(new Image("Data/dummy1.jpg"));
-                } else {
-                    imageView.setImage(image);
-                }
+                if (!MC_Hammer.DBV.Autos.get(i).getFoto().exists()) imageView.setImage(new Image("Data/dummy1.jpg"));
+                else imageView.setImage(image);
                 
                 imageView.setFitHeight(75);
                 imageView.setPreserveRatio(true);
