@@ -162,7 +162,8 @@ public class KundenAnsichtController implements Initializable {
                         leistungText.setText(leistung);
                         sitzeText.setText(sitze);
                         kostenText.setText(kosten);
-                        showView.setImage(imageBig);
+                        if (MC_Hammer.DBV.Autos.get(i2).getFoto().exists()) showView.setImage(imageBig);
+                        else showView.setImage(new Image("Data/dummy1.jpg"));
                     }
                 });
                 
