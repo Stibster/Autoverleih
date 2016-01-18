@@ -1,3 +1,4 @@
+
 package GUI;
 
 import autoverleih.MetaController;
@@ -60,6 +61,12 @@ public class KundenAnsichtController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb)  {
+        try {
+            showCars();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(KundenAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tile.getChildren().clear();  
         try {
             showCars();
         } catch (MalformedURLException ex) {

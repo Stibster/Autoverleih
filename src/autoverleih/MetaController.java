@@ -55,6 +55,7 @@ public class MetaController {
         boolean Indikator = false;
 	int indikator = 0;
         
+        ausleihe.setAusleihe_ID(DBV.makeAusleiheID());
     //##########Überprüfung für die Auto-ID von Daniel Meerwald#################
       while(Indikator != true){
         while (i < DBV.Autos.size() && Indikator == false) { 

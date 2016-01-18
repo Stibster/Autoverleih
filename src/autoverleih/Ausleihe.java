@@ -15,6 +15,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Ausleihe {
 
 //###Ausleihedaten erstellt von Daniel Meerwald#################################
+
+    int Ausleihe_ID;
     int Auto_ID;
     int Kunden_ID;
     Date Ausleihdatum;
@@ -41,6 +43,11 @@ public class Ausleihe {
      }
      
 //###Getter Methoden erstellt von Daniel Meerwald###############################
+    @XmlElement (name = "Ausleihe_ID")
+    public int getAusleihe_ID() {
+        return Ausleihe_ID;
+    }
+
     @XmlElement(name = "Auto_ID")
     public int getAuto_ID() {
         return Auto_ID;
@@ -67,6 +74,10 @@ public class Ausleihe {
     }
     
 //###Setter Methoden erstellt von Daniel Meerwald###############################
+    public void setAusleihe_ID(int Ausleihe_ID) {
+        this.Ausleihe_ID = Ausleihe_ID;
+    }
+        
     public void setAuto_ID(int Auto_ID) {
     this.Auto_ID = Auto_ID;
     }

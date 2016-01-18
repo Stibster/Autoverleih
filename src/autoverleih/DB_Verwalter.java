@@ -197,6 +197,20 @@ public void clearAusleihen(){
         return K_ID;
     }
     
+    public int makeAusleiheID(){
+        int i = 0;
+        int Au_ID = 1;
+        while (i < Ausleihen.size()) { //Suche bis zum Ende der Liste.
+
+            if (Ausleihen.get(i).getKunden_ID() == Au_ID ) {
+                Au_ID++;
+                
+            } else {
+                i++; //Andernfalls wird das nächste Element vergleichen.
+            }
+        }
+        return Au_ID;
+    }
     
 //####Remove Methoden, erstellt von Daniel Meerwald#############################
     public void removeKunde(int K_ID){

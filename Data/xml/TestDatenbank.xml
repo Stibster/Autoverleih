@@ -282,4 +282,20 @@
         <TUEV>2017-01-01T00:00:00+01:00</TUEV>
         <Verbrauch>6.6</Verbrauch>
     </Autoliste>
+    <Ausleiheliste>
+        <Ausleihdatum>1999-01-01T00:01:00+01:00</Ausleihdatum>
+        <Ausleihe_ID>0</Ausleihe_ID>
+        <Auto_ID>2</Auto_ID>
+        <Kunden_ID>1</Kunden_ID>
+        <Rueckgabedatum>1999-01-01T00:02:00+01:00</Rueckgabedatum>
+        <TUEV>false</TUEV>
+    </Ausleiheliste>
+    <Ausleiheliste>
+        <Ausleihdatum>2000-01-01T00:01:00+01:00</Ausleihdatum>
+        <Ausleihe_ID>2</Ausleihe_ID>
+        <Auto_ID>2</Auto_ID>
+        <Kunden_ID>1</Kunden_ID>
+        <Rueckgabedatum>2000-01-01T00:02:00+01:00</Rueckgabedatum>
+        <TUEV>false</TUEV>
+    </Ausleiheliste>
 </DB_Verwalter_Root>

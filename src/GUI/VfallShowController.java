@@ -124,18 +124,22 @@ public class VfallShowController implements Initializable {
 		
     }
     }
-    public void showAllAusleihe(){
+    public void showAllAusleihe(){ // Edited #Daniel Meerwald
         int i = 0;
 	int kID = 0;
+        int aID = 0;
         MC_Hammer.DBV.restore(path);
         ausgabe = "Anzahl gespeicherter Ausleihen derzeit: " + MC_Hammer.DBV.Ausleihen.size()+"\n\n";
         while (i < MC_Hammer.DBV.Ausleihen.size()) {
-	    ausgabe += "ID: " +MC_Hammer.DBV.Ausleihen.get(i);
-	    /* anders realisiren
+	    ausgabe += "Ausleihe-ID: " +MC_Hammer.DBV.Ausleihen.get(i).getAusleihe_ID();
+	
 	   kID = MC_Hammer.DBV.Ausleihen.get(i).getKunden_ID();
-            ausgabe +="    Vorname: "+ MC_Hammer.DBV.Kunden.get(kID).getVorname();
-	     ausgabe +="    Nachname: "+ MC_Hammer.DBV.Kunden.get(kID).getNachname();
-	    */
+            ausgabe +="    Kunde: "+ MC_Hammer.DBV.Kunden.get(kID).getVorname() +" "+ MC_Hammer.DBV.Kunden.get(kID).getNachname()+" hat ";
+	     
+	    
+           aID = MC_Hammer.DBV.Ausleihen.get(i).getAuto_ID();
+              ausgabe +=" Auto: "+ MC_Hammer.DBV.Autos.get(aID).getHersteller() +" "+ MC_Hammer.DBV.Autos.get(aID).getModell()+" "+MC_Hammer.DBV.Autos.get(aID).getKennzeichen()+" geliehen.";
+             
             ausgabe += "\n";
             i++;
         }

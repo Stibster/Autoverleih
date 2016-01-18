@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.VfallShowController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="850.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.VfallShowController">
     <stylesheets>
 	<URL value="@Stylesheet.css" />
     </stylesheets>
@@ -38,7 +38,7 @@
             </VBox>
          </children>
       </VBox>
-      <TextArea fx:id="vfall_text" editable="false" layoutX="14.0" layoutY="74.0" prefHeight="311.0" prefWidth="381.0" />
+      <TextArea fx:id="vfall_text" editable="false" layoutX="14.0" layoutY="74.0" prefHeight="311.0" prefWidth="636.0" />
       <HBox layoutX="14.0" layoutY="14.0" spacing="65.0" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="14.0">
          <children>
             <Label fx:id="getA_ID_Label" layoutX="14.0" layoutY="14.0" text="Auto ID" />
