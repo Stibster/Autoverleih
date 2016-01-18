@@ -286,6 +286,8 @@ public class MitarbeiterAnsichtController implements Initializable {
             ausgabe += "ID: "+MC.DBV.Autos.get(i).getAuto_ID();
              ausgabe += "   Hersteller: "+ MC.DBV.Autos.get(i).getHersteller();
               ausgabe += "    Modell:"+MC.DBV.Autos.get(i).getModell();
+              if(MC.DBV.Autos.get(i).getIst_Da()==true) ausgabe += "    IM HAUS";
+              else ausgabe += "    AUSERHAUS";
                ausgabe += "\n";
             i++;
         }
