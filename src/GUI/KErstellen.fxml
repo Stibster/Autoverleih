@@ -34,18 +34,6 @@
                   <Label fx:id="bdLabel" layoutX="370.0" layoutY="148.0" text="Geburstag" />
                </children>
             </HBox>
-            <HBox layoutX="65.0" layoutY="188.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-               <children>
-                  <TextField fx:id="Ort" layoutX="65.0" layoutY="188.0" promptText="Ort" />
-                  <Label fx:id="ortLabel" layoutX="370.0" layoutY="192.0" text="Wohnort" />
-               </children>
-            </HBox>
-            <HBox spacing="100.0">
-               <children>
-                  <TextField fx:id="plz" promptText="PLZ" />
-                  <Label fx:id="plzLable" text="Postleitzahl" />
-               </children>
-            </HBox>
             <HBox layoutX="65.0" layoutY="233.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <TextField fx:id="street" layoutX="65.0" layoutY="233.0" promptText="Strasse" />
@@ -56,6 +44,18 @@
                <children>
                   <TextField fx:id="h_num" layoutX="58.0" layoutY="289.0" promptText="Hausnummer" />
                   <Label fx:id="h_numLable" layoutX="367.0" layoutY="293.0" text="Hausnummer" />
+               </children>
+            </HBox>
+            <HBox spacing="100.0">
+               <children>
+                  <TextField fx:id="plz" promptText="PLZ" />
+                  <Label fx:id="plzLable" text="Postleitzahl" />
+               </children>
+            </HBox>
+            <HBox layoutX="65.0" layoutY="188.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <TextField fx:id="Ort" layoutX="65.0" layoutY="188.0" promptText="Wohnort" />
+                  <Label fx:id="ortLabel" layoutX="370.0" layoutY="192.0" text="Wohnort" />
                </children>
             </HBox>
             <HBox layoutX="58.0" layoutY="331.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -78,8 +78,8 @@
             </HBox>
             <HBox layoutX="65.0" layoutY="479.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
-                  <TextField fx:id="car_k" layoutX="65.0" layoutY="479.0" promptText="Führerschein Klasse" />
-                  <Label fx:id="car_kLable" layoutX="367.0" layoutY="483.0" text="Führerschein Klasse" />
+                  <TextField fx:id="car_k" layoutX="65.0" layoutY="479.0" promptText="Führerscheinklasse" />
+                  <Label fx:id="car_kLable" layoutX="367.0" layoutY="483.0" text="Führerscheinklasse" />
                </children>
             </HBox>
          </children>

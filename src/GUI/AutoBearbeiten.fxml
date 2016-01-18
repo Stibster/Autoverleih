@@ -36,8 +36,8 @@
 		</HBox>
 		<HBox layoutX="28.0" layoutY="74.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
 		    <children>
-			<TextField fx:id="Modell" layoutX="28.0" layoutY="80.0" promptText="Auto modell" />
-			<Label fx:id="ModLabel" layoutX="286.0" layoutY="74.0" text="Auto modell" />
+			<TextField fx:id="Modell" layoutX="28.0" layoutY="80.0" promptText="Modell" />
+			<Label fx:id="ModLabel" layoutX="286.0" layoutY="74.0" text="Modell" />
 		    </children>
 		</HBox>
 		<HBox layoutX="28.0" layoutY="111.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -78,8 +78,8 @@
 		</HBox>
 		<HBox layoutX="28.0" layoutY="220.0" spacing="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
 		    <children>
-			<TextField fx:id="verbrauch" layoutX="28.0" layoutY="220.0" prefHeight="25.0" prefWidth="166.0" promptText="Verbrauch in L/100km" />
-			<Label fx:id="verLabel" layoutX="286.0" layoutY="222.0" text="Verbrauch in L/100km" />
+			<TextField fx:id="verbrauch" layoutX="28.0" layoutY="220.0" prefHeight="26.0" prefWidth="266.0" promptText="Verbrauch in l/100km" />
+			<Label fx:id="verLabel" layoutX="286.0" layoutY="222.0" prefHeight="18.0" prefWidth="263.0" text="Verbrauch in l/100km" />
 			<ChoiceBox prefWidth="150.0" visible="false" />
 		    </children>
 		</HBox>
@@ -109,8 +109,8 @@
             </HBox>
             <HBox spacing="100.0">
                <children>
-                  <TextField fx:id="tuev" promptText="TÜV ablaufdatum" />
-                  <Label fx:id="tuevLabel" text="TÜV ablaufsdatum" />
+                  <TextField fx:id="tuev" promptText="TÜV Ablaufdatum" />
+                  <Label fx:id="tuevLabel" text="TÜV Ablaufdatum" />
                </children>
             </HBox>
             <HBox spacing="100.0">

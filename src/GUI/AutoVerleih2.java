@@ -33,7 +33,7 @@ public class AutoVerleih2 extends Application {
 	}
 	this.stage = stage;
 
-        stage.setTitle("Verleih Sofware ver.0.0.5");
+        stage.setTitle("Verleih Software ver.0.0.5");
         Parent root; 
 	try {
 	    root = FXMLLoader.load(getClass().getResource("KundenAnsicht.fxml"));

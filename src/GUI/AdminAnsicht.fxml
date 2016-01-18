@@ -27,10 +27,10 @@
          <menus>
             <Menu mnemonicParsing="false" text="Werkzeuge">
                <items>
-                  <MenuItem fx:id="carCreate" mnemonicParsing="false" onAction="#handleCarCreateMenue" text="Fahrzeug erstellen" />
+                  <MenuItem fx:id="carCreate" mnemonicParsing="false" onAction="#handleCarCreateMenue" text="Fahrzeug Erstellen" />
                   <MenuItem fx:id="carChange" mnemonicParsing="false" onAction="#handleCarChangeMenue" text="Fahrzeug Bearbeiten" />
                   <MenuItem fx:id="carDel" mnemonicParsing="false" onAction="#handleCarDelMenue" text="Fahrzeug Löschen" />
-                  <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" text="Schließen" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Login">
@@ -112,11 +112,11 @@
       </VBox>
       <VBox layoutX="977.0" layoutY="26.0" prefHeight="192.0" prefWidth="216.0" spacing="5.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="30.0">
          <children>
-            <Button fx:id="clearBut" layoutX="380.0" layoutY="191.0" mnemonicParsing="false" onAction="#handleClearButton" prefHeight="26.0" prefWidth="216.0" text="Komplette Datenbank löschen" />
+            <Button fx:id="clearBut" layoutX="380.0" layoutY="191.0" mnemonicParsing="false" onAction="#handleClearButton" prefHeight="26.0" prefWidth="216.0" text="Komplette Datenbank Löschen" />
             <Button fx:id="dbKuDel" layoutX="381.0" layoutY="219.0" mnemonicParsing="false" onAction="#handleDbKuDelButton" prefHeight="26.0" prefWidth="216.0" text="Datenbank Kunden Löschen" />
             <Button fx:id="dbcarsDelet" layoutX="384.0" layoutY="245.0" mnemonicParsing="false" onAction="#handleDbCarsDelButton" prefHeight="26.0" prefWidth="216.0" text="Datenbank Autos Löschen" />
             <Button fx:id="dbVFALLDel" layoutX="384.0" layoutY="268.0" mnemonicParsing="false" onAction="#handleDbVFALLDelButton" text="Datenbank Vermietungsfall Löschen" />
-            <Button fx:id="testBtn" mnemonicParsing="false" onAction="#handleTestBtn" text="Test" />
+            <Button fx:id="testBtn" mnemonicParsing="false" onAction="#handleTestBtn" text="Test" visible="false" />
          </children>
       </VBox>
       <Button fx:id="scriptRndcar" layoutX="14.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleScriptRndCarButton" text="zufällige Autos Script" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="30.0" />
