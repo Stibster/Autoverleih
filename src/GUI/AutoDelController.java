@@ -34,7 +34,7 @@ public class AutoDelController implements Initializable {
 
 
      MetaController MC_Hammer = new MetaController();
-     String pfad = "/TestDatenbank.xml";
+     String pfad = "TestDatenbank.xml";
     /**
      * Initializes the controller class.
      */

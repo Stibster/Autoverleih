@@ -46,7 +46,7 @@ public class MitarbeiterAnsichtController implements Initializable {
     @FXML    private MenuItem changeUser;
     @FXML    private TextArea CusText;
     @FXML    private TextArea CarText;
-    private final String path = "/TestDatenbank.xml";
+    private final String path = "TestDatenbank.xml";
     private String ausgabe = "";
     private MetaController MC = new MetaController();
     @FXML

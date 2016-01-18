@@ -50,7 +50,7 @@ public class VfallShowController implements Initializable {
     @FXML    private Button showAfall;
 
     MetaController MC_Hammer = new MetaController();
-    private final String path = "/TestDatenbank.xml";
+    private final String path = "TestDatenbank.xml";
     private String ausgabe = "";
     
     @FXML    private Label getA_ID_Label;

@@ -33,7 +33,7 @@ public class KundeDelController implements Initializable {
     private Button del;
 
      MetaController MC_Hammer = new MetaController();
-     String pfad = "/TestDatenbank.xml";
+     String pfad = "TestDatenbank.xml";
     /**
      * Initializes the controller class.
      */

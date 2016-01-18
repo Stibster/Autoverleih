@@ -25,7 +25,7 @@ public class AutoVerleih2 extends Application {
     @Override
     public void start(Stage stage) {
         
-        String pfad = "/TestDatenbank.xml";
+        String pfad = "TestDatenbank.xml";
 	File datas = new File(pfad);
 	if (datas.exists() == true) {
 	    MC.DBV.restore(pfad);

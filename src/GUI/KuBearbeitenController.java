@@ -58,7 +58,7 @@ public class KuBearbeitenController implements Initializable {
     @FXML    private Button k_pop_save;
    
     MetaController MC_Hammer = new MetaController();
-    String pfad = "Data/xml/TestDatenbank.xml";
+    String pfad = "TestDatenbank.xml";
     int K_ID;
     /**
      * Initializes the controller class.
