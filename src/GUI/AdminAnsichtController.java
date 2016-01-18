@@ -206,7 +206,6 @@ public class AdminAnsichtController implements Initializable  {
         
         MC_Hammer.DBV.clearKunden();
         MC_Hammer.DBV.save(pfad);
-	Stage popUp = new Stage();
         bestätigung();
     }
 
@@ -223,7 +222,6 @@ public class AdminAnsichtController implements Initializable  {
         MC_Hammer.DBV.restore(pfad);
 	MC_Hammer.DBV.randomRealAutos(Integer.parseInt(rndCarText.getText()));
 	MC_Hammer.DBV.save(pfad);
-	Stage popUp = new Stage();
         bestätigung();
         refreshTile();
     }
@@ -300,11 +298,8 @@ public class AdminAnsichtController implements Initializable  {
                     
                     
                 });
-                if(!MC_Hammer.DBV.Autos.get(i).getFoto().exists()) {
-                    imageView.setImage(dummy);
-                }else {
-                    imageView.setImage(image);
-                }
+                if(!MC_Hammer.DBV.Autos.get(i).getFoto().exists()) imageView.setImage(dummy);
+                else imageView.setImage(image);
                 
                 imageView.setFitHeight(75);
                 imageView.setPreserveRatio(true);
