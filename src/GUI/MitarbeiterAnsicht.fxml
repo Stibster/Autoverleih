@@ -45,6 +45,7 @@
                   <MenuItem fx:id="changeUser" mnemonicParsing="false" onAction="#handleChangeUserMenue" text="Kunde Bearbeiten" />
                   <MenuItem fx:id="DelUser" mnemonicParsing="false" onAction="#handleDelUserMenue" text="Kunde Löschen" />
                   <MenuItem fx:id="Ausleihe" mnemonicParsing="false" onAction="#handleAusleiheMenue" text="Vermietungsfall Erstellen" />
+                  <MenuItem fx:id="vfalShow" mnemonicParsing="false" onAction="#handleAusleiheShowMenue" text="Vermietungsfälle anzeigen" />
                   <MenuItem fx:id="carRaus" mnemonicParsing="false" onAction="#handleCarRausMenue" text="Fahrzeug Abholen" />
                   <MenuItem fx:id="carRein" mnemonicParsing="false" onAction="#handleCarReinMenue" text="Fahrzeug Rückgabe" />
                   <MenuItem mnemonicParsing="false" text="Close" />

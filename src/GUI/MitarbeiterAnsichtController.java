@@ -49,6 +49,8 @@ public class MitarbeiterAnsichtController implements Initializable {
     private final String path = "Data/xml/TestDatenbank.xml";
     private String ausgabe = "";
     private MetaController MC = new MetaController();
+    @FXML
+    private MenuItem vfalShow;
 
     /**
      * Initializes the controller class.
@@ -254,5 +256,24 @@ public class MitarbeiterAnsichtController implements Initializable {
         }
         CusText.setText(ausgabe);
         
+    }
+
+    
+    //Haack Christopher ######################
+    @FXML
+    private void handleAusleiheShowMenue(ActionEvent event) {
+	 Stage popUp = new Stage();
+        popUp.setTitle("Verleihen anzeigen");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("VfallShow.fxml"));
+
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

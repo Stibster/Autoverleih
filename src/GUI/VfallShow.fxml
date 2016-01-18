@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.VfallShowController">
+    <stylesheets>
+	<URL value="@Stylesheet.css" />
+    </stylesheets>
+   <children>
+      <VBox layoutX="422.0" layoutY="14.0" spacing="50.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <VBox layoutX="437.0" layoutY="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+               <children>
+                  <Label layoutX="491.0" layoutY="14.0" text="Kunden Daten" />
+                  <TextField fx:id="setK_ID" editable="false" layoutX="437.0" layoutY="39.0" promptText="ID" />
+                  <TextField fx:id="setK_Name" editable="false" layoutX="437.0" layoutY="65.0" promptText="Name" />
+                  <TextField fx:id="setK_Vorname" editable="false" layoutX="437.0" layoutY="91.0" promptText="Vorname" />
+                  <TextField fx:id="setK_Tel" editable="false" layoutX="437.0" layoutY="117.0" promptText="Telefonnummer" />
+                  <TextField fx:id="setK_Ort" editable="false" layoutX="437.0" layoutY="143.0" promptText="Wohnort" />
+               </children>
+            </VBox>
+            <VBox layoutX="437.0" layoutY="225.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0">
+               <children>
+                  <Label layoutX="502.0" layoutY="225.0" text="Auto Daten" />
+                  <TextField fx:id="setA_ID" editable="false" layoutX="437.0" layoutY="243.0" promptText="ID" />
+                  <TextField fx:id="setA_Kennz" editable="false" layoutX="437.0" layoutY="269.0" promptText="Kennzeichen" />
+                  <TextField fx:id="setA_Marke" editable="false" layoutX="437.0" layoutY="295.0" promptText="Marke" />
+                  <TextField fx:id="setA_Model" editable="false" layoutX="437.0" layoutY="321.0" promptText="Modell" />
+                  <TextField fx:id="setA_Kaution" editable="false" layoutX="437.0" layoutY="347.0" promptText="Kaution" />
+                  <TextField fx:id="setA_GpT" editable="false" layoutX="437.0" layoutY="374.0" promptText="Gebühr pro Tag" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <TextArea fx:id="vfall_text" editable="false" layoutX="14.0" layoutY="74.0" prefHeight="311.0" prefWidth="381.0" />
+      <HBox layoutX="14.0" layoutY="14.0" spacing="65.0" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <Label fx:id="getA_ID_Label" layoutX="14.0" layoutY="14.0" text="Auto ID" />
+            <Label fx:id="getK_ID_Label" layoutX="218.0" layoutY="15.0" text="Kunden ID" />
+         </children>
+      </HBox>
+      <HBox layoutX="14.0" layoutY="37.0" spacing="30.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="200.0">
+         <children>
+            <TextField fx:id="getA_ID" layoutX="14.0" layoutY="32.0" prefHeight="26.0" prefWidth="80.0" promptText="Auto ID" />
+            <TextField fx:id="getK_ID" prefHeight="26.0" prefWidth="80.0" promptText="Kunden ID" />
+            <Button fx:id="showAfall" layoutX="275.0" layoutY="27.0" mnemonicParsing="false" onAction="#handleShowAfallButton" text="Anzeigen" />
+            <Label fx:id="warningAdmin" text="Admin Holen" textFill="BLUE" visible="false" />
+         </children>
+      </HBox>
+      <Label fx:id="warningAfall" layoutX="229.0" layoutY="14.0" text="Keine Ausleihe vorhanden" textFill="RED" visible="false" />
+   </children>
+</AnchorPane>
