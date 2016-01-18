@@ -388,4 +388,44 @@
         <Rueckgabedatum>2016-02-21T00:01:00+01:00</Rueckgabedatum>
         <TUEV>false</TUEV>
     </Ausleiheliste>
+    <Ausleiheliste>
+        <Ausleihdatum>1992-01-21T00:09:00+01:00</Ausleihdatum>
+        <Ausleihe_ID>2</Ausleihe_ID>
+        <Auto_ID>7</Auto_ID>
+        <Kunden_ID>2</Kunden_ID>
+        <Rueckgabedatum>1992-01-21T00:09:00+01:00</Rueckgabedatum>
+        <TUEV>false</TUEV>
+    </Ausleiheliste>
+    <Ausleiheliste>
+        <Ausleihdatum>1992-01-21T00:09:00+01:00</Ausleihdatum>
+        <Ausleihe_ID>3</Ausleihe_ID>
+        <Auto_ID>5</Auto_ID>
+        <Kunden_ID>3</Kunden_ID>
+        <Rueckgabedatum>1992-01-21T00:09:00+01:00</Rueckgabedatum>
+        <TUEV>false</TUEV>
+    </Ausleiheliste>
+    <Ausleiheliste>
+        <Ausleihdatum>1992-01-21T00:09:00+01:00</Ausleihdatum>
+        <Ausleihe_ID>4</Ausleihe_ID>
+        <Auto_ID>3</Auto_ID>
+        <Kunden_ID>2</Kunden_ID>
+        <Rueckgabedatum>1992-01-21T00:09:00+01:00</Rueckgabedatum>
+        <TUEV>false</TUEV>
+    </Ausleiheliste>
+    <Ausleiheliste>
+        <Ausleihdatum>1992-01-21T00:09:00+01:00</Ausleihdatum>
+        <Ausleihe_ID>5</Ausleihe_ID>
+        <Auto_ID>4</Auto_ID>
+        <Kunden_ID>4</Kunden_ID>
+        <Rueckgabedatum>1992-01-21T00:09:00+01:00</Rueckgabedatum>
+        <TUEV>false</TUEV>
+    </Ausleiheliste>
+    <Ausleiheliste>
+        <Ausleihdatum>1992-01-22T00:09:00+01:00</Ausleihdatum>
+        <Ausleihe_ID>6</Ausleihe_ID>
+        <Auto_ID>4</Auto_ID>
+        <Kunden_ID>2</Kunden_ID>
+        <Rueckgabedatum>1992-01-30T00:09:00+01:00</Rueckgabedatum>
+        <TUEV>false</TUEV>
+    </Ausleiheliste>
 </DB_Verwalter_Root>
