@@ -41,16 +41,14 @@
       <TextArea fx:id="vfall_text" editable="false" layoutX="14.0" layoutY="74.0" prefHeight="311.0" prefWidth="636.0" />
       <HBox layoutX="14.0" layoutY="14.0" spacing="65.0" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="14.0">
          <children>
-            <Label fx:id="getA_ID_Label" layoutX="14.0" layoutY="14.0" text="Auto ID" />
-            <Label fx:id="getK_ID_Label" layoutX="218.0" layoutY="15.0" text="Kunden ID" />
+            <Label fx:id="getA_ID_Label" layoutX="14.0" layoutY="14.0" text="Ausleihe ID" />
          </children>
       </HBox>
-      <HBox layoutX="14.0" layoutY="37.0" spacing="30.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="200.0">
+      <HBox layoutX="14.0" layoutY="37.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="200.0">
          <children>
-            <TextField fx:id="getA_ID" layoutX="14.0" layoutY="32.0" prefHeight="26.0" prefWidth="80.0" promptText="Auto ID" />
-            <TextField fx:id="getK_ID" prefHeight="26.0" prefWidth="80.0" promptText="Kunden ID" />
-            <Button fx:id="showAfall" layoutX="275.0" layoutY="27.0" mnemonicParsing="false" onAction="#handleShowAfallButton" text="Anzeigen" />
+            <TextField fx:id="getA_ID" layoutX="14.0" layoutY="32.0" prefHeight="26.0" prefWidth="136.0" promptText="Ausleihe ID" />
             <Label fx:id="warningAdmin" text="Admin Holen" textFill="BLUE" visible="false" />
+            <Button fx:id="showAfall" layoutX="275.0" layoutY="27.0" mnemonicParsing="false" onAction="#handleShowAfallButton" text="Anzeigen" />
          </children>
       </HBox>
       <Label fx:id="warningAfall" layoutX="229.0" layoutY="14.0" text="Keine Ausleihe vorhanden" textFill="RED" visible="false" />

@@ -46,8 +46,6 @@ public class VfallShowController implements Initializable {
     private String ausgabe = "";
     
     @FXML    private Label getA_ID_Label;
-    @FXML    private Label getK_ID_Label;
-    @FXML    private TextField getK_ID;
     @FXML    private Label warningAdmin;
     @FXML    private Label warningAfall;
     /**
@@ -60,71 +58,58 @@ public class VfallShowController implements Initializable {
     }    
 
     @FXML
-    private void handleShowAfallButton(ActionEvent event) {
+    private void handleShowAfallButton(ActionEvent event) { //Komplett Überarbeitet von Daniel Meerwald
 	int kid = 0;
 	int aid = 0;
+        int ausid = 0;
 	int fehler = 0;
+        
+        MC_Hammer.DBV.restore(path);
+        
+	ausid = Integer.parseInt(getA_ID.getText());
 	
-	kid = Integer.parseInt(getK_ID.getText());
-	aid = Integer.parseInt(getA_ID.getText());
+        fehler = abgleich(ausid);
+        
+        if (fehler == 1){
+        kid = MC_Hammer.DBV.getAusleihebyID(ausid).getKunden_ID();
+        aid = MC_Hammer.DBV.getAusleihebyID(ausid).getAuto_ID();
+        }
 	
-	fehler = abgleich(kid,aid);
+        
 	
 	switch (fehler) {
 	    case 1:
 		
-		setK_ID.setText(String.valueOf(MC_Hammer.DBV.Kunden.get(kid).getKunden_ID()));
-		setK_Name.setText(MC_Hammer.DBV.Kunden.get(kid).getNachname());
-		setK_Vorname.setText(MC_Hammer.DBV.Kunden.get(kid).getVorname());
-		setK_Tel.setText(MC_Hammer.DBV.Kunden.get(kid).getTelefonnummer());
-		setK_Ort.setText(MC_Hammer.DBV.Kunden.get(kid).getWohnort());
-		setA_ID.setText(String.valueOf(MC_Hammer.DBV.Autos.get(aid).getAuto_ID()));
-		setA_Kennz.setText(MC_Hammer.DBV.Autos.get(aid).getKennzeichen());
-		setA_Marke.setText(MC_Hammer.DBV.Autos.get(aid).getHersteller());
-		setA_Model.setText(MC_Hammer.DBV.Autos.get(aid).getModell());
-		setA_Kaution.setText(String.valueOf(MC_Hammer.DBV.Autos.get(aid).getKaution()));
-		setA_GpT.setText(String.valueOf(MC_Hammer.DBV.Autos.get(aid).getGebuehr_pro_Tag()));
+		setK_ID.setText(String.valueOf(MC_Hammer.DBV.getKundebyID(kid).getKunden_ID()));
+		setK_Name.setText(MC_Hammer.DBV.getKundebyID(kid).getNachname());
+		setK_Vorname.setText(MC_Hammer.DBV.getKundebyID(kid).getVorname());
+		setK_Tel.setText(MC_Hammer.DBV.getKundebyID(kid).getTelefonnummer());
+		setK_Ort.setText(MC_Hammer.DBV.getKundebyID(kid).getWohnort());
+		setA_ID.setText(String.valueOf(MC_Hammer.DBV.getAutobyID(aid).getAuto_ID()));
+		setA_Kennz.setText(MC_Hammer.DBV.getAutobyID(aid).getKennzeichen());
+		setA_Marke.setText(MC_Hammer.DBV.getAutobyID(aid).getHersteller());
+		setA_Model.setText(MC_Hammer.DBV.getAutobyID(aid).getModell());
+		setA_Kaution.setText(String.valueOf(MC_Hammer.DBV.getAutobyID(aid).getKaution()));
+		setA_GpT.setText(String.valueOf(MC_Hammer.DBV.getAutobyID(aid).getGebuehr_pro_Tag()));
 		
 		break;
 	    case -1:
-		getA_ID_Label.setTextFill(Color.BLACK);
-		getK_ID_Label.setTextFill(Color.RED);
+                getA_ID_Label.setTextFill(Color.RED);
 		warningAdmin.setVisible(false);
-		warningAfall.setVisible(false);
-		
-		break;
-	    case -2:
-		getA_ID_Label.setTextFill(Color.RED);
-		getK_ID_Label.setTextFill(Color.BLACK);
-		warningAdmin.setVisible(false);
-		warningAfall.setVisible(false);
-		
-		break;
-	    case -3:
-		getA_ID_Label.setTextFill(Color.RED);
-		getK_ID_Label.setTextFill(Color.RED);
-		warningAdmin.setVisible(false);
-		warningAfall.setVisible(true);
-		
-		break;
-	    case -4:
-		getA_ID_Label.setTextFill(Color.BLACK);
-		getK_ID_Label.setTextFill(Color.BLACK);
-		warningAdmin.setVisible(true);
 		warningAfall.setVisible(false);
 		
 		break;
 	    default:
 		getA_ID_Label.setTextFill(Color.BLACK);
-		getK_ID_Label.setTextFill(Color.BLACK);
 		warningAdmin.setVisible(true);
 		warningAfall.setVisible(false);
 		
 		break;
 		
+            
     }
     }
-    public void showAllAusleihe(){ // Edited #Daniel Meerwald
+    public void showAllAusleihe(){ // Überarbeitet von Daniel Meerwald
         int i = 0;
 	int kID = 0;
         int aID = 0;
@@ -134,11 +119,11 @@ public class VfallShowController implements Initializable {
 	    ausgabe += "Ausleihe-ID: " +MC_Hammer.DBV.Ausleihen.get(i).getAusleihe_ID();
 	
 	   kID = MC_Hammer.DBV.Ausleihen.get(i).getKunden_ID();
-            ausgabe +="    Kunde: "+ MC_Hammer.DBV.Kunden.get(kID).getVorname() +" "+ MC_Hammer.DBV.Kunden.get(kID).getNachname()+" hat ";
+            ausgabe +="    Kunde: "+ MC_Hammer.DBV.getKundebyID(kID).getVorname() +" "+ MC_Hammer.DBV.getKundebyID(kID).getNachname()+"   hat   ";
 	     
 	    
            aID = MC_Hammer.DBV.Ausleihen.get(i).getAuto_ID();
-              ausgabe +=" Auto: "+ MC_Hammer.DBV.Autos.get(aID).getHersteller() +" "+ MC_Hammer.DBV.Autos.get(aID).getModell()+" "+MC_Hammer.DBV.Autos.get(aID).getKennzeichen()+" geliehen.";
+              ausgabe +="Auto: "+ MC_Hammer.DBV.getAutobyID(aID).getHersteller() +" "+ MC_Hammer.DBV.getAutobyID(aID).getModell()+" Kennzeichen: "+MC_Hammer.DBV.Autos.get(aID).getKennzeichen()+" geliehen.";
              
             ausgabe += "\n";
             i++;
@@ -148,71 +133,33 @@ public class VfallShowController implements Initializable {
     }
     
     //1 kein fehler
-    //-1 kunden id falsch
-    //-2 auto id falsch 
-    //-3 keine ausleihe
-    //-4 sollte nicht auftreten
-    private int abgleich(int kID, int aID)
+    //-1 Ausleihe id falsch
+    //-2 sollte nicht auftreten
+    private int abgleich(int aID) //Komplett Überarbeitet von Daniel Meerwald
     {
+        
 	int i = 0;
-	boolean kunde_indikator = false;
-	boolean auto_indikator = false;
 	boolean ausleihe_indikator = false;
 	
 	//kunden id ueberpreufen
 	MC_Hammer.DBV.restore(path);
-	while (i < MC_Hammer.DBV.Kunden.size() && kunde_indikator == false) { //Suche bis zum Ende der Liste.
-            if (MC_Hammer.DBV.Kunden.get(i).getKunden_ID() == kID ) {
-                kunde_indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+	while (i < MC_Hammer.DBV.Ausleihen.size() && ausleihe_indikator == false) { //Suche bis zum Ende der Liste.
+            if (MC_Hammer.DBV.Ausleihen.get(i).getAusleihe_ID()== aID ) {
+                ausleihe_indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde
+                
             } else {
                 i++; //Andernfalls wird das nächste Element vergleichen.
             }
         }
-	if(kunde_indikator == false)
+	if(ausleihe_indikator == false)
 	{
 	    return -1;
 	}
-	//##################
-	
-	
-	i= 0;
-	//auto id ueberpreufen 
-	while (i < MC_Hammer.DBV.Autos.size() && auto_indikator == false) { //Suche bis zum Ende der Liste.
-            if (MC_Hammer.DBV.Autos.get(i).getAuto_ID() == aID ) {
-                auto_indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
-            } else {
-                i++; //Andernfalls wird das nächste Element vergleichen.
-            }
-        }
-	if (auto_indikator == false)
-	{
-	    return -2;
-	}
-	//########################
-	i=0;
-	//ausleihe ueberpreufen 
-	while (i < MC_Hammer.DBV.Ausleihen.size() && ausleihe_indikator == false) { //Suche bis zum Ende der Liste.
-            if ((MC_Hammer.DBV.Ausleihen.get(i).getAuto_ID() == aID) &&
-		    (MC_Hammer.DBV.Ausleihen.get(i).getKunden_ID() == kID) ) {
-                ausleihe_indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
-            } else {
-                i++; //Andernfalls wird das nächste Element vergleichen.
-            }
-        }
-	if (ausleihe_indikator == false)
-	{
-	    return -3;
-	}
-	//########################
-	
-	if(kunde_indikator == true &&
-	   ausleihe_indikator == true &&
-	   auto_indikator ==true)
+        if(ausleihe_indikator == true)
 	{
 	    return 1;
 	}
-	
-	
-	return -4;    }
+        
+    return -2;}
     
 }

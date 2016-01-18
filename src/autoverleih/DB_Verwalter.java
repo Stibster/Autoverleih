@@ -110,36 +110,65 @@ public void clearAusleihen(){
                 i++; 
         }
     }
-//###Ausleihen und zurueckgeben Methoden erstellt von Daniel Meerwald###########
-    
-    public void Auto_abholen(int A_ID){
+//###getbyID  Methoden erstellt von Daniel Meerwald#############################
+
+    public Auto getAutobyID(int A_ID){
         int i = 0;
         boolean indikator = false;
 
         while (i < Autos.size() && indikator == false) { //Suche bis zum Ende der Liste.
 
             if (Autos.get(i).getAuto_ID() == A_ID ) {
-                Autos.get(i).setIst_Da(false);
                 indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
             } else {
                 i++; //Andernfalls wird das nächste Element vergleichen.
             }
+        }
+        return Autos.get(i);
+    }
+    
+    public Kunde getKundebyID(int K_ID){
+        int i = 0;
+        boolean indikator = false;
+
+        while (i < Kunden.size() && indikator == false) { //Suche bis zum Ende der Liste.
+
+            if (Kunden.get(i).getKunden_ID() == K_ID ) {
+                indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+            } else {
+                i++; //Andernfalls wird das nächste Element vergleichen.
+            }
+        }
+        return Kunden.get(i);
+    }
+    
+    public Ausleihe getAusleihebyID(int A_ID){
+        int i = 0;
+        boolean indikator = false;
+
+        while (i < Ausleihen.size() && indikator == false) { //Suche bis zum Ende der Liste.
+
+            if (Ausleihen.get(i).getAusleihe_ID()== A_ID ) {
+                indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+            } else {
+                i++; //Andernfalls wird das nächste Element vergleichen.
+            }
+        }
+        if(indikator == true){
+        return Ausleihen.get(i);
+        }
+        else{
+            return null;
         }
     }
     
+//###Ausleihen und zurueckgeben Methoden erstellt von Daniel Meerwald########### 
+    public void Auto_abholen(int A_ID){
+        getAutobyID(A_ID).setIst_Da(false);
+    }
+    
     public void Auto_zurueckbringen(int A_ID){
-        int i = 0;
-        boolean indikator = false;
-
-        while (i < Autos.size() && indikator == false) { //Suche bis zum Ende der Liste.
-
-            if (Autos.get(i).getAuto_ID() == A_ID ) {
-                Autos.get(i).setIst_Da(true);
-                indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
-            } else {
-                i++; //Andernfalls wird das nächste Element vergleichen.
-            }
-        }
+        getAutobyID(A_ID).setIst_Da(true);
     }
     
 //###Getter Methoden erstellt von Daniel Meerwald###############################
@@ -214,6 +243,7 @@ public void clearAusleihen(){
     
 //####Remove Methoden, erstellt von Daniel Meerwald#############################
     public void removeKunde(int K_ID){
+        
         int i = 0;
         boolean indikator = false;
 
@@ -292,7 +322,7 @@ public void clearAusleihen(){
 	      }
     }
 	
-//######################## Christopher Haack User add,set,remoove, anzeigen
+//######################## Christopher Haack User add,set,remoove, anzeigen#####
     public List<User> getUsers() {
         return Users;
     }
