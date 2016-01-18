@@ -165,10 +165,15 @@ public class KundenAnsichtController implements Initializable {
                         showView.setImage(imageBig);
                     }
                 });
+                
+                if (!MC_Hammer.DBV.Autos.get(i).getFoto().exists()) {
+                    imageView.setImage(new Image("Data/dummy1.jpg"));
+                } else {
+                    imageView.setImage(image);
+                }
+                
                 imageView.setFitHeight(75);
-                //        imageView.setFitWidth(80);
                 imageView.setPreserveRatio(true);
-                imageView.setImage(image);
                 tile.getChildren().add(imageView);
             }
         }

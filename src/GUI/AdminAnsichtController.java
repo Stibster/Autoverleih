@@ -242,11 +242,12 @@ public class AdminAnsichtController implements Initializable  {
     /**********erstellt: Denis Bursillon********************************************/
     private void fillTile() throws MalformedURLException {
         MC_Hammer.DBV.restore(pfad);
+        Image dummy = new Image("Data/dummy1.jpg");
         int i;
         if (!MC_Hammer.DBV.Autos.isEmpty()) {
 
             for (i = 0; i < MC_Hammer.DBV.Autos.size(); i++) {
-                Image image = new Image(MC_Hammer.DBV.Autos.get(i).getFotoString());
+                Image image = new Image(MC_Hammer.DBV.Autos.get(i).getFotoString());                
                 ImageView imageView = new ImageView();
                 int i2 = i;
                 imageView.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
@@ -288,7 +289,7 @@ public class AdminAnsichtController implements Initializable  {
                             Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
                         }
                         MC_Hammer.DBV.Autos.get(i2).setFoto(file);
-                        MC_Hammer.DBV.save(pfad);
+                        MC_Hammer.DBV.save(pfad);                     
                         try {
                             refreshTile();
                         } catch (MalformedURLException ex) {
@@ -296,12 +297,17 @@ public class AdminAnsichtController implements Initializable  {
                         }
 
                     }
+                    
+                    
                 });
+                if(!MC_Hammer.DBV.Autos.get(i).getFoto().exists()) {
+                    imageView.setImage(dummy);
+                }else {
+                    imageView.setImage(image);
+                }
                 
                 imageView.setFitHeight(75);
-                //        imageView.setFitWidth(80);
                 imageView.setPreserveRatio(true);
-                imageView.setImage(image);
                 tile.getChildren().add(imageView);
             }
         }
