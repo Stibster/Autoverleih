@@ -40,7 +40,7 @@ public class DB_Verwalter {
     @XmlElementWrapper(name = "wrapper")
     public List<Ausleihe> Ausleihen = new ArrayList<>();    
 
-//############################# User erstellung Christopher Haack###############
+//############################# User erstellung Christopher Haack ###############
  
     @XmlElement(name = "Userliste")
     @XmlElementWrapper(name = "wrapper")
