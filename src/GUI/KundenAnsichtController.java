@@ -54,6 +54,8 @@ public class KundenAnsichtController implements Initializable {
     
     MetaController MC_Hammer = new MetaController();
     String pfad = "Data/xml/TestDatenbank.xml";
+    @FXML
+    private MenuItem about;
 
     
     /**
@@ -181,6 +183,23 @@ public class KundenAnsichtController implements Initializable {
                 imageView.setPreserveRatio(true);
                 tile.getChildren().add(imageView);
             }
+        }
+    }
+
+    @FXML
+    private void handleaboutmenue(ActionEvent event) {
+	Stage popUp = new Stage();
+        popUp.setTitle("About");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("hilfepopup.fxml"));
+            
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
