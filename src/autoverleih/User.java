@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+Die Klasse stellt die User Objekte da. Sie stellt alle nötigen Methoden zum Bearbeiten der User zur Verfügung. #Daniel Meerwald
+
  */
 package autoverleih;
 
@@ -10,7 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Christopher
+ * @author Christopher Haack
  */
 @XmlRootElement(name = "User")
 public class User 

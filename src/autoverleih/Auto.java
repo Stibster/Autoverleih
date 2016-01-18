@@ -1,6 +1,6 @@
 /*
-Bitte alle Variablen und Methoden mit geeigneten Namen versehen und in korrekter Rechtschreibung erstellen. #Raicandy
-Bitte alle Kommentare von euch mit euren Tag(Nickname) versehen und einem Hashtag davon. #Raicandy
+Die Klasse stellt die Auto Objekte da. Sie stellt alle nötigen Methoden zum Bearbeiten der Autos zur Verfügung. #Daniel Meerwald
+
  */
 package autoverleih;
 
@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Raicandy = Daniel Meerwald
+ * @author Daniel Meerwald
  */
 @XmlRootElement(name = "Auto")
 public class Auto {
@@ -35,7 +35,7 @@ public class Auto {
     double Verbrauch;
     String Antrieb;
     String Getriebe;
-    int Baujahr; //int ist einfach einfacher als date, da es nur um das Jahr geht. #Raicandy
+    int Baujahr;
     int Kilometerstand; 
     Date TUEV; 
     double Kaution; 
@@ -43,10 +43,8 @@ public class Auto {
     boolean fahrbar;
     String Extras;
     boolean ist_da;
-    // list Werkstattfall; //Wird erst später gebraucht, wurde der Vollständigkeit halber aber schon aufgelistet. #Raicandy
-    // list Schadensfall; //Dito. #Raicandy
      
-         //###Konstruktoren erstellt von Danilo May############################### 
+//###Konstruktoren erstellt von Danilo May###################################### 
     public Auto(File Path, int AID, String KZ, String HER,String MOD, String BA, boolean AK, int SP, String FAR, int LEI, String KS, double VER, String ANT, String GET, int BJ, int KIL, Date TUE, double KAU, float GPT, boolean FAH, String EXT, boolean ID) {
         Foto = Path;
         Auto_ID = AID; 
@@ -89,7 +87,7 @@ public class Auto {
                 "Hersteller: " + Hersteller + "\n" +
                 "Modell: " + Modell +  "\n" +
                 "Bauart: " + Bauart +  "\n" +
-                //#######vervollständigt von Steve Vogel##### Top hier macht wenigstens einer mit! #Raicandy
+                //#######vervollständigt von Steve Vogel###########
                 "Anhaengerkupplung: " + Anhaengerkupplung +  "\n" +
                 "Sitzplaetze: " + Sitzplaetze +  "\n" +
                 "Farbe: " + Farbe +  "\n" +
@@ -109,7 +107,7 @@ public class Auto {
     }
     
 //###Getter Methoden erstellt von Daniel Meerwald###############################  
-    //@XmlElement(name = "Foto") //Typ file müssen wir glaube ich seperat speichern. #Raicandy
+
     public File getFoto() {
         return Foto;
 	
@@ -117,8 +115,6 @@ public class Auto {
     
     public String getFotoString() throws MalformedURLException {
         return Foto.toURI().toURL().toString();
-//        return Foto.getPath();
-	
     }
     
     @XmlElement(name = "Auto_ID")

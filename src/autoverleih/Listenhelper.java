@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+Die Klasse Stellt die nötigen Annotationen für die XML Convertierung von Arrays mittels Java Beans(JABX) zur Verfügung. #Daniel Meerwald
+
  */
 package autoverleih;
 
@@ -48,7 +47,7 @@ public class Listenhelper {
 	this.Users = Useres;
     }
  
-    
+//###Getter und Setter erstellt von Daniel Meerwald#############################
     public List<Kunde> getKunden() {
         return Kunden;
     }

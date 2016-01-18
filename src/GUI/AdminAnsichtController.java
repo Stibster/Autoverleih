@@ -282,11 +282,11 @@ public class AdminAnsichtController implements Initializable  {
                         FileChooser fileChooser = new FileChooser();
                         fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
                         File file = fileChooser.showOpenDialog(tile.getScene().getWindow());
-//                        try {
-//                            System.out.println("" + file.toURI().toURL().toString());
-//                        } catch (MalformedURLException ex) {
-//                            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
-//                        }
+                       try {
+                            System.out.println("" + file.toURI().toURL().toString());
+                        } catch (MalformedURLException ex) {
+                            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                         MC_Hammer.DBV.Autos.get(i2).setFoto(file);
                         MC_Hammer.DBV.save(pfad);
                         try {

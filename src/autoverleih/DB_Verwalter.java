@@ -1,6 +1,5 @@
 /*
- Bitte alle Variablen und Methoden mit geeigneten Namen versehen und in korrekter Rechtschreibung erstellen. #Raicandy
-Bitte alle Kommentare von euch mit euren Tag(Nickname) versehen und einem Hashtag davon. #Raicandy
+DB_Verwalter Klasse, die Klasse enthält alle Nötigen Arrays für Autos, Kunden, Ausleihen und User, sowie alle Grundfunktionen des Programms # Daniel Meerwald
  */
 package autoverleih;
 
@@ -23,7 +22,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author punker
+ * @author Daniel Meerwald
  */
 @XmlRootElement(name = "Autoverleih")
 public class DB_Verwalter {
@@ -40,21 +39,12 @@ public class DB_Verwalter {
     @XmlElement(name = "Ausleiheliste")
     @XmlElementWrapper(name = "wrapper")
     List<Ausleihe> Ausleihen = new ArrayList<>();    
-    //List<Warteliste> Warteliste = new ArrayList<>();
-    //List<Rechnung> Rechnungen = new ArrayList<>();
-    
-//###feherl meldung von Bool anderungweg von Christopher Haack##################
-    Auto Auto = new Auto();
-    //versteh nur noicht wiso wir dann auch keine instance von Kunde benotigen?
-//##############################################################################
-    
+
 //############################# User erstellung Christopher Haack###############
  
     @XmlElement(name = "Userliste")
     @XmlElementWrapper(name = "wrapper")
     List<User> Users = new ArrayList<>();
-    
-//##############################################################################
     
 //###Konstruktor################################################################
     
@@ -208,7 +198,7 @@ public void clearAusleihen(){
     }
     
     
-    //####Remove Methoden, erstellt von Daniel Meerwald#Raicandy################
+//####Remove Methoden, erstellt von Daniel Meerwald#############################
     public void removeKunde(int K_ID){
         int i = 0;
         boolean indikator = false;
@@ -251,7 +241,7 @@ public void clearAusleihen(){
             }
         }
     }
-    //###add Methoden erstellt von Steve Vogel @Stibster########################
+//###add Methoden erstellt von Steve Vogel #####################################
     public void addAuto(Auto auto) {
         
        	Autos.add(auto);

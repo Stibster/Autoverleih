@@ -1,4 +1,6 @@
 /*
+Der MetaController stellt eine Art Überklasse zu der DB_Verwalter Klasse da. Der MetaController überprüft hierbei die Kritischen Eingaben auf Fehler
+und gibt die nötigen Fehlercodes zurück.
 
  */
 package autoverleih;
@@ -13,12 +15,12 @@ import java.util.regex.Pattern;
 
 /**
  *  
- * @author DMeer
+ * @author Daniel Meerwald
  */
 
 public class MetaController {
     
-    
+//##############erstellt von Daniel Meerwald####################################    
     Input eingabe = new Input();
     public DB_Verwalter DBV = new DB_Verwalter();
     String pfad = "Data/xml/TestDatenbank.xml";
@@ -53,7 +55,7 @@ public class MetaController {
         boolean Indikator = false;
 	int indikator = 0;
         
-    //#####################Überprüfung für die Auto-ID.#########################
+    //##########Überprüfung für die Auto-ID von Daniel Meerwald#################
       while(Indikator != true){
         while (i < DBV.Autos.size() && Indikator == false) { 
 
@@ -72,7 +74,7 @@ public class MetaController {
             }
       }
             
-    //#####################Überprüfung für die Kunden-ID.#######################
+    //###########Überprüfung für die Kunden-ID von Daniel Meerwald##############
       Indikator = false;
       i = 0;
       while(Indikator != true){
@@ -93,7 +95,7 @@ public class MetaController {
 	    }
       }
       
-    //#####################Überprüfen für Ausleihe.#############################
+    //##########Überprüfen für Ausleihe von Daniel Meerwald#####################
       Indikator = false;
       i = 0;
       boolean Kollision = false;
@@ -102,8 +104,8 @@ public class MetaController {
         while (i < DBV.Ausleihen.size() && Indikator == false) { 
 
             if (DBV.Ausleihen.get(i).getAuto_ID() == Auto_ID ) {
-                //Test ob ausleihezeiträume kollidieren.
-                // Autor: Steve Vogel
+             
+            //######Test ob Ausleihezeiträume kollidieren von Steve Vogel#######
                 
                 
                 GregorianCalendar cal_aus = DateToCalendar(Ausleihdatum); //Eingegebenes Ausleihdatum
@@ -182,20 +184,20 @@ public class MetaController {
             
         }
         if(token == true){
-        while (i < DBV.Autos.size() && indikator == false) //Suche bis zum Ende der Liste.
+        while (i < DBV.Autos.size() && indikator == false)
         { 
 
             if (DBV.Autos.get(i).getAuto_ID() == A_ID ) {
                 
                 if(DBV.Autos.get(i).getIst_Da()){
                 DBV.Autos.get(i).setIst_Da(false);
-                indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+                indikator = true;
                 }
                 else{
                     return -5;
                 }
             } else {
-                i++; //Andernfalls wird das nächste Element vergleichen.
+                i++;
             }
             
         }
@@ -219,29 +221,29 @@ public class MetaController {
         boolean indikator = false;
         boolean token = false;
         
-        while (i < DBV.Ausleihen.size() && token == false) //Suche bis zum Ende der Liste.
+        while (i < DBV.Ausleihen.size() && token == false)
         { 
 
             if (DBV.Ausleihen.get(i).getAuto_ID() == A_ID ) {
                 token = true;
             } else {
-                i++; //Andernfalls wird das nächste Element vergleichen.
+                i++;
             }
             
         }
         if(token == true){
-        while (i < DBV.Autos.size() && indikator == false) { //Suche bis zum Ende der Liste.
+        while (i < DBV.Autos.size() && indikator == false) { 
             
             if (DBV.Autos.get(i).getAuto_ID() == A_ID ) {
                 if(DBV.Autos.get(i).getIst_Da()){
                 DBV.Autos.get(i).setIst_Da(true);
-                indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+                indikator = true;
                 }
                 else{
                     return -6;
                 }
             } else {
-                i++; //Andernfalls wird das nächste Element vergleichen.
+                i++;
             }
         }
         }
@@ -256,8 +258,7 @@ public class MetaController {
             return 1;
         }
     }
-//##############################################################################
-     //von Danilo May
+//############erstellt von Danilo May###########################################
     //Formt aus String einen neuen mit allen Zahlen
     public static String Zahlen(final CharSequence input){
     final StringBuilder sb = new StringBuilder(input.length());
@@ -403,6 +404,8 @@ public class MetaController {
         //gibt Erfolg oder Fehlschlag mit jeweiligem Fehlercode zurück
         return indikator;    
     }
+//##########Erstellt von Daniel Meerwald########################################
+    //Copy paste von der addKunde(), danach ergänzung der Kuden ID
     public int addKunde2(int K_ID, String VN, String NN, String PLZ, String WO, 
 	    String STR, String HN, String EM, String TN, Date GEB, File FS, Date FSD, String FSK){
         DBV.restore(pfad);
@@ -722,6 +725,8 @@ public class MetaController {
 	   return 1; 
         
     }
+//##########Erstellt von Daniel Meerwald########################################
+    //Copy paste von der addauto(), danach ergänzung der Auto ID
     public int addAuto2(int A_ID, String KZ, String HER, 
             String MOD, String BA, boolean AK ,int SP, 
             String FAR, int LEI, String KS, double VER, 
@@ -881,7 +886,7 @@ public class MetaController {
 	   return 1; 
         
     }
-//##############################################################################
+//##########Remove Methoden erstellt von Daniel Meerwald########################
    public int removeAuto(int A_ID)
       {              
               boolean indikator = false;
@@ -917,15 +922,15 @@ public class MetaController {
               int i = 0;
 
        while (i < DBV.Kunden.size() && indikator == false) 
-       { //Suche bis zum Ende der Liste.
+       {
 
             if (DBV.Kunden.get(i).getKunden_ID()== K_ID ) 
             {
                 DBV.removeKunde(K_ID);
-                indikator = true; //Ende der Methode, wenn das Objekt gefunden wurde.
+                indikator = true;
             } else 
             {
-                i++; //Andernfalls wird das nächste Element vergleichen.
+                i++;
             }
         }
         if(indikator == true)
@@ -935,37 +940,7 @@ public class MetaController {
         }
         else
         {
-	    System.out.println(",meopü");
                 return -1;
         }
         }
 }
-/*   
-    
-    public void Auto_abholen(int A_ID){
-        
-    }
-    /*
-    public void Auto_zurueckbringen(int A_ID){
-       
-    }
-    
-    public void setKunden(List<Kunde> Kunden) {
-       
-    }
-
-    public void setAutos(List<Auto> Autos) {
-      
-    }
-    public void setAusleihen(List<Ausleihe> Ausleihen) {
-    
-    }
-
-
-    
-
-    public void removeAusleihe(int K_ID, int A_ID){
-        
-    }
-*/
-

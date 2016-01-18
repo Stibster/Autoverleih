@@ -1,3 +1,8 @@
+/*
+Die Klasse ist zum Einlesen der Tastatur-Eingabe, es wird ein Standart-Eingabe-Kanal verwendet.
+Die Klasse kann String, int, float, double un date lesen. #Daniel Meerwald
+ */
+
 package autoverleih;
 
 import java.io.*;
@@ -7,11 +12,15 @@ import java.text.DateFormatSymbols;
 import java.text.ParseException;
 import java.util.Locale;
 
+/**
+ *
+ * @author Adrian Neubert
+ */
+
 public class Input 
 {  
-//*************Erstellt von Adrian Neubert****************************#Fleescher        
+//*************Erstellt von Adrian Neubert***********************#Adrian Neubert        
     
-    // Zum EInlesen der Tastatur-Eingabe wird ein Standart-Eingabe-Kanal verwendet.
     private static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
     /**
      * Lesen einer Zeichenkette von der Tastatur. 
@@ -64,27 +73,7 @@ public class Input
         String s = readString();
         SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy", new DateFormatSymbols(Locale.GERMANY));
         Date date = format.parse(s);
-        return date;
-        
-        /*
-        d = Day a Month 
-        D = Day a Year
-        w = week in Year
-        W = Week in month
-        y = Year
-        
-        dd -> 03
-        d -> 3
-        D -> 65
-        DDD -> 065 
-        w -> 23
-        W -> 3
-        yy -> 12
-        yyyy -> 2012
-        
-        Formatierungen fürs Datum, gibt noch mehr, 
-        sollten wir diskutieren welches Format!!!!
-        */      
+        return date;    
     }
     
 }

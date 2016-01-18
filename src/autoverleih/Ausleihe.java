@@ -1,6 +1,5 @@
 /*
-Bitte alle Variablen und Methoden mit geeigneten Namen versehen und in korrekter Rechtschreibung erstellen. #Raicandy
-Bitte alle Kommentare von euch mit euren Tag(Nickname) versehen und einem Hashtag davon. #Raicandy
+Die Klasse stellt die Ausleihe Objekte da. Sie stellt alle nötigen Methoden zum Bearbeiten der Ausleihen zur Verfügung. #Daniel Meerwald
  */
 package autoverleih;
 
@@ -10,7 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Raicandy
+ * @author Daniel Meerwald
  */
 @XmlRootElement(name = "Ausleihe")
 public class Ausleihe {
@@ -28,7 +27,7 @@ public class Ausleihe {
     }
     
        
-     //###Konstruktoren erstellt von Danilo May############################### 
+//###Konstruktoren erstellt von Danilo May###################################### 
      public Ausleihe (int AID, int KID, Date AD, Date RD, boolean TUE) {
         Auto_ID = AID;
         Kunden_ID =KID;

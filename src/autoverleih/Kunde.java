@@ -1,6 +1,6 @@
 /*
-Bitte alle Variablen und Methoden mit geeigneten Namen versehen und in korrekter Rechtschreibung erstellen. #Raicandy
-Bitte alle Kommentare von euch mit euren Tag(Nickname) versehen und einem Hashtag davon. #Raicandy
+Die Klasse stellt die Kunden Objekte da. Sie stellt alle nötigen Methoden zum Bearbeiten der Kunden zur Verfügung. #Daniel Meerwald
+
  */
 package autoverleih;
 
@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Raicandy
+ * @author Daniel Meerwald
  */
 @XmlRootElement(name = "Kunde")
 public class Kunde {
@@ -32,9 +32,8 @@ public class Kunde {
     File Fuehrerschein;
     Date Fuehrerscheindatum;
     String Fuehrerscheinklasse;
-    //Rechnung Rechnung; //Kommt später noch, wenn die Klasse Rechnung implementiert wird. #Raicandy
     
-         //###Konstruktoren erstellt von Danilo May############################### 
+//###Konstruktoren erstellt von Danilo May###################################### 
     public Kunde(int KID, String VN, String NN, String PLZ, String WO, String STR, String HN, String EM, String TN, Date GEB, File FS, Date FSD, String FSK) {
         Kunden_ID = KID;
         Vorname = VN;
@@ -122,7 +121,6 @@ public class Kunde {
         return Geburtstag;
     }
 
-    //@XmlElement(name = "Fuehrerschein") //File, vermutlich muss das seperat gespeichert werden. #Raicandy
     public File getFuehrerschein() {
         return Fuehrerschein;
     }
