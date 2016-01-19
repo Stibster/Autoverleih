@@ -46,21 +46,18 @@ public class MitarbeiterAnsichtController implements Initializable {
     @FXML    private MenuItem changeUser;
     @FXML    private TextArea CusText;
     @FXML    private TextArea CarText;
+    @FXML    private MenuItem vfalShow;
+    @FXML    private MenuItem about;    
     private final String path = "TestDatenbank.xml";
     private String ausgabe = "";
     private MetaController MC = new MetaController();
-    @FXML
-    private MenuItem vfalShow;
-    @FXML
-    private MenuItem about;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        showAllCars();
-        showAllCust();
+        refresh();
     }
 
     @FXML
@@ -127,7 +124,8 @@ public class MitarbeiterAnsichtController implements Initializable {
 	    popUp.showAndWait();
 	} catch (IOException ex) {
 	    Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
-	}	
+	}
+        refresh();
     }
     
     /**********erstellt: Denis Bursillon********************************************/
@@ -146,6 +144,7 @@ public class MitarbeiterAnsichtController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        refresh();
     }
     
     /**********erstellt: Denis Bursillon********************************************/
@@ -201,77 +200,7 @@ public class MitarbeiterAnsichtController implements Initializable {
             Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-     /**********erstellt: Denis Bursillon********************************************/
-    @FXML
-    private void handleChangeUserMenue(ActionEvent event) {
-	Stage popUp = new Stage();
-        popUp.setTitle("Kunde Bearbeiten");
-        Parent Page;
-        try {
-            Page = FXMLLoader.load(getClass().getResource("KuBearbeiten.fxml"));
-
-            popUp.setScene(new Scene(Page));
-            popUp.initModality(Modality.APPLICATION_MODAL);
-            popUp.initOwner(saveBTN.getScene().getWindow());
-            popUp.showAndWait();
-        } catch (IOException ex) {
-            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @FXML
-    private void handleShowAllBTN(ActionEvent event) {
-         Stage popUp = new Stage();
-        popUp.setTitle("Verleihen anzeigen");
-        Parent Page;
-        try {
-            Page = FXMLLoader.load(getClass().getResource("VfallShow.fxml"));
-
-            popUp.setScene(new Scene(Page));
-            popUp.initModality(Modality.APPLICATION_MODAL);
-            popUp.initOwner(saveBTN.getScene().getWindow());
-            popUp.showAndWait();
-        } catch (IOException ex) {
-            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
-	}
-    }
-    
-    /**********erstellt: Denis Bursillon********************************************/
-    private void showAllCars(){
-        int i = 0;
-        MC.DBV.restore(path);
-        ausgabe = "Anzahl gespeicherter Autos derzeit: " + MC.DBV.Autos.size()+"\n\n";
-        while (i < MC.DBV.Autos.size()) {
-            ausgabe += "ID: "+MC.DBV.Autos.get(i).getAuto_ID();
-             ausgabe += "   Hersteller: "+ MC.DBV.Autos.get(i).getHersteller();
-              ausgabe += "    Modell:"+MC.DBV.Autos.get(i).getModell();
-               ausgabe += "\n";
-            i++;
-        }
-        CarText.setText(ausgabe);
-    }
-    
-    /**********erstellt: Denis Bursillon********************************************/
-    /**********fertiggestellt:          ********************************************/
-    private void showAllCust(){
-        int i = 0;
-        MC.DBV.restore(path);
-        ausgabe = "Anzahl gespeicherter Kunden derzeit: " + MC.DBV.Kunden.size()+"\n\n";
-        while (i < MC.DBV.Kunden.size()) {
-           ausgabe +="ID: "+ MC.DBV.Kunden.get(i).getKunden_ID();
-            ausgabe +="    Vorname: "+ MC.DBV.Kunden.get(i).getVorname();
-	     ausgabe +="    Nachname: "+ MC.DBV.Kunden.get(i).getNachname();
-	      ausgabe +="   Wohnort: "+ MC.DBV.Kunden.get(i).getWohnort();
-	       ausgabe += "    FS-Klasse: "+MC.DBV.Kunden.get(i).getFuehrerscheinklasse();
-            ausgabe += "\n";
-            i++;
-        }
-        CusText.setText(ausgabe);
-        
-    }
-
-    
+     
     //Haack Christopher ######################
     @FXML
     private void handleAusleiheShowMenue(ActionEvent event) {
@@ -310,5 +239,85 @@ public class MitarbeiterAnsichtController implements Initializable {
     @FXML
     private void handleCloseMenue(ActionEvent event) {
 	System.exit(0);
+    }
+
+         /**********erstellt: Denis Bursillon********************************************/
+    @FXML
+    private void handleChangeUserMenue(ActionEvent event) {
+	Stage popUp = new Stage();
+        popUp.setTitle("Kunde Bearbeiten");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("KuBearbeiten.fxml"));
+
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        refresh();
+    }
+
+    @FXML
+    private void handleShowAllBTN(ActionEvent event) {
+         Stage popUp = new Stage();
+        popUp.setTitle("Verleihen anzeigen");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("VfallShow.fxml"));
+
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+	}
+    }
+    
+    /**********erstellt: Denis Bursillon********************************************/
+    private void showAllCars(){
+        int i = 0;
+        MC.DBV.restore(path);
+        ausgabe = "Anzahl gespeicherter Autos derzeit: " + MC.DBV.Autos.size()+"\n\n";
+        while (i < MC.DBV.Autos.size()) {
+            ausgabe += "ID: "+MC.DBV.Autos.get(i).getAuto_ID();
+             ausgabe += "   Hersteller: "+ MC.DBV.Autos.get(i).getHersteller();
+              ausgabe += "    Modell:"+MC.DBV.Autos.get(i).getModell();
+              if(MC.DBV.Autos.get(i).getIst_Da()==true) ausgabe += "    IM HAUS";
+              else ausgabe += "    AUSERHAUS";
+               ausgabe += "\n";
+            i++;
+        }
+        CarText.setText(ausgabe);
+    }
+    
+    /**********erstellt: Denis Bursillon********************************************/
+    /**********fertiggestellt:          ********************************************/
+    private void showAllCust(){
+        int i = 0;
+        MC.DBV.restore(path);
+        ausgabe = "Anzahl gespeicherter Kunden derzeit: " + MC.DBV.Kunden.size()+"\n\n";
+        while (i < MC.DBV.Kunden.size()) {
+           ausgabe +="ID: "+ MC.DBV.Kunden.get(i).getKunden_ID();
+            ausgabe +="    Vorname: "+ MC.DBV.Kunden.get(i).getVorname();
+	     ausgabe +="    Nachname: "+ MC.DBV.Kunden.get(i).getNachname();
+	      ausgabe +="   Wohnort: "+ MC.DBV.Kunden.get(i).getWohnort();
+	       ausgabe += "    FS-Klasse: "+MC.DBV.Kunden.get(i).getFuehrerscheinklasse();
+            ausgabe += "\n";
+            i++;
+        }
+        CusText.setText(ausgabe);
+        
+    }
+
+    
+    private void refresh() {
+        CusText.clear();
+        showAllCust();
+        CarText.clear();
+        showAllCars();
     }
 }

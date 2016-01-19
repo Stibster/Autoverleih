@@ -10,6 +10,9 @@ import autoverleih.Kunde;
 import autoverleih.MetaController;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormatSymbols;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -60,6 +63,8 @@ public class VfallShowController implements Initializable {
     private Button delete;
     @FXML
     private Button create;
+    @FXML    private TextField vonDate;
+    @FXML    private TextField bisDate;
     /**
      * Initializes the controller class.
      */
@@ -104,6 +109,12 @@ public class VfallShowController implements Initializable {
 		setA_Model.setText(MC_Hammer.DBV.getAutobyID(aid).getModell());
 		setA_Kaution.setText(String.valueOf(MC_Hammer.DBV.getAutobyID(aid).getKaution()));
 		setA_GpT.setText(String.valueOf(MC_Hammer.DBV.getAutobyID(aid).getGebuehr_pro_Tag()));
+		
+		//############## Christopher Haack
+		SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy", new DateFormatSymbols(Locale.GERMANY));
+		bisDate.setText("Bis: " + String.valueOf(format.format(MC_Hammer.DBV.getAusleihebyID(ausid).getRueckgabedatum())));
+		vonDate.setText("Von: " + String.valueOf(format.format(MC_Hammer.DBV.getAusleihebyID(ausid).getAusleihdatum())));
+		//######################
 		
 		break;
 	    case -1:

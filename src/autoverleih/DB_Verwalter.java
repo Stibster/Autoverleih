@@ -230,10 +230,11 @@ public void clearAusleihen(){
         int i = 0;
         int Au_ID = 1;
         while (i < Ausleihen.size()) { //Suche bis zum Ende der Liste.
-
-            if (Ausleihen.get(i).getKunden_ID() == Au_ID ) {
+	//########### Christopher Haack
+            if(Ausleihen.get(i).getAusleihe_ID()== Au_ID ){
+		    //alter code(Ausleihen.get(i).getKunden_ID() == Au_ID ) {
+	//###############################
                 Au_ID++;
-                
             } else {
                 i++; //Andernfalls wird das nächste Element vergleichen.
             }

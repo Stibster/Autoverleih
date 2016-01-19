@@ -47,7 +47,7 @@ public class KundeDelController implements Initializable {
 	int K_id;
 	int fehler = 0;
 	 K_id = Integer.parseInt(k_ID.getText());
-	 //MC_Hammer.DBV.restore(pfad); kann raus Haack
+	 MC_Hammer.DBV.restore(pfad);
 	 fehler = MC_Hammer.removeKunde(K_id);
 	 switch (fehler) 
 	    {
