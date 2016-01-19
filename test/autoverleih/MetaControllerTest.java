@@ -161,9 +161,9 @@ public class MetaControllerTest {
     @Test
     public void testAddAuto() {
         System.out.println("addAuto");
-        String KZ = "BA";
+        String KZ = "BA-S54";
         String HER = "BMW";
-        String MOD = "A";
+        String MOD = "A1";
         String BA = "Sport";
         boolean AK = true;
         int SP = 6;
@@ -266,7 +266,7 @@ public class MetaControllerTest {
     public void testAddAuto2() {
         System.out.println("addAuto2");
         int A_ID = 99;
-        String KZ = "AA";
+        String KZ = "AA-FE223";
         String HER = "Audi";
         String MOD = "Az";
         String BA = "Sport";

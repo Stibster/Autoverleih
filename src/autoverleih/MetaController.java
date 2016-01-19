@@ -586,8 +586,8 @@ public class MetaController {
          String Buchstaben = "[A-Z][a-zA-Z]*";   
         //Prüft die Eingaberegeln 
         //Kennzeichen Regel
-        //String Kennzeichen = "[A-Z_0-9]";
-        p = Pattern.compile(Buchstaben);
+        String Kennzeichen = "^[A-ZÄÖÜ]{1,3}\\-[ ]{0,1}[A-Z]{0,2}[0-9]{1,4}[H]?$";
+        p = Pattern.compile(Kennzeichen);
         m = p.matcher(KZ);
         boolean Schild = m.matches();
         
@@ -597,7 +597,8 @@ public class MetaController {
         boolean Hersteller = m.matches();
         
         // Modell Regel(Buchstaben)
-        p = Pattern.compile(Buchstaben);
+        String modell = "[A-Z][a-zA-Z0-9]*";
+        p = Pattern.compile(modell);
         m = p.matcher(MOD);
         boolean Modell = m.matches();
         
@@ -612,20 +613,20 @@ public class MetaController {
         boolean Farbe = m.matches();
         
         // Kraftstoff
-        //String KrSt = "[Diesel][Benzin][E10][Gas]";
-        p = Pattern.compile(Buchstaben);
+        String KrSt = "(Diesel)|(Benzin)|(E10)|(Gas)";
+        p = Pattern.compile(KrSt);
         m = p.matcher(KS);
         boolean Kraftstoff  = m.matches();
         
         // Antrieb Regel
-        //String Antr = "[Frontantrieb][Heckantrieb][Allrad]";
-        p = Pattern.compile(Buchstaben);
+        String Antr = "(Frontantrieb)|(Heckantrieb)|(Allrad)";
+        p = Pattern.compile(Antr);
         m = p.matcher(ANT);
         boolean Antrieb = m.matches();
         
         //Getriebe Regel
-        //String Getr = "[Schaltgetriebe][Automatikgetriebe]";
-        p = Pattern.compile(Buchstaben);
+        String Getr = "(Schaltgetriebe)|(Automatikgetriebe)";
+        p = Pattern.compile(Getr);
         m = p.matcher(GET);
         boolean Getriebe = m.matches();
         
@@ -762,8 +763,8 @@ public class MetaController {
          String Buchstaben = "[A-Z][a-zA-Z]*";   
         //Prüft die Eingaberegeln 
         //Kennzeichen Regel
-        //String Kennzeichen = "[A-Z_0-9]";
-        p = Pattern.compile(Buchstaben);
+        String Kennzeichen = "^[A-ZÄÖÜ]{1,3}\\-[ ]{0,1}[A-Z]{0,2}[0-9]{1,4}[H]?$";
+        p = Pattern.compile(Kennzeichen);
         m = p.matcher(KZ);
         boolean Schild = m.matches();
         
@@ -773,7 +774,8 @@ public class MetaController {
         boolean Hersteller = m.matches();
         
         // Modell Regel(Buchstaben)
-        p = Pattern.compile(Buchstaben);
+        String modell = "[A-Z][a-zA-Z0-9]*";
+        p = Pattern.compile(modell);
         m = p.matcher(MOD);
         boolean Modell = m.matches();
         
@@ -788,23 +790,22 @@ public class MetaController {
         boolean Farbe = m.matches();
         
         // Kraftstoff
-        //String KrSt = "[Diesel][Benzin][E10][Gas]";
-        p = Pattern.compile(Buchstaben);
+        String KrSt = "(Diesel)|(Benzin)|(E10)|(Gas)";
+        p = Pattern.compile(KrSt);
         m = p.matcher(KS);
         boolean Kraftstoff  = m.matches();
         
         // Antrieb Regel
-        //String Antr = "[Frontantrieb][Heckantrieb][Allrad]";
-        p = Pattern.compile(Buchstaben);
+        String Antr = "(Frontantrieb)|(Heckantrieb)|(Allrad)";
+        p = Pattern.compile(Antr);
         m = p.matcher(ANT);
         boolean Antrieb = m.matches();
         
         //Getriebe Regel
-        //String Getr = "[Schaltgetriebe][Automatikgetriebe]";
-        p = Pattern.compile(Buchstaben);
+        String Getr = "(Schaltgetriebe)|(Automatikgetriebe)";
+        p = Pattern.compile(Getr);
         m = p.matcher(GET);
         boolean Getriebe = m.matches();
-        
         
         // Extras Regel
         p = Pattern.compile(Buchstaben);
