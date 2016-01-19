@@ -189,6 +189,8 @@ public class AutobearbeitenController implements Initializable {
 
 	switch (fehler) {
 	    case 1:
+		MC_Hammer.DBV.restore(pfad);
+		MC_Hammer.removeAuto(A_ID);
 		Stage popUp = (Stage) kennLabel.getScene().getWindow();
 		popUp.close();
 		break;

@@ -152,30 +152,6 @@
     </Autoliste>
     <Autoliste>
         <Anhaengerkupplung>false</Anhaengerkupplung>
-        <Antrieb>Allrad</Antrieb>
-        <Auto_ID>2</Auto_ID>
-        <Bauart>Kombi</Bauart>
-        <Baujahr>2015</Baujahr>
-        <extras>Dynamikpaket plus (305 km/h)</extras>
-        <Fahrbar>true</Fahrbar>
-        <Farbe>Rot</Farbe>
-        <foto>Data\audirs6.jpg</foto>
-        <Gebuehr_pro_Tag>8.0</Gebuehr_pro_Tag>
-        <Getriebe>8-Gang-tiptronic</Getriebe>
-        <Hersteller>Audi</Hersteller>
-        <ist_da>true</ist_da>
-        <Kaution>945.0</Kaution>
-        <Kennzeichen>MW-VZ 6683</Kennzeichen>
-        <Kilometerstand>67339</Kilometerstand>
-        <Kraftstoff>Benzin</Kraftstoff>
-        <Leistung>605</Leistung>
-        <Modell>RS6 Performance</Modell>
-        <Sitzplaetze>5</Sitzplaetze>
-        <TUEV>2017-01-01T00:00:00+01:00</TUEV>
-        <Verbrauch>7.9</Verbrauch>
-    </Autoliste>
-    <Autoliste>
-        <Anhaengerkupplung>false</Anhaengerkupplung>
         <Antrieb>Hinterradantrieb</Antrieb>
         <Auto_ID>3</Auto_ID>
         <Bauart>Limousine</Bauart>
@@ -365,6 +341,30 @@
         <Sitzplaetze>4</Sitzplaetze>
         <TUEV>2017-01-01T00:00:00+01:00</TUEV>
         <Verbrauch>4.7</Verbrauch>
+    </Autoliste>
+    <Autoliste>
+        <Anhaengerkupplung>false</Anhaengerkupplung>
+        <Antrieb>Allrad</Antrieb>
+        <Auto_ID>2</Auto_ID>
+        <Bauart>Kombi</Bauart>
+        <Baujahr>2015</Baujahr>
+        <extras>Test</extras>
+        <Fahrbar>true</Fahrbar>
+        <Farbe>Rot</Farbe>
+        <foto>Data\dummy1.jpg</foto>
+        <Gebuehr_pro_Tag>8.0</Gebuehr_pro_Tag>
+        <Getriebe>Schaltgetriebe</Getriebe>
+        <Hersteller>DreksSwt</Hersteller>
+        <ist_da>true</ist_da>
+        <Kaution>945.0</Kaution>
+        <Kennzeichen>MW-VZ6683</Kennzeichen>
+        <Kilometerstand>67339</Kilometerstand>
+        <Kraftstoff>Benzin</Kraftstoff>
+        <Leistung>605</Leistung>
+        <Modell>SWTolah</Modell>
+        <Sitzplaetze>5</Sitzplaetze>
+        <TUEV>2017-01-01T00:01:00+01:00</TUEV>
+        <Verbrauch>7.9</Verbrauch>
     </Autoliste>
     <Ausleiheliste>
         <Ausleihdatum>2016-01-21T00:01:00+01:00</Ausleihdatum>

@@ -170,6 +170,7 @@ public class KuBearbeitenController implements Initializable {
 
 	switch (fehler) {
 	    case 1:
+		MC_Hammer.removeKunde(K_ID);
 		Stage popUp = (Stage) preLabel.getScene().getWindow();
 		popUp.close();
 		break;
