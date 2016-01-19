@@ -892,7 +892,7 @@ public class MetaController {
       {              
               boolean indikator = false;
               int i = 0;
-
+              DBV.restore(pfad);
        while (i < DBV.Autos.size() && indikator == false) 
        { //Suche bis zum Ende der Liste.
 
@@ -921,7 +921,7 @@ public class MetaController {
        {              
               boolean indikator = false;
               int i = 0;
-
+              DBV.restore(pfad);
        while (i < DBV.Kunden.size() && indikator == false) 
        {
 
