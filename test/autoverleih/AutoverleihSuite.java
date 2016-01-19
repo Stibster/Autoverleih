@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package autoverleih;
 
 import org.junit.After;
@@ -18,8 +17,8 @@ import org.junit.runners.Suite;
  * @author Danilo May
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({autoverleih.AusleiheTest.class, autoverleih.AutoTest.class, autoverleih.KundeTest.class, autoverleih.UserTest.class})
-public class UnitTest {
+@Suite.SuiteClasses({autoverleih.AutoTest.class, autoverleih.KundeTest.class, autoverleih.UserTest.class, autoverleih.AusleiheTest.class, autoverleih.ListenhelperTest.class, autoverleih.DB_VerwalterTest.class, autoverleih.MetaControllerTest.class})
+public class AutoverleihSuite {
 
     @BeforeClass
     public static void setUpClass() throws Exception {

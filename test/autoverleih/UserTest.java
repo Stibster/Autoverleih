@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author a
+ * @author Danilo May
  */
 public class UserTest {
     
@@ -48,8 +48,6 @@ public class UserTest {
         int expResult = 123;
         int result = instance.getUser_ID();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -62,8 +60,6 @@ public class UserTest {
         String expResult = "Alice";
         String result = instance.getUser_NAME();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -76,8 +72,6 @@ public class UserTest {
         String expResult = "ab12";
         String result = instance.getUser_PW();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -89,8 +83,6 @@ public class UserTest {
         int U_ID = 4;
         User instance = new User(123, "Alice", "ab12");
         instance.setU_ID(U_ID);
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -102,8 +94,6 @@ public class UserTest {
         String U_NAME = "Bob";
         User instance = new User(123, "Alice", "ab12");
         instance.setU_Name(U_NAME);
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -115,8 +105,6 @@ public class UserTest {
         String U_PW = "c3";
         User instance = new User(123, "Alice", "ab12");
         instance.setU_pw(U_PW);
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
     
 }

@@ -53,8 +53,6 @@ public class AusleiheTest {
         String expResult = "Kunde 2 hat den Wagen 1 von Fri Jun 10 00:00:00 CEST 2016 bis Wed Jun 15 00:00:00 CEST 2016ausgeliehen.";
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -67,8 +65,6 @@ public class AusleiheTest {
         int expResult = 1;
         int result = instance.getAuto_ID();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -81,8 +77,6 @@ public class AusleiheTest {
         int expResult = 2;
         int result = instance.getKunden_ID();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -95,8 +89,6 @@ public class AusleiheTest {
         Date expResult = AD;
         Date result = instance.getAusleihdatum();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -109,8 +101,6 @@ public class AusleiheTest {
         Date expResult = RD;
         Date result = instance.getRueckgabedatum();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -123,8 +113,6 @@ public class AusleiheTest {
         boolean expResult = true;
         boolean result = instance.isTUEV();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -136,8 +124,6 @@ public class AusleiheTest {
         int Auto_ID = 3;
         Ausleihe instance = new Ausleihe(1, 2, AD, RD, true);
         instance.setAuto_ID(Auto_ID);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -149,8 +135,6 @@ public class AusleiheTest {
         int Kunden_ID = 4;
         Ausleihe instance = new Ausleihe(1, 2, AD, RD, true);
         instance.setKunden_ID(Kunden_ID);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -162,8 +146,6 @@ public class AusleiheTest {
         Date Ausleihdatum = AD2;
         Ausleihe instance = new Ausleihe(1, 2, AD, RD, true);
         instance.setAusleihdatum(Ausleihdatum);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -175,8 +157,6 @@ public class AusleiheTest {
         Date Rueckgabedatum = RD2;
         Ausleihe instance = new Ausleihe(1, 2, AD, RD, true);
         instance.setRueckgabedatum(Rueckgabedatum);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -188,8 +168,29 @@ public class AusleiheTest {
         boolean TUEV = false;
         Ausleihe instance = new Ausleihe(1, 2, AD, RD, true);
         instance.setTUEV(TUEV);
-        // TODO review the generated test code and remove the default call to fail.
-        //
+    }
+
+    /**
+     * Test of getAusleihe_ID method, of class Ausleihe.
+     */
+    @Test
+    public void testGetAusleihe_ID() {
+        System.out.println("getAusleihe_ID");
+        Ausleihe instance = new Ausleihe(1, 2, AD, RD, true);
+        int expResult = 0;
+        int result = instance.getAusleihe_ID();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of setAusleihe_ID method, of class Ausleihe.
+     */
+    @Test
+    public void testSetAusleihe_ID() {
+        System.out.println("setAusleihe_ID");
+        int Ausleihe_ID = 1;
+        Ausleihe instance = new Ausleihe(1, 2, AD, RD, true);
+        instance.setAusleihe_ID(Ausleihe_ID);
     }
     
 }

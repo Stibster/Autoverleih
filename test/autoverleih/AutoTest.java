@@ -21,7 +21,7 @@ import static org.junit.Assert.*;
  */
 public class AutoTest {
     Date tuev = new Date(116, 10, 2);
-    File Foto1 = new File("C:\\Autoverleih\\Test2");
+    File Foto1 = new File("/Data/bmw5.jpg");
     public AutoTest() {
     }
     
@@ -51,8 +51,6 @@ public class AutoTest {
         String expResult = "Auto ID: 11\nKennzeichen: abc\nHersteller: audi\nModell: abc\nBauart: bau\nAnhaengerkupplung: true\nSitzplaetze: 5\nFarbe: g\nLeistung: 500\nKraftstoff: b\nVerbrauch: 5.0\nAntrieb: all\nGetriebe: sch\nBaujahr: 1995\nKilometerstand: 60000\nTÜV: Wed Nov 02 00:00:00 CET 2016\nKaution: 5000.0\nGebuehr pro Tag: 50.0\nFahrbar: true\nExtras: klima\nGerade verfuegbar: true\n";
         String result = Proto.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -65,8 +63,6 @@ public class AutoTest {
         File expResult = Foto1;
         File result = Proto.getFoto();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -103,8 +99,6 @@ public class AutoTest {
         String expResult = "audi";
         String result = Proto.getHersteller();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -117,8 +111,6 @@ public class AutoTest {
         String expResult = "abc";
         String result = Proto.getModell();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -131,8 +123,6 @@ public class AutoTest {
         boolean expResult = true;
         boolean result = Proto.getAnhaengerkupplung();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -145,8 +135,6 @@ public class AutoTest {
         int expResult = 5;
         int result = Proto.getSitzplaetze();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -159,8 +147,6 @@ public class AutoTest {
         String expResult = "g";
         String result = Proto.getFarbe();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -173,8 +159,6 @@ public class AutoTest {
         int expResult = 500;
         int result = Proto.getLeistung();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -187,8 +171,6 @@ public class AutoTest {
         String expResult = "b";
         String result = Proto.getKraftstoff();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -202,8 +184,6 @@ public class AutoTest {
         double expResult = 5.0;
         double result = Proto.getVerbrauch();
         assertEquals(expResult, result, delta);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -216,8 +196,6 @@ public class AutoTest {
         String expResult = "all";
         String result = Proto.getAntrieb();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -230,8 +208,6 @@ public class AutoTest {
         String expResult = "sch";
         String result = Proto.getGetriebe();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -244,8 +220,6 @@ public class AutoTest {
         int expResult = 1995;
         int result = Proto.getBaujahr();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -258,8 +232,6 @@ public class AutoTest {
         int expResult = 60000;
         int result = Proto.getKilometerstand();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -272,8 +244,6 @@ public class AutoTest {
         Date expResult = tuev;
         Date result = Proto.getTUEV();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -286,8 +256,6 @@ public class AutoTest {
         double expResult = 5000;
         double result = Proto.getKaution();
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -300,8 +268,6 @@ public class AutoTest {
         float expResult = 50F;
         float result = Proto.getGebuehr_pro_Tag();
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -314,8 +280,6 @@ public class AutoTest {
         boolean expResult = true;
         boolean result = Proto.isFahrbar();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -328,8 +292,6 @@ public class AutoTest {
         boolean expResult = true;
         boolean result = Proto.getIst_Da();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -342,8 +304,6 @@ public class AutoTest {
         String expResult = "klima";
         String result = Proto.getExtras();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -352,11 +312,9 @@ public class AutoTest {
     @Test
     public void testSetFoto() {
         System.out.println("setFoto");
-        File Foto2 = new File("C:\\Autoverleih\\Test1");
+        File Foto2 = new File("/Data/bmw3.jpg");
         Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setFoto(Foto2);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -368,8 +326,6 @@ public class AutoTest {
         int Auto_ID =9;
         Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setAuto_ID(Auto_ID);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -381,8 +337,6 @@ public class AutoTest {
         String Kennzeichen = "asd";
         Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setKennzeichen(Kennzeichen);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -394,8 +348,6 @@ public class AutoTest {
         String Hersteller = "benz";
         Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setHersteller(Hersteller);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -407,8 +359,6 @@ public class AutoTest {
         String Modell = "oh";
         Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setModell(Modell);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -420,8 +370,6 @@ public class AutoTest {
         boolean Anhaengerkupplung = false;
         Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setAnhaengerkupplung(Anhaengerkupplung);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -433,8 +381,6 @@ public class AutoTest {
         int Sitzplaetze = 8;
         Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setSitzplaetze(Sitzplaetze);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -446,8 +392,6 @@ public class AutoTest {
         String Farbe = "b";
         Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setFarbe(Farbe);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -459,8 +403,6 @@ public class AutoTest {
         int Leistung = 6;
         Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setLeistung(Leistung);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -472,8 +414,6 @@ public class AutoTest {
         String Kraftstoff = "uh";
         Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setKraftstoff(Kraftstoff);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -485,8 +425,6 @@ public class AutoTest {
         double Verbrauch = 6.0;
         Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setVerbrauch(Verbrauch);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -498,8 +436,6 @@ public class AutoTest {
         String Antrieb = "ur";
         Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setAntrieb(Antrieb);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -511,8 +447,6 @@ public class AutoTest {
         String Getriebe = "eser";
         Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setGetriebe(Getriebe);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -524,8 +458,6 @@ public class AutoTest {
         int Baujahr = 65;
         Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setBaujahr(Baujahr);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -537,8 +469,6 @@ public class AutoTest {
         int Kilometerstand = 546;
         Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setKilometerstand(Kilometerstand);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -550,8 +480,6 @@ public class AutoTest {
         Date TUEV = null;
         Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setTUEV(TUEV);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -563,8 +491,6 @@ public class AutoTest {
         double Kaution = 30;
         Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setKaution(Kaution);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -576,8 +502,6 @@ public class AutoTest {
         float Gebuehr_pro_Tag = 60F;
         Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setGebuehr_pro_Tag(Gebuehr_pro_Tag);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -589,8 +513,6 @@ public class AutoTest {
         boolean fahrbar = false;
         Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setFahrbar(fahrbar);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -602,8 +524,6 @@ public class AutoTest {
         String Extras = "nix";
         Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setExtras(Extras);
-        // TODO review the generated test code and remove the default call to fail.
-        //
     }
 
     /**
@@ -615,8 +535,53 @@ public class AutoTest {
         boolean ist_da = false;
         Auto Proto = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
         Proto.setIst_Da(ist_da);
-        // TODO review the generated test code and remove the default call to fail.
-        //
+    }
+
+    /**
+     * Test of getFotoString method, of class Auto.
+     */
+    @Test
+    public void testGetFotoString() throws Exception {
+        System.out.println("getFotoString");
+        Auto instance = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        String expResult = "file:/C:/Data/bmw5.jpg";
+        String result = instance.getFotoString();
+        assertEquals(expResult, result);
+     }
+
+    /**
+     * Test of getAnhaengerkupplung method, of class Auto.
+     */
+    @Test
+    public void testGetAnhaengerkupplung() {
+        System.out.println("getAnhaengerkupplung");
+        Auto instance = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        boolean expResult = true;
+        boolean result = instance.getAnhaengerkupplung();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getBauart method, of class Auto.
+     */
+    @Test
+    public void testGetBauart() {
+        System.out.println("getBauart");
+        Auto instance = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        String expResult = "bau";
+        String result = instance.getBauart();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of setBauart method, of class Auto.
+     */
+    @Test
+    public void testSetBauart() {
+        System.out.println("setBauart");
+        String Bauart = "art";
+        Auto instance = new Auto(Foto1, 11, "abc", "audi", "abc", "bau", true, 5, "g", 500, "b", 5, "all", "sch", 1995, 60000, tuev, 5000, 50, true, "klima", true);
+        instance.setBauart(Bauart);
     }
     
 }

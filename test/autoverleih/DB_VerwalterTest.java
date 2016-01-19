@@ -6,6 +6,7 @@
 package autoverleih;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.junit.After;
@@ -24,7 +25,7 @@ public class DB_VerwalterTest {
     Date RD = new Date(46, 6, 15);
     Date AD2 = new Date(0, 6, 10);
     Date RD2 = new Date(50, 6, 15);
-    File Foto1 = new File("C:\\Autoverleih\\Test2");
+    File Foto1 = new File("/Data/bmw5.jpg");
     Date TUV = new Date(120, 10,4);
     String pfad = "Data/xml/TestDatenbank2.xml";
     public DB_Verwalter DBV = new DB_Verwalter();
@@ -51,7 +52,7 @@ public class DB_VerwalterTest {
         DBV.addAuto(auto5);
         Ausleihe ausleihe = new Ausleihe(2, 3, AD, RD, false);
         DBV.addAusleihe(ausleihe);
-        Kunde kunde5 = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", AD,  Foto1, RD2, "ads" );
+        Kunde kunde5 = new Kunde(1, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", AD,  Foto1, RD2, "ads" );
         DBV.addKunde(kunde5);
         DBV.save(pfad);
     }
@@ -68,8 +69,6 @@ public class DB_VerwalterTest {
         System.out.println("clearAll");
         DB_Verwalter instance = new DB_Verwalter();
         instance.clearAll();
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -80,8 +79,6 @@ public class DB_VerwalterTest {
         System.out.println("clearAutos");
         DB_Verwalter instance = new DB_Verwalter();
         instance.clearAutos();
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -92,8 +89,6 @@ public class DB_VerwalterTest {
         System.out.println("clearKunden");
         DB_Verwalter instance = new DB_Verwalter();
         instance.clearKunden();
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -104,8 +99,6 @@ public class DB_VerwalterTest {
         System.out.println("clearAusleihen");
         DB_Verwalter instance = new DB_Verwalter();
         instance.clearAusleihen();
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -116,8 +109,6 @@ public class DB_VerwalterTest {
         System.out.println("Autos_anzeigen");
         DB_Verwalter instance = new DB_Verwalter();
         instance.Autos_anzeigen();
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -128,8 +119,6 @@ public class DB_VerwalterTest {
         System.out.println("Kunden_anzeigen");
         DB_Verwalter instance = new DB_Verwalter();
         instance.Kunden_anzeigen();
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -140,8 +129,6 @@ public class DB_VerwalterTest {
         System.out.println("Ausleihen_anzeigen");
         DB_Verwalter instance = new DB_Verwalter();
         instance.Ausleihen_anzeigen();
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -150,12 +137,12 @@ public class DB_VerwalterTest {
     @Test
     public void testAuto_abholen() {
         System.out.println("Auto_abholen");
-         Auto auto = new Auto(Foto1, 1, "d", "f", "f", "g", true, 4, "s", 126, "ds", 4, "sf", "GET", 1883, 8045, RD2, 543, 234, true, "fd", true);
+        DBV.clearAll();
+        Auto auto = new Auto(Foto1, 1, "d", "f", "f", "g", true, 4, "s", 126, "ds", 4, "sf", "GET", 1883, 8045, RD2, 543, 234, true, "fd", true);
         int A_ID = 2;
         DB_Verwalter instance = new DB_Verwalter();
+        instance.restore(pfad);
         instance.Auto_abholen(A_ID);
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -166,9 +153,8 @@ public class DB_VerwalterTest {
         System.out.println("Auto_zurueckbringen");
         int A_ID = 3;
         DB_Verwalter instance = new DB_Verwalter();
+        instance.restore(pfad);
         instance.Auto_zurueckbringen(A_ID);
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -177,12 +163,11 @@ public class DB_VerwalterTest {
     @Test
     public void testGetKunden() {
         System.out.println("getKunden");
+        DBV.clearAll();
         DB_Verwalter instance = new DB_Verwalter();
-        List<Kunde> expResult = null;
+        List<Kunde> expResult = new ArrayList<Kunde>();
         List<Kunde> result = instance.getKunden();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -191,12 +176,11 @@ public class DB_VerwalterTest {
     @Test
     public void testGetAutos() {
         System.out.println("getAutos");
+        DBV.clearAll();
         DB_Verwalter instance = new DB_Verwalter();
-        List<Auto> expResult = null;
+        List<Auto> expResult = new ArrayList<Auto>();
         List<Auto> result = instance.getAutos();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -205,12 +189,11 @@ public class DB_VerwalterTest {
     @Test
     public void testGetAusleihen() {
         System.out.println("getAusleihen");
+        DBV.clearAll();
         DB_Verwalter instance = new DB_Verwalter();
-        List<Ausleihe> expResult = null;
+        List<Ausleihe> expResult = new ArrayList<Ausleihe>();
         List<Ausleihe> result = instance.getAusleihen();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -222,8 +205,6 @@ public class DB_VerwalterTest {
         List<Kunde> Kunden = null;
         DB_Verwalter instance = new DB_Verwalter();
         instance.setKunden(Kunden);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -235,8 +216,6 @@ public class DB_VerwalterTest {
         List<Auto> Autos = null;
         DB_Verwalter instance = new DB_Verwalter();
         instance.setAutos(Autos);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -248,8 +227,6 @@ public class DB_VerwalterTest {
         List<Ausleihe> Ausleihen = null;
         DB_Verwalter instance = new DB_Verwalter();
         instance.setAusleihen(Ausleihen);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -258,12 +235,11 @@ public class DB_VerwalterTest {
     @Test
     public void testMakeAutoID() {
         System.out.println("makeAutoID");
+        DBV.clearAll();
         DB_Verwalter instance = new DB_Verwalter();
-        int expResult = 0;
+        int expResult = 1;
         int result = instance.makeAutoID();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -272,12 +248,11 @@ public class DB_VerwalterTest {
     @Test
     public void testMakeKundenID() {
         System.out.println("makeKundenID");
+        DBV.clearAll();
         DB_Verwalter instance = new DB_Verwalter();
-        int expResult = 0;
+        int expResult = 1;
         int result = instance.makeKundenID();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -289,8 +264,6 @@ public class DB_VerwalterTest {
         int K_ID = 5;
         DB_Verwalter instance = new DB_Verwalter();
         instance.removeKunde(K_ID);
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -302,8 +275,6 @@ public class DB_VerwalterTest {
         int A_ID = 5;
         DB_Verwalter instance = new DB_Verwalter();
         instance.removeAuto(A_ID);
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -312,12 +283,9 @@ public class DB_VerwalterTest {
     @Test
     public void testRemoveAusleihe() {
         System.out.println("removeAusleihe");
-        int K_ID = 2;
         int A_ID = 3;
         DB_Verwalter instance = new DB_Verwalter();
-        instance.removeAusleihe(K_ID, A_ID);
-        // TODO review the generated test code and remove the default call to fail.
-        
+        instance.removeAusleihe(A_ID);
     }
 
     /**
@@ -329,8 +297,6 @@ public class DB_VerwalterTest {
         Auto auto = new Auto(Foto1, 99, "j", "f", "f", "g", true, 4, "s", 126, "ds", 4, "sf", "GET", 1883, 8045, RD2, 543, 234, true, "fd", true);
         DB_Verwalter instance = new DB_Verwalter();
         instance.addAuto(auto);
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -342,8 +308,6 @@ public class DB_VerwalterTest {
         Ausleihe ausleihe = new Ausleihe(1, 1, AD, RD, false);;
         DB_Verwalter instance = new DB_Verwalter();
         instance.addAusleihe(ausleihe);
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -355,8 +319,6 @@ public class DB_VerwalterTest {
         Kunde Kunde = new Kunde(99, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", AD,  Foto1, RD2, "ads" );;
         DB_Verwalter instance = new DB_Verwalter();
         instance.addKunde(Kunde);
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -368,8 +330,6 @@ public class DB_VerwalterTest {
         String pfad = "\"Data/xml/TestDatenbank2.xml\"";
         DB_Verwalter instance = new DB_Verwalter();
         instance.save(pfad);
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -378,12 +338,11 @@ public class DB_VerwalterTest {
     @Test
     public void testGetUsers() {
         System.out.println("getUsers");
+        DBV.clearAll();
         DB_Verwalter instance = new DB_Verwalter();
-        List<User> expResult = null;
+        List<User> expResult = new ArrayList<User>();
         List<User> result = instance.getUsers();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -395,8 +354,6 @@ public class DB_VerwalterTest {
         List<User> Users = null;
         DB_Verwalter instance = new DB_Verwalter();
         instance.setUser(Users);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -408,8 +365,6 @@ public class DB_VerwalterTest {
         User user = new User(4,"hans", "123");
         DB_Verwalter instance = new DB_Verwalter();
         instance.addUser(user);
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -421,8 +376,6 @@ public class DB_VerwalterTest {
         int U_ID = 1;
         DB_Verwalter instance = new DB_Verwalter();
         instance.removeUser(U_ID);
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -433,8 +386,6 @@ public class DB_VerwalterTest {
         System.out.println("User_anzeigen");
         DB_Verwalter instance = new DB_Verwalter();
         instance.User_anzeigen();
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -446,8 +397,6 @@ public class DB_VerwalterTest {
         String pfad = "Data/xml/TestDatenbank2.xml";
         DB_Verwalter instance = new DB_Verwalter();
         instance.restore(pfad);
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -459,8 +408,6 @@ public class DB_VerwalterTest {
         int Anzahl = 10;
         DB_Verwalter instance = new DB_Verwalter();
         instance.randomAutos(Anzahl);
-        // TODO review the generated test code and remove the default call to fail.
-        
     }
 
     /**
@@ -472,8 +419,75 @@ public class DB_VerwalterTest {
         int Anzahl = 10;
         DB_Verwalter instance = new DB_Verwalter();
         instance.randomKunden(Anzahl);
+    }
+
+    /**
+     * Test of getAutobyID method, of class DB_Verwalter.
+     */
+    @Test
+    public void testGetAutobyID() {
+        System.out.println("getAutobyID");
+        int A_ID = 3;
+        DB_Verwalter instance = new DB_Verwalter();
+        instance.restore(pfad);
+        Auto expResult = new Auto(Foto1, 3, "dj", "f", "f", "g", true, 4, "s", 126, "ds", 4, "sf", "GET", 1883, 8045, RD2, 543, 234, true, "fd", false);
+        Auto result = instance.getAutobyID(A_ID);
+        assertEquals(expResult, result);
+
+    }
+
+    /**
+     * Test of getKundebyID method, of class DB_Verwalter.
+     */
+    @Test
+    public void testGetKundebyID() {
+        System.out.println("getKundebyID");
+        int K_ID = 1;
+        DB_Verwalter instance = new DB_Verwalter();
+        instance.restore(pfad);
+        Kunde expResult = new Kunde(1, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", AD,  Foto1, RD2, "ads" );
+        Kunde result = instance.getKundebyID(K_ID);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getAusleihebyID method, of class DB_Verwalter.
+     */
+    @Test
+    public void testGetAusleihebyID() {
+        System.out.println("getAusleihebyID");
+        int A_ID = 1;
+        DB_Verwalter instance = new DB_Verwalter();
+        instance.restore(pfad);
+        Ausleihe expResult = new Ausleihe(2, 3, AD, RD, false);
+        Ausleihe result = instance.getAusleihebyID(A_ID);
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of makeAusleiheID method, of class DB_Verwalter.
+     */
+    @Test
+    public void testMakeAusleiheID() {
+        System.out.println("makeAusleiheID");
+        DBV.clearAll();
+        DB_Verwalter instance = new DB_Verwalter();
+        int expResult = 1;
+        int result = instance.makeAusleiheID();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of randomRealAutos method, of class DB_Verwalter.
+     */
+    @Test
+    public void testRandomRealAutos() throws Exception {
+        System.out.println("randomRealAutos");
+        int Anzahl = 13;
+        DB_Verwalter instance = new DB_Verwalter();
+        instance.randomRealAutos(Anzahl);
     }
     
 }

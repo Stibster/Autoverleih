@@ -20,11 +20,11 @@ import static org.junit.Assert.*;
  * @author Danilo May
  */
 public class MetaControllerTest {
-    Date AD = new Date(116, 5, 10);
+    Date AD = new Date(116, 1, 18);
     Date RD = new Date(116, 6, 15);
     Date AD2 = new Date(50, 6, 10);
     Date RD2 = new Date(118, 6, 15);
-    File Foto1 = new File("C:\\Autoverleih\\Test2");
+    File Foto1 = new File("/Data/bmw5.jpg");
     Date TUV = new Date(120, 10,4);
     String pfad = "Data/xml/TestDatenbank2.xml";
     public DB_Verwalter DBV = new DB_Verwalter();
@@ -50,11 +50,11 @@ public class MetaControllerTest {
         Kunde kunde2 = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", AD,  Foto1, RD2, "ads" );
         
         DBV.addAuto(auto2);
-        DBV.addAuto(auto3);
+        
         
        
-        DBV.addKunde(kunde2);
-        DBV.addAusleihe(ausleihe);
+        
+        
         DBV.addAusleihe(ausleihe2);
         DBV.save(pfad);
     }
@@ -72,9 +72,7 @@ public class MetaControllerTest {
         Date date = AD;
         GregorianCalendar expResult = new GregorianCalendar(2016,10,5);
         GregorianCalendar result = MetaController.DateToCalendar(date);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        
+        assertEquals(expResult, result); 
     }
 
     /**
@@ -93,9 +91,11 @@ public class MetaControllerTest {
         DBV.addKunde(kunde);
         DBV.save(pfad);
         MetaController instance = new MetaController();
+        DBV.restore(pfad);
         int expResult = 1;
         int result = instance.addAusleihe(Auto_ID, Kunden_ID, Ausleihdatum, Rueckgabedatum);
         assertEquals(expResult, result);
+        DBV.clearAll();
     }
 
     /**
@@ -106,6 +106,7 @@ public class MetaControllerTest {
         System.out.println("Auto_abholen");
         int A_ID = 2;
         MetaController instance = new MetaController();
+        DBV.restore(pfad);
         int expResult = 1;
         int result = instance.Auto_abholen(A_ID);
         assertEquals(expResult, result);
@@ -117,8 +118,14 @@ public class MetaControllerTest {
     @Test
     public void testAuto_zurueckbringen() {
         System.out.println("Auto_zurueckbringen");
+        Auto auto3 = new Auto(Foto1, 3, "dj", "f", "f", "g", true, 4, "s", 126, "ds", 4, "sf", "GET", 1883, 8045, RD2, 543, 234, true, "fd", false);
+        DBV.addAuto(auto3);
+        Ausleihe ausleihe = new Ausleihe(2, 3, AD, RD, false);
+        DBV.addAusleihe(ausleihe);
+        DBV.save(pfad);
         int A_ID = 3;
         MetaController instance = new MetaController();
+        DBV.restore(pfad);
         int expResult = 1;
         int result = instance.Auto_zurueckbringen(A_ID);
         assertEquals(expResult, result);
@@ -130,18 +137,18 @@ public class MetaControllerTest {
     @Test
     public void testAddKunde() {
         System.out.println("addKunde");
-        String VN = "Hans";
+        String VN = "Hans'Peter";
         String NN = "Krager";
         String PLZ = "67892";
         String WO = "Dorf";
-        String STR = "Hauptstrasse";
-        String HN = "5a";
+        String STR = "Hauptstrasse-Weg";
+        String HN = "555";
         String EM = "Hans23.Kroe@kdd.er";
         String TN = "023796214578";
         Date GEB = AD2 ;
         File FS = Foto1;
         Date FSD = RD2;
-        String FSK = "h6";
+        String FSK = "A1";
         MetaController instance = new MetaController();
         int expResult = 1;
         int result = instance.addKunde(VN, NN, PLZ, WO, STR, HN, EM, TN, GEB, FS, FSD, FSK);
@@ -203,6 +210,9 @@ public class MetaControllerTest {
     public void testRemoveKunde() {
         System.out.println("removeKunde");
         int K_ID = 2;
+        Kunde kunde2 = new Kunde(2, "vn"," nn", "05984", "wo", " str", "n3", "em", "059846874652", AD,  Foto1, RD2, "ads" );
+        DBV.addKunde(kunde2);
+        DBV.save(pfad);
         MetaController instance = new MetaController();
         int expResult = 1;
         int result = instance.removeKunde(K_ID);
@@ -229,7 +239,7 @@ public class MetaControllerTest {
     @Test
     public void testAddKunde2() {
         System.out.println("addKunde2");
-        int K_ID = 2;
+        int K_ID = 99;
         String VN = "Bob";
         String NN = "Sanders";
         String PLZ = "05662";
@@ -241,7 +251,7 @@ public class MetaControllerTest {
         Date GEB = AD2;
         File FS = Foto1;
         Date FSD = RD2;
-        String FSK = "d";
+        String FSK = "B";
         MetaController instance = new MetaController();
         int expResult = 1;
         int result = instance.addKunde2(K_ID, VN, NN, PLZ, WO, STR, HN, EM, TN, GEB, FS, FSD, FSK);
@@ -255,33 +265,31 @@ public class MetaControllerTest {
     @Test
     public void testAddAuto2() {
         System.out.println("addAuto2");
-        int A_ID = 2;
-        String KZ = "h";
-        String HER = "";
-        String MOD = "";
-        String BA = "";
+        int A_ID = 99;
+        String KZ = "AA";
+        String HER = "Audi";
+        String MOD = "Az";
+        String BA = "Sport";
         boolean AK = false;
-        int SP = 0;
-        String FAR = "";
-        int LEI = 0;
-        String KS = "";
-        double VER = 0.0;
-        String ANT = "";
-        String GET = "";
-        int BJ = 0;
-        int KIL = 0;
-        Date TUE = null;
-        double KAU = 0.0;
-        float GPT = 0.0F;
+        int SP = 2;
+        String FAR = "Rot";
+        int LEI = 600;
+        String KS = "Benzin";
+        double VER = 20.0;
+        String ANT = "Frontantrieb";
+        String GET = "Automatikgetriebe";
+        int BJ = 1960;
+        int KIL = 68754;
+        Date TUE = TUV;
+        double KAU = 300.0;
+        float GPT = 60.0F;
         boolean FAH = false;
-        String EXT = "";
-        boolean ID = false;
+        String EXT = "Radio";
+        boolean ID = true;
         MetaController instance = new MetaController();
-        int expResult = 0;
+        int expResult = 1;
         int result = instance.addAuto2(A_ID, KZ, HER, MOD, BA, AK, SP, FAR, LEI, KS, VER, ANT, GET, BJ, KIL, TUE, KAU, GPT, FAH, EXT, ID);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
