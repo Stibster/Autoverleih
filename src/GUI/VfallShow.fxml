@@ -45,7 +45,7 @@
             </VBox>
          </children>
       </VBox>
-      <TextArea fx:id="vfall_text" editable="false" layoutX="14.0" layoutY="74.0" prefHeight="369.0" prefWidth="636.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="77.0" />
+      <TextArea fx:id="vfall_text" editable="false" layoutX="14.0" layoutY="74.0" prefHeight="369.0" prefWidth="636.0" visible="false" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="77.0" />
       <HBox layoutX="14.0" layoutY="14.0" spacing="65.0" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="14.0">
          <children>
             <Label fx:id="getA_ID_Label" layoutX="14.0" layoutY="14.0" text="Ausleihe ID" />
@@ -61,5 +61,14 @@
          </children>
       </HBox>
       <Label fx:id="warningAfall" layoutX="229.0" layoutY="14.0" text="Keine Ausleihe vorhanden" textFill="RED" visible="false" />
+      <TableView fx:id="table" layoutX="14.0" layoutY="77.0" prefHeight="369.0" prefWidth="636.0">
+        <columns>
+          <TableColumn fx:id="tableId" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="tableCarId" prefWidth="75.0" text="AutoID" />
+            <TableColumn fx:id="tableCusId" prefWidth="75.0" text="KundenID" />
+            <TableColumn fx:id="tableVon" prefWidth="209.0" text="Ausleihdatum Von" />
+            <TableColumn fx:id="tableBis" prefWidth="201.0" text="Bis" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

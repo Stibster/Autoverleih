@@ -7,15 +7,19 @@ package GUI;
 
 import autoverleih.Auto;
 import autoverleih.Kunde;
+import autoverleih.Ausleihe;
 import autoverleih.MetaController;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,8 +28,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -55,25 +62,35 @@ public class VfallShowController implements Initializable {
     MetaController MC_Hammer = new MetaController();
     private final String path = "TestDatenbank.xml";
     private String ausgabe = "";
+    SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy", new DateFormatSymbols(Locale.GERMANY));
     
     @FXML    private Label getA_ID_Label;
     @FXML    private Label warningAdmin;
     @FXML    private Label warningAfall;
-    @FXML
-    private Button delete;
-    @FXML
-    private Button create;
+    @FXML    private Button delete;
+    @FXML    private Button create;
     @FXML    private TextField vonDate;
     @FXML    private TextField bisDate;
-    /**
-     * Initializes the controller class.
-     */
+    @FXML    private TableView table;
+    @FXML    private TableColumn<Ausleihe, Integer> tableId;
+    @FXML    private TableColumn<Ausleihe, Integer> tableCarId;
+    @FXML    private TableColumn<Ausleihe, Integer> tableCusId;
+    @FXML    private TableColumn<Ausleihe, String> tableVon;
+    @FXML    private TableColumn<Ausleihe, String> tableBis;
+    
+    ObservableList<Ausleihe> ausleiheO;
+    
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-	// TODO
-	showAllAusleihe();
+    public void initialize(URL url, ResourceBundle rb) { 
+	tableId.setCellValueFactory(new PropertyValueFactory<>("Ausleihe_ID"));
+	tableCarId.setCellValueFactory(new PropertyValueFactory<>("Auto_ID"));
+	tableCusId.setCellValueFactory(new PropertyValueFactory<>("Kunden_ID"));
+	tableVon.setCellValueFactory(new PropertyValueFactory<>("Ausleihdatum"));
+	tableBis.setCellValueFactory(new PropertyValueFactory<>("Rueckgabedatum"));
+	table.setItems(ausleiheOfill());
+	//showAllAusleihe();
     }    
-
+    
     @FXML
     private void handleShowAfallButton(ActionEvent event) { //Komplett Überarbeitet von Daniel Meerwald
 	int kid = 0;
@@ -111,7 +128,7 @@ public class VfallShowController implements Initializable {
 		setA_GpT.setText(String.valueOf(MC_Hammer.DBV.getAutobyID(aid).getGebuehr_pro_Tag()));
 		
 		//############## Christopher Haack
-		SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy", new DateFormatSymbols(Locale.GERMANY));
+		//SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy", new DateFormatSymbols(Locale.GERMANY));
 		bisDate.setText("Bis: " + String.valueOf(format.format(MC_Hammer.DBV.getAusleihebyID(ausid).getRueckgabedatum())));
 		vonDate.setText("Von: " + String.valueOf(format.format(MC_Hammer.DBV.getAusleihebyID(ausid).getAusleihdatum())));
 		//######################
@@ -206,7 +223,8 @@ public class VfallShowController implements Initializable {
 		
 		MC_Hammer.DBV.removeAusleihe(ausid);
 		MC_Hammer.DBV.save(path);
-                showAllAusleihe();
+                //showAllAusleihe();
+		table.setItems(ausleiheOfill());
 		bestätigung();
 		
 		
@@ -238,7 +256,8 @@ public class VfallShowController implements Initializable {
             popUp.initModality(Modality.APPLICATION_MODAL);
             popUp.initOwner(create.getScene().getWindow());
             popUp.showAndWait();
-            showAllAusleihe();
+            //showAllAusleihe();
+	    table.setItems(ausleiheOfill());
         } catch (IOException ex) {
             Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -260,4 +279,24 @@ public class VfallShowController implements Initializable {
         }
     }
     
+    public ObservableList<Ausleihe> ausleiheOfill() {
+	ausleiheO = FXCollections.observableArrayList();
+	int i = 0;
+	ausleiheO.clear();
+	
+	MC_Hammer.DBV.restore(path);
+	while (i < MC_Hammer.DBV.Ausleihen.size()) {
+	    ausleiheO.add(new Ausleihe(
+		    MC_Hammer.DBV.Ausleihen.get(i).getAusleihe_ID(),
+		    MC_Hammer.DBV.Ausleihen.get(i).getAuto_ID(),
+		    MC_Hammer.DBV.Ausleihen.get(i).getKunden_ID(),
+		    MC_Hammer.DBV.Ausleihen.get(i).getAusleihdatum(),
+		    MC_Hammer.DBV.Ausleihen.get(i).getRueckgabedatum()
+		)
+		    
+	    );
+	    i++;
+	}
+	return ausleiheO;
+    }
 }

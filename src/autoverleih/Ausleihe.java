@@ -16,11 +16,11 @@ public class Ausleihe {
 
 //###Ausleihedaten erstellt von Daniel Meerwald#################################
 
-    int Ausleihe_ID;
-    int Auto_ID;
-    int Kunden_ID;
-    Date Ausleihdatum;
-    Date Rueckgabedatum;
+    private int Ausleihe_ID;
+    private int Auto_ID;
+    private int Kunden_ID;
+    public Date Ausleihdatum;
+    public Date Rueckgabedatum;
     boolean TUEV;
     
     
@@ -37,6 +37,14 @@ public class Ausleihe {
         Rueckgabedatum = RD;
         TUEV = TUE;
      }
+
+     public Ausleihe (int ausID,int carID, int cusID, Date anfD, Date backD) {
+        this.Auto_ID = carID;
+        this.Kunden_ID = cusID;
+        this.Ausleihdatum = anfD;
+        this.Rueckgabedatum = backD;
+        this.Ausleihe_ID = ausID;
+     } 
      
      public Ausleihe() {
          
