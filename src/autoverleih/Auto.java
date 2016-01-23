@@ -78,6 +78,14 @@ public class Auto {
     {
     }
     //############################
+/*######################### Denis Boursillon #################################*/
+/*######################### Für ObservableList ###############################*/
+    public Auto(int Auto_ID, String Hersteller, String Modell, boolean ist_da){
+        this.Auto_ID = Auto_ID;
+        this.Hersteller = Hersteller;
+        this.Modell = Modell;
+        this.ist_da = ist_da;
+    }
     
 //###toString Methoden erstellt von Daniel Meerwald############################# 
     public String toString(){

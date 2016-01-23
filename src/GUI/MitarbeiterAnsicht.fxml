@@ -27,11 +27,18 @@
       <HBox alignment="CENTER" layoutX="70.0" layoutY="140.0" prefHeight="692.0" prefWidth="1200.0" spacing="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="140.0">
          <children>
             <TextArea fx:id="CusText" editable="false" layoutX="70.0" layoutY="140.0" prefHeight="535.0" prefWidth="480.0" />
-            <Button fx:id="showAllBTN" mnemonicParsing="false" onAction="#handleShowAllBTN" prefHeight="25.0" prefWidth="115.0" text="Vermietungsfall">
+            <Button fx:id="showAllBTN" mnemonicParsing="false" onAction="#handleAusleiheShowMenue" prefHeight="25.0" prefWidth="115.0" text="Vermietungsfall">
                <effect>
                   <Blend />
                </effect></Button>
-            <TextArea fx:id="CarText" editable="false" prefHeight="525.0" prefWidth="480.0" />
+            <TableView fx:id="carTabel" prefHeight="692.0" prefWidth="462.0">
+              <columns>
+                <TableColumn fx:id="ctid" prefWidth="61.0" text="ID" />
+                <TableColumn fx:id="cther" prefWidth="201.0" text="Hersteller" />
+                  <TableColumn fx:id="ctmod" prefWidth="103.0" text="Modell" />
+                  <TableColumn fx:id="ctda" prefWidth="95.0" text="Im Haus" />
+              </columns>
+            </TableView>
          </children>
       </HBox>
       <TextArea fx:id="console" editable="false" layoutY="700.0" prefHeight="200.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0" />
@@ -65,5 +72,6 @@
          </menus>
       </MenuBar>
       <TextField fx:id="consoleText" layoutY="675.0" prefHeight="25.0" prefWidth="826.0" visible="false" />
+      <TextArea fx:id="CarText" editable="false" layoutX="706.0" layoutY="35.0" prefHeight="26.0" prefWidth="480.0" />
    </children>
 </AnchorPane>

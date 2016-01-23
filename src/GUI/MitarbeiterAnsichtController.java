@@ -1,11 +1,14 @@
 package GUI;
 
+import autoverleih.Auto;
 import autoverleih.MetaController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,9 +18,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -48,7 +53,14 @@ public class MitarbeiterAnsichtController implements Initializable {
     @FXML    private TextArea CusText;
     @FXML    private TextArea CarText;
     @FXML    private MenuItem vfalShow;
-    @FXML    private MenuItem about;    
+    @FXML    private MenuItem about; 
+    @FXML    private TableView carTabel;
+    @FXML    private TableColumn<Auto, Integer> ctid;
+    @FXML    private TableColumn<Auto, String> cther;
+    @FXML    private TableColumn<Auto, String> ctmod;
+    @FXML    private TableColumn<Auto, Boolean> ctda;
+    
+    ObservableList<Auto> cars;
     private final String path = "TestDatenbank.xml";
     private String ausgabe = "";
     private MetaController MC = new MetaController();
@@ -58,6 +70,11 @@ public class MitarbeiterAnsichtController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        ctid.setCellValueFactory(new PropertyValueFactory<>("Auto_ID"));
+        cther.setCellValueFactory(new PropertyValueFactory<>("Hersteller"));
+        ctmod.setCellValueFactory(new PropertyValueFactory<>("Modell"));
+        ctda.setCellValueFactory(new PropertyValueFactory<>("ist_da"));
+        carTabel.setItems(carsMake());
         refresh();
     }
 
@@ -261,22 +278,22 @@ public class MitarbeiterAnsichtController implements Initializable {
         refresh();
     }
 
-    @FXML
-    private void handleShowAllBTN(ActionEvent event) {
-         Stage popUp = new Stage();
-        popUp.setTitle("Verleihen anzeigen");
-        Parent Page;
-        try {
-            Page = FXMLLoader.load(getClass().getResource("VfallShow.fxml"));
-
-            popUp.setScene(new Scene(Page));
-            popUp.initModality(Modality.APPLICATION_MODAL);
-            popUp.initOwner(saveBTN.getScene().getWindow());
-            popUp.showAndWait();
-        } catch (IOException ex) {
-            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
-	}
-    }
+//    @FXML
+//    private void handleShowAllBTN(ActionEvent event) {
+//         Stage popUp = new Stage();
+//        popUp.setTitle("Verleihen anzeigen");
+//        Parent Page;
+//        try {
+//            Page = FXMLLoader.load(getClass().getResource("VfallShow.fxml"));
+//
+//            popUp.setScene(new Scene(Page));
+//            popUp.initModality(Modality.APPLICATION_MODAL);
+//            popUp.initOwner(saveBTN.getScene().getWindow());
+//            popUp.showAndWait();
+//        } catch (IOException ex) {
+//            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+//	}
+//    }
     
     /**********erstellt: Denis Bursillon********************************************/
     private void showAllCars(){
@@ -296,7 +313,7 @@ public class MitarbeiterAnsichtController implements Initializable {
     }
     
     /**********erstellt: Denis Bursillon********************************************/
-    /**********fertiggestellt:          ********************************************/
+    /**********fertiggestellt:  Haack   ********************************************/
     private void showAllCust(){
         int i = 0;
         MC.DBV.restore(path);
@@ -312,13 +329,30 @@ public class MitarbeiterAnsichtController implements Initializable {
         }
         CusText.setText(ausgabe);
         
-    }
-
+    }   
     
     private void refresh() {
         CusText.clear();
         showAllCust();
         CarText.clear();
         showAllCars();
+    }
+    
+    public ObservableList<Auto> carsMake(){
+        cars = FXCollections.observableArrayList();
+        cars.clear();
+        MC.DBV.restore(path);
+        int i = 0;
+        while(i < MC.DBV.Autos.size()){
+            cars.add(new Auto(
+                    MC.DBV.Autos.get(i).getAuto_ID(),
+                    MC.DBV.Autos.get(i).getHersteller(),
+                    MC.DBV.Autos.get(i).getModell(),
+                    MC.DBV.Autos.get(i).getIst_Da()
+                )
+            );
+            i++;
+        }
+        return cars;
     }
 }
