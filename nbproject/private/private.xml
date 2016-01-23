@@ -12,13 +12,8 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/hiki-tink/Documents/NetBeansProjects/Autoverleih/src/autoverleih/Auto.java</file>
-            <file>file:/C:/Users/hiki-tink/Documents/NetBeansProjects/Autoverleih/src/GUI/KundeDelController.java</file>
-            <file>file:/C:/Users/hiki-tink/Documents/NetBeansProjects/Autoverleih/src/GUI/KundenAnsichtController.java</file>
-            <file>file:/C:/Users/hiki-tink/Documents/NetBeansProjects/Autoverleih/src/GUI/AutoVerleih2.java</file>
-            <file>file:/C:/Users/hiki-tink/Documents/NetBeansProjects/Autoverleih/src/GUI/AdminAnsichtController.java</file>
-            <file>file:/C:/Users/hiki-tink/Documents/NetBeansProjects/Autoverleih/src/autoverleih/MetaController.java</file>
-            <file>file:/C:/Users/hiki-tink/Documents/NetBeansProjects/Autoverleih/src/GUI/KundenAnsicht.fxml</file>
+            <file>file:/E:/Java/Projekte/Netbeans/Autoverleih/src/GUI/VfallShow.fxml</file>
+            <file>file:/E:/Java/Projekte/Netbeans/Autoverleih/src/GUI/VfallShowController.java</file>
         </group>
     </open-files>
 </project-private>
