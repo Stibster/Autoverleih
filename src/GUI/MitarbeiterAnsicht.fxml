@@ -42,8 +42,8 @@
          </children>
       </HBox>
       <TextArea fx:id="console" editable="false" layoutY="700.0" prefHeight="200.0" prefWidth="1000.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0" />
-      <Label layoutX="41.0" layoutY="79.0" text="Kundenliste" />
-      <Label layoutX="696.0" layoutY="79.0" text="Fahrzeugliste" />
+      <Label layoutX="41.0" layoutY="119.0" text="Kundenliste" />
+      <Label layoutX="696.0" layoutY="119.0" text="Fahrzeugliste" />
       <MenuBar layoutX="20.0" layoutY="20.0" prefHeight="0.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-0.0" AnchorPane.topAnchor="0.0">
          <menus>
             <Menu mnemonicParsing="false" text="Werkzeuge">
@@ -72,6 +72,9 @@
          </menus>
       </MenuBar>
       <TextField fx:id="consoleText" layoutY="675.0" prefHeight="25.0" prefWidth="826.0" visible="false" />
-      <TextArea fx:id="CarText" editable="false" layoutX="706.0" layoutY="35.0" prefHeight="26.0" prefWidth="480.0" />
+      <TextArea fx:id="CarText" editable="false" layoutX="696.0" layoutY="35.0" prefHeight="26.0" prefWidth="480.0" visible="false" />
+      <TextField layoutX="358.0" layoutY="80.0" />
+      <TextField layoutX="696.0" layoutY="80.0" />
+      <Button layoutX="582.0" layoutY="81.0" mnemonicParsing="false" text="Button" />
    </children>
 </AnchorPane>

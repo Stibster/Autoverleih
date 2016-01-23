@@ -8,14 +8,15 @@
     -fx-font-family: "Comic Sans MS";
 }
 .root {
-    -fx-background-color: #686868;   
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #989898;   
 }
 .button {
     -fx-background-color: #888888;
 }
 .scroll-pane > .viewport{
 /*    -fx-background-color: #458651;*/
-    -fx-background-color: #686868;
+    -fx-background-color: #989898;
 }
 #scroll-pane1 > .viewport{
     -fx-background-color: #685214;

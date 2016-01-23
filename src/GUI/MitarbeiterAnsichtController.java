@@ -58,7 +58,7 @@ public class MitarbeiterAnsichtController implements Initializable {
     @FXML    private TableColumn<Auto, Integer> ctid;
     @FXML    private TableColumn<Auto, String> cther;
     @FXML    private TableColumn<Auto, String> ctmod;
-    @FXML    private TableColumn<Auto, Boolean> ctda;
+    @FXML    private TableColumn<Auto, String> ctda;
     
     ObservableList<Auto> cars;
     private final String path = "TestDatenbank.xml";
@@ -336,6 +336,7 @@ public class MitarbeiterAnsichtController implements Initializable {
         showAllCust();
         CarText.clear();
         showAllCars();
+        carsMake();
     }
     
     public ObservableList<Auto> carsMake(){
