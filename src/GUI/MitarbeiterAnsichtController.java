@@ -1,6 +1,7 @@
 package GUI;
 
 import autoverleih.Auto;
+import autoverleih.Kunde;
 import autoverleih.MetaController;
 import java.io.IOException;
 import java.net.URL;
@@ -16,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
@@ -35,45 +37,49 @@ public class MitarbeiterAnsichtController implements Initializable {
 
 
     @FXML    private Button saveBTN;
-    @FXML    private Button beispielBTN;
-    @FXML    private MenuItem logOut;
-    @FXML    private TextField customerSearchText;
-    @FXML    private Button SearchWorkerBTN;
-    @FXML    private TextField carSearchText;
-    @FXML    private TextArea console;
-    @FXML    private TextField consoleText;
-    @FXML    private Button showAllBTN;
-    @FXML    private MenuItem addUserMenue;
-    @FXML    private MenuItem DelUser;
-    @FXML    private MenuItem Ausleihe;
-    @FXML    private MenuItem carRaus;
-    @FXML    private MenuItem carRein;
-    @FXML    private MenuItem logIn;
-    @FXML    private MenuItem changeUser;
     @FXML    private TextArea CusText;
     @FXML    private TextArea CarText;
-    @FXML    private MenuItem vfalShow;
-    @FXML    private MenuItem about; 
     @FXML    private TableView carTabel;
+    @FXML    private TableView custTabel;
+    @FXML    private Label tablewarning;
     @FXML    private TableColumn<Auto, Integer> ctid;
     @FXML    private TableColumn<Auto, String> cther;
     @FXML    private TableColumn<Auto, String> ctmod;
     @FXML    private TableColumn<Auto, String> ctda;
+    @FXML    private TableColumn<Kunde, Integer> cutid;
+    @FXML    private TableColumn<Kunde, String> cutpre;
+    @FXML    private TableColumn<Kunde, String> cutpost;
+    @FXML    private TableColumn<Kunde, String> cutort;
+    @FXML    private TableColumn<Kunde, String> cutclass;
+    @FXML    private TextField txtvon;
+    @FXML    private TextField txtbis;    
     
     ObservableList<Auto> cars;
+    ObservableList<Kunde> custs;
     private final String path = "TestDatenbank.xml";
     private String ausgabe = "";
-    private MetaController MC = new MetaController();
+    private final MetaController MC = new MetaController();
+
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        tablewarning.setVisible(false);
+        
         ctid.setCellValueFactory(new PropertyValueFactory<>("Auto_ID"));
         cther.setCellValueFactory(new PropertyValueFactory<>("Hersteller"));
         ctmod.setCellValueFactory(new PropertyValueFactory<>("Modell"));
-        ctda.setCellValueFactory(new PropertyValueFactory<>("ist_da"));
+        ctda.setCellValueFactory(new PropertyValueFactory<>("da"));
+        
+        cutid.setCellValueFactory(new PropertyValueFactory<>("Kunden_ID"));
+        cutpre.setCellValueFactory(new PropertyValueFactory<>("Vorname"));
+        cutpost.setCellValueFactory(new PropertyValueFactory<>("Nachname"));
+        cutort.setCellValueFactory(new PropertyValueFactory<>("Wohnort"));
+        cutclass.setCellValueFactory(new PropertyValueFactory<>("Fuehrerscheinklasse"));
+        
+        custTabel.setItems(custMake());
         carTabel.setItems(carsMake());
         refresh();
     }
@@ -168,19 +174,28 @@ public class MitarbeiterAnsichtController implements Initializable {
     /**********erstellt: Denis Bursillon********************************************/
     @FXML
     private void handleAusleiheMenue(){
-        Stage popUp = new Stage();
-        popUp.setTitle("Vermietung Erstellen");
-        Parent Page;
-        try {
-            Page = FXMLLoader.load(getClass().getResource("Vfall_popup.fxml"));
-
-            popUp.setScene(new Scene(Page));
-            popUp.initModality(Modality.APPLICATION_MODAL);
-            popUp.initOwner(saveBTN.getScene().getWindow());
-            popUp.showAndWait();
-        } catch (IOException ex) {
-            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+        tablewarning.setVisible(false);
+        int indexauto = carTabel.getSelectionModel().getSelectedIndex(); //Denis Boursillon
+        int indexkunde = custTabel.getSelectionModel().getSelectedIndex(); //Denis Boursillon
+        
+        if (indexauto >= 0 && indexkunde >= 0) { 
+            System.out.println(indexauto + "," + indexkunde);            
+        } else {
+            tablewarning.setVisible(true);
         }
+//        Stage popUp = new Stage();
+//        popUp.setTitle("Vermietung Erstellen");
+//        Parent Page;
+//        try {
+//            Page = FXMLLoader.load(getClass().getResource("Vfall_popup.fxml"));
+//
+//            popUp.setScene(new Scene(Page));
+//            popUp.initModality(Modality.APPLICATION_MODAL);
+//            popUp.initOwner(saveBTN.getScene().getWindow());
+//            popUp.showAndWait();
+//        } catch (IOException ex) {
+//            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
     
     /**********erstellt: Denis Bursillon********************************************/
@@ -332,13 +347,17 @@ public class MitarbeiterAnsichtController implements Initializable {
     }   
     
     private void refresh() {
-        CusText.clear();
-        showAllCust();
-        CarText.clear();
-        showAllCars();
+//        CusText.clear();
+//        showAllCust();
+//        CarText.clear();
+//        showAllCars();
         carsMake();
+        custMake();
+        tablewarning.setVisible(false);
+
     }
-    
+
+/*######################### Denis Boursillon #################################*/
     public ObservableList<Auto> carsMake(){
         cars = FXCollections.observableArrayList();
         cars.clear();
@@ -350,10 +369,32 @@ public class MitarbeiterAnsichtController implements Initializable {
                     MC.DBV.Autos.get(i).getHersteller(),
                     MC.DBV.Autos.get(i).getModell(),
                     MC.DBV.Autos.get(i).getIst_Da()
+//                    if(MC.DBV.Autos.get(i).getIst_Da() == true) "Im Haus"
+//                    else "Außer Haus"
                 )
             );
             i++;
         }
         return cars;
+    }
+ 
+/*######################### Denis Boursillon #################################*/    
+    public ObservableList<Kunde> custMake(){
+        custs = FXCollections.observableArrayList();
+        custs.clear();
+        MC.DBV.restore(path);
+        int i = 0;
+        while(i < MC.DBV.Kunden.size()){
+            custs.add(new Kunde(
+                    MC.DBV.Kunden.get(i).getKunden_ID(),
+                    MC.DBV.Kunden.get(i).getVorname(),
+                    MC.DBV.Kunden.get(i).getNachname(),
+                    MC.DBV.Kunden.get(i).getWohnort(),
+                    MC.DBV.Kunden.get(i).getFuehrerscheinklasse()
+                )
+            );
+            i++;
+        }
+        return custs;
     }
 }

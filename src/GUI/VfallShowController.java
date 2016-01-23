@@ -289,7 +289,7 @@ public class VfallShowController implements Initializable {
 /*######################### Denis Boursillon #################################*/
     @FXML
     private void handleTableClick(MouseEvent event) {
-        if(table.getSelectionModel().getSelectedIndex()>= 0){
+        if(table.getSelectionModel().getSelectedIndex()>= 0 && table.getSelectionModel().getSelectedItems().size() == 1){
             int kid = ausleiheO.get(table.getSelectionModel().getSelectedIndex()).getKunden_ID();
             int aid = ausleiheO.get(table.getSelectionModel().getSelectedIndex()).getAuto_ID();
                 

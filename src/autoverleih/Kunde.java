@@ -52,6 +52,18 @@ public class Kunde {
     public Kunde() {
         
     }
+    
+/*######################### Denis Boursillon #################################*/
+/*######################### Für ObservableList ###############################*/
+    public Kunde(int kunden_ID, String vorname, String nachname, String wohnort, String klasse){
+        this.Kunden_ID = kunden_ID;
+        this.Vorname = vorname;
+        this.Nachname = nachname;
+        this.Wohnort = wohnort;
+        this.Fuehrerscheinklasse = klasse;
+    }
+    
+    
 //###toString Methoden erstellt von Daniel Meerwald############################# 
     public String toString(){
         
