@@ -47,7 +47,7 @@ public class AutoReinController implements Initializable {
 	    	    leih_id = Integer.parseInt(ausleihID.getText());
 		    fehler = MC_Hammer.Auto_zurueckbringen(leih_id);
 		    
-	    switch (fehler) 
+	    switch (fehler)  
 	    {
 		case 1:
 		    Stage popUp = (Stage) warningVer.getScene().getWindow();
