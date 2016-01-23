@@ -329,13 +329,13 @@
         <Hersteller>Volkswagen</Hersteller>
         <ist_da>true</ist_da>
         <Kaution>915.0</Kaution>
-        <Kennzeichen>MW-XK 57</Kennzeichen>
+        <Kennzeichen>MW-XK57</Kennzeichen>
         <Kilometerstand>52393</Kilometerstand>
         <Kraftstoff>Benzin</Kraftstoff>
         <Leistung>300</Leistung>
-        <Modell>Golf R</Modell>
+        <Modell>GolfR</Modell>
         <Sitzplaetze>5</Sitzplaetze>
-        <TUEV>2017-01-01T00:00:00+01:00</TUEV>
+        <TUEV>2017-01-01T00:01:00+01:00</TUEV>
         <Verbrauch>7.1</Verbrauch>
     </Autoliste>
     <Ausleiheliste>

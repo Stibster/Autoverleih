@@ -805,14 +805,19 @@ public class MetaController {
             String FAR, int LEI, String KS, double VER, 
             String ANT, String GET, int BJ, int KIL, 
             Date TUE, double KAU, float GPT, boolean FAH,
-            String EXT, boolean ID)
+            String EXT, boolean ID,File PATH)
     {
         DBV.restore(pfad);
         int i = 0;
         boolean Indikator = false;
         Pattern p;
         Matcher m;
-	File PATH = new File("Data/dummy1.jpg");
+	//haack Christopher############
+	if(PATH == null)
+	{
+	    PATH = new File("Data/dummy1.jpg");
+	}
+	//#######################
 	int AID = A_ID;
 	int fehler = 0;
 	

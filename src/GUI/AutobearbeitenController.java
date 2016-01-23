@@ -77,6 +77,7 @@ public class AutobearbeitenController implements Initializable {
     MetaController MC_Hammer = new MetaController();
     String pfad = "TestDatenbank.xml";
     int A_ID;
+    File PATH = null;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -185,7 +186,7 @@ public class AutobearbeitenController implements Initializable {
 		,modell, Bauart, anhaengerkupplung, sitzplaetze,
 		farbe, leistung, kraftstoff,Verbrauch, Antrieb,
 		getriebe, baujahr, kilometerstand,TUEV, Kaution, 
-		gebuehr_pro_Tag, fahrbar, extras, ist_da);
+		gebuehr_pro_Tag, fahrbar, extras, ist_da,PATH);
 
 	switch (fehler) {
 	    case 1:
@@ -683,7 +684,7 @@ public class AutobearbeitenController implements Initializable {
         else{
             anheanger.setText("Nein");
         }
-        
+        PATH = MC_Hammer.DBV.Autos.get(i).getFoto();
 	space.setText(String.valueOf(MC_Hammer.DBV.Autos.get(i).getSitzplaetze()));
     }
     
