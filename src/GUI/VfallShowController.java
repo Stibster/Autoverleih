@@ -304,6 +304,12 @@ public class VfallShowController implements Initializable {
             setA_Model.setText(MC_Hammer.DBV.getAutobyID(aid).getModell());
             setA_Kaution.setText(String.valueOf(MC_Hammer.DBV.getAutobyID(aid).getKaution()));
             setA_GpT.setText(String.valueOf(MC_Hammer.DBV.getAutobyID(aid).getGebuehr_pro_Tag()));
+	    //############## Christopher Haack
+	    int ausid = ausleiheO.get(table.getSelectionModel().getSelectedIndex()).getAusleihe_ID();
+	    //SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy", new DateFormatSymbols(Locale.GERMANY));
+	    bisDate.setText("Bis: " + String.valueOf(format.format(MC_Hammer.DBV.getAusleihebyID(ausid).getRueckgabedatum())));
+	    vonDate.setText("Von: " + String.valueOf(format.format(MC_Hammer.DBV.getAusleihebyID(ausid).getAusleihdatum())));
+	    //######################
         }
     }
     
