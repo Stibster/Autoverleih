@@ -261,7 +261,7 @@ public class MetaController {
 	//  1 auto zuruckgebrahct
 	// -1 ausleihe nicht vorhanden
 	// -2 auto ist schon da
-	while (i < DBV.Ausleihen.size()) //Suche bis zum Ende der Liste.
+	while (i < DBV.Ausleihen.size()) //Suche bis zum Ende der Liste. 
         { 
 
             if (DBV.Ausleihen.get(i).getAusleihe_ID() == A_ID ) 
