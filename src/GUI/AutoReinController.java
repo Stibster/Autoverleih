@@ -60,15 +60,18 @@ public class AutoReinController implements Initializable {
 	            
 		    break;
                 case -2:
-		    warningVer.setText("Auto nicht im Haus");
+		    warningVer.setText("Auto schon zurueckgegeben wurden \n"
+			    + "Richtige Verleih ID eingegeben?");
 		    warningVer.setVisible(true);
 	            
 		    break;
+		/* mit cas -2 schon abgefangen
                 case -6:
 		    warningVer.setText("Auto schon im Haus");
 		    warningVer.setVisible(true);
 	            
 		    break;
+		*/
 		default:
 
                     warningVer.setVisible(false);

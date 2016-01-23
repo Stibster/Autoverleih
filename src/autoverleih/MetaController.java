@@ -171,7 +171,41 @@ public class MetaController {
         
         DBV.restore(pfad);
         int i = 0;
-        boolean indikator = false;
+	//#################### Haack Chroistopher
+	// fehler code tabelle 
+	//  1 auto ist abgeben
+	// -1 ausleihe nicht vorhanden
+	// -2 auto ist nicht da
+	while (i < DBV.Ausleihen.size()) //Suche bis zum Ende der Liste.
+        { 
+
+            if (DBV.Ausleihen.get(i).getAusleihe_ID() == A_ID ) 
+	    {
+                int carID = DBV.Ausleihen.get(i).getAuto_ID();
+		if(DBV.Autos.get(carID).getIst_Da() == true) //uebrepruefe ob auto da ist
+		{
+		    DBV.Autos.get(carID).setIst_Da(false); //auto als nicht da markiren
+		    DBV.save(pfad);
+		    return 1;
+		}
+		else
+		{
+		    return -2; // auto ist nicht da zur zeit
+		}
+            } 
+	    else
+	    {
+                i++; //Andernfalls wird das nächste Element vergleichen.
+            }
+        } 
+	return -1;
+	 
+	//#############################
+	
+	//#########nicht mehr verwendet ################################
+	//keine anhung wo der fherlr lag einfahc neu gescheiben
+	/*
+	boolean indikator = false;
         boolean token = false;
         
         while (i < DBV.Ausleihen.size() && token == false) //Suche bis zum Ende der Liste.
@@ -213,12 +247,47 @@ public class MetaController {
         else{
             return -4;
         }
+	*/
+	//##################################
+    
     }
 //#####################Erstellt von Daniel Meerwald#############################    
     public int Auto_zurueckbringen(int A_ID){
         
         DBV.restore(pfad);
         int i = 0;
+	//#################### Haack Chroistopher
+	// fehler code tabelle 
+	//  1 auto zuruckgebrahct
+	// -1 ausleihe nicht vorhanden
+	// -2 auto ist schon da
+	while (i < DBV.Ausleihen.size()) //Suche bis zum Ende der Liste.
+        { 
+
+            if (DBV.Ausleihen.get(i).getAusleihe_ID() == A_ID ) 
+	    {
+                int carID = DBV.Ausleihen.get(i).getAuto_ID();
+		if(DBV.Autos.get(carID).getIst_Da() == false) //uebrepruefe ob auto da ist
+		{
+		    DBV.Autos.get(carID).setIst_Da(true); //als als zurueck melden
+		    DBV.save(pfad);
+		    return 1;
+		}
+		else
+		{
+		    return -2; //auto ist shcon abgeben?
+		}
+            } 
+	    else
+	    {
+                i++; //Andernfalls wird das nächste Element vergleichen.
+            }
+        } 
+	return -1; // verleihe nicht vorhanden
+	//#######################################################
+	
+	//############## nicht mehr verwendet ##############
+	/*
         boolean indikator = false;
         boolean token = false;
         
@@ -258,6 +327,8 @@ public class MetaController {
             DBV.save(pfad);
             return 1;
         }
+	*/
+	//###########################################
     }
 //############erstellt von Danilo May###########################################
     //Formt aus String einen neuen mit allen Zahlen
