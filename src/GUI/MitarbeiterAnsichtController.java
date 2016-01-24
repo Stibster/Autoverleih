@@ -65,42 +65,6 @@ public class MitarbeiterAnsichtController implements Initializable {
     private final String path = "TestDatenbank.xml";
     private String ausgabe = "";
     private final MetaController MC = new MetaController();
-    @FXML
-    private Button beispielBTN;
-    @FXML
-    private TextField customerSearchText;
-    @FXML
-    private Button SearchWorkerBTN;
-    @FXML
-    private TextField carSearchText;
-    @FXML
-    private Button showAllBTN;
-    @FXML
-    private TextArea console;
-    @FXML
-    private MenuItem addUserMenue;
-    @FXML
-    private MenuItem changeUser;
-    @FXML
-    private MenuItem DelUser;
-    @FXML
-    private MenuItem Ausleihe;
-    @FXML
-    private MenuItem vfalShow;
-    @FXML
-    private MenuItem carRaus;
-    @FXML
-    private MenuItem carRein;
-    @FXML
-    private MenuItem logIn;
-    @FXML
-    private MenuItem logOut;
-    @FXML
-    private MenuItem about;
-    @FXML
-    private TextField consoleText;
-    @FXML
-    private Button crateAus;
 
     //##############Christopher Haack
     public int kid;
@@ -454,53 +418,57 @@ public class MitarbeiterAnsichtController implements Initializable {
     
     @FXML
     private void handleAusleiheBut(ActionEvent event) throws ParseException {
-	
-	tablewarning.setVisible(false);
+
+        tablewarning.setVisible(false);
         int indexauto = carTabel.getSelectionModel().getSelectedIndex(); //Denis Boursillon
         int indexkunde = custTabel.getSelectionModel().getSelectedIndex(); //Denis Boursillon
-        
-        if (indexauto >= 0 && indexkunde >= 0) 
-	{ 
+
+        if (indexauto >= 0 && indexkunde >= 0) {
             int fehler = 0; //fuehr fehler fall
-	Date start = null; //start datum 
-	Date back = null;   //ruegabe datum
-        SimpleDateFormat format = new SimpleDateFormat("dd.mm.yyyy", new DateFormatSymbols(Locale.GERMANY)); //#Raicandy
-		    try
-		    {
-			start = format.parse(txtvon.getText());
-			back = format.parse(txtbis.getText());
-		    }
-		    catch(Exception e)
-		    {
-			throw e;			
-		    }
-		    fehler = MC.addAusleihe(carid, kid, start, back);
-		    
-	    switch (fehler) 
-	    {
-		case 1:
-		   
-		    
-		    break;
-		case -3:
-		    tablewarning.setText("Eintrag Datum Überprüfen!!!");
-		    tablewarning.setVisible(true);
+            Date start; //start datum 
+            Date back;   //ruegabe datum
+            SimpleDateFormat format = new SimpleDateFormat("dd.mm.yyyy", new DateFormatSymbols(Locale.GERMANY)); //#Raicandy
+            try {
+                start = format.parse(txtvon.getText());
+                back = format.parse(txtbis.getText());
+            } catch (Exception e) {
+                throw e;
+            }
+            fehler = MC.addAusleihe(carid, kid, start, back);
 
-		    break;
-		default:
-		    tablewarning.setText("Admin rufen!!!");
-		    tablewarning.setVisible(true);
+            switch (fehler) {
+                case 1:
+                    Stage popUp = new Stage();
+                    popUp.setTitle("Bestätigung");
+                    Parent Page;
+                    try {
+                        Page = FXMLLoader.load(getClass().getResource("Bestetigung.fxml"));
 
-		    break;
-	    }        
-        } 
-	else 
-	{
-	    tablewarning.setText("Eintrag in Tabellen wählen!!!");
+                        popUp.setScene(new Scene(Page));
+                        popUp.initModality(Modality.APPLICATION_MODAL);
+                        popUp.initOwner(saveBTN.getScene().getWindow());
+                        popUp.showAndWait();
+                    } catch (IOException ex) {
+                        Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                    break;
+                case -3:
+                    tablewarning.setText("Eintrag Datum Überprüfen!!!");
+                    tablewarning.setVisible(true);
+
+                    break;
+                default:
+                    tablewarning.setText("Admin rufen!!!");
+                    tablewarning.setVisible(true);
+
+                    break;
+            }
+        } else {
+            tablewarning.setText("Eintrag in Tabellen wählen!!!");
             tablewarning.setVisible(true);
         }
-	
-	
+
     }
     //################################
 }

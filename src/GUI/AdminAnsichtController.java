@@ -22,6 +22,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -41,8 +42,6 @@ import javafx.stage.Stage;
 public class AdminAnsichtController implements Initializable  {
 
     @FXML    private Button saveBTN;
-    @FXML    private MenuItem logIn;
-    @FXML    private MenuItem logOut;
     @FXML    private TextField markeText;
     @FXML    private TextField modellText;
     @FXML    private TextField FarbeText;
@@ -51,27 +50,19 @@ public class AdminAnsichtController implements Initializable  {
     @FXML    private TextField kostenText;
     @FXML    private TextField kennzeichenText;
     @FXML    private TextField idText;
-    @FXML    private MenuItem carCreate;
-    @FXML    private Button rndCar;
-    @FXML    private Button rndKunde;
-    @FXML    private MenuItem carDel;
-    @FXML    private MenuItem carChange;
-    @FXML    private Button clearBut;
-    @FXML    private Button dbcarsDelet;
-    @FXML    private Button dbKuDel;
-    @FXML    private Button dbVFALLDel;
     @FXML    private TextField rndCarText;
     @FXML    private TextField rndCusText;
     @FXML    private TilePane tile;
     @FXML    private Button scriptRndcar;
     @FXML    private Button testBtn;   
     @FXML    private ImageView showView;     
-    
+    @FXML    private Label dataCars;
+    @FXML    private Label dataCust;
+    @FXML    private Label dataLeih;    
      
     MetaController MC_Hammer = new MetaController();
     String pfad = "TestDatenbank.xml";
-    @FXML
-    private MenuItem about;
+
 
 
     /**
@@ -82,7 +73,7 @@ public class AdminAnsichtController implements Initializable  {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            fillTile();
+            refreshTile();
         } catch (MalformedURLException ex) {
             Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -232,16 +223,42 @@ public class AdminAnsichtController implements Initializable  {
     private void handleTestBtn(ActionEvent event) throws MalformedURLException {
         refreshTile();
     }
+    
+    @FXML
+    private void handleaboutmenue(ActionEvent event) {
+	Stage popUp = new Stage();
+        popUp.setTitle("About");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("hilfepopup.fxml"));
+            
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void handlCloseMenue(ActionEvent event) {
+	System.exit(0);
+    }
 
     /**********erstellt: Denis Bursillon********************************************/
     private void refreshTile() throws MalformedURLException {
+        MC_Hammer.DBV.restore(pfad);
+        dataCars.setText(MC_Hammer.DBV.Autos.size()+" Einträge für Fahrzeuge");
+        dataCust.setText(MC_Hammer.DBV.Kunden.size()+" Einträge für Kunden");
+        dataLeih.setText(MC_Hammer.DBV.Ausleihen.size()+" Einträge Für Ausleihen");
+        MC_Hammer.DBV.restore(pfad);
         tile.getChildren().clear();  
         fillTile();
     }
     
     /**********erstellt: Denis Bursillon********************************************/
     private void fillTile() throws MalformedURLException {
-        MC_Hammer.DBV.restore(pfad);
         Image dummy = new Image("Data/dummy1.jpg");
         int i;
         if (!MC_Hammer.DBV.Autos.isEmpty()) {
@@ -327,26 +344,6 @@ public class AdminAnsichtController implements Initializable  {
             Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    @FXML
-    private void handleaboutmenue(ActionEvent event) {
-	Stage popUp = new Stage();
-        popUp.setTitle("About");
-        Parent Page;
-        try {
-            Page = FXMLLoader.load(getClass().getResource("hilfepopup.fxml"));
-            
-            popUp.setScene(new Scene(Page));
-            popUp.initModality(Modality.APPLICATION_MODAL);
-            popUp.initOwner(saveBTN.getScene().getWindow());
-            popUp.showAndWait();
-        } catch (IOException ex) {
-            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @FXML
-    private void handlCloseMenue(ActionEvent event) {
-	System.exit(0);
-    }
+    
+    
 }
