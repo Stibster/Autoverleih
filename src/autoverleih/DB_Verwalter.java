@@ -316,7 +316,7 @@ public void clearAusleihen(){
 		jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
 		jaxbMarshaller.marshal(Listehelper, file); //XML im pfad speichern
-		jaxbMarshaller.marshal(Listehelper, System.out);
+		//jaxbMarshaller.marshal(Listehelper, System.out);
 
 	      } catch (JAXBException e) {
 		e.printStackTrace();

@@ -465,10 +465,14 @@ public class MitarbeiterAnsichtController implements Initializable {
 	Date start = null; //start datum 
 	Date back = null;   //ruegabe datum
         SimpleDateFormat format = new SimpleDateFormat("dd.mm.yyyy", new DateFormatSymbols(Locale.GERMANY)); //#Raicandy
-		    try()
+		    try
 		    {
-		    start = format.parse(txtvon.getText());
-		    back = format.parse(txtbis.getText());
+			start = format.parse(txtvon.getText());
+			back = format.parse(txtbis.getText());
+		    }
+		    catch(Exception e)
+		    {
+			throw e;			
 		    }
 		    fehler = MC.addAusleihe(carid, kid, start, back);
 		    
@@ -484,6 +488,8 @@ public class MitarbeiterAnsichtController implements Initializable {
 
 		    break;
 		default:
+		    tablewarning.setText("Admin rufen!!!");
+		    tablewarning.setVisible(true);
 
 		    break;
 	    }        
