@@ -25,6 +25,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -59,7 +60,47 @@ public class MitarbeiterAnsichtController implements Initializable {
     private final String path = "TestDatenbank.xml";
     private String ausgabe = "";
     private final MetaController MC = new MetaController();
+    @FXML
+    private Button beispielBTN;
+    @FXML
+    private TextField customerSearchText;
+    @FXML
+    private Button SearchWorkerBTN;
+    @FXML
+    private TextField carSearchText;
+    @FXML
+    private Button showAllBTN;
+    @FXML
+    private TextArea console;
+    @FXML
+    private MenuItem addUserMenue;
+    @FXML
+    private MenuItem changeUser;
+    @FXML
+    private MenuItem DelUser;
+    @FXML
+    private MenuItem Ausleihe;
+    @FXML
+    private MenuItem vfalShow;
+    @FXML
+    private MenuItem carRaus;
+    @FXML
+    private MenuItem carRein;
+    @FXML
+    private MenuItem logIn;
+    @FXML
+    private MenuItem logOut;
+    @FXML
+    private MenuItem about;
+    @FXML
+    private TextField consoleText;
+    @FXML
+    private Button crateAus;
 
+    //##############Christopher Haack
+    public int kid;
+    public int carid;
+    //#################
 
     /**
      * Initializes the controller class.
@@ -174,28 +215,19 @@ public class MitarbeiterAnsichtController implements Initializable {
     /**********erstellt: Denis Bursillon********************************************/
     @FXML
     private void handleAusleiheMenue(){
-        tablewarning.setVisible(false);
-        int indexauto = carTabel.getSelectionModel().getSelectedIndex(); //Denis Boursillon
-        int indexkunde = custTabel.getSelectionModel().getSelectedIndex(); //Denis Boursillon
-        
-        if (indexauto >= 0 && indexkunde >= 0) { 
-            System.out.println(indexauto + "," + indexkunde);            
-        } else {
-            tablewarning.setVisible(true);
+        Stage popUp = new Stage();
+        popUp.setTitle("Vermietung Erstellen");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("Vfall_popup.fxml"));
+
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
         }
-//        Stage popUp = new Stage();
-//        popUp.setTitle("Vermietung Erstellen");
-//        Parent Page;
-//        try {
-//            Page = FXMLLoader.load(getClass().getResource("Vfall_popup.fxml"));
-//
-//            popUp.setScene(new Scene(Page));
-//            popUp.initModality(Modality.APPLICATION_MODAL);
-//            popUp.initOwner(saveBTN.getScene().getWindow());
-//            popUp.showAndWait();
-//        } catch (IOException ex) {
-//            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
     }
     
     /**********erstellt: Denis Bursillon********************************************/
@@ -397,4 +429,65 @@ public class MitarbeiterAnsichtController implements Initializable {
         }
         return custs;
     }
+    //################ Christopher Haack
+    @FXML
+    private void handleCustTableClick(MouseEvent event) 
+    {
+	if(custTabel.getSelectionModel().getSelectedIndex()>= 0 && custTabel.getSelectionModel().getSelectedItems().size() == 1){
+            kid = custs.get(custTabel.getSelectionModel().getSelectedIndex()).getKunden_ID();
+                
+            txtvon.setText(String.valueOf(MC.DBV.getKundebyID(kid).getKunden_ID()));
+          
+        }
+    }
+
+    @FXML
+    private void handleCarTableClick(MouseEvent event) {
+	if(carTabel.getSelectionModel().getSelectedIndex()>= 0 && carTabel.getSelectionModel().getSelectedItems().size() == 1){
+            carid = cars.get(carTabel.getSelectionModel().getSelectedIndex()).getAuto_ID();
+                
+            txtbis.setText(String.valueOf(MC.DBV.getAutobyID(carid).getAuto_ID()));
+          
+        }
+    }
+    
+    @FXML
+    private void handleAusleiheBut(ActionEvent event) {
+	
+	tablewarning.setVisible(false);
+        int indexauto = carTabel.getSelectionModel().getSelectedIndex(); //Denis Boursillon
+        int indexkunde = custTabel.getSelectionModel().getSelectedIndex(); //Denis Boursillon
+        
+        if (indexauto >= 0 && indexkunde >= 0) { 
+            System.out.println(indexauto + "," + indexkunde);            
+        } else {
+            tablewarning.setVisible(true);
+        }
+	carid = Integer.parseInt(txtbis.getText());
+	kid = Integer.parseInt(txtvon.getText());
+	Stage popUp = new Stage();
+        popUp.setTitle("Vermietung Erstellen");
+        Parent Page;
+        try {
+            Page = FXMLLoader.load(getClass().getResource("Vfall_popup_1.fxml"));
+
+            popUp.setScene(new Scene(Page));
+            popUp.initModality(Modality.APPLICATION_MODAL);
+            popUp.initOwner(saveBTN.getScene().getWindow());
+            popUp.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public int getCarTable()
+    {
+	return carid;
+    }
+    
+    public int getCustTabel()
+    {
+	return kid;
+    }
+    //################################
 }
