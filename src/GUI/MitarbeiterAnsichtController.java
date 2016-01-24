@@ -434,8 +434,15 @@ public class MitarbeiterAnsichtController implements Initializable {
             } catch (Exception e) {
                 throw e;
             }
-            fehler = MC.addAusleihe(carid, kid, start, back);
-
+	    if(start == null || back == null)
+		    {
+			fehler = -3;
+		    }
+		    else
+		    {
+			fehler = MC.addAusleihe(carid, kid, start, back);
+		    }
+          
             switch (fehler) {
                 case 1:
                     Stage popUp = new Stage();
