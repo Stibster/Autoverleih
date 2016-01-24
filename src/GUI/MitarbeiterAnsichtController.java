@@ -5,6 +5,11 @@ import autoverleih.Kunde;
 import autoverleih.MetaController;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormatSymbols;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -435,9 +440,7 @@ public class MitarbeiterAnsichtController implements Initializable {
     {
 	if(custTabel.getSelectionModel().getSelectedIndex()>= 0 && custTabel.getSelectionModel().getSelectedItems().size() == 1){
             kid = custs.get(custTabel.getSelectionModel().getSelectedIndex()).getKunden_ID();
-                
-            txtvon.setText(String.valueOf(MC.DBV.getKundebyID(kid).getKunden_ID()));
-          
+
         }
     }
 
@@ -445,49 +448,53 @@ public class MitarbeiterAnsichtController implements Initializable {
     private void handleCarTableClick(MouseEvent event) {
 	if(carTabel.getSelectionModel().getSelectedIndex()>= 0 && carTabel.getSelectionModel().getSelectedItems().size() == 1){
             carid = cars.get(carTabel.getSelectionModel().getSelectedIndex()).getAuto_ID();
-                
-            txtbis.setText(String.valueOf(MC.DBV.getAutobyID(carid).getAuto_ID()));
-          
+                         
         }
     }
     
     @FXML
-    private void handleAusleiheBut(ActionEvent event) {
+    private void handleAusleiheBut(ActionEvent event) throws ParseException {
 	
 	tablewarning.setVisible(false);
         int indexauto = carTabel.getSelectionModel().getSelectedIndex(); //Denis Boursillon
         int indexkunde = custTabel.getSelectionModel().getSelectedIndex(); //Denis Boursillon
         
-        if (indexauto >= 0 && indexkunde >= 0) { 
-            System.out.println(indexauto + "," + indexkunde);            
-        } else {
+        if (indexauto >= 0 && indexkunde >= 0) 
+	{ 
+            int fehler = 0; //fuehr fehler fall
+	Date start = null; //start datum 
+	Date back = null;   //ruegabe datum
+        SimpleDateFormat format = new SimpleDateFormat("dd.mm.yyyy", new DateFormatSymbols(Locale.GERMANY)); //#Raicandy
+		    try()
+		    {
+		    start = format.parse(txtvon.getText());
+		    back = format.parse(txtbis.getText());
+		    }
+		    fehler = MC.addAusleihe(carid, kid, start, back);
+		    
+	    switch (fehler) 
+	    {
+		case 1:
+		   
+		    
+		    break;
+		case -3:
+		    tablewarning.setText("Eintrag Datum Überprüfen!!!");
+		    tablewarning.setVisible(true);
+
+		    break;
+		default:
+
+		    break;
+	    }        
+        } 
+	else 
+	{
+	    tablewarning.setText("Eintrag in Tabellen wählen!!!");
             tablewarning.setVisible(true);
         }
-	carid = Integer.parseInt(txtbis.getText());
-	kid = Integer.parseInt(txtvon.getText());
-	Stage popUp = new Stage();
-        popUp.setTitle("Vermietung Erstellen");
-        Parent Page;
-        try {
-            Page = FXMLLoader.load(getClass().getResource("Vfall_popup_1.fxml"));
-
-            popUp.setScene(new Scene(Page));
-            popUp.initModality(Modality.APPLICATION_MODAL);
-            popUp.initOwner(saveBTN.getScene().getWindow());
-            popUp.showAndWait();
-        } catch (IOException ex) {
-            Logger.getLogger(AdminAnsichtController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    public int getCarTable()
-    {
-	return carid;
-    }
-    
-    public int getCustTabel()
-    {
-	return kid;
+	
+	
     }
     //################################
 }

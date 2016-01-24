@@ -388,4 +388,14 @@
         <Rueckgabedatum>2016-01-04T00:12:00+01:00</Rueckgabedatum>
         <TUEV>false</TUEV>
     </Ausleiheliste>
+    <Ausleiheliste>
+        <Ausleihdatum>2016-01-23T00:04:00+01:00</Ausleihdatum>
+        <Rueckgabedatum>2017-01-01T00:08:00+01:00</Rueckgabedatum>
+        <Ausleihdatum>2016-01-23T00:04:00+01:00</Ausleihdatum>
+        <Ausleihe_ID>6</Ausleihe_ID>
+        <Auto_ID>7</Auto_ID>
+        <Kunden_ID>4</Kunden_ID>
+        <Rueckgabedatum>2017-01-01T00:08:00+01:00</Rueckgabedatum>
+        <TUEV>false</TUEV>
+    </Ausleiheliste>
 </DB_Verwalter_Root>
